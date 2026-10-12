@@ -24,8 +24,25 @@
   跑法：lua tests/_wip/perframe_engine_calls.lua [产物路径] [帧数]
 ----------------------------------------------------------------------------]]--
 
-local here = (arg and arg[0]) or "tests/_wip/perframe_engine_calls.lua"
-local root = here:gsub("tests[/\\]_wip[/\\]perframe_engine_calls%.lua$", "")
+-- ★★★★★ 忠实树探针（2026-10-13）✗✓ —— `perframe_engine_calls.lua` 的忠实树变体
+--
+-- 为什么必须另开一个文件 ✗：原探针的**手搭假树漏了**真存档里**确实存在**的 8 个边控件
+--   （`wall.up/down/left/right`、`door.up/down/left/right`，父控件全部 = `content`，
+--    见 `347.gil` 实证：`node tools/gil/list_names.mjs 347.gil wall|door`）✓
+--   ⇒ 每次 `sub(cell,"wall.up")` 都**注定未命中** ⇒ 凭空造出每帧 `GetChild` 的差 ✗
+-- 本文件做的两件事 ✓：① 给每个格子的 `content` 补上那 8 个边控件；
+--                     ② 去掉假树**反向假造**的 10 个控件（`ruler.c.*` / `ruler.r.*`，存档里没有）✓
+-- 补忠实之后的实测 ✓：`GetChild`/帧 **两版都是 1.00**；每帧总数 v192 100.5 → v213 42.0（60 帧窗）、
+--                     40.3 → 28.4（300 帧窗），差额**全在 `GetChildren`**（整树遍历）✓
+--
+-- ★★★ 规矩（新增第 ④ 条）✗：**探针的树必须与存档对账** ——
+--     "探针包了产线遍历的那棵树" ≠ "那棵树是真的" ✓✓
+--
+-- 用法 ✓：lua <本文件> <产物路径> [帧数]      # 帧数默认 60；建议 60 与 300 各跑一次
+--   依据 ✓：`审计-性能-v192对213.md`（-project 仓）§0 更正声明
+--
+local here = (arg and arg[0]) or "tests/_wip/perframe_engine_calls_faithful.lua"
+local root = here:gsub("tests[/\\]_wip[/\\][^/\\]*%.lua$", "")
 if root == "" then root = "./" end
 if root:sub(-1) ~= "/" and root:sub(-1) ~= "\\" then root = root .. "/" end
 

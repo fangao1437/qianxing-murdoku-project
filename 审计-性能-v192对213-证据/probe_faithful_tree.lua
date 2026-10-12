@@ -21,8 +21,27 @@
   跑法：lua tests/_wip/render_cost.lua [产物路径]
 ----------------------------------------------------------------------------]]--
 
-local here = (arg and arg[0]) or "tests/_wip/render_cost.lua"
-local root = here:gsub("tests[/\\]_wip[/\\]render_cost%.lua$", "")
+-- ★★★★★ 忠实树探针（2026-10-13）✗✓ —— `render_cost.lua` 的忠实树变体 ＋ 新增"冷 render / 切屏"两段
+--
+-- 为什么必须另开一个文件 ✗：原 `render_cost.lua` / `perframe_engine_calls.lua` 的**手搭假树漏了**
+--   真存档里**确实存在**的 8 个边控件（`wall.up/down/left/right`、`door.up/down/left/right`，
+--   父控件全部 = `content`，见 `347.gil` 实证：`node tools/gil/list_names.mjs 347.gil wall|door`）✓
+--   ⇒ 每一次 `sub(cell,"wall.up")` 都**注定未命中** ⇒ 凭空造出 **840 笔 `GetChild` / 一次 render** ✗
+--   ⇒ 而且那笔账**全记在 v192 头上** ⇒ 量出一个不存在的 "972 → 132（−86%）" ✗✓
+-- 本文件做的两件事 ✓：① 给每个格子的 `content` 补上那 8 个边控件；
+--                     ② 去掉假树**反向假造**的 10 个控件（`ruler.c.*` / `ruler.r.*`，存档里没有）✓
+-- 补忠实之后的实测 ✓：**v192 = v213 = 111 笔/一次稳态 render，`GetChild` 两版都是 0** ✗
+--
+-- ★★★ 规矩（新增第 ④ 条）✗：**探针的树必须与存档对账** ——
+--     "探针包了产线遍历的那棵树" ≠ "那棵树是真的" ✓✓
+--
+-- 用法 ✓：lua <本文件> <产物路径> [cold|switch]      # 默认 cold
+--   cold   ：稳态参照 → `invalidate_lookups()`（＝切屏/换关走的那条）→ 换代后第一趟 → 再换代复现
+--   switch ：把 `controller.screen` 在 home/select 间切，量每 30 帧的代价
+--   依据 ✓：`审计-性能-v192对213.md`（-project 仓）§0 更正声明
+--
+local here = (arg and arg[0]) or "tests/_wip/render_cost_faithful.lua"
+local root = here:gsub("tests[/\\]_wip[/\\][^/\\]*%.lua$", "")
 if root == "" then root = "./" end
 if root:sub(-1) ~= "/" and root:sub(-1) ~= "\\" then root = root .. "/" end
 

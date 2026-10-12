@@ -37,6 +37,11 @@
 | `probe_cold_render.lua` | ⚠️ **仅留作对账** | 用的是旧假树；它量出的 972 → 132 已撤回 |
 | `run_probes.ps1` | ⚠️ 同上 | 批量跑的是旧假树 |
 
+> ★★ **2026-10-13 同步** ✓：那两个忠实树探针已**同时**进代码仓 `qianxing-murdoku` 的 `tests/_wip/` ——
+> 名字改为 **`render_cost_faithful.lua`** ／ **`perframe_engine_calls_faithful.lua`** ✓，
+> 并在 `tests/_wip/README.md` 里立了条目（含跑法、产物身份、以及新增的第 ④ 条规矩）✓；
+> **本目录里的两份是同一内容的存档副本** ✓（探针头部的用法行写成 `lua <本文件> …`，两边都成立 ✓）
+
 **未随附**：旧假树的 113 个 raw 输出与 `work/` 的 36 个中间件（`blocks.lua` 词法分块器、按模块拆包源码、diff 补丁）——
 保留在审计工作区 `perf-compare-192-213/`，需要再取。
 
