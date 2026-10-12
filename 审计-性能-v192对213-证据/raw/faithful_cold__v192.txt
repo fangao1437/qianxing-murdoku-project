@@ -1,0 +1,107 @@
+﻿== 加载 C:\Users\18182\AppData\Local\Temp\murdoku-ab\v192.lua ==
+  已包装产线树：349 个控件
+
+== [1] 一次 `Murdoku.render()` 的引擎调用（★ 稳态：预热后 ✓）==
+  5 次 render：平均 **111.0 次引擎调用**，纯 Lua 耗时 **0.800 ms**
+
+== [1c] 切屏（换 `controller.screen`）之后 30 帧的每帧成本 ==
+  （本进程 MODE=cold ⇒ 跳过 [1c]；要量它请传 `switch` ✓）
+
+== [1b] 换代后的第一趟 render（★ 模拟 初始/切屏/换关 的冷账本）==
+  稳态（同代内，参照）    ：   111 次引擎调用
+  `_lookup_gen`：1 → 2
+  ★ 换代后第一趟（冷）    ： 29786 次引擎调用，纯 Lua 14.000 ms
+        GetChildren               29675 次
+        SetPivot                     37 次
+        SetAnchoredPosition          37 次
+        SetSizeDelta                 37 次
+  换代后第二趟（热）      ：   111 次引擎调用
+  再换代一次的第一趟      ： 29786 次引擎调用
+  ⇒ 冷 / 热 = 268.3 ×
+
+== [2] 一次 render 的明细（按方法 / 按控件前 15）==
+      SetAnchoredPosition          37 次
+      SetPivot                     37 次
+      SetSizeDelta                 37 次
+  --- 按控件 ---
+      root . SetAnchoredPosition                      2 次
+      root . SetPivot                                 2 次
+      root . SetSizeDelta                             2 次
+      cell.4.4 . SetPivot                             1 次
+      clues.grid . SetAnchoredPosition                1 次
+      cell.3.2 . SetPivot                             1 次
+      cell.1.5 . SetAnchoredPosition                  1 次
+      cell.1.5 . SetPivot                             1 次
+      cell.4.3 . SetSizeDelta                         1 次
+      left . SetPivot                                 1 次
+      topbar . SetAnchoredPosition                    1 次
+      cell.4.4 . SetSizeDelta                         1 次
+      clues . SetSizeDelta                            1 次
+      cell.4.3 . SetPivot                             1 次
+      cell.2.2 . SetAnchoredPosition                  1 次
+
+== [3] 关键子步骤的调用次数（一次 render）==
+  `core:view()` 被调 **1** 次；`build_layout()` 被调 **1** 次（产出 107 个节点）
+  本次共 111 次引擎调用
+
+== [4] `GetChild` 的真凶（按调用点聚合）==
+  一次 render 里 `GetChild` 共 0 次；按调用点：
+
+== [4b] 剩余调用的**调用点**（全方法 × 栈聚合，一次 render）==
+      bundle:? [GetChildren]                          349 次
+      bundle:? [SetAnchoredPosition]                   37 次
+      bundle:? [SetPivot]                              37 次
+      bundle:? [SetSizeDelta]                          37 次
+
+== [4c] 一次 render 里 `set_property` 的 (id, key) 分布 ==
+  `set_property` 共 **37** 次；按 key：
+      rect                    37 次
+  --- 前 12 个 (id, key) ---
+      root . rect                                      2 次
+      right . rect                                     1 次
+      board . rect                                     1 次
+      cell.4.5 . rect                                  1 次
+      cell.3.2 . rect                                  1 次
+      cell.2.4 . rect                                  1 次
+      clues.bg . rect                                  1 次
+      cell.1.5 . rect                                  1 次
+      clues.grid . rect                                1 次
+      select . rect                                    1 次
+      cell.3.5 . rect                                  1 次
+      cell.1.2 . rect                                  1 次
+
+== [4d] 连续两次 render 的 `rect` 是否相同（决定守卫有没有用）==
+  4 趟 render 各自的 `rect` 签名集合大小：0 / 0 / 0 / 0
+  ★ 第 2 趟与第 1 趟是否**完全相同** ⇒ **true**
+  ★ 第 3 趟与第 2 趟是否**完全相同** ⇒ **true**
+  ★ 有 rect 下发的控件里：**签名恒定 0 个** ✓ / **签名会变 0 个** ✗
+  （[4d] 期间 `set_property(rect)` 总调用 = 148 次）
+  --- 前 5 个真实样本（id / 值类型 / 值） ---
+      root | table | {h=1080,w=1920,x=0,y=0}
+      root | table | {h=1080,w=1920,x=0,y=0}
+      stage | table | {h=701,w=701,x=730,y=166}
+      topbar | table | {h=104,w=1920,x=0,y=0}
+      left | table | {h=880,w=392,x=24,y=128}
+
+== [4e0] 几何写笔数（按方法 × 冷/热）==
+  冷（账本空，第 1 趟）：合计 0 笔
+      SetPivot                  0
+      SetSizeDelta              0
+      SetAnchoredPosition       0
+  热（预热 3 趟之后）：合计 0 笔
+      SetPivot                  0
+      SetSizeDelta              0
+      SetAnchoredPosition       0
+
+== [4e] 稳态 render 的几何写：幂等 vs 真变 ==
+  20 趟 render 的几何写：**幂等 0 笔** ✗ / 真变 0 笔 ✓ / 读不到原值 0 笔
+  平均每趟：幂等 **0.0** 笔 ✗，真变 0.0 笔
+== [5] `Adapter:sub` / `_palette_child` 的调用次数与命中率（一次 render）==
+  `Adapter:sub` 调了 **0** 次（其中**未命中缓存** 0 次）
+  `_palette_child` 调了 **0** 次
+  --- sub 的键（前 12） ---
+
+== 说明 ==
+  · 量的是**调用次数**与**纯 Lua 耗时**（`os.clock` ✓）；真机毫秒只有实机能给 ✓
+  · ★ 触发门是 `sec ~= last_tick or dirty` ⇒ 稳态 ≈1 次/秒，**但每次输入都会 render** ✓
+  · 产线源码未改 ✓（只在内存里包方法 ✓）

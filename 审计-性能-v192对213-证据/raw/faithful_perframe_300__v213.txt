@@ -1,0 +1,45 @@
+﻿== 加载 C:\Users\18182\AppData\Local\Temp\murdoku-ab\v213.lua ==
+  已包装产线树：350 个控件，7700 个方法
+
+== [1] 稳态 300 帧的引擎调用（含 20/30 帧节流位）==
+  总计 8532 次 ⇒ **每帧 28.4 次**（读 8284 / 写 248）
+  其中：读 27.6 次/帧，写 0.8 次/帧
+
+== [2] 按方法（每帧）==
+      GetChildren                 24.49 次/帧   （合计 7346）
+      GetSizeDelta                 1.05 次/帧   （合计 314）
+      GetAnchoredPosition          1.01 次/帧   （合计 302）
+      GetChild                     1.00 次/帧   （合计 299）
+      SetVisible                   0.80 次/帧   （合计 241）
+      GetParent                    0.08 次/帧   （合计 23）
+      AddCursorEventListener       0.02 次/帧   （合计 7）
+
+== [3] 最贵的控件（前 20，每帧）==
+      face . GetChildren                           1.75 次/帧   （合计 525）
+      door.up . GetChildren                        1.75 次/帧   （合计 525）
+      door.left . GetChildren                      1.75 次/帧   （合计 525）
+      door.right . GetChildren                     1.75 次/帧   （合计 525）
+      content . GetChildren                        1.75 次/帧   （合计 525）
+      door.down . GetChildren                      1.75 次/帧   （合计 525）
+      wall.left . GetChildren                      1.75 次/帧   （合计 525）
+      wall.right . GetChildren                     1.75 次/帧   （合计 525）
+      wall.down . GetChildren                      1.75 次/帧   （合计 525）
+      x . GetChildren                              1.75 次/帧   （合计 525）
+      note . GetChildren                           1.75 次/帧   （合计 525）
+      wall.up . GetChildren                        1.75 次/帧   （合计 525）
+      stage . GetSizeDelta                         1.00 次/帧   （合计 301）
+      stage . GetAnchoredPosition                  1.00 次/帧   （合计 301）
+      stage . GetChild                             1.00 次/帧   （合计 299）
+      clues . GetChildren                          0.14 次/帧   （合计 41）
+      selbtn.6 . SetVisible                        0.10 次/帧   （合计 30）
+      selbar . SetVisible                          0.10 次/帧   （合计 30）
+      selbtn.4 . SetVisible                        0.10 次/帧   （合计 30）
+      selbtn.1 . SetVisible                        0.10 次/帧   （合计 30）
+
+== [4] 幂等写专项（写进去的值与原来相同 = 纯浪费）==
+  这 300 帧里几何写共 3703 笔：**幂等 0 笔** ✗ / 真变 0 笔 ✓
+
+== 说明 ==
+  · 本探针量的是**引擎原语的调用次数**，不是毫秒（本机无引擎时钟 ✓）
+  · "幂等写"= 写进去的值与写之前相同 ⇒ 那一笔**可以靠读回守卫省掉** ✓
+  · 包装只在内存里做，产线源码未改 ✓；进程退出即失效 ✓

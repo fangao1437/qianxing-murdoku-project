@@ -1,0 +1,43 @@
+﻿== 加载 C:\Users\18182\AppData\Local\Temp\murdoku-ab\v213.lua ==
+  已包装产线树：350 个控件，7700 个方法
+
+== [1] 稳态 60 帧的引擎调用（含 20/30 帧节流位）==
+  总计 2520 次 ⇒ **每帧 42.0 次**（读 2280 / 写 240）
+  其中：读 38.0 次/帧，写 4.0 次/帧
+
+== [2] 按方法（每帧）==
+      GetChildren                 35.00 次/帧   （合计 2100）
+      SetVisible                   4.00 次/帧   （合计 240）
+      GetChild                     1.00 次/帧   （合计 60）
+      GetSizeDelta                 1.00 次/帧   （合计 60）
+      GetAnchoredPosition          1.00 次/帧   （合计 60）
+
+== [3] 最贵的控件（前 20，每帧）==
+      door.down . GetChildren                      2.50 次/帧   （合计 150）
+      door.up . GetChildren                        2.50 次/帧   （合计 150）
+      wall.left . GetChildren                      2.50 次/帧   （合计 150）
+      door.left . GetChildren                      2.50 次/帧   （合计 150）
+      content . GetChildren                        2.50 次/帧   （合计 150）
+      wall.right . GetChildren                     2.50 次/帧   （合计 150）
+      wall.up . GetChildren                        2.50 次/帧   （合计 150）
+      wall.down . GetChildren                      2.50 次/帧   （合计 150）
+      door.right . GetChildren                     2.50 次/帧   （合计 150）
+      note . GetChildren                           2.50 次/帧   （合计 150）
+      face . GetChildren                           2.50 次/帧   （合计 150）
+      x . GetChildren                              2.50 次/帧   （合计 150）
+      stage . GetAnchoredPosition                  1.00 次/帧   （合计 60）
+      stage . GetSizeDelta                         1.00 次/帧   （合计 60）
+      stage . GetChild                             1.00 次/帧   （合计 60）
+      selbtn.2 . SetVisible                        0.50 次/帧   （合计 30）
+      selbtn.1 . SetVisible                        0.50 次/帧   （合计 30）
+      tpl-container . SetVisible                   0.50 次/帧   （合计 30）
+      selbar . SetVisible                          0.50 次/帧   （合计 30）
+      selbtn.4 . SetVisible                        0.50 次/帧   （合计 30）
+
+== [4] 幂等写专项（写进去的值与原来相同 = 纯浪费）==
+  这 60 帧里几何写共 2319 笔：**幂等 0 笔** ✗ / 真变 0 笔 ✓
+
+== 说明 ==
+  · 本探针量的是**引擎原语的调用次数**，不是毫秒（本机无引擎时钟 ✓）
+  · "幂等写"= 写进去的值与写之前相同 ⇒ 那一笔**可以靠读回守卫省掉** ✓
+  · 包装只在内存里做，产线源码未改 ✓；进程退出即失效 ✓
