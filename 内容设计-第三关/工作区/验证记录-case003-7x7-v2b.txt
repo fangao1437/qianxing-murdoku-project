@@ -1,0 +1,87 @@
+案件 003《月谕茶会》7×7 v2b（复合线索版）· 验证记录（真实输出）
+生成时间：2026-10-19 约 03:05；工作副本 miHoYo Launcher/_work/qm-case003
+本机 Lua：C:/Users/18182/AppData/Local/Programs/Lua/bin/lua.exe（Lua 5.4.6）
+取证：副本内 lua/levels/case_003.lua = case_003-7x7-v2b-候选.lua；脚本 = verify_case_003_7x7.lua（官方 Solve.solve）
+
+一、关键数据
+  7×7，7 枚棋子 A B C D E F V；roles = { thief = "E" }（不声明同伙）；difficulty hard。
+  墙 h,5,1..4 / h,4,5..7 / v,1..5,4；门 v,2,4 / h,4,7 / v,5,4 ⇒ 区域 R1/R2/R3，Adj(R2)={R1,R3}。
+  objects：长桌 3 格不可站 / 椅子 6 格可站 / 月窗 (3,6)(3,7) 不可站（R2）/ 玫瑰藤 (6,6) 不可站（R3）/ 软垫 (7,5) 可站（R3）。
+  叠加层茶具（茶壶/羽毛笔/餐刀/甜点盘/蛋糕架/烛台）不写入 objects，线索不引用。
+  答案：A(1,2) D(2,3) E(3,1) V(4,6) F(5,4) C(6,7) B(7,5)；thief=E。
+  人口：R1=4（E+3 无辜）/ R2=1（V 独处）/ R3=2（B,C）。
+  七卡：卡1..卡7 = A,B,C,D,E,F,V 所说；卡5 假话（on_object E 软垫）；卡7 复合线索 alone_and_below_in_other_room。
+
+二、lua tools/validate_levels.lua 2 的真实输出
+== 关卡批量校验（偷窃版，解数上限 2）==
+
+— case_001  案件 001 · 夜盗独行
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 2 个，无辜最多 2）
+  假话: OK（声明 无，实际不成立 0 条）
+  规模: 5x5 / 棋子 5 / 线索 5 / 区域 3 / 门 3
+
+— case_002  案件 002 · 双影
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 1 个，无辜最多 1）
+  假话: OK（声明 第4条，实际不成立 1 条）
+  规模: 6x6 / 棋子 6 / 线索 6 / 区域 4 / 门 3
+
+— case_003  案件 003 · 月谕茶会
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 2 个，无辜最多 3）
+  假话: OK（声明 第5条，实际不成立 1 条）
+  规模: 7x7 / 棋子 7 / 线索 7 / 区域 3 / 门 3
+
+== 合计 3 关（另有 0 个模块加载失败），需要处理的 0 项 ==
+
+三、lua verify_case_003_7x7.lua 50 的真实输出（官方 tools.design_solve.Solve.solve）
+== 案件 003《月谕茶会》7×7 离线验证 ==
+关卡: case_003  案件 003 · 月谕茶会  7x7
+
+-- 1) 格式校验 --
+[OK]   Core.validate_level = true
+[OK]   线索条数 = 棋子数（7 = 7）
+[OK]   无 general_clues
+
+-- 2) 答案摆位 / 结构报告 / 逐条线索 --
+[OK]   structure_report = true
+  受害者区域 Rv=2 / k=1 / 门相邻区域 = {1, 3}
+  inno(R1) = 3
+  inno(R3) = 2
+  无辜最多 = 3（区域 1） / 盗窃者区域 = 1
+  七张卡（答案上）:
+    卡1  on_object      true  | 午后诗人 站在 软垫 上
+    卡2  offset         true  | 钟表匠 在 掌灯人 的 南北 -3 格、西 1 格
+    卡3  offset         true  | 掌灯人 在 午后诗人 的 南北 -2 格、西 1 格
+    卡4  offset         true  | 司茶女仆 在 钟表匠 的 北 1 格、西 1 格
+    卡5  on_object      false | 猫「墨」 站在 软垫 上
+    卡6  beside_object  true  | 盗窃者 在 长桌 旁边
+    卡7  alone_and_below_in_other_room true  | 魔法师 独自一人，且 甜点师 在 魔法师 下方的不同区域中
+[OK]   答案上不成立的线索 1 条（第 5 条）；meta.false_clue = 5
+
+-- 3) Solve.solve(core, 50) 全量枚举 --
+  原始解条目数 = 3（上限 50，耗时 85.82s）
+  解1: thief=E  accomplice=nil  | A@1,2 D@2,3 E@3,1 V@4,6 F@5,4 C@6,7 B@7,5
+  解2: thief=E  accomplice=B    | A@1,2 D@2,3 E@3,1 V@4,6 F@5,4 C@6,7 B@7,5
+  解3: thief=E  accomplice=C    | A@1,2 D@2,3 E@3,1 V@4,6 F@5,4 C@6,7 B@7,5
+  摆位去重后 = 1 个
+  (摆位, thief) 去重后 = 1 个
+[OK]   摆位唯一（恰好 1 个摆位）
+[OK]   盗窃者唯一且 = roles.thief（E）
+[OK]   枚举出的唯一摆位 = level.solution
+  说明: 原始 3 条中 2 条带幻影 accomplice；本案 roles 不声明同伙、玩家只指认盗窃者，所以按 (摆位, thief) 判定。
+
+== 全部通过 ==
+
+四、结论
+  ① validate_levels：三关全 OK；case_003 格式/结构/假话（声明第5条，实际不成立1条）全过。
+  ② Solve.solve(core,50)：原始 3 条（同一摆位，thief 全 E，accomplice=nil/B/C 幻影同伙），耗时 85.82s；
+     摆位去重 = 1；(摆位,thief) 去重 = 1 且 = roles.thief(E)；唯一摆位 = level.solution。
+  ③ structure_report：Rv=2 / k=1 / 门相邻 {R1,R3} / inno(R1)=3 ＞ inno(R3)=2 / thief_room=R1。
+  ④ 答案上恰好卡5不成立 = meta.false_clue；其余 6 条全真；无 general_clues。
+
+五、v2b 相对 v2（对象移位失败版）的改动
+  v2 失败原因：卡7 是 @thief 占卜时，C 无位置线索 ⇒ C/E 争 (4,1)，2 摆位/2 thief。
+  v2b：卡7 换成 `alone_and_below_in_other_room who=V, a=C, b=V`（V 独处 + C 在 V 下方不同区域），
+        @thief 占卜挪到卡6（F 说 beside_object @thief 长桌）。7 张卡总数、墙/门、对象主题位置全部不变。

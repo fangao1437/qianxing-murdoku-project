@@ -1,0 +1,252 @@
+案件 003《月谕茶会》· 验证记录（真实输出）
+生成时间：2026-10-19 约 00:58（工作副本 miHoYo Launcher/_work/qm-case003）
+本机 Lua：C:/Users/18182/AppData/Local/Programs/Lua/bin/lua.exe（Lua 5.4.6）
+取证方式：把 qianxing-murdoku 的 lua/ tools/（不含 tools/bin） tests/ 复制到 _work/qm-case003，
+          在副本内把 lua/levels/case_003.lua 换成候选关卡，再跑：
+            ① lua tools/validate_levels.lua 2
+            ② lua verify_case_003.lua 50      （副本根目录的自写离线验证脚本）
+            ③ lua tests/gray_unplace.lua      （家具可站性哨兵，见文件末尾）
+
+一、迭代记录（为什么不是第一版）
+  第 1 轮：按 Lead 骨架原始区域形状（R2=第 5-6 列整条、R4=4-6 行第 4 列）逐格核对，
+          发现 one_per_row + one_per_col 下不可满足：6 人需占满 6 列，而 R2 只有 V 一人
+          却独占第 5、6 两列，D 独占第 4 列，A/B/E 只能占第 1-4 列中的 3 列、C 又必须占
+          第 1-3 列之一 ⇒ 5 个人挤 4 列，列分配矛盾。⇒ 调整区域形状（见设计回执 ①），
+          保持 Adj(R2)={R1,R4}、R3 不与 R2 相邻、R1/R2/R3/R4=3/1/1/1 人不变。
+  第 2 轮：初版（家具 (2,2) 糖罐、(3,1) 羽毛笔 互锁）Solve.solve 得 3 条解：
+          摆位 1 个、但盗窃者出现 A（幻影同伙 E 配合），不满足「盗窃者唯一」。
+          另：该版把 (2,2)(3,1) 做成不可站家具，会让 tests/gray_unplace 变红（Lead 修订 2）。
+  第 3 轮：重排 R1 家具/答案，使 (1,1)(2,2)(3,1)(4,2)(5,3) 全部保持可站、四件器物
+          精确互锁；去掉 general_clues（Lead 修订 1）；六卡改为说话人≠线索主体（修订 3）。
+          ⇒ 最终版：摆位唯一、盗窃者唯一。
+
+二、lua tools/validate_levels.lua 2 的真实输出
+== 关卡批量校验（偷窃版，解数上限 2）==
+
+— case_001  案件 001 · 夜盗独行
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 2 个，无辜最多 2）
+  假话: OK（声明 无，实际不成立 0 条）
+  规模: 5x5 / 棋子 5 / 线索 5 / 区域 3 / 门 3
+
+— case_002  案件 002 · 双影
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 1 个，无辜最多 1）
+  假话: OK（声明 第4条，实际不成立 1 条）
+  规模: 6x6 / 棋子 6 / 线索 6 / 区域 4 / 门 3
+
+— case_003  案件 003 · 月谕茶会
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 2 个，无辜最多 2）
+  假话: OK（声明 第5条，实际不成立 1 条）
+  规模: 6x6 / 棋子 6 / 线索 6 / 区域 4 / 门 4
+
+== 合计 3 关（另有 0 个模块加载失败），需要处理的 0 项 ==
+
+三、lua verify_case_003.lua 50 的真实输出（脚本原文见副本根目录 verify_case_003.lua）
+== 案件 003 离线验证 ==
+关卡: case_003  案件 003 · 月谕茶会  6x6
+
+-- 1) 格式校验 --
+[OK]   Core.validate_level = true
+[OK]   Core.new 成功
+[OK]   线索条数 = 棋子数（6 = 6）
+
+-- 2) 答案摆位 / 结构报告 / 逐条线索 --
+[OK]   structure_report = true
+  受害者区域 Rv=2 / k=1 / 门相邻区域 = {1, 4}
+  inno(R1) = 2
+  inno(R4) = 1
+  无辜人数最多 = 2（区域 1） / 盗窃者区域 = 1
+  六张卡（答案上）:
+    卡1  beside_object  true  | 午后诗人 在 羽毛笔 旁边
+    卡2  only_beside    true  | 只有 甜点师 在 蛋糕架 旁边
+    卡3  only_beside    true  | 只有 钟表匠 在 怀表 旁边
+    卡4  beside_object  true  | 司茶女仆 在 茶壶 旁边
+    卡5  on_object      false | 猫「墨」 站在 软垫 上
+    卡6  beside_object  true  | 盗窃者 在 长桌 旁边
+[OK]   答案上不成立的线索 1 条（第 5 条）；meta.false_clue = 5
+[OK]   本关没有 general_clues（玩家可见线索只有 6 张卡）
+
+-- 3) tools.design_solve.Solve.solve(core, 50) 全量枚举 --
+  原始解条目数 = 3（上限 50，耗时 29.62s）
+  解1: thief=E  accomplice=nil  | A@1,4 E@2,2 B@3,3 V@4,6 C@5,1 D@6,5
+  解2: thief=E  accomplice=C    | A@1,4 E@2,2 B@3,3 V@4,6 C@5,1 D@6,5
+  解3: thief=E  accomplice=D    | A@1,4 E@2,2 B@3,3 V@4,6 C@5,1 D@6,5
+  摆位去重后 = 1 个
+  (摆位, thief) 去重后 = 1 个
+[OK]   摆位唯一（恰好 1 个摆位）
+[OK]   盗窃者唯一且 = roles.thief（E）
+[OK]   枚举出的唯一摆位 = level.solution
+  说明: 原始条目里 2 条带幻影 accomplice（1 条无同伙）；本案 roles 不声明同伙、玩家只指认盗窃者 ⇒ 按 (摆位, thief) 判定唯一。
+
+== 全部通过 ==
+
+四、lua tests/gray_unplace.lua 的真实输出（末尾）
+== 1. 放人 ⇒ 灰白亮；拿起 ⇒ 灰白必须灭 ==
+[murdoku] ★ 填充定位 ✓：引擎交来 index=0（基准 0）⇒ 填到 pos=1
+[murdoku] ★ 标记来源记下 ✓：`row.3.1` ⇒ who=`1` letter=`L1`
+[murdoku] ★ 单射命中：`row.3.1` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=1 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=1（基准 0）⇒ 填到 pos=2
+[murdoku] ★ 标记来源记下 ✓：`row.3.2` ⇒ who=`2` letter=`L2`
+[murdoku] ★ 单射命中：`row.3.2` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=2 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=2（基准 0）⇒ 填到 pos=3
+[murdoku] ★ 标记来源记下 ✓：`row.3.3` ⇒ who=`3` letter=`L3`
+[murdoku] ★ 单射命中：`row.3.3` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=3 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=3（基准 0）⇒ 填到 pos=4
+[murdoku] ★ 标记来源记下 ✓：`row.3.4` ⇒ who=`4` letter=`L4`
+[murdoku] ★ 单射命中：`row.3.4` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=4 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=4（基准 0）⇒ 填到 pos=5
+[murdoku] ★ 标记来源记下 ✓：`row.3.5` ⇒ who=`5` letter=`L5`
+[murdoku] ★ 单射命中：`row.3.5` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=5 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=5（基准 0）⇒ 填到 pos=6
+[murdoku] ★ 标记来源记下 ✓：`row.3.6` ⇒ who=`6` letter=`L6`
+[murdoku] ★ 单射命中：`row.3.6` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=6 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+  [PASS] 前提：没放置时灰白是灭的（实测 false）
+  [PASS] 前提：B 已被正式放置（`core.placed.B`）
+  [PASS] ★ 放置后 ⇒ 灰白亮（实测 true）
+  [PASS] ★ 拿起之后 `core.placed.B` 被清掉 ✓
+  [PASS] ★★ 拿起之后 ⇒ 灰白**必须灭**（★ 实测 false ✓）
+  [PASS] 放置/拿起一个来回，灰白跟着变 ✓
+
+== 2. ★★ 拿起的是【别的人】时，这一格的灰白也要跟着对 ==
+[murdoku] ★ 填充定位 ✓：引擎交来 index=0（基准 0）⇒ 填到 pos=1
+[murdoku] ★ 标记来源记下 ✓：`row.3.1` ⇒ who=`1` letter=`L1`
+[murdoku] ★ 单射命中：`row.3.1` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=1 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=1（基准 0）⇒ 填到 pos=2
+[murdoku] ★ 标记来源记下 ✓：`row.3.2` ⇒ who=`2` letter=`L2`
+[murdoku] ★ 单射命中：`row.3.2` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=2 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=2（基准 0）⇒ 填到 pos=3
+[murdoku] ★ 标记来源记下 ✓：`row.3.3` ⇒ who=`3` letter=`L3`
+[murdoku] ★ 单射命中：`row.3.3` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=3 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=3（基准 0）⇒ 填到 pos=4
+[murdoku] ★ 标记来源记下 ✓：`row.3.4` ⇒ who=`4` letter=`L4`
+[murdoku] ★ 单射命中：`row.3.4` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=4 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=4（基准 0）⇒ 填到 pos=5
+[murdoku] ★ 标记来源记下 ✓：`row.3.5` ⇒ who=`5` letter=`L5`
+[murdoku] ★ 单射命中：`row.3.5` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=5 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=5（基准 0）⇒ 填到 pos=6
+[murdoku] ★ 标记来源记下 ✓：`row.3.6` ⇒ who=`6` letter=`L6`
+[murdoku] ★ 单射命中：`row.3.6` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=6 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+  [PASS] B 放置后第 2 行的卡亮 ✓
+  [PASS] C 放置后第 3 行的卡亮 ✓
+  [PASS] ★ 拿起 C ⇒ 第 3 行灭 ✓（实测 false）
+  [PASS] ★★ B 还放着 ⇒ 第 2 行**必须还亮** ✗（实测 true）
+  [PASS] 拿起一个人不会把别人也弄灭 ✓
+
+== 3. ★★ 取消放置的另一条路：`undo`（撤销键）==
+[murdoku] ★ 填充定位 ✓：引擎交来 index=0（基准 0）⇒ 填到 pos=1
+[murdoku] ★ 标记来源记下 ✓：`row.3.1` ⇒ who=`1` letter=`L1`
+[murdoku] ★ 单射命中：`row.3.1` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=1 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=1（基准 0）⇒ 填到 pos=2
+[murdoku] ★ 标记来源记下 ✓：`row.3.2` ⇒ who=`2` letter=`L2`
+[murdoku] ★ 单射命中：`row.3.2` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=2 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=2（基准 0）⇒ 填到 pos=3
+[murdoku] ★ 标记来源记下 ✓：`row.3.3` ⇒ who=`3` letter=`L3`
+[murdoku] ★ 单射命中：`row.3.3` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=3 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=3（基准 0）⇒ 填到 pos=4
+[murdoku] ★ 标记来源记下 ✓：`row.3.4` ⇒ who=`4` letter=`L4`
+[murdoku] ★ 单射命中：`row.3.4` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=4 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=4（基准 0）⇒ 填到 pos=5
+[murdoku] ★ 标记来源记下 ✓：`row.3.5` ⇒ who=`5` letter=`L5`
+[murdoku] ★ 单射命中：`row.3.5` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=5 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=5（基准 0）⇒ 填到 pos=6
+[murdoku] ★ 标记来源记下 ✓：`row.3.6` ⇒ who=`6` letter=`L6`
+[murdoku] ★ 单射命中：`row.3.6` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=6 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+  [PASS] D 放置后第 4 行亮 ✓
+  [PASS] 撤销之后 `core.placed.D` 被清掉 ✓
+  [PASS] ★★ 撤销之后 ⇒ 灰白必须灭（实测 false）
+  [PASS] 撤销那条路也一样 ✓
+
+== 4. ★★ 清空全盘（橡皮擦长按）⇒ 所有灰白都要灭 ==
+[murdoku] ★ 填充定位 ✓：引擎交来 index=0（基准 0）⇒ 填到 pos=1
+[murdoku] ★ 标记来源记下 ✓：`row.3.1` ⇒ who=`1` letter=`L1`
+[murdoku] ★ 单射命中：`row.3.1` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=1 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=1（基准 0）⇒ 填到 pos=2
+[murdoku] ★ 标记来源记下 ✓：`row.3.2` ⇒ who=`2` letter=`L2`
+[murdoku] ★ 单射命中：`row.3.2` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=2 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=2（基准 0）⇒ 填到 pos=3
+[murdoku] ★ 标记来源记下 ✓：`row.3.3` ⇒ who=`3` letter=`L3`
+[murdoku] ★ 单射命中：`row.3.3` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=3 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=3（基准 0）⇒ 填到 pos=4
+[murdoku] ★ 标记来源记下 ✓：`row.3.4` ⇒ who=`4` letter=`L4`
+[murdoku] ★ 单射命中：`row.3.4` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=4 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=4（基准 0）⇒ 填到 pos=5
+[murdoku] ★ 标记来源记下 ✓：`row.3.5` ⇒ who=`5` letter=`L5`
+[murdoku] ★ 单射命中：`row.3.5` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=5 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=5（基准 0）⇒ 填到 pos=6
+[murdoku] ★ 标记来源记下 ✓：`row.3.6` ⇒ who=`6` letter=`L6`
+[murdoku] ★ 单射命中：`row.3.6` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=6 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+  [PASS] 前提：两张卡都亮着
+  [PASS] ★★ 清空全盘之后 ⇒ 两张卡的灰白都灭（实测 false / false）
+  [PASS] 清空全盘 ⇒ 全部灭 ✓
+
+== 5. ★★★ 走【控制器动作】那条路：每个改动 `placed` 的动作都必须请求重填 ==
+[murdoku] ★ 填充定位 ✓：引擎交来 index=0（基准 0）⇒ 填到 pos=1
+[murdoku] ★ 标记来源记下 ✓：`row.3.1` ⇒ who=`1` letter=`L1`
+[murdoku] ★ 单射命中：`row.3.1` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=1 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=1（基准 0）⇒ 填到 pos=2
+[murdoku] ★ 标记来源记下 ✓：`row.3.2` ⇒ who=`2` letter=`L2`
+[murdoku] ★ 单射命中：`row.3.2` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=2 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=2（基准 0）⇒ 填到 pos=3
+[murdoku] ★ 标记来源记下 ✓：`row.3.3` ⇒ who=`3` letter=`L3`
+[murdoku] ★ 单射命中：`row.3.3` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=3 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=3（基准 0）⇒ 填到 pos=4
+[murdoku] ★ 标记来源记下 ✓：`row.3.4` ⇒ who=`4` letter=`L4`
+[murdoku] ★ 单射命中：`row.3.4` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=4 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=4（基准 0）⇒ 填到 pos=5
+[murdoku] ★ 标记来源记下 ✓：`row.3.5` ⇒ who=`5` letter=`L5`
+[murdoku] ★ 单射命中：`row.3.5` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=5 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 填充定位 ✓：引擎交来 index=5（基准 0）⇒ 填到 pos=6
+[murdoku] ★ 标记来源记下 ✓：`row.3.6` ⇒ who=`6` letter=`L6`
+[murdoku] ★ 单射命中：`row.3.6` ⇒ 写了 1 个槽位 ✓（★ 内容【由你在编辑器里定】✓）
+[murdoku] ★ 卡片高亮（真机这条）✓ pos=6 选中=nil ⇒ 灭　写了 nil 回读=nil　有 GetChild=true　orig=nil
+[murdoku] ★ 放置分辨：走的=【正式放置 hold_cell】 人=B  笔记 0 ⇒ 0  放后选中=nil  placed=true
+  [PASS] ★ 放人 ⇒ 请求重填（灰白亮得起来 ✓）
+  [PASS] ★★ 拿起棋子 ⇒ **必须请求重填**（★ 否则灰白灭不掉 ✗ 实测 true）
+[murdoku] ★ 放置分辨：走的=【正式放置 hold_cell】 人=D  笔记 0 ⇒ 0  放后选中=nil  placed=true
+  [PASS] ★ 撤销 ⇒ 也要请求重填（★ 撤销会把棋子拿回去 ✓ 实测 true）
+  [PASS] ★ 重做 ⇒ 也要请求重填（★ 重做会把棋子放回来 ✓ 实测 true）
+  [PASS] 四个动作都会请求重填 ✓
+
+gray_unplace: 18 passed, 0 failed
+
+五、结论
+  ① validate_levels：格式 OK / 结构 OK / 假话 OK（声明第 5 条，实际不成立 1 条）。
+  ② tools.design_solve.Solve.solve(core, 50)：原始 3 条 = 同一摆位 × 3 种角色条目
+     （thief 都是 E；accomplice 分别为 nil / C / D 的「幻影同伙」）。
+     摆位去重 = 1；按 (摆位, thief) 去重 = 1，且 thief = roles.thief = E。
+     本案 roles 不声明同伙、玩家侧只指认盗窃者 ⇒ 幻影同伙条目不是玩家可见的多解。
+  ③ 答案上恰好 1 条线索不成立（卡 5，E 的软垫自辩）＝ meta.false_clue。
+  ④ 结构：受害者 Rv=2（月窗廊），k=1，门相邻区域 {R1 长桌厅, R4 玫瑰廊}；
+     R1 无辜数 2（A、B）＞ R4 无辜数 1（D），唯一最大 ⇒ 盗窃者必在 R1。
+  ⑤ 家具不占用 (1,1)(2,2)(3,1)(4,2)(5,3)，gray_unplace 18 passed / 0 failed。

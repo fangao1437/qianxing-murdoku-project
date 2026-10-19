@@ -1,0 +1,87 @@
+案件 003《月谕茶会》7×7 版 · 验证记录（真实输出）
+生成时间：2026-10-19 约 02:26；工作副本 miHoYo Launcher/_work/qm-case003
+本机 Lua：C:/Users/18182/AppData/Local/Programs/Lua/bin/lua.exe（Lua 5.4.6）
+取证：副本内 lua/levels/case_003.lua = 本候选；脚本 = 副本根目录 verify_case_003_7x7.lua
+
+一、关键数据
+  7×7，7 枚棋子 A B C D E F V；roles = { thief = "E" }（不声明同伙）；difficulty hard。
+  墙：h,5,1..4 / h,4,5..7 / v,1..5,4 ⇒ 区域 3 个：
+    R1 长桌厅 1-5行×1-4列(20) / R2 月窗廊 1-4行×5-7列(12) / R3 后厅 其余(17)。
+  门：v,2,4（R1↔R2）/ h,4,7（R2↔R3）/ v,5,4（R1↔R3）⇒ Adj(R2)={R1,R3}。
+  objects 只写：长桌(3,2)(4,2)(5,2) 不可站 / 椅子 6 格可站 / 月窗(1,1) / 玫瑰藤(2,1) / 软垫(6,7)。
+  茶壶/羽毛笔/餐刀/甜点盘/蛋糕架/烛台 = 美术叠加层，不写入 objects，线索也不引用。
+  答案：A(1,2) V(2,7) E(3,1) F(4,3) D(5,4) B(6,5) C(7,6)。
+  人口：R1=4（E+3无辜）/ R2=1（V独处）/ R3=2（B,C无辜）
+
+二、lua tools/validate_levels.lua 2 的真实输出
+== 关卡批量校验（偷窃版，解数上限 2）==
+
+— case_001  案件 001 · 夜盗独行
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 2 个，无辜最多 2）
+  假话: OK（声明 无，实际不成立 0 条）
+  规模: 5x5 / 棋子 5 / 线索 5 / 区域 3 / 门 3
+
+— case_002  案件 002 · 双影
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 1 个，无辜最多 1）
+  假话: OK（声明 第4条，实际不成立 1 条）
+  规模: 6x6 / 棋子 6 / 线索 6 / 区域 4 / 门 3
+
+— case_003  案件 003 · 月谕茶会
+  格式: OK
+  结构: OK（受害者区域 #2，k=1，门相邻 2 个，无辜最多 3）
+  假话: OK（声明 第5条，实际不成立 1 条）
+  规模: 7x7 / 棋子 7 / 线索 7 / 区域 3 / 门 3
+
+== 合计 3 关（另有 0 个模块加载失败），需要处理的 0 项 ==
+三、lua verify_case_003_7x7.lua 50 的真实输出
+== 案件 003《月谕茶会》7×7 离线验证 ==
+关卡: case_003  案件 003 · 月谕茶会  7x7
+
+-- 1) 格式校验 --
+[OK]   Core.validate_level = true
+[OK]   线索条数 = 棋子数（7 = 7）
+[OK]   无 general_clues
+
+-- 2) 答案摆位 / 结构报告 / 逐条线索 --
+[OK]   structure_report = true
+  受害者区域 Rv=2 / k=1 / 门相邻区域 = {1, 3}
+  inno(R1) = 3
+  inno(R3) = 2
+  无辜最多 = 3（区域 1） / 盗窃者区域 = 1
+  七张卡（答案上）:
+    卡1  offset         true  | 掌灯人 在 司茶女仆 的 南北 3 格、东 1 格
+    卡2  offset         true  | 钟表匠 在 司茶女仆 的 南北 4 格、东西 2 格
+    卡3  offset         true  | 午后诗人 在 钟表匠 的 南 1 格、东 1 格
+    卡4  beside_object  true  | 司茶女仆 在 月窗 旁边
+    卡5  on_object      false | 猫「墨」 站在 软垫 上
+    卡6  offset         true  | 甜点师 在 午后诗人 的 南 1 格、东 1 格
+    卡7  beside_object  true  | 盗窃者 在 玫瑰藤 旁边
+[OK]   答案上不成立的线索 1 条（第 5 条）；meta.false_clue = 5
+
+-- 3) Solve.solve(core, 50) 全量枚举 --
+  原始解条目数 = 3（上限 50，耗时 1.28s）
+  解1: thief=E  accomplice=nil  | A@1,2 V@2,7 E@3,1 F@4,3 D@5,4 B@6,5 C@7,6
+  解2: thief=E  accomplice=B    | A@1,2 V@2,7 E@3,1 F@4,3 D@5,4 B@6,5 C@7,6
+  解3: thief=E  accomplice=C    | A@1,2 V@2,7 E@3,1 F@4,3 D@5,4 B@6,5 C@7,6
+  摆位去重后 = 1 个
+  (摆位, thief) 去重后 = 1 个
+[OK]   摆位唯一（恰好 1 个摆位）
+[OK]   盗窃者唯一且 = roles.thief（E）
+[OK]   枚举出的唯一摆位 = level.solution
+  说明: 原始 3 条中 2 条带幻影 accomplice；本案 roles 不声明同伙、玩家只指认盗窃者，所以按 (摆位, thief) 判定。
+
+== 全部通过 ==
+四、结论
+  ① validate_levels：case_003（7×7）格式 OK / 结构 OK / 假话 OK（声明第5条，实际不成立 1 条）；三关合计 0 项需处理。
+  ② design_solve.Solve.solve(core,50)：原始 3 条（同一摆位；thief 全=E；accomplice=nil/B/C 幻影同伙），
+     耗时 1.28s；摆位去重 = 1；(摆位,thief) 去重 = 1 且 thief = roles.thief = E；唯一摆位 = level.solution。
+  ③ structure_report：Rv=2 / k=1 / 门相邻 {R1,R3} / inno(R1)=3 ＞ inno(R3)=2 / best=R1 / thief_room=R1。
+  ④ 答案上恰好卡5（E 的软垫自辩）不成立 = meta.false_clue；其余 6 条全真。
+  ⑤ 无 general_clues；7 条线索未使用恒真/恒假原子（规避了 left_of/right_of/above/below、room_size_hint 等）。
+
+五、已知影响（非 bug，改版连带项）
+  · tests/gray_unplace.lua 写死 NROW=6 且夹具格为 6×6 版，7×7 下需同步改夹具或改用 core:piece_count()。
+  · 编辑器线索区需 row.3.1 … row.3.7（7 行，原 6 行）。
+  · offset 线索的引擎文案是通用格式（如「南北 3 格、东 1 格」），上屏 what 建议用本包提供的口供文案。
