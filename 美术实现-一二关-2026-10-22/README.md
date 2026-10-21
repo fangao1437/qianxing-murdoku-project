@@ -43,6 +43,22 @@
 **`puzzle-24h-delivery-easy`（6×6、5 房间、2026-03-07 发布）** ⇒ 它就是这张截图的关卡，已作为本轮美术基准之一。
 （另一个基准是用户点名的 `puzzle-minigolf-hard`：10×10、11 房间。）
 
+**取证材料**：本目录 `原作美术参考-2026-10-22.md`（75KB，14 章 + 7 关规格表）——
+含该关房间表 / 每格家具矩阵 / 6 类家具形状分解 + 双色 / 墙门标签参数 / 416 个 SVG 的渲染与逐张形状清单；
+原始 JSON 与渲染图只在工作区 `_work/art-ref/`（**不随仓分发**，符合"只写 id / 尺寸 / 颜色 / 形状描述"的合规口径）。
+
+**该关实测参数（可直接对本项目）**：
+
+| 项 | 原作实测值 | 本项目现状 |
+|---|---|---|
+| 房间（Porch/Front Yard/Dining/Bedroom/Kitchen） | 地面色 `#dbb98f` / `#b3fbdd` / `#e4d2b9` / `#feeda6` / `#fde5b2`，各带 `room_texture`（木地板 0 / 草地 10 / 方格砖 1） | 用 `ROOM_COLORS` 6 色循环（本轮已改暖色系）；**纹理没做** |
+| 该关用到的家具 | `objId` 1 Plant / 2 Chair / 4 Table / 6 Bed / 37 Shrub / 42 Box（+地毯 tile 2/8/14/44） | 我们用 kind：table/chair/carpet/plant/shelf/statue |
+| 家具双色（base/overlay） | chair `#fef7e4`/`#fbd592`；table `#e0ce7b`/`#ad9c67`；carpet `#fdeea5`/`#fee08e`（游戏只用 overlay）；plant `#fca161`/`#79cfa1`；shelf `#d0b0d9`/`#b2dbeb`；statue `#ffffff`/`#c0c0c0` | 本轮三层配色即按这一族就近换算（见 §3） |
+| 家具占格 | 长边 = 格 × **0.76–0.91**（chair/table 0.836、shelf 0.821、plant 0.760、statue 0.912），短边按各自 SVG 宽高比 | 本轮各层 0.90 / 0.82 / 0.74… **落在同区间** ✓ |
+| 墙 | 粗墙厚 = **格的 10%**（可调 2..10）；细网格线 = 格的 2%；纯黑（dark 主题 `rgba(0,0,0,.95)`）；外框与粗墙同宽 | `cfg.cells.edge_thickness = 10` @108 格 ≈ 9.3% ✓；细线由 `gap=4` 的底板缝当（≈3.7%，比原作粗） |
+| 门/窗 | 门＝OBJECT 18 的 `obj_door.svg` 当普通对象放格内；窗＝`obj_window.svg`（格×0.72、贴格边中点、竖边转 90°） | 我们是"橙色短段骑格线"（既有决定，未改） |
+| 房间名标签 | 全大写、白 `rgba(255,255,255,.92)`、黑描边 2px@50px、字号≈**格 23.4%**、底部中心、带避让 | **没做**（下一轮第 1 优先） |
+
 ### 1.3 与本项目的对应
 
 | 原作 | 本项目（第一二关） | 说明 |
@@ -107,7 +123,9 @@
 
 > 数据文件：`家具元素分解-v11.json`（本目录）。坐标单位 = **格子边长比例**；`dx` 右为正、`dy` **下**为正；
 > 颜色 `0xAARRGGBB` 与素材**乘算**；游戏内 `anchoredPosition.y = -(dy × 格高)`。
-> 颜色取自原作双色就近换算（椅 base `#fefeec` / overlay `#c2c18e`；桌 base `#d4cca0`；雕塑灰系）。
+> 颜色就近换算自原作 `puzzle-24h-delivery-easy` 的双色（椅 `#fef7e4`/`#fbd592`、桌 `#e0ce7b`/`#ad9c67`、
+> 地毯 `#fdeea5`/`#fee08e`、植物 `#fca161`/`#79cfa1`、雕塑 `#ffffff`/`#c0c0c0`），
+> 桌面/沙发的深色 L1 取"原作的黑色描边"而不是原色 —— 因为官方白模没有描边，只能用深色垫一层。
 
 | kind | L1 外形（描边） | L2 主体 | L3 细节 |
 |---|---|---|---|
@@ -155,14 +173,29 @@
 
 本轮的验证链（全部可复跑）：
 
-1. **棋盘美术预览渲染器**（`_work/art-preview/render_board.py`，art-preview 造）：
+1. **棋盘美术预览渲染器**（art-preview 造，工作区 `_work/art-preview/render_board.py`）：
    读 `case_001/case_002` 关卡数据 + `ROOM_COLORS` + 格子几何（外框 608,138 / 584×584 / ruler 12 / gap 4），
    把三层家具按 `furniture.json` 贴进格子（贴图按 imageColor 逐像素乘算、`fit=stretch` 与游戏一致）⇒ 输出 1600×900 预览图。
-   `python render_board.py --level case_001 --out x.png --furniture 家具元素分解-v11.json --sprites-dir <素材根>`
-   - 产物（工作区）：`_work/art-work/v9-case001.png` / `v9-case002.png`（新配色 + v11 家具）
+   交付图（**固定文件名，可直接引用**）：
+
+   | 图 | 路径（工作区） | SHA256 前 8 |
+   |---|---|---|
+   | 第一关 before（旧配色 + 纯色方块） | `_work/art-preview/out/case_001-before.png` | `C5005BFB` |
+   | 第一关 after（新配色 + 三层家具） | `_work/art-preview/out/case_001-after.png` | `F33B6ADE` |
+   | 第二关 before | `_work/art-preview/out/case_002-before.png` | `A0F60AE2` |
+   | 第二关 after | `_work/art-preview/out/case_002-after.png` | `E205909E` |
+
+   另有一组「设计布局图 vs 渲染输出」并排对照：`_work/art-preview/compare/case_00X-{before,after}-vs-design.png`。
+   ★ 交叉验证：`case_002-after.png` 与美术组自己那份 `_work/art-work/v11-case002.png` **逐字节相同**（同一 SHA256）
+   ⇒ 渲染器/家具规格/几何口径三方对齐。
 2. **离线单元测试**（真跑，不依赖真机）：`tests/obj_layers.lua` 36 条断言钉住「多层读法 / 三层画法 / 几何 / 空格子三层全藏 / 单层兼容 / 幂等」。
 3. **.gil 结构断言**：`tools/gil/gen_obj_art.mjs` 自带 `writeGil` 四闸 + `probe_guid_collision`（真撞号 0）+ `roundtrip`（逐字节）+ `diff_fields`（差异恰好可解释）。
 4. **模拟器**：只验布局/数量/交互；**106xxx/105090 在模拟器里显示缺失框是预览限制**，观感以 §1 的预览图与真机为准。
+
+> 预览器的能力边界（art-preview 的 README 有逐项）：它直接读官方 sprite PNG 逐像素乘算上色，**不经过引擎**
+> ⇒ 它验证的是「素材 id + imageColor + 各层比例/偏移 会长什么样」；
+> **预览画得出 ≠ 真机一定显示**（还取决于 `SetImage` 成功、`imageType` 是否 Stretch、非基础形状素材能否渲染）⇒ **最终以导包真机截图为准**。
+
 
 ---
 
