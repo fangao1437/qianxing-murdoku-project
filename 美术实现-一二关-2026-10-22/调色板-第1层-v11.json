@@ -1,0 +1,26 @@
+{
+  "table": {
+    "id": 100001,
+    "color": "0xFF4A3524"
+  },
+  "chair": {
+    "id": 106053,
+    "color": "0xFF4A3A2A"
+  },
+  "carpet": {
+    "id": 100001,
+    "color": "0xFF9C8A63"
+  },
+  "plant": {
+    "id": 100002,
+    "color": "0xFF3E7D3A"
+  },
+  "shelf": {
+    "id": 100001,
+    "color": "0xFF4A3524"
+  },
+  "statue": {
+    "id": 100001,
+    "color": "0xFF4E4E56"
+  }
+}

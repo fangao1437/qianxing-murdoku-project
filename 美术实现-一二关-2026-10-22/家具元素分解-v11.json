@@ -1,0 +1,175 @@
+{
+  "_note": "家具元素分解 v11（定稿）：L1 深色外形(描边/木框) → L2 主体 → L3 细节。坐标=格子边长比例，dx 右 / dy 下为正。素材：100001 纯白方块、100002 纯白圆、106053 纯白圆角方板 96x96、105090 奶白瓮（近白可染）。",
+  "kinds": {
+    "table": {
+      "elements": [
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.9,
+          "h": 0.64,
+          "color": "0xFF4A3524",
+          "fit": "stretch"
+        },
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.82,
+          "h": 0.56,
+          "color": "0xFFD4CCA0",
+          "fit": "stretch"
+        },
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.72,
+          "h": 0.46,
+          "color": "0xFFE8E2C0",
+          "fit": "stretch"
+        }
+      ]
+    },
+    "chair": {
+      "elements": [
+        {
+          "id": 106053,
+          "cat": 1,
+          "w": 0.74,
+          "h": 0.76,
+          "dy": 0.04,
+          "color": "0xFF4A3A2A",
+          "fit": "stretch"
+        },
+        {
+          "id": 106053,
+          "cat": 1,
+          "w": 0.66,
+          "h": 0.5,
+          "dy": 0.13,
+          "color": "0xFFF2EBD4",
+          "fit": "stretch"
+        },
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.62,
+          "h": 0.2,
+          "dy": -0.16,
+          "color": "0xFFCBBE97",
+          "fit": "stretch"
+        }
+      ]
+    },
+    "carpet": {
+      "elements": [
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.92,
+          "h": 0.92,
+          "color": "0xFF9C8A63",
+          "fit": "stretch"
+        },
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.84,
+          "h": 0.84,
+          "color": "0xFFDCCBAA",
+          "fit": "stretch"
+        }
+      ]
+    },
+    "plant": {
+      "elements": [
+        {
+          "id": 100002,
+          "cat": 8,
+          "w": 0.64,
+          "h": 0.52,
+          "dy": -0.08,
+          "color": "0xFF3E7D3A",
+          "fit": "stretch"
+        },
+        {
+          "id": 106053,
+          "cat": 1,
+          "w": 0.32,
+          "h": 0.24,
+          "dy": 0.26,
+          "color": "0xFF8A6A48",
+          "fit": "stretch"
+        },
+        {
+          "id": 100002,
+          "cat": 8,
+          "w": 0.34,
+          "h": 0.26,
+          "dy": -0.2,
+          "color": "0xFF58A046",
+          "fit": "stretch"
+        }
+      ]
+    },
+    "shelf": {
+      "elements": [
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.82,
+          "h": 0.66,
+          "color": "0xFF4A3524",
+          "fit": "stretch"
+        },
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.76,
+          "h": 0.6,
+          "color": "0xFFB4874F",
+          "fit": "stretch"
+        },
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.68,
+          "h": 0.07,
+          "dy": -0.05,
+          "color": "0xFF4A2E17",
+          "fit": "stretch"
+        }
+      ]
+    },
+    "statue": {
+      "elements": [
+        {
+          "id": 100001,
+          "cat": 8,
+          "w": 0.54,
+          "h": 0.24,
+          "dy": 0.28,
+          "color": "0xFF4E4E56",
+          "fit": "stretch"
+        },
+        {
+          "id": 105090,
+          "cat": 6,
+          "w": 0.6,
+          "h": 0.5,
+          "dy": 0.02,
+          "color": "0xFFC9C9D2",
+          "fit": "stretch"
+        },
+        {
+          "id": 100002,
+          "cat": 8,
+          "w": 0.14,
+          "h": 0.1,
+          "dy": -0.22,
+          "color": "0xFFE2E2E8",
+          "fit": "stretch"
+        }
+      ]
+    }
+  }
+}
