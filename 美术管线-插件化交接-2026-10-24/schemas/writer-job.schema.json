@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WriterJob (version 1)",
+  "type": "object",
+  "required": ["version", "base", "out", "ops"],
+  "properties": {
+    "version": { "const": 1 },
+    "base": { "type": "string", "minLength": 1 },
+    "out": { "type": "string", "minLength": 1 },
+    "expect": {
+      "type": "object",
+      "properties": {
+        "records": { "type": "integer", "minimum": 0 },
+        "templates": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "ops": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["op", "template", "sizePx", "layers"],
+            "properties": {
+              "op": { "const": "replace_template_layers" },
+              "template": { "type": "string" },
+              "sizePx": {
+                "type": "array",
+                "items": { "type": "integer" },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "layers": { "type": "array", "minItems": 1 }
+            }
+          },
+          {
+            "type": "object",
+            "required": ["op", "template", "sizePx"],
+            "properties": {
+              "op": { "const": "set_canvas" },
+              "template": { "type": "string" },
+              "sizePx": {
+                "type": "array",
+                "items": { "type": "integer" },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": ["op", "name", "prefab"],
+            "properties": {
+              "op": { "const": "set_things_ref" },
+              "name": { "type": "string" },
+              "prefab": { "type": "integer", "minimum": 1 }
+            }
+          },
+          {
+            "type": "object",
+            "required": ["op", "template", "family"],
+            "properties": {
+              "op": { "const": "set_family" },
+              "template": { "type": "string" },
+              "family": { "type": "integer", "minimum": 1 }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

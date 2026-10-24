@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "base": "qianxing-murdoku/547-一二关美术-容器-v19.gil",
+  "out": "qianxing-murdoku/549-一二关美术-容器-v20.gil",
+  "ops": [
+    {
+      "op": "replace_template_layers",
+      "template": "furn.statue",
+      "sizePx": [108, 108],
+      "layers": [
+        { "order": 1, "imageId": 100001, "color": "0xFF0F0D0F", "w": 9, "h": 2, "dx": 2.5, "dy_down": 44.5, "y_up": -44.5, "rotDeg": 0 },
+        { "order": 2, "imageId": 100001, "color": "0xFF606681", "w": 2, "h": 8, "dx": -1.0, "dy_down": -17.5, "y_up": 17.5, "rotDeg": 0 }
+      ]
+    },
+    { "op": "set_things_ref", "name": "furn.rug.3", "prefab": 1073749968 }
+  ],
+  "expect": {
+    "records": 1491,
+    "templates": { "furn.statue": 103 }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "name": "rug-3layers-example",
+  "source": { "mode": "hand" },
+  "cellTemplatePx": 108,
+  "templates": {
+    "furn.rug": {
+      "template": "furn.rug",
+      "kind": "carpet",
+      "variant": "1",
+      "sizePx": [108, 108],
+      "layerCount": 3,
+      "layers": [
+        { "order": 1, "imageId": 100001, "color": "0xFFB89A62", "w": 108, "h": 108, "dx": 0, "dy_down": 0, "y_up": 0, "rotDeg": 0 },
+        { "order": 2, "imageId": 100001, "color": "0xFFDCC684", "w": 82.1, "h": 82.1, "dx": 0, "dy_down": 0, "y_up": 0, "rotDeg": 0 },
+        { "order": 3, "imageId": 100001, "color": "0xFFC9B072", "w": 64.8, "h": 64.8, "dx": 0, "dy_down": 0, "y_up": 0, "rotDeg": 0 }
+      ]
+    }
+  }
+}
