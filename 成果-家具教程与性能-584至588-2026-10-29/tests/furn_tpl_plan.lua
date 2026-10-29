@@ -90,8 +90,8 @@ do
   local nodes = plan_of("case_001")
   local hit = nil
   for _, n in ipairs(nodes or {}) do if n.id == "cell.1.2" then hit = n end end
-  ok(hit ~= nil and hit.furn_tpl == "furn.plant",
-    "case_001 cell.1.2 应是 furn.plant（实测 " .. tostring(hit and hit.furn_tpl) .. "）")
+  ok(hit ~= nil and hit.furn_tpl == "furn.plant.2",
+    "case_001 cell.1.2 应是 furn.plant.2（实测 " .. tostring(hit and hit.furn_tpl) .. "）")
 end
 do
   local nodes = plan_of("case_002")
