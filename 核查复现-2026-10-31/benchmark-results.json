@@ -1,0 +1,177 @@
+{
+  "lua": "5.4.6",
+  "pieces": 5,
+  "rounds": 5,
+  "iterations": 100000,
+  "allocation_iterations": 10000,
+  "summary": {
+    "done": {
+      "before": {
+        "median_us": 2.44,
+        "median_bytes": 184.0394
+      },
+      "after": {
+        "median_us": 0.39,
+        "median_bytes": 0.0
+      }
+    },
+    "animation": {
+      "before": {
+        "median_us": 2.78,
+        "median_bytes": 392.8394
+      },
+      "after": {
+        "median_us": 0.9,
+        "median_bytes": 208.8
+      }
+    },
+    "submit": {
+      "before": {
+        "median_us": 5.09,
+        "median_bytes": 1512.0394
+      },
+      "after": {
+        "median_us": 4.04,
+        "median_bytes": 2272.0
+      }
+    }
+  },
+  "samples": {
+    "before": {
+      "done": [
+        {
+          "us": 2.42,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.4,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.53,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.44,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.44,
+          "bytes": 184.0394
+        }
+      ],
+      "animation": [
+        {
+          "us": 2.78,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.76,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.82,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.84,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.78,
+          "bytes": 392.8394
+        }
+      ],
+      "submit": [
+        {
+          "us": 5.04,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.09,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.14,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.09,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.1,
+          "bytes": 1512.0394
+        }
+      ]
+    },
+    "after": {
+      "done": [
+        {
+          "us": 0.39,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.38,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.4,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.39,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.42,
+          "bytes": 0.0
+        }
+      ],
+      "animation": [
+        {
+          "us": 0.91,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.89,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.95,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.9,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.9,
+          "bytes": 208.8
+        }
+      ],
+      "submit": [
+        {
+          "us": 3.99,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.02,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.11,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.09,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.04,
+          "bytes": 2272.0
+        }
+      ]
+    }
+  }
+}

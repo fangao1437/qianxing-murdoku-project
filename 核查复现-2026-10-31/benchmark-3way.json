@@ -1,0 +1,253 @@
+{
+  "summary": {
+    "done": {
+      "before": {
+        "median_us": 2.43,
+        "median_bytes": 184.0394
+      },
+      "after": {
+        "median_us": 0.4,
+        "median_bytes": 0.0
+      },
+      "head": {
+        "median_us": 0.42,
+        "median_bytes": 0.0
+      }
+    },
+    "animation": {
+      "before": {
+        "median_us": 2.83,
+        "median_bytes": 392.8394
+      },
+      "after": {
+        "median_us": 0.93,
+        "median_bytes": 208.8
+      },
+      "head": {
+        "median_us": 0.94,
+        "median_bytes": 208.8
+      }
+    },
+    "submit": {
+      "before": {
+        "median_us": 5.13,
+        "median_bytes": 1512.0394
+      },
+      "after": {
+        "median_us": 4.11,
+        "median_bytes": 2272.0
+      },
+      "head": {
+        "median_us": 3.94,
+        "median_bytes": 1920.0
+      }
+    }
+  },
+  "samples": {
+    "before": {
+      "done": [
+        {
+          "us": 2.44,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.38,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.43,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.43,
+          "bytes": 184.0394
+        },
+        {
+          "us": 2.48,
+          "bytes": 184.0394
+        }
+      ],
+      "animation": [
+        {
+          "us": 2.86,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.76,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.79,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.97,
+          "bytes": 392.8394
+        },
+        {
+          "us": 2.83,
+          "bytes": 392.8394
+        }
+      ],
+      "submit": [
+        {
+          "us": 5.13,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.05,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.13,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.1,
+          "bytes": 1512.0394
+        },
+        {
+          "us": 5.28,
+          "bytes": 1512.0394
+        }
+      ]
+    },
+    "after": {
+      "done": [
+        {
+          "us": 0.38,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.4,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.42,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.4,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.39,
+          "bytes": 0.0
+        }
+      ],
+      "animation": [
+        {
+          "us": 0.9,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.89,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.94,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.93,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.93,
+          "bytes": 208.8
+        }
+      ],
+      "submit": [
+        {
+          "us": 4.02,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.0,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.18,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.11,
+          "bytes": 2272.0
+        },
+        {
+          "us": 4.11,
+          "bytes": 2272.0
+        }
+      ]
+    },
+    "head": {
+      "done": [
+        {
+          "us": 0.42,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.4,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.42,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.44,
+          "bytes": 0.0
+        },
+        {
+          "us": 0.41,
+          "bytes": 0.0
+        }
+      ],
+      "animation": [
+        {
+          "us": 0.93,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.93,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.94,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.96,
+          "bytes": 208.8
+        },
+        {
+          "us": 0.95,
+          "bytes": 208.8
+        }
+      ],
+      "submit": [
+        {
+          "us": 3.92,
+          "bytes": 1920.0
+        },
+        {
+          "us": 3.94,
+          "bytes": 1920.0
+        },
+        {
+          "us": 3.92,
+          "bytes": 1920.0
+        },
+        {
+          "us": 4.02,
+          "bytes": 1920.0
+        },
+        {
+          "us": 4.01,
+          "bytes": 1920.0
+        }
+      ]
+    }
+  },
+  "rounds": 5
+}
