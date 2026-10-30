@@ -558,6 +558,105 @@ function Controller:sync_confirm()
   return want
 end
 
+--------------------------------------------------------------------------------
+-- ★ v368 **提交后的红/绿判定圈**（用户定稿：按卡序依次、环形进度条式绘出）
+--
+--   规则：提交确认后，摆满且硬约束成立 ⇒ 逐枚棋子对照 `solution`：摆对标绿圈、摆错标红圈。
+--     · 全部摆对 ⇒ 绿圈绘完再结算（弹出结果弹窗）
+--     · 有摆错 ⇒ 只留圈和提示语，不结算；玩家继续调整
+--     · 关卡没有 `solution` ⇒ 退回旧行为（摆位成立即结算），不画圈
+--   节奏：卡序（pieces 顺序）依次，每圈 0.4 秒，圈与圈间隔 0.15 秒。
+--   清除：棋子位置与提交时不同（放/撤/重/清/重开）、离开关卡、换关 ⇒ 圈立刻清掉。
+--------------------------------------------------------------------------------
+M.VERDICT_RING_SECONDS = 0.4
+M.VERDICT_RING_GAP     = 0.15
+
+function Controller:_placement_sig()
+  local core = self.core
+  if core == nil or core.pieces == nil then return "" end
+  local parts = {}
+  for i = 1, #core.pieces do
+    local id = core.pieces[i].id
+    local p = core.pos and core.pos[id]
+    parts[#parts + 1] = tostring(id) .. ":" .. (p and (tostring(p.r) .. "," .. tostring(p.c)) or "-")
+  end
+  return table.concat(parts, "|")
+end
+
+-- 开始一轮判定；返回摆错的个数，没有 `solution` 返回 nil
+function Controller:_start_verdict()
+  local core = self.core
+  if core == nil or core.solution == nil or next(core.solution) == nil or core.pieces == nil then return nil end
+  local list, wrong = {}, 0
+  for i = 1, #core.pieces do
+    local id = core.pieces[i].id
+    local p = core.pos and core.pos[id]
+    local s = core.solution[id]
+    if p ~= nil and s ~= nil then
+      local ok = (p.r == s.r and p.c == s.c)
+      if not ok then wrong = wrong + 1 end
+      list[#list + 1] = { id = id, cell = self:cell_id(p.r, p.c), ok = ok }
+    end
+  end
+  if #list == 0 then return nil end
+  self:_clear_verdict()
+  self._verdict = {
+    list = list, wrong = wrong, t0 = self.now or 0, sig = self:_placement_sig(),
+    level = core.level and core.level.id, done = false, last = {},
+  }
+  return wrong
+end
+
+function Controller:_clear_verdict()
+  self._press = nil
+  self:_clear_hold_progress()
+  self._verdict = nil
+  local ad = self._last_adapter
+  if ad ~= nil and ad.clear_verdict_rings ~= nil then pcall(function() ad:clear_verdict_rings() end) end
+end
+
+-- 每帧推进（tick 里调）
+function Controller:_verdict_step()
+  local v = self._verdict
+  if v == nil then return end
+  local core = self.core
+  local lv = core and core.level and core.level.id
+  if core == nil or self.screen ~= nil or lv ~= v.level or self:_placement_sig() ~= v.sig then
+    self:_clear_verdict()
+    return
+  end
+  local el = (self.now or 0) - v.t0
+  local dur, gap = M.VERDICT_RING_SECONDS, M.VERDICT_RING_GAP
+  local ad = self._last_adapter
+  for i = 1, #v.list do
+    local a = (el - (i - 1) * (dur + gap)) / dur
+    if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    if v.last[i] ~= a then
+      v.last[i] = a
+      if ad ~= nil and ad.set_verdict_ring ~= nil then
+        pcall(function() ad:set_verdict_ring(v.list[i].cell, v.list[i].ok, a) end)
+      end
+    end
+  end
+  if not v.done and el >= (#v.list - 1) * (dur + gap) + dur then
+    v.done = true
+    if v.wrong == 0 then self:_settle_by_roles() end
+    self.dirty = true
+  end
+end
+
+-- 把答案（roles）替玩家填进去并结算（与改前 `do_submit` 末段一字不差，只是挪成函数）
+function Controller:_settle_by_roles()
+  local core = self.core
+  local roles = core.roles or {}
+  if roles.thief ~= nil then
+    self:finish_accuse(roles.thief, roles.accomplice ~= nil, roles.accomplice)
+  else
+    -- 关卡数据缺 `roles.thief` ⇒ 明说，不要静默不结算
+    self.toast = "本关没配 roles.thief，无法结算（关卡数据问题）"
+  end
+end
+
 --- 真正执行"提交"。逻辑与原来的 `submit` 分支一字不差，只是**挪进来**，
 --- 让"要不要先确认"和"确认后干什么"分开。
 function Controller:do_submit()
@@ -591,13 +690,17 @@ function Controller:do_submit()
   --   ⚠️ 判据强弱如实记 ✓：`Core:submit()` 只查**硬约束 + 摆满** ✓
   --     **不查线索、不比对 `solution`** ✗ ⇒ 严格说这是"摆位成立即胜" ✓
   --     若将来要"必须摆对才胜"，改这里一处即可（比对 `core:check()` 为空 ✓）
+  -- ★ v368：提交通过后先按卡序画红/绿判定圈（见上面 `_start_verdict`）：
+  --   · 有 `solution`：全对 ⇒ 圈绘完再结算；有摆错 ⇒ 只留圈 + 提示语，不结算
+  --   · 没有 `solution`（`_start_verdict` 返回 nil）⇒ 保持旧行为：摆位成立即结算
   if res ~= nil and res.ok then
-    local roles = core.roles or {}
-    if roles.thief ~= nil then
-      self:finish_accuse(roles.thief, roles.accomplice ~= nil, roles.accomplice)
-    else
-      -- 关卡数据缺 `roles.thief` ⇒ 明说，不要静默不结算
-      self.toast = "本关没配 roles.thief，无法结算（关卡数据问题）"
+    local wrong = self:_start_verdict()
+    if wrong == nil then
+      self:_settle_by_roles()
+    elseif wrong > 0 then
+      local got, total = core:score()
+      self.toast = string.format("摆对了 %d / %d 个，红圈是摆错的位置", got, total)
+      self.toast_until = self.now + M.TOAST_SECONDS
     end
   end
   self.dirty = true
@@ -605,6 +708,7 @@ end
 
 --- 真正执行"重置关卡"。
 function Controller:do_restart()
+  self:_clear_verdict()
   local core = self.core
   if core ~= nil and core.reset ~= nil then core:reset() end
   -- ★★★★★★★★ 2026-10-15 **重开 = 选中也归零 ⇒ 高亮必须跟着归零** ✗✓✓
@@ -629,6 +733,7 @@ end
 
 --- 真正执行"返回菜单"（= 回选关界面，原作循环是"选关 → 关卡 → 退出 → 选关"）。
 function Controller:do_back()
+  self:_clear_verdict()
   self.screen = "select"
   self.modal = nil
   self.dirty = true
@@ -994,11 +1099,33 @@ end
 
 -- ── 按下 / 抬起：自己合成"长按" ──────────────────────────────────────────
 -- 返回 true = 这次抬起已经被当成"长按"处理掉了（后续那个 CursorClick 要忽略）
+-- 604: visual progress follows the existing release-to-place threshold.
+function Controller:_clear_hold_progress()
+  local ad = self._last_adapter
+  if ad and ad.clear_hold_ring then ad:clear_hold_ring() end
+end
+
+function Controller:_hold_progress(p)
+  if self.screen ~= nil or self.modal ~= nil or self.pending ~= nil then
+    self._press = nil
+    self:_clear_hold_progress()
+    return
+  end
+  local ad = self._last_adapter
+  if p and p.r and p.c and self.core and self.core.selected and ad and ad.set_hold_ring then
+    ad:set_hold_ring(self:cell_id(p.r, p.c), math.min(1, (p.dt or 0) / LONG_PRESS_SECONDS))
+  else
+    self:_clear_hold_progress()
+  end
+end
+
 function Controller:on_cell_down(r, c, x, y)
+  self:_clear_hold_progress()
   -- ★★ 按下时**同时**记两样 ✓：
   --   ★ `dt = 0` ⇒ ★ 按住期间由 `tick` 一帧一帧加上去 ✓（★ 主判据 ✓ 与真实时间同速 ✓）
   --   ★ `t`      ⇒ ★ 只作兜底 ✓（★ 万一 `tick` 没跑 ✓）
   self._press = { r = r, c = c, dt = 0, t = gesture_now(self), x = x, y = y }
+  self:_hold_progress(self._press)
   return false
 end
 
@@ -1010,6 +1137,7 @@ function Controller:on_cell_up(r, c, x, y)
   --     ⇒ ★ 先 `self._press = nil` ⇒ ★ 它读到的永远是"没有按下" ✓✓
   local dt = press_seconds(self)
   self._press = nil
+  self:_clear_hold_progress()
   if p == nil then return false end
   if p.r ~= r or p.c ~= c then return false end          -- 按在别处，不算
   if dt == nil then return false end
@@ -1068,6 +1196,7 @@ function Controller:on_cell_drag(r, c, x, y)
   local dx, dy = math.abs(x - p.x), math.abs(y - p.y)
   if dx > TAP_MOVE_TOLERANCE or dy > TAP_MOVE_TOLERANCE then
     self._press = nil
+    self:_clear_hold_progress()
     return true
   end
   return false
@@ -1564,6 +1693,7 @@ function Controller:on_input(event)
     self.modal = { kind = "howto" }
 
   elseif a == "close_modal" then
+    self:_clear_verdict()
     self.modal = nil
 
   -- ★ 2026-10-08 **「退出菜单」四键的三个动作**（★ 从提交 272 原文照抄恢复 ✓ 那次被 295 整份删掉 ✗）
@@ -1770,6 +1900,7 @@ end
 function Controller:tick(dt)
   self.now = (self.now or 0) + (dt or 0)
   self._frame_n = (self._frame_n or 0) + 1   -- v362：帧序号（同帧缓存的键；Controller 上没有 adapter.clock）
+  if self._verdict ~= nil then pcall(self._verdict_step, self) end   -- v368：红/绿判定圈逐帧推进
 
   -- ★★★★★★★★ 2026-10-11 **按住期间把 `dt` 一帧帧累加** ✗✓✓（★ 长按时长的真来源 ✓）
   --
@@ -1784,7 +1915,11 @@ function Controller:tick(dt)
   --     （★ 本函数后面有若干提前 `return` ✓ ★ 放后面会漏帧 ✓）
   do
     local p = rawget(self, "_press")
-    if p ~= nil then p.dt = (p.dt or 0) + (dt or 0) end
+    if p ~= nil then
+      p.dt = (p.dt or 0) + (dt or 0)
+      self:_hold_progress(p)
+      p = self._press
+    end
     -- ★★★★★★★★ 2026-10-11 **"按住够长了" ⇒ 当场给一次可见反馈** ✗✓✓
     --
     --   ★★★ 用户原话 ✓：「★ **还是偶尔会有放不上去的情况**」✗✓
@@ -7814,6 +7949,7 @@ end
 --   按到达顺序各造一次、以及换关时按上一关残留愿望先造一遍再拆（`583` 假引擎实测）。
 --   趟末一定会 flush（pcall 包着 _render_impl，抛错也不会把批次留在打开状态）。
 function Controller:render(adapter, force)
+  if adapter ~= nil then self._last_adapter = adapter end   -- v368：判定圈要用
   local batched = false
   if adapter ~= nil and adapter.begin_furn_batch ~= nil then
     batched = pcall(function() adapter:begin_furn_batch() end)

@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {readGil} from './gilread.mjs';
+import {writeGil,findScriptLeaf} from './gilwrite.mjs';
+const [input,output,scriptPath]=process.argv.slice(2);
+if(!input||!output||!scriptPath||input===output||fs.existsSync(output))throw Error('invalid/existing output');
+const g=readGil(input),script=fs.readFileSync(scriptPath);
+for(const marker of ['function Adapter:_paint_progress_ring','obj.enableMask = true','obj.fillAmount = amount','self:_hold_progress(self._press)'])if(!script.includes(Buffer.from(marker)))throw Error('missing '+marker);
+const f=findScriptLeaf(g).field;f.payload=script;f.len=script.length;
+const rep=writeGil(g,output,{label:'605 explicit radial configuration and verified progress; no full-circle fallback',expectRecs:g.recs.length,expectDiffs:1,assert(t){return findScriptLeaf(t).buf.equals(script)||'embedded script mismatch';}});
+console.log('605 verified records='+rep.g2.recs.length+'; only embedded script changed');

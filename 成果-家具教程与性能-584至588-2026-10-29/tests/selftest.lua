@@ -257,6 +257,8 @@ print("== 10. 提交 → **提交通过即结算**（★ 两步式指认面板�
 place_answer(core)
 ctrl:on_input({ action = "submit" })
 ctrl:on_input({ action = "confirm_yes" })
+-- v368：全部摆对 ⇒ 先按卡序画完绿圈（5 × 0.4s + 4 × 0.15s ≈ 2.6s）再结算
+for _ = 1, 70 do ctrl:tick(0.05) end
 
 -- ★★ 核心新契约：★ **提交通过 ⇒ 直接结算，且【不开】任何指认面板** ✓
 check("提交通过 ⇒ 直接结算（status=SOLVED）",

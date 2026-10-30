@@ -4821,6 +4821,105 @@ function Controller:sync_confirm()
   return want
 end
 
+--------------------------------------------------------------------------------
+-- ★ v368 **提交后的红/绿判定圈**（用户定稿：按卡序依次、环形进度条式绘出）
+--
+--   规则：提交确认后，摆满且硬约束成立 ⇒ 逐枚棋子对照 `solution`：摆对标绿圈、摆错标红圈。
+--     · 全部摆对 ⇒ 绿圈绘完再结算（弹出结果弹窗）
+--     · 有摆错 ⇒ 只留圈和提示语，不结算；玩家继续调整
+--     · 关卡没有 `solution` ⇒ 退回旧行为（摆位成立即结算），不画圈
+--   节奏：卡序（pieces 顺序）依次，每圈 0.4 秒，圈与圈间隔 0.15 秒。
+--   清除：棋子位置与提交时不同（放/撤/重/清/重开）、离开关卡、换关 ⇒ 圈立刻清掉。
+--------------------------------------------------------------------------------
+M.VERDICT_RING_SECONDS = 0.4
+M.VERDICT_RING_GAP     = 0.15
+
+function Controller:_placement_sig()
+  local core = self.core
+  if core == nil or core.pieces == nil then return "" end
+  local parts = {}
+  for i = 1, #core.pieces do
+    local id = core.pieces[i].id
+    local p = core.pos and core.pos[id]
+    parts[#parts + 1] = tostring(id) .. ":" .. (p and (tostring(p.r) .. "," .. tostring(p.c)) or "-")
+  end
+  return table.concat(parts, "|")
+end
+
+-- 开始一轮判定；返回摆错的个数，没有 `solution` 返回 nil
+function Controller:_start_verdict()
+  local core = self.core
+  if core == nil or core.solution == nil or next(core.solution) == nil or core.pieces == nil then return nil end
+  local list, wrong = {}, 0
+  for i = 1, #core.pieces do
+    local id = core.pieces[i].id
+    local p = core.pos and core.pos[id]
+    local s = core.solution[id]
+    if p ~= nil and s ~= nil then
+      local ok = (p.r == s.r and p.c == s.c)
+      if not ok then wrong = wrong + 1 end
+      list[#list + 1] = { id = id, cell = self:cell_id(p.r, p.c), ok = ok }
+    end
+  end
+  if #list == 0 then return nil end
+  self:_clear_verdict()
+  self._verdict = {
+    list = list, wrong = wrong, t0 = self.now or 0, sig = self:_placement_sig(),
+    level = core.level and core.level.id, done = false, last = {},
+  }
+  return wrong
+end
+
+function Controller:_clear_verdict()
+  self._press = nil
+  self:_clear_hold_progress()
+  self._verdict = nil
+  local ad = self._last_adapter
+  if ad ~= nil and ad.clear_verdict_rings ~= nil then pcall(function() ad:clear_verdict_rings() end) end
+end
+
+-- 每帧推进（tick 里调）
+function Controller:_verdict_step()
+  local v = self._verdict
+  if v == nil then return end
+  local core = self.core
+  local lv = core and core.level and core.level.id
+  if core == nil or self.screen ~= nil or lv ~= v.level or self:_placement_sig() ~= v.sig then
+    self:_clear_verdict()
+    return
+  end
+  local el = (self.now or 0) - v.t0
+  local dur, gap = M.VERDICT_RING_SECONDS, M.VERDICT_RING_GAP
+  local ad = self._last_adapter
+  for i = 1, #v.list do
+    local a = (el - (i - 1) * (dur + gap)) / dur
+    if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    if v.last[i] ~= a then
+      v.last[i] = a
+      if ad ~= nil and ad.set_verdict_ring ~= nil then
+        pcall(function() ad:set_verdict_ring(v.list[i].cell, v.list[i].ok, a) end)
+      end
+    end
+  end
+  if not v.done and el >= (#v.list - 1) * (dur + gap) + dur then
+    v.done = true
+    if v.wrong == 0 then self:_settle_by_roles() end
+    self.dirty = true
+  end
+end
+
+-- 把答案（roles）替玩家填进去并结算（与改前 `do_submit` 末段一字不差，只是挪成函数）
+function Controller:_settle_by_roles()
+  local core = self.core
+  local roles = core.roles or {}
+  if roles.thief ~= nil then
+    self:finish_accuse(roles.thief, roles.accomplice ~= nil, roles.accomplice)
+  else
+    -- 关卡数据缺 `roles.thief` ⇒ 明说，不要静默不结算
+    self.toast = "本关没配 roles.thief，无法结算（关卡数据问题）"
+  end
+end
+
 --- 真正执行"提交"。逻辑与原来的 `submit` 分支一字不差，只是**挪进来**，
 --- 让"要不要先确认"和"确认后干什么"分开。
 function Controller:do_submit()
@@ -4854,13 +4953,17 @@ function Controller:do_submit()
   --   ⚠️ 判据强弱如实记 ✓：`Core:submit()` 只查**硬约束 + 摆满** ✓
   --     **不查线索、不比对 `solution`** ✗ ⇒ 严格说这是"摆位成立即胜" ✓
   --     若将来要"必须摆对才胜"，改这里一处即可（比对 `core:check()` 为空 ✓）
+  -- ★ v368：提交通过后先按卡序画红/绿判定圈（见上面 `_start_verdict`）：
+  --   · 有 `solution`：全对 ⇒ 圈绘完再结算；有摆错 ⇒ 只留圈 + 提示语，不结算
+  --   · 没有 `solution`（`_start_verdict` 返回 nil）⇒ 保持旧行为：摆位成立即结算
   if res ~= nil and res.ok then
-    local roles = core.roles or {}
-    if roles.thief ~= nil then
-      self:finish_accuse(roles.thief, roles.accomplice ~= nil, roles.accomplice)
-    else
-      -- 关卡数据缺 `roles.thief` ⇒ 明说，不要静默不结算
-      self.toast = "本关没配 roles.thief，无法结算（关卡数据问题）"
+    local wrong = self:_start_verdict()
+    if wrong == nil then
+      self:_settle_by_roles()
+    elseif wrong > 0 then
+      local got, total = core:score()
+      self.toast = string.format("摆对了 %d / %d 个，红圈是摆错的位置", got, total)
+      self.toast_until = self.now + M.TOAST_SECONDS
     end
   end
   self.dirty = true
@@ -4868,6 +4971,7 @@ end
 
 --- 真正执行"重置关卡"。
 function Controller:do_restart()
+  self:_clear_verdict()
   local core = self.core
   if core ~= nil and core.reset ~= nil then core:reset() end
   -- ★★★★★★★★ 2026-10-15 **重开 = 选中也归零 ⇒ 高亮必须跟着归零** ✗✓✓
@@ -4892,6 +4996,7 @@ end
 
 --- 真正执行"返回菜单"（= 回选关界面，原作循环是"选关 → 关卡 → 退出 → 选关"）。
 function Controller:do_back()
+  self:_clear_verdict()
   self.screen = "select"
   self.modal = nil
   self.dirty = true
@@ -5257,11 +5362,33 @@ end
 
 -- ── 按下 / 抬起：自己合成"长按" ──────────────────────────────────────────
 -- 返回 true = 这次抬起已经被当成"长按"处理掉了（后续那个 CursorClick 要忽略）
+-- 604: visual progress follows the existing release-to-place threshold.
+function Controller:_clear_hold_progress()
+  local ad = self._last_adapter
+  if ad and ad.clear_hold_ring then ad:clear_hold_ring() end
+end
+
+function Controller:_hold_progress(p)
+  if self.screen ~= nil or self.modal ~= nil or self.pending ~= nil then
+    self._press = nil
+    self:_clear_hold_progress()
+    return
+  end
+  local ad = self._last_adapter
+  if p and p.r and p.c and self.core and self.core.selected and ad and ad.set_hold_ring then
+    ad:set_hold_ring(self:cell_id(p.r, p.c), math.min(1, (p.dt or 0) / LONG_PRESS_SECONDS))
+  else
+    self:_clear_hold_progress()
+  end
+end
+
 function Controller:on_cell_down(r, c, x, y)
+  self:_clear_hold_progress()
   -- ★★ 按下时**同时**记两样 ✓：
   --   ★ `dt = 0` ⇒ ★ 按住期间由 `tick` 一帧一帧加上去 ✓（★ 主判据 ✓ 与真实时间同速 ✓）
   --   ★ `t`      ⇒ ★ 只作兜底 ✓（★ 万一 `tick` 没跑 ✓）
   self._press = { r = r, c = c, dt = 0, t = gesture_now(self), x = x, y = y }
+  self:_hold_progress(self._press)
   return false
 end
 
@@ -5273,6 +5400,7 @@ function Controller:on_cell_up(r, c, x, y)
   --     ⇒ ★ 先 `self._press = nil` ⇒ ★ 它读到的永远是"没有按下" ✓✓
   local dt = press_seconds(self)
   self._press = nil
+  self:_clear_hold_progress()
   if p == nil then return false end
   if p.r ~= r or p.c ~= c then return false end          -- 按在别处，不算
   if dt == nil then return false end
@@ -5331,6 +5459,7 @@ function Controller:on_cell_drag(r, c, x, y)
   local dx, dy = math.abs(x - p.x), math.abs(y - p.y)
   if dx > TAP_MOVE_TOLERANCE or dy > TAP_MOVE_TOLERANCE then
     self._press = nil
+    self:_clear_hold_progress()
     return true
   end
   return false
@@ -5827,6 +5956,7 @@ function Controller:on_input(event)
     self.modal = { kind = "howto" }
 
   elseif a == "close_modal" then
+    self:_clear_verdict()
     self.modal = nil
 
   -- ★ 2026-10-08 **「退出菜单」四键的三个动作**（★ 从提交 272 原文照抄恢复 ✓ 那次被 295 整份删掉 ✗）
@@ -6033,6 +6163,7 @@ end
 function Controller:tick(dt)
   self.now = (self.now or 0) + (dt or 0)
   self._frame_n = (self._frame_n or 0) + 1   -- v362：帧序号（同帧缓存的键；Controller 上没有 adapter.clock）
+  if self._verdict ~= nil then pcall(self._verdict_step, self) end   -- v368：红/绿判定圈逐帧推进
 
   -- ★★★★★★★★ 2026-10-11 **按住期间把 `dt` 一帧帧累加** ✗✓✓（★ 长按时长的真来源 ✓）
   --
@@ -6047,7 +6178,11 @@ function Controller:tick(dt)
   --     （★ 本函数后面有若干提前 `return` ✓ ★ 放后面会漏帧 ✓）
   do
     local p = rawget(self, "_press")
-    if p ~= nil then p.dt = (p.dt or 0) + (dt or 0) end
+    if p ~= nil then
+      p.dt = (p.dt or 0) + (dt or 0)
+      self:_hold_progress(p)
+      p = self._press
+    end
     -- ★★★★★★★★ 2026-10-11 **"按住够长了" ⇒ 当场给一次可见反馈** ✗✓✓
     --
     --   ★★★ 用户原话 ✓：「★ **还是偶尔会有放不上去的情况**」✗✓
@@ -12077,6 +12212,7 @@ end
 --   按到达顺序各造一次、以及换关时按上一关残留愿望先造一遍再拆（`583` 假引擎实测）。
 --   趟末一定会 flush（pcall 包着 _render_impl，抛错也不会把批次留在打开状态）。
 function Controller:render(adapter, force)
+  if adapter ~= nil then self._last_adapter = adapter end   -- v368：判定圈要用
   local batched = false
   if adapter ~= nil and adapter.begin_furn_batch ~= nil then
     batched = pcall(function() adapter:begin_furn_batch() end)
@@ -13343,6 +13479,9 @@ end
 -- 触发时机全都是**控件树真的变了**的事件，不是每帧。
 function Adapter:invalidate_lookups(why)
   self._misses = nil
+  self._floor_slots = nil
+  self._floor_faces = nil
+  self._floor_layout = nil
   -- ★★★★★ 2026-10-08 **命中缓存也要一起清** ✗✓（★ 成员第 4 轮 H8：陈旧句柄 ✓ 机制已逐行核对 ✓）
   --   ★ 依据（官方）✓：★「玩家传送、断线重连时，**所有客户端控件都会被销毁**然后回到初始状态」✓
   --     ★「客户端容器控件**隐藏或销毁**时，客户端控件**销毁**」✓
@@ -13610,6 +13749,10 @@ end
 --     子控件**真的存在**时走 `self.subs` 命中 ✓ 与改前完全一致 ✓
 -- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 function Adapter:sub(parent_id, child_name)
+  if child_name=="face" and parent_id:match("^cell%.%d+%.%d+$") then
+    local slot=self:_floor_slot(parent_id)
+    if slot then return self:_fixed_floor_face(parent_id, slot) end
+  end
   -- ★ 同一代里已经确认过"这个子控件取不到" ⇒ 直接返回 nil ✓（省掉三级尝试 ✓ 语义不变 ✓）
   do
     local miss = self._sub_miss
@@ -15006,6 +15149,15 @@ function Adapter:ensure_cells(rows, cols)
   -- 记下当前关卡的棋盘尺寸：逐格自检（diagnose_grid）要用它，
   -- 而且它比 cfg.cells.rows/cols 里那个"兜底值"准。
   self.cells_rows, self.cells_cols = rows, cols
+  -- 602: unused fixed floor slots must not survive a 6x6 -> 5x5 transition.
+  for rr=1,6 do for cc=1,6 do
+    if rr>rows or cc>cols then
+      local id=self:cell_id(rr,cc)
+      local slot=self:_floor_slot(id)
+      if slot then slot:SetVisible(false) end
+      if self._floor_layout then self._floor_layout[id]=nil end
+    end
+  end end
 
   local parent = self:find(g.parent or "board")
   if parent == nil then
@@ -15316,6 +15468,7 @@ function Adapter:ensure_cells(rows, cols)
         local x, y = self:cell_offset(r, c, n)
         if ctrl.SetAnchoredPosition and x ~= nil then
           pcall(function() ctrl:SetAnchoredPosition(x, y) end)
+          self:_sync_floor(id,ctrl)
         end
         -- 格子里的 face/note/x 跟着格子一起缩放
         local kids = { "face", "x" }
@@ -15519,6 +15672,7 @@ end
 --   ★ 规则 ✓：★ **这些内层名字一律跳过**（★ 它们的主人=父控件，显隐由父控件/状态决定 ✓）
 --     ★ 以后加新控件若用了别的内层名 ⇒ **一并加到这里** ✓
 local DECOR = {
+  ["board.floors"] = true, ["board.rugs"] = true,
   label = true, bg = true, pic = true, icon = true,
   face = true, note = true, x = true, obj = true, text = true, portrait = true,
   backrop1 = true, backrop2 = true, badge = true, letter = true, what = true, who = true,
@@ -16435,19 +16589,8 @@ function Adapter:enforce_screen_layers(screen)
   end
 end
 function Adapter:enforce_layers(cell_id)
-  local order = (self.cfg.cells and self.cfg.cells.layer_order)
-    or { "face", "obj",
-         "wall.up", "wall.down", "wall.left", "wall.right",
-         "door.up", "door.down", "door.left", "door.right",
-         "x", "note" }
-  local done = 0
-  for i = #order, 1, -1 do
-    local sub = self:sub(cell_id, order[i])
-    if sub ~= nil and sub.SetAsFirstSibling ~= nil then
-      if pcall(function() sub:SetAsFirstSibling() end) then done = done + 1 end
-    end
-  end
-  return done
+  -- 599: sibling order belongs to the archive, not runtime repainting.
+  return 0
 end
 
 -- ★★ 打开「点击事件穿透」——**点不动格子的头号原因**。
@@ -17211,6 +17354,7 @@ local function _num(v, d) local n = tonumber(v) return n or d end
 
 function Adapter:_furn_destroy(ctrl)
   if ctrl == nil then return end
+
   if game ~= nil and game.DestroyClientUIControl ~= nil then
     pcall(game.DestroyClientUIControl, ctrl)
   elseif ctrl.Destroy ~= nil then
@@ -17286,6 +17430,14 @@ end
 -- 给某个 cell 的 content 顶部实例化 face（命名 `face`）；已有就复用
 function Adapter:_ensure_cell_face(cell_id, ctrl)
   if cell_id == nil then return nil end
+  -- 603: initialization must use the same fixed floor as tint/fit.
+  -- Never instantiate an opaque face inside a cell on the global-floor layout.
+  local slot = self:_floor_slot(cell_id)
+  if slot ~= nil then
+    self:_sync_floor(cell_id, ctrl)
+    return self:_fixed_floor_face(cell_id, slot)
+  end
+  if self:find("board.floors") ~= nil then return nil end
   -- ⚠️ 这里**不能**用 `self:sub(cell_id,"face")` —— sub 对 face 有"缺了就补"的钩子，会递归
   self._face_guard = self._face_guard or {}
   if self._face_guard[cell_id] then return nil end
@@ -17332,6 +17484,211 @@ function Adapter:_ensure_cell_face(cell_id, ctrl)
       .. tostring(prefab) .. "，尺寸=" .. tostring(cw) .. "px）")
   end
   return obj
+end
+
+-- ★ v368：提交后的红/绿判定圈（环形进度条式绘出）
+--   官方 API（客户端控件API文档 mhtakr07vej4，ClientUIImageControl）：
+--     `SetFillRadial360(fillRadialType, fillAmount)` —— 360 度环绕填充；`fillAmount` 0~1 读写、Tweenable
+--     `Enum.ImageFillRadialType.Top` —— 从 12 点钟方向起
+--   圆环底图：素材库 100006（空心圆环；绿/红靠 `imageColor` 着色，只要一张图）
+--   做法：与 `face` 同一套路 —— 用脚本实例化一个图片控件（命名 `verdict_ring`）装进该格 content，
+--         之后每帧只改 `fillAmount`；不新增 .gil 模板。
+--   降级：`SetFillRadial360` 不存在 / 调用失败 ⇒ 改用透明度渐显（按卡序依次出现这一点不变）。
+M.RING_IMAGE_ID = 100006
+M.RING_GREEN = 0xFF4FAE5A
+M.RING_RED   = 0xFFE0483A
+
+function Adapter:_ensure_cell_ring(cell_id)
+  if cell_id == nil then return nil end
+  self._ring_inst = self._ring_inst or {}
+  local content = nil
+  pcall(function() content = self:sub(cell_id, "content") end)
+  if content == nil then pcall(function() content = self:find(cell_id) end) end
+  if content == nil then return nil end
+  local obj = self._ring_inst[cell_id]
+  if obj ~= nil and obj ~= false then
+    -- 句柄是否还活着：能读到 name 就算活着
+    local alive = false
+    pcall(function() alive = (obj.name ~= nil) end)
+    if alive then return obj end
+    self._ring_inst[cell_id] = nil
+  end
+  obj = nil
+  if content.GetChild ~= nil then
+    pcall(function() obj = content:GetChild("verdict_ring") end)
+    if obj ~= nil then self._ring_inst[cell_id] = obj; return obj end
+  end
+  local prefab = self:_face_prefab()
+  if prefab == nil or game == nil or game.InstantiateClientUIControl == nil then return nil end
+  local ok, inst = pcall(game.InstantiateClientUIControl, prefab, content)
+  if not ok or inst == nil then
+    self:warn_once("ring:inst", "判定圈实例化失败（prefab=" .. tostring(prefab) .. "）⇒ 本关不显示红绿圈，其余逻辑继续")
+    return nil
+  end
+  pcall(function() inst.name = "verdict_ring" end)
+  local cw, ch = self:_cell_size_of(nil, cell_id)
+  if cw == nil then cw, ch = 100, 100 end
+  local d = math.floor(math.min(cw, ch or cw) * 0.9 + 0.5)
+  pcall(function()
+    if inst.SetAnchorMin then inst:SetAnchorMin(0.5, 0.5) end
+    if inst.SetAnchorMax then inst:SetAnchorMax(0.5, 0.5) end
+    if inst.SetPivot then inst:SetPivot(0.5, 0.5) end
+    if inst.SetSizeDelta then inst:SetSizeDelta(d, d) end
+    if inst.SetAnchoredPosition then inst:SetAnchoredPosition(0, 0) end
+    local src = nil
+    pcall(function() src = inst.imageSource end)
+    if inst.SetImage then inst:SetImage(src, M.RING_IMAGE_ID) end
+    if inst.SetVisible then inst:SetVisible(false) end
+  end)
+  pcall(function() inst.raycastTarget = false end)
+  self._ring_inst[cell_id] = inst
+  return inst
+end
+
+-- 605: configure once, update fillAmount only; never replace a failed radial with a full circle.
+function Adapter:_paint_progress_ring(obj, amount, color)
+  self._progress_ring_state = self._progress_ring_state or setmetatable({}, {__mode="k"})
+  local states = self._progress_ring_state
+  local st = states[obj]
+  if st == nil then
+    st = {}; states[obj] = st
+    local ok, err = pcall(function()
+      obj:SetVisible(false)
+      local top = E("ImageFillRadialType.Top", nil)
+      local radial = E("ImageFillType.Radial360", nil)
+      local basic = E("ImageType.Basic", nil)
+      assert(top ~= nil and radial ~= nil and basic ~= nil, "missing image fill enum")
+      obj.imageType = basic
+      obj.enableMask = true
+      obj.reverseMaskArea = false
+      obj.enableSoftEdge = false
+      obj:SetFillRadial360(top, 0)
+      obj.fillType = radial
+      obj.fillRadialType = top
+      obj.fillAmount = 0
+      assert(obj.fillType == radial and obj.fillAmount == 0, "radial initialization readback mismatch")
+    end)
+    st.ready = ok
+    if not ok then self:warn_once("ring605:init", "环形填充初始化失败，已隐藏圆圈：" .. tostring(err)) end
+  end
+  if not st.ready then return false end
+  local ok, err = pcall(function()
+    if st.amount ~= amount then
+      obj.fillAmount = amount
+      assert(math.abs(obj.fillAmount - amount) < 0.0001, "fillAmount readback mismatch")
+      st.amount = amount
+    end
+    if st.color ~= color then obj.imageColor = color; st.color = color end
+    local visible = amount > 0
+    if st.visible ~= visible then obj:SetVisible(visible); st.visible = visible end
+  end)
+  if not ok then
+    st.ready = false
+    pcall(function() obj:SetVisible(false) end)
+    self:warn_once("ring605:update", "环形填充更新失败，已隐藏圆圈：" .. tostring(err))
+  end
+  return ok
+end
+
+function Adapter:set_verdict_ring(cell_id, ok, amount)
+  local obj = self:_ensure_cell_ring(cell_id)
+  if obj == nil then return nil end
+  local a = tonumber(amount) or 0
+  if a < 0 then a = 0 elseif a > 1 then a = 1 end
+  local col = ok and M.RING_GREEN or M.RING_RED
+  local used_fill = self:_paint_progress_ring(obj, a, col)
+  self._ring_used_fill = used_fill
+  return used_fill
+end
+
+function Adapter:_ensure_hold_ring(cell_id)
+  if cell_id == nil then return nil end
+  self._hold_ring_inst = self._hold_ring_inst or {}
+  local content = nil
+  pcall(function() content = self:sub(cell_id, "content") end)
+  if content == nil then pcall(function() content = self:find(cell_id) end) end
+  if content == nil then return nil end
+  local obj = self._hold_ring_inst[cell_id]
+  if obj ~= nil and obj ~= false then
+    -- 句柄是否还活着：能读到 name 就算活着
+    local alive = false
+    pcall(function() alive = (obj.name ~= nil) end)
+    if alive then return obj end
+    self._hold_ring_inst[cell_id] = nil
+  end
+  obj = nil
+  if content.GetChild ~= nil then
+    pcall(function() obj = content:GetChild("hold_ring") end)
+    if obj ~= nil then self._hold_ring_inst[cell_id] = obj; return obj end
+  end
+  local prefab = self:_face_prefab()
+  if prefab == nil or game == nil or game.InstantiateClientUIControl == nil then return nil end
+  local ok, inst = pcall(game.InstantiateClientUIControl, prefab, content)
+  if not ok or inst == nil then
+    self:warn_once("hold:inst", "长按圈实例化失败（prefab=" .. tostring(prefab) .. "）⇒ 本关不显示长按圈，其余逻辑继续")
+    return nil
+  end
+  pcall(function() inst.name = "hold_ring" end)
+  local cw, ch = self:_cell_size_of(nil, cell_id)
+  if cw == nil then cw, ch = 100, 100 end
+  local d = math.floor(math.min(cw, ch or cw) * 0.9 + 0.5)
+  pcall(function()
+    if inst.SetAnchorMin then inst:SetAnchorMin(0.5, 0.5) end
+    if inst.SetAnchorMax then inst:SetAnchorMax(0.5, 0.5) end
+    if inst.SetPivot then inst:SetPivot(0.5, 0.5) end
+    if inst.SetSizeDelta then inst:SetSizeDelta(d, d) end
+    if inst.SetAnchoredPosition then inst:SetAnchoredPosition(0, 0) end
+    local src = nil
+    pcall(function() src = inst.imageSource end)
+    if inst.SetImage then inst:SetImage(src, M.RING_IMAGE_ID) end
+    if inst.SetVisible then inst:SetVisible(false) end
+  end)
+  pcall(function() inst.raycastTarget = false end)
+  self._hold_ring_inst[cell_id] = inst
+  return inst
+end
+
+-- amount：0~1。ok=true 绿、false 红。返回是否真的用了环形填充（false = 走了透明度降级；nil = 没有控件）
+function Adapter:set_hold_ring(cell_id, amount)
+  if self._hold_active_cell == cell_id and self._hold_amount == amount then return self._hold_used_fill end
+  if self._hold_active_cell ~= cell_id then self:clear_hold_ring() end
+  local obj = self:_ensure_hold_ring(cell_id)
+  if obj == nil then return nil end
+  local a = tonumber(amount) or 0
+  if a < 0 then a = 0 elseif a > 1 then a = 1 end
+  local col = 0xFFF2C94C
+  local used_fill = self:_paint_progress_ring(obj, a, col)
+  self._hold_active_cell, self._hold_amount = cell_id, amount
+  self._hold_used_fill = used_fill
+  return used_fill
+end
+
+function Adapter:clear_hold_ring()
+  local id = self._hold_active_cell
+  if id == nil then return end
+  local obj = self._hold_ring_inst and self._hold_ring_inst[id]
+  self._hold_active_cell, self._hold_amount = nil, nil
+  if obj then
+    if self._progress_ring_state then self._progress_ring_state[obj] = nil end
+    pcall(function() if obj.SetVisible then obj:SetVisible(false) end end)
+    pcall(function() obj.imageColor = 0 end)
+  end
+end
+
+function Adapter:clear_verdict_rings()
+  self:clear_hold_ring()
+  for _, obj in pairs(self._ring_inst or {}) do
+    if obj and obj ~= false then
+      if self._progress_ring_state then self._progress_ring_state[obj] = nil end
+      -- Hiding must succeed independently of radial-fill support.
+      pcall(function() if obj.SetVisible then obj:SetVisible(false) end end)
+      pcall(function() obj.imageColor = 0 end)
+      pcall(function()
+        local top = E("ImageFillRadialType.Top", nil)
+        if obj.SetFillRadial360 and top then obj:SetFillRadial360(top, 0) end
+      end)
+    end
+  end
 end
 
 function Adapter:_apply_furn_level()
@@ -17464,6 +17821,114 @@ local function _furn_cfg_key(name)
   return k
 end
 
+-- 600: fixed archive layers; restore only on creation/resize or visibility invalidation.
+function Adapter:_prepare_furn_layer(cell_id, layer_name, cw, ch, force)
+  local layer = self:sub(cell_id, layer_name)
+  if layer == nil then return nil end
+  self._furn_layer_state = self._furn_layer_state or {}
+  local key = cell_id .. ":" .. layer_name
+  local old = self._furn_layer_state[key]
+  if force or old == nil or old.obj ~= layer or old.w ~= cw or old.h ~= ch then
+    if layer.SetAnchorMin then pcall(function() layer:SetAnchorMin(0.5, 0.5) end) end
+    if layer.SetAnchorMax then pcall(function() layer:SetAnchorMax(0.5, 0.5) end) end
+    if layer.SetPivot then pcall(function() layer:SetPivot(0.5, 0.5) end) end
+    if layer.SetSizeDelta then pcall(function() layer:SetSizeDelta(cw, ch) end) end
+    if layer.SetAnchoredPosition then pcall(function() layer:SetAnchoredPosition(0, 0) end) end
+    if layer.SetVisible then pcall(function() layer:SetVisible(true) end) end
+    if layer.SetActive then pcall(function() layer:SetActive(true) end) end
+    self._furn_layer_state[key] = {obj=layer, w=cw, h=ch}
+  end
+  return layer
+end
+
+-- 602: fixed archive floor slots and one intact rug per furniture piece.
+function Adapter:_floor_slot(id)
+  local r,c=id:match("^cell%.(%d+)%.(%d+)$")
+  if not r then return nil end
+  self._floor_slots=self._floor_slots or {}
+  local slot=self._floor_slots[id]
+  if slot then return slot end
+  slot=self:find("floor.cell."..r.."."..c)
+  if slot then self._floor_slots[id]=slot end
+  return slot
+end
+
+function Adapter:_fixed_floor_face(id,slot)
+  self._floor_faces=self._floor_faces or {}
+  local cached=self._floor_faces[id]
+  if cached and cached.slot==slot then return cached.face end
+  local face=slot:GetChild("face")
+  if face then self._floor_faces[id]={slot=slot,face=face} end
+  return face
+end
+
+function Adapter:_sync_floor(id,ctrl,show)
+  local slot=self:_floor_slot(id)
+  if not slot or not ctrl then return end
+  local x,y=ctrl:GetAnchoredPosition()
+  local w,h=ctrl:GetSizeDelta()
+  self._floor_layout=self._floor_layout or {}
+  local old=self._floor_layout[id]
+  local visible=show
+  if visible==nil then visible=old and old.show end
+  if visible==nil then visible=true end
+  local face=self:_fixed_floor_face(id,slot)
+  if not old or old.x~=x or old.y~=y or old.w~=w or old.h~=h then
+    slot:SetAnchoredPosition(x,y);slot:SetSizeDelta(w,h)
+  end
+  if face and (not old or old.face~=face or old.w~=w or old.h~=h) then
+    self:_fit_child_sized(face,w,h)
+  end
+  if not old or old.show~=visible or old.face~=face then
+    slot:SetVisible(visible)
+    if visible and slot.SetActive then slot:SetActive(true) end
+    if face then
+      face:SetVisible(visible)
+      if visible and face.SetActive then face:SetActive(true) end
+    end
+  end
+  self._floor_layout[id]={x=x,y=y,w=w,h=h,show=visible,face=face}
+end
+
+function Adapter:_spawn_whole_rug(cell_id,ctrl,ckey,prefab,cw,ch,span,off)
+  local parent=self:find("board.rugs")
+  if not parent then return false end
+  local gap=(self.cfg.cells or {}).gap or 4
+  local sr,sc=_num(span.r,1),_num(span.c,1)
+  local px,py=cw+gap,ch+gap
+  local x,y=ctrl:GetAnchoredPosition()
+  x=x+_num(off.dx,0)*px;y=y-_num(off.dy,0)*py
+  local w,h=cw+(sc-1)*px,ch+(sr-1)*py
+  local key=cell_id.."|"..ckey
+  local sig=table.concat({x,y,w,h},":")
+  self._furn_inst=self._furn_inst or {}
+  self._whole_rug_applied=self._whole_rug_applied or {}
+  local obj=self._furn_inst[key]
+  local old=self._whole_rug_applied[key]
+  local show=self._furn_level~=false
+  if obj and old and old.sig==sig and old.show==show then return true end
+  if not obj then
+    old=nil
+    local ok;ok,obj=pcall(game.InstantiateClientUIControl,prefab,parent)
+    if not ok or not obj then return false end
+    obj.name="rug."..cell_id
+    self._furn_inst[key]=obj
+  end
+  if not old or old.sig~=sig then
+    local cv=(self.cfg.furn_tpl_canvas or {})[ckey] or (ckey=="rug_2" and {216,108} or ckey=="rug_3" and {108,216} or {108,108})
+    local k=_num(self.cfg.furn_scale,1)*_num((self.cfg.furn_scale_by_kind or {})[ckey],1)
+    local ax=(self.cfg.furn_scale_axis_by_kind or {})[ckey]
+    local sx,sy=k,k
+    if ax then sx,sy=_num(ax.x,1),_num(ax.y,1) end
+    self:_furn_scale_layers(obj,w/cv[1]*sx,h/cv[2]*sy)
+    obj:SetAnchorMin(0.5,0.5);obj:SetAnchorMax(0.5,0.5);obj:SetPivot(0.5,0.5)
+    obj:SetSizeDelta(w,h);obj:SetAnchoredPosition(x,y)
+  end
+  obj:SetVisible(show);if obj.SetActive then obj:SetActive(show) end
+  self._whole_rug_applied[key]={sig=sig,show=show}
+  return true
+end
+
 function Adapter:_spawn_furn_tpl(cell_id, ctrl, name)
   if cell_id == nil or type(name) ~= "string" then return false end
   local cfg = self.cfg or {}
@@ -17505,6 +17970,11 @@ function Adapter:_spawn_furn_tpl(cell_id, ctrl, name)
   end
   local cw, ch = self:_cell_size_of(ctrl, cell_id)
   if cw == nil then return false end          -- 格子还没就绪，下一帧再来
+  if ckey=="rug" or ckey=="rug_2" or ckey=="rug_3" then
+    return self:_spawn_whole_rug(cell_id,ctrl,ckey,prefab,cw,ch,
+      (self._furn_span and self._furn_span[cell_id]) or {r=1,c=1},
+      (self._furn_off and self._furn_off[cell_id]) or {dx=0,dy=0})
+  end
 
   self._furn_inst = self._furn_inst or {}
   -- ★ v316：按 (cell, 模板键) 缓存 —— 同一格可以既有地毯又有家具
@@ -17567,11 +18037,13 @@ function Adapter:_spawn_furn_tpl(cell_id, ctrl, name)
     end
     self:_furn_scale_layers(target, fx, fy)
   end
+  local is_rug = ckey == "rug" or ckey == "rug_2" or ckey == "rug_3"
+  local fixed_parent = self:_prepare_furn_layer(cell_id, is_rug and "rug_layer" or "furn", cw, ch)
   if rescale then apply_scale(inst) end
   if inst == nil then
     -- ★ v315：新架构 content 里没有 `furn` 容器 ⇒ 直接挂 content；
     --   实例排在 face（index 0）之上、其余覆盖层（wall/note/portrait…）之下
-    local parent = self:sub(cell_id, "furn") or self:sub(cell_id, "content") or ctrl
+    local parent = fixed_parent or self:sub(cell_id, "content") or ctrl
     local ok, obj = pcall(game.InstantiateClientUIControl, prefab, parent)
     if not ok or obj == nil then
       self._furn_tpl_ok = false
@@ -17629,11 +18101,8 @@ function Adapter:_spawn_furn_tpl(cell_id, ctrl, name)
     }
     if inst.SetVisible then inst:SetVisible(self._furn_level ~= false) end
     if inst.SetActive then inst:SetActive(self._furn_level ~= false) end
-    -- ★ v315/v316：层级 = face(0) → 地毯(1) → 其它家具(2) → 墙/头像等覆盖层
-    if inst.SetSiblingIndex then
-      local idx = (ckey == "rug" or ckey == "rug_2" or ckey == "rug_3") and 1 or 2
-      pcall(function() inst:SetSiblingIndex(idx) end)
-    end
+    -- 599: fixed archive containers own furniture ordering.
+
   end)
   return true
 end
@@ -18333,7 +18802,7 @@ function Adapter:set_property(id, key, value, nkey)
     --   日志：「图层顺序：对 N 个格子排过层序，子控件成功置底 …」⇒ 子控件被重排过
     --   ⇒ hint 很可能被压到 face 下面 ⇒ 可见性开了、却被不透明 face 盖住 ✗
     if on then
-      if h.SetAsLastSibling then pcall(function() h:SetAsLastSibling() end) end
+      -- Fixed archive order; no runtime sibling mutation.
     end
     if on and h.SetActive then pcall(function() h:SetActive(true) end) end
     return true
@@ -18556,6 +19025,16 @@ function Adapter:set_property(id, key, value, nkey)
     end
 
   elseif key == "visible" then
+    if id == ((self.cfg.cells or {}).parent or "board") then
+      for _,name in ipairs({"board.floors","board.rugs"}) do
+        local layer=self:find(name)
+        if layer then
+          layer:SetVisible(value==true)
+          if value==true and layer.SetActive then layer:SetActive(true) end
+        end
+      end
+    end
+    if id:match("^cell%.%d+%.%d+$") then self:_sync_floor(id,ctrl,value==true) end
     -- ★★★★★ 2026-10-05 **要显示时，显式补一次 `SetActive(true)`** —— 社区知识给的强候选根因。
     --
     --   来源：作者仓库 `client/lua-runtime/docs/observed-contract.md:7`（**真机**）。
@@ -18645,7 +19124,10 @@ function Adapter:set_property(id, key, value, nkey)
             local k = kids[i]
             if k ~= nil then
               if k.SetVisible then pcall(function() k:SetVisible(false) end) end
-              hide_kids(k, depth + 1)
+              -- 600: hide fixed furniture layers as a unit; preserve primitive visibility.
+              local nm = nil
+              pcall(function() nm = k.name end)
+              if nm ~= "furn" and nm ~= "rug_layer" and nm ~= "board.floors" and nm ~= "board.rugs" then hide_kids(k, depth + 1) end
             end
           end
         end
@@ -18715,6 +19197,7 @@ function Adapter:set_property(id, key, value, nkey)
   elseif key == "rect" and self.apply_rect then
     if ctrl.SetAnchoredPosition then ctrl:SetAnchoredPosition(value.x, value.y) end
     if ctrl.SetSizeDelta then ctrl:SetSizeDelta(value.w, value.h) end
+    if id:match("^cell%.%d+%.%d+$") then self:_sync_floor(id,ctrl) end
 
   elseif key == "event" then
     -- 让增量渲染能把「同一条按钮换了事件」同步下来（配合 bind_input 的现查）
@@ -18862,6 +19345,7 @@ function Adapter:set_property(id, key, value, nkey)
     if ctrl.SetAnchoredPosition then
       pcall(function() ctrl:SetAnchoredPosition(cx - pcx, cy - pcy) end)
     end
+    if id:match("^cell%.%d+%.%d+$") then self:_sync_floor(id,ctrl) end
   elseif key == "style" then
     -- 语义化样式：只做最小可感知反馈；正式外观请在编辑器里配控件视觉状态
     --
@@ -19856,6 +20340,13 @@ end
 --      真正每帧都在跑的是 `on_tick` ⇒ 重放必须挂在它上面才作数。
 function Adapter:_repaint_cell_overlays(cell_id)
   if cell_id == nil then return end
+  -- Existing dirty-event path, not a new per-frame scan or sibling reorder.
+  if self._furn_level ~= false and self._furn_layer_state then
+    for _, name in ipairs({"rug_layer", "furn"}) do
+      local st = self._furn_layer_state[cell_id .. ":" .. name]
+      if st then self:_prepare_furn_layer(cell_id, name, st.w, st.h, true) end
+    end
+  end
   -- ① 门墙：重放"该亮哪些边"（记录在 `_apply_edges`）
   local w = self._edge_want
   if w ~= nil then
@@ -20674,6 +21165,9 @@ function Murdoku.start(level_id, opts)
     end
   end
 
+  -- Clear the outgoing controller before replacing the session.
+  if current and current.controller then current.controller:_clear_verdict() end
+  if adapter.clear_verdict_rings then adapter:clear_verdict_rings() end
   current = self
 
   -- ① 先试着由脚本自己打开容器的「显示常驻光标」（门控 ②）。
@@ -22310,6 +22804,7 @@ end
 
 function Murdoku.on_destroy()
   if not current then return end
+  current.controller:_clear_verdict()
   Murdoku.save_now()
   current = nil
 end

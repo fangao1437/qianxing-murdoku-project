@@ -545,6 +545,9 @@ function Murdoku.start(level_id, opts)
     end
   end
 
+  -- Clear the outgoing controller before replacing the session.
+  if current and current.controller then current.controller:_clear_verdict() end
+  if adapter.clear_verdict_rings then adapter:clear_verdict_rings() end
   current = self
 
   -- ① 先试着由脚本自己打开容器的「显示常驻光标」（门控 ②）。
@@ -2181,6 +2184,7 @@ end
 
 function Murdoku.on_destroy()
   if not current then return end
+  current.controller:_clear_verdict()
   Murdoku.save_now()
   current = nil
 end

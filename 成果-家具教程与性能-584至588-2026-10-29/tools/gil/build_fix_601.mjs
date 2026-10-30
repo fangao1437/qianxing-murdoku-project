@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {readGil} from './gilread.mjs';
+import {writeGil,findScriptLeaf} from './gilwrite.mjs';
+const [input,output,scriptPath]=process.argv.slice(2);
+if(!input||!output||!scriptPath||input===output||fs.existsSync(output))throw Error('invalid or existing output');
+const g=readGil(input),script=fs.readFileSync(scriptPath);
+if(!script.includes(Buffer.from('function Adapter:_spawn_rug_slices')))throw Error('missing 601 implementation');
+const f=findScriptLeaf(g).field;f.payload=script;f.len=script.length;
+const rep=writeGil(g,output,{label:'601 cell-local rug slices, fixed archive order',expectRecs:g.recs.length,expectDiffs:1,assert(t){return findScriptLeaf(t).buf.equals(script)||'script mismatch';}});
+console.log('601 verified records='+rep.g2.recs.length+'; only embedded script changed');
