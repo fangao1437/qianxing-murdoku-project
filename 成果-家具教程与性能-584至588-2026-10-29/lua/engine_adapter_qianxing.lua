@@ -4953,7 +4953,9 @@ function Adapter:_sync_floor(id,ctrl,show)
       if visible and face.SetActive then face:SetActive(true) end
     end
   end
-  self._floor_layout[id]={x=x,y=y,w=w,h=h,show=visible,face=face}
+  old=old or {}
+  old.x,old.y,old.w,old.h,old.show,old.face=x,y,w,h,visible,face
+  self._floor_layout[id]=old
 end
 
 function Adapter:_spawn_whole_rug(cell_id,ctrl,ckey,prefab,cw,ch,span,off)
@@ -4966,13 +4968,19 @@ function Adapter:_spawn_whole_rug(cell_id,ctrl,ckey,prefab,cw,ch,span,off)
   x=x+_num(off.dx,0)*px;y=y-_num(off.dy,0)*py
   local w,h=cw+(sc-1)*px,ch+(sr-1)*py
   local key=cell_id.."|"..ckey
-  local sig=table.concat({x,y,w,h},":")
   self._furn_inst=self._furn_inst or {}
   self._whole_rug_applied=self._whole_rug_applied or {}
   local obj=self._furn_inst[key]
   local old=self._whole_rug_applied[key]
   local show=self._furn_level~=false
-  if obj and old and old.sig==sig and old.show==show then return true end
+  -- Stable geometry avoids allocating a signature; changed values retain the
+  -- original string comparison, including Lua number-formatting precision.
+  local same_values=old and old.x==x and old.y==y and old.w==w and old.h==h
+  local sig=same_values and old.sig or table.concat({x,y,w,h},":")
+  if obj and old and old.sig==sig and old.show==show then
+    old.x,old.y,old.w,old.h=x,y,w,h
+    return true
+  end
   if not obj then
     old=nil
     local ok;ok,obj=pcall(game.InstantiateClientUIControl,prefab,parent)
@@ -4991,7 +4999,9 @@ function Adapter:_spawn_whole_rug(cell_id,ctrl,ckey,prefab,cw,ch,span,off)
     obj:SetSizeDelta(w,h);obj:SetAnchoredPosition(x,y)
   end
   obj:SetVisible(show);if obj.SetActive then obj:SetActive(show) end
-  self._whole_rug_applied[key]={sig=sig,show=show}
+  old=old or {}
+  old.sig,old.show,old.x,old.y,old.w,old.h=sig,show,x,y,w,h
+  self._whole_rug_applied[key]=old
   return true
 end
 

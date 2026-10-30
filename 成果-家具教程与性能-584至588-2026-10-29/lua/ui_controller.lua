@@ -571,16 +571,34 @@ end
 M.VERDICT_RING_SECONDS = 0.4
 M.VERDICT_RING_GAP     = 0.15
 
-function Controller:_placement_sig()
+-- 提交时复制值，避免持有会被放置/撤销原地修改的 pos 表。
+function Controller:_placement_snapshot()
+  local snapshot = {}
   local core = self.core
-  if core == nil or core.pieces == nil then return "" end
-  local parts = {}
+  if core == nil or core.pieces == nil then return snapshot end
   for i = 1, #core.pieces do
     local id = core.pieces[i].id
     local p = core.pos and core.pos[id]
-    parts[#parts + 1] = tostring(id) .. ":" .. (p and (tostring(p.r) .. "," .. tostring(p.c)) or "-")
+    snapshot[i] = { id = id, placed = not not p, r = p and p.r, c = p and p.c }
   end
-  return table.concat(parts, "|")
+  return snapshot
+end
+
+function Controller:_placement_matches(snapshot)
+  local core = self.core
+  local pieces = core and core.pieces
+  if pieces == nil then return #snapshot == 0 end
+  if #pieces ~= #snapshot then return false end
+  for i = 1, #pieces do
+    local saved = snapshot[i]
+    local id = pieces[i].id
+    local p = core.pos and core.pos[id]
+    if id ~= saved.id or (not not p) ~= saved.placed
+        or (p and p.r) ~= saved.r or (p and p.c) ~= saved.c then
+      return false
+    end
+  end
+  return true
 end
 
 -- 开始一轮判定；返回摆错的个数，没有 `solution` 返回 nil
@@ -601,7 +619,7 @@ function Controller:_start_verdict()
   if #list == 0 then return nil end
   self:_clear_verdict()
   self._verdict = {
-    list = list, wrong = wrong, t0 = self.now or 0, sig = self:_placement_sig(),
+    list = list, wrong = wrong, t0 = self.now or 0, snapshot = self:_placement_snapshot(),
     level = core.level and core.level.id, done = false, last = {},
   }
   return wrong
@@ -621,16 +639,19 @@ function Controller:_verdict_step()
   if v == nil then return end
   local core = self.core
   local lv = core and core.level and core.level.id
-  if core == nil or self.screen ~= nil or lv ~= v.level or self:_placement_sig() ~= v.sig then
+  if core == nil or self.screen ~= nil or lv ~= v.level or not self:_placement_matches(v.snapshot) then
     self:_clear_verdict()
     return
   end
+  if v.done and v.animation_complete then return end
   local el = (self.now or 0) - v.t0
   local dur, gap = M.VERDICT_RING_SECONDS, M.VERDICT_RING_GAP
   local ad = self._last_adapter
+  local animation_complete = true
   for i = 1, #v.list do
     local a = (el - (i - 1) * (dur + gap)) / dur
     if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    if a < 1 then animation_complete = false end
     if v.last[i] ~= a then
       v.last[i] = a
       if ad ~= nil and ad.set_verdict_ring ~= nil then
@@ -638,6 +659,7 @@ function Controller:_verdict_step()
       end
     end
   end
+  v.animation_complete = animation_complete
   if not v.done and el >= (#v.list - 1) * (dur + gap) + dur then
     v.done = true
     if v.wrong == 0 then self:_settle_by_roles() end
