@@ -573,13 +573,16 @@ M.VERDICT_RING_GAP     = 0.15
 
 -- 提交时复制值，避免持有会被放置/撤销原地修改的 pos 表。
 function Controller:_placement_snapshot()
-  local snapshot = {}
   local core = self.core
-  if core == nil or core.pieces == nil then return snapshot end
-  for i = 1, #core.pieces do
-    local id = core.pieces[i].id
+  local pieces = core and core.pieces
+  local snapshot = { n = pieces and #pieces or 0 }
+  -- Four slots per piece; explicit count preserves nil ids/coordinates.
+  for i = 1, snapshot.n do
+    local id = pieces[i].id
     local p = core.pos and core.pos[id]
-    snapshot[i] = { id = id, placed = not not p, r = p and p.r, c = p and p.c }
+    local k = (i - 1) * 4
+    snapshot[k + 1], snapshot[k + 2] = id, not not p
+    snapshot[k + 3], snapshot[k + 4] = p and p.r, p and p.c
   end
   return snapshot
 end
@@ -587,14 +590,14 @@ end
 function Controller:_placement_matches(snapshot)
   local core = self.core
   local pieces = core and core.pieces
-  if pieces == nil then return #snapshot == 0 end
-  if #pieces ~= #snapshot then return false end
+  if pieces == nil then return snapshot.n == 0 end
+  if #pieces ~= snapshot.n then return false end
   for i = 1, #pieces do
-    local saved = snapshot[i]
+    local k = (i - 1) * 4
     local id = pieces[i].id
     local p = core.pos and core.pos[id]
-    if id ~= saved.id or (not not p) ~= saved.placed
-        or (p and p.r) ~= saved.r or (p and p.c) ~= saved.c then
+    if id ~= snapshot[k + 1] or (not not p) ~= snapshot[k + 2]
+        or (p and p.r) ~= snapshot[k + 3] or (p and p.c) ~= snapshot[k + 4] then
       return false
     end
   end
