@@ -17541,7 +17541,12 @@ function Adapter:_ensure_cell_ring(cell_id)
   obj = nil
   if content.GetChild ~= nil then
     pcall(function() obj = content:GetChild("verdict_ring") end)
-    if obj ~= nil then self._ring_inst[cell_id] = obj; return obj end
+    if obj ~= nil then
+      self._ring_inst[cell_id] = obj
+      self._ring_active = self._ring_active or {}
+      self._ring_active[obj] = true
+      return obj
+    end
   end
   local prefab = self:_face_prefab()
   if prefab == nil or game == nil or game.InstantiateClientUIControl == nil then return nil end
@@ -17594,7 +17599,20 @@ function Adapter:_paint_progress_ring(obj, amount, color)
       assert(obj.fillType == radial and obj.fillAmount == 0, "radial initialization readback mismatch")
     end)
     st.ready = ok
+    if ok then st.radial = E("ImageFillType.Radial360", nil) end
     if not ok then self:warn_once("ring605:init", "环形填充初始化失败，已隐藏圆圈：" .. tostring(err)) end
+  elseif st.ready and st.amount == nil then
+    -- First paint after a clear: keep the verified configuration, but re-check the
+    -- fill type; a mismatch falls back to full initialization.
+    local same = false
+    pcall(function() same = (st.radial ~= nil and obj.fillType == st.radial
+      and obj.imageType == E("ImageType.Basic", nil)
+      and obj.enableMask == true and obj.reverseMaskArea == false
+      and obj.enableSoftEdge == false and obj.fillRadialType == E("ImageFillRadialType.Top", nil)) end)
+    if not same then
+      states[obj] = nil
+      return self:_paint_progress_ring(obj, amount, color)
+    end
   end
   if not st.ready then return false end
   local ok, err = pcall(function()
@@ -17622,6 +17640,8 @@ function Adapter:set_verdict_ring(cell_id, ok, amount)
   if a < 0 then a = 0 elseif a > 1 then a = 1 end
   local col = ok and M.RING_GREEN or M.RING_RED
   local used_fill = self:_paint_progress_ring(obj, a, col)
+  self._ring_active = self._ring_active or {}
+  self._ring_active[obj] = true
   self._ring_used_fill = used_fill
   return used_fill
 end
@@ -17694,24 +17714,41 @@ function Adapter:clear_hold_ring()
   local obj = self._hold_ring_inst and self._hold_ring_inst[id]
   self._hold_active_cell, self._hold_amount = nil, nil
   if obj then
-    if self._progress_ring_state then self._progress_ring_state[obj] = nil end
+    self:_reset_ring_state(obj)
     pcall(function() if obj.SetVisible then obj:SetVisible(false) end end)
     pcall(function() obj.imageColor = 0 end)
   end
 end
 
+-- After a clear the controls are hidden with color 0. A successfully configured
+-- ring keeps its configuration (re-verified on next paint); failed ones are
+-- dropped so they are retried from scratch.
+function Adapter:_reset_ring_state(obj)
+  local states = self._progress_ring_state
+  if not states then return end
+  local st = states[obj]
+  if st == nil then return end
+  if st.ready then
+    st.amount, st.color, st.visible = nil, nil, nil
+  else
+    states[obj] = nil
+  end
+end
+
 function Adapter:clear_verdict_rings()
   self:clear_hold_ring()
-  for _, obj in pairs(self._ring_inst or {}) do
+  local active = self._ring_active
+  for obj in pairs(active or {}) do
     if obj and obj ~= false then
-      if self._progress_ring_state then self._progress_ring_state[obj] = nil end
-      -- Hiding must succeed independently of radial-fill support.
-      pcall(function() if obj.SetVisible then obj:SetVisible(false) end end)
-      pcall(function() obj.imageColor = 0 end)
-      pcall(function()
+      self:_reset_ring_state(obj)
+      -- Failed cleanup remains active for the next clear attempt.
+      local hidden = pcall(function() if obj.SetVisible then obj:SetVisible(false) end end)
+      local colored = pcall(function() obj.imageColor = 0 end)
+      local reset = pcall(function()
         local top = E("ImageFillRadialType.Top", nil)
         if obj.SetFillRadial360 and top then obj:SetFillRadial360(top, 0) end
       end)
+      if hidden and colored and reset then active[obj] = nil end
     end
   end
 end
