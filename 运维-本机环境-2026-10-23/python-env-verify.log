@@ -1,0 +1,111 @@
+==============================================================
+Python 环境验证
+==============================================================
+sys.executable : C:\Users\18182\AppData\Local\Programs\Python\Python313\python.exe
+sys.version    : 3.13.15
+platform       : win32 / nt
+
+[1] 模块导入检查
+  OK   numpy
+  OK   pandas
+  OK   scipy
+  OK   matplotlib
+  OK   openpyxl
+  OK   xlsxwriter
+  OK   xlrd
+  OK   docx
+  OK   pptx
+  OK   pypdf
+  OK   reportlab
+  OK   pdfplumber
+  OK   pdfminer
+  OK   PIL
+  OK   lxml
+  OK   requests
+  OK   httpx
+  OK   bs4
+  OK   yaml
+  OK   dotenv
+  OK   rich
+  OK   tqdm
+  OK   loguru
+  OK   cryptography
+  OK   pytest
+  OK   IPython
+  OK   jupyterlab
+  OK   jupyter_client
+  OK   PyInstaller
+  OK   virtualenv
+  OK   pipx
+  OK   setuptools
+  OK   wheel
+  OK   tkinter
+  OK   venv
+  OK   ssl
+  OK   sqlite3
+  OK   zlib
+
+[2] 已安装版本
+  Python             3.13.15
+  pip                26.2.2
+  setuptools         84.2.1
+  wheel              0.48.0
+  virtualenv         21.14.12
+  pipx               1.18.4
+  pytest             9.1.1
+  ruff               0.17.1
+  numpy              2.5.4
+  pandas             3.1.0
+  scipy              1.18.1
+  matplotlib         3.11.2
+  openpyxl           3.1.5
+  xlsxwriter         3.3.0
+  xlrd               2.0.2
+  python-docx        1.2.0
+  python-pptx        1.0.2
+  pypdf              6.21.2
+  reportlab          5.1.0
+  pdfplumber         0.11.10
+  pillow             13.0.0
+  lxml               6.1.3
+  requests           2.34.2
+  httpx              0.28.1
+  beautifulsoup4     4.15.0
+  pyyaml             6.0.3
+  python-dotenv      1.2.4
+  rich               15.0.0
+  tqdm               4.70.1
+  loguru             0.7.3
+  cryptography       50.0.2
+  ipython            9.17.1
+  jupyterlab         4.6.4
+  pyinstaller        6.22.3
+  typing_extensions  4.16.0
+
+[3] 功能实测
+  OK   python-docx 生成 Word
+  OK   openpyxl 生成 Excel
+  OK   XlsxWriter 生成 Excel
+  OK   python-pptx 生成 PPT
+  OK   reportlab+pypdf 生成/读取 PDF
+  OK   pdfplumber 读取 PDF
+  OK   Pillow 图片处理
+  OK   matplotlib 绘图
+  OK   numpy+pandas 计算
+  OK   scipy 数值积分
+  OK   requests 联网
+  OK   httpx 联网
+  OK   beautifulsoup4 解析
+  OK   pyyaml 读写
+  OK   lxml 解析
+  OK   cryptography 加解密
+  OK   tkinter GUI
+  OK   sqlite3 数据库
+  OK   venv 标准库
+  OK   pytest 运行
+  OK   ruff 运行
+
+==============================================================
+模块导入: 38/38 通过
+功能实测: 21/21 通过
+RESULT: ALL PASS
