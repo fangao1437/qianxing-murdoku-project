@@ -1,0 +1,8347 @@
+{
+  "date": "2026-11-04",
+  "scope": "磁盘存档哈希和逐记录差异；不等同于真机视觉验收",
+  "versions": [
+    {
+      "version": "615",
+      "file": "正式版615.gil",
+      "bytes": 5322186,
+      "sha256": "c7a02eecd7a430ba848aed2f59fed1e679c2e15d4760c9685d3af91af3de98f2",
+      "records": 4630,
+      "scriptSha256": "209a9f4568a4a50f93eefe8e2040f4b9e06de645712c5799fbc26a1603ebbc2f",
+      "scriptMatchesCurrentDist": false,
+      "previous": null,
+      "changedRecords": [],
+      "addedRecords": [],
+      "removedRecords": []
+    },
+    {
+      "version": "616",
+      "file": "正式版616.gil",
+      "bytes": 5322707,
+      "sha256": "cf9a1a34ba226c8e098c7276db7c718996d670ab3be3f34287ec216a1678d930",
+      "records": 4630,
+      "scriptSha256": "209a9f4568a4a50f93eefe8e2040f4b9e06de645712c5799fbc26a1603ebbc2f",
+      "scriptMatchesCurrentDist": false,
+      "previous": "615",
+      "changedRecords": [
+        {
+          "id": 1073742539,
+          "name": "who.1.1"
+        },
+        {
+          "id": 1073742493,
+          "name": "what.1.1"
+        },
+        {
+          "id": 1073742543,
+          "name": "who.1.2"
+        },
+        {
+          "id": 1073742545,
+          "name": "what.1.2"
+        },
+        {
+          "id": 1073742548,
+          "name": "who.1.3"
+        },
+        {
+          "id": 1073742550,
+          "name": "what.1.3"
+        },
+        {
+          "id": 1073742553,
+          "name": "who.1.4"
+        },
+        {
+          "id": 1073742675,
+          "name": "what.1.4"
+        },
+        {
+          "id": 1073742558,
+          "name": "who.1.5"
+        },
+        {
+          "id": 1073742560,
+          "name": "what.1.5"
+        },
+        {
+          "id": 1073742797,
+          "name": "clue.2.1"
+        },
+        {
+          "id": 1073742563,
+          "name": "who.2.1"
+        },
+        {
+          "id": 1073742565,
+          "name": "what.2.1"
+        },
+        {
+          "id": 1073742568,
+          "name": "who.2.2"
+        },
+        {
+          "id": 1073742570,
+          "name": "what.2.2"
+        },
+        {
+          "id": 1073742573,
+          "name": "who.2.3"
+        },
+        {
+          "id": 1073742575,
+          "name": "what.2.3"
+        },
+        {
+          "id": 1073742578,
+          "name": "who.2.4"
+        },
+        {
+          "id": 1073742580,
+          "name": "what.2.4"
+        },
+        {
+          "id": 1073742583,
+          "name": "who.2.5"
+        },
+        {
+          "id": 1073742585,
+          "name": "what.2.5"
+        },
+        {
+          "id": 1073742799,
+          "name": "who.2.6"
+        },
+        {
+          "id": 1073742801,
+          "name": "what.2.6"
+        }
+      ],
+      "addedRecords": [],
+      "removedRecords": []
+    },
+    {
+      "version": "617_v3",
+      "file": "正式版617_v3.gil",
+      "bytes": 5350583,
+      "sha256": "c72a8cf8e0873317683d4bc43301c06c452ae58574d9dd107b3153dfcfee26ff",
+      "records": 4662,
+      "scriptSha256": "323142b04c9b4cb88bbe5991a30f241711f6098dbefa8c36b246a6092a7d0344",
+      "scriptMatchesCurrentDist": false,
+      "previous": "616",
+      "changedRecords": [
+        {
+          "id": 1073741846,
+          "name": "root"
+        },
+        {
+          "id": 1073742359,
+          "name": "clues"
+        },
+        {
+          "id": 1073752124,
+          "name": "td.home.page.1"
+        },
+        {
+          "id": 1073752280,
+          "name": "td.l1.page.1"
+        },
+        {
+          "id": 1073753090,
+          "name": "td.l1.page.7"
+        },
+        {
+          "id": 1073753420,
+          "name": "td.l2.page.1"
+        },
+        {
+          "id": 1073753542,
+          "name": "td.l2.page.2"
+        },
+        {
+          "id": 1073753675,
+          "name": "td.l2.page.3"
+        },
+        {
+          "id": 1073753802,
+          "name": "td.l2.page.4"
+        },
+        {
+          "id": 1073752220,
+          "name": "td.home.page.1.rule.3.body.0.0"
+        },
+        {
+          "id": 1073752221,
+          "name": "td.home.page.1.rule.3.body.0.1"
+        },
+        {
+          "id": 1073752222,
+          "name": "td.home.page.1.rule.3.body.1.0"
+        },
+        {
+          "id": 1073752223,
+          "name": "td.home.page.1.rule.3.body.2.0"
+        },
+        {
+          "id": 1073752224,
+          "name": "td.home.page.1.rule.3.body.2.1"
+        },
+        {
+          "id": 1073752514,
+          "name": "td.l1.page.2.body.0.0"
+        },
+        {
+          "id": 1073752523,
+          "name": "td.l1.page.2.notet"
+        },
+        {
+          "id": 1073752791,
+          "name": "td.l1.page.4.body.0.0"
+        },
+        {
+          "id": 1073753069,
+          "name": "td.l1.page.6.body.0.0"
+        },
+        {
+          "id": 1073753234,
+          "name": "td.l1.page.7.cluesay.0"
+        },
+        {
+          "id": 1073753235,
+          "name": "td.l1.page.7.cluesay.1"
+        },
+        {
+          "id": 1073753236,
+          "name": "td.l1.page.7.cluesay.2"
+        },
+        {
+          "id": 1073753422,
+          "name": "td.l2.page.1.title"
+        },
+        {
+          "id": 1073753522,
+          "name": "td.l2.page.1.heading"
+        },
+        {
+          "id": 1073753523,
+          "name": "td.l2.page.1.body.0.0"
+        },
+        {
+          "id": 1073753524,
+          "name": "td.l2.page.1.body.1.0"
+        },
+        {
+          "id": 1073753525,
+          "name": "td.l2.page.1.body.2.0"
+        },
+        {
+          "id": 1073753526,
+          "name": "td.l2.page.1.body.2.1"
+        },
+        {
+          "id": 1073753527,
+          "name": "td.l2.page.1.body.3.0"
+        },
+        {
+          "id": 1073753532,
+          "name": "td.l2.page.1.chipt.0"
+        },
+        {
+          "id": 1073753534,
+          "name": "td.l2.page.1.chipt.1"
+        },
+        {
+          "id": 1073753536,
+          "name": "td.l2.page.1.chipt.2"
+        },
+        {
+          "id": 1073753544,
+          "name": "td.l2.page.2.title"
+        },
+        {
+          "id": 1073753653,
+          "name": "td.l2.page.2.heading"
+        },
+        {
+          "id": 1073753654,
+          "name": "td.l2.page.2.body.0.0"
+        },
+        {
+          "id": 1073753655,
+          "name": "td.l2.page.2.body.0.1"
+        },
+        {
+          "id": 1073753656,
+          "name": "td.l2.page.2.body.0.2"
+        },
+        {
+          "id": 1073753657,
+          "name": "td.l2.page.2.body.1.0"
+        },
+        {
+          "id": 1073753658,
+          "name": "td.l2.page.2.body.2.0"
+        },
+        {
+          "id": 1073753663,
+          "name": "td.l2.page.2.chipt.0"
+        },
+        {
+          "id": 1073753665,
+          "name": "td.l2.page.2.chipt.1"
+        },
+        {
+          "id": 1073753667,
+          "name": "td.l2.page.2.chipt.2"
+        },
+        {
+          "id": 1073753677,
+          "name": "td.l2.page.3.title"
+        },
+        {
+          "id": 1073753782,
+          "name": "td.l2.page.3.heading"
+        },
+        {
+          "id": 1073753783,
+          "name": "td.l2.page.3.body.0.0"
+        },
+        {
+          "id": 1073753784,
+          "name": "td.l2.page.3.body.1.0"
+        },
+        {
+          "id": 1073753785,
+          "name": "td.l2.page.3.body.2.0"
+        },
+        {
+          "id": 1073753786,
+          "name": "td.l2.page.3.body.2.1"
+        },
+        {
+          "id": 1073753787,
+          "name": "td.l2.page.3.body.2.2"
+        },
+        {
+          "id": 1073753799,
+          "name": "td.l2.page.3.cluesay.0"
+        },
+        {
+          "id": 1073753800,
+          "name": "td.l2.page.3.cluesay.1"
+        },
+        {
+          "id": 1073753801,
+          "name": "td.l2.page.3.cluesay.2"
+        },
+        {
+          "id": 1073753804,
+          "name": "td.l2.page.4.title"
+        },
+        {
+          "id": 1073754307,
+          "name": "td.l2.page.4.ico.submit"
+        },
+        {
+          "id": 1073754306,
+          "name": "td.l2.page.4.ico.submit.bg"
+        },
+        {
+          "id": 1073753914,
+          "name": "td.l2.page.4.heading"
+        },
+        {
+          "id": 1073753915,
+          "name": "td.l2.page.4.body.0.0"
+        },
+        {
+          "id": 1073754308,
+          "name": "td.l2.page.4.ico.submit.t"
+        },
+        {
+          "id": 1073754305,
+          "name": "td.l2.page.4.body.x7"
+        },
+        {
+          "id": 1073754304,
+          "name": "td.l2.page.4.body.x6"
+        },
+        {
+          "id": 1073754303,
+          "name": "td.l2.page.4.body.x5"
+        },
+        {
+          "id": 1073754302,
+          "name": "td.l2.page.4.body.x4"
+        },
+        {
+          "id": 1073753916,
+          "name": "td.l2.page.4.body.1.0"
+        },
+        {
+          "id": 1073753917,
+          "name": "td.l2.page.4.body.1.1"
+        },
+        {
+          "id": 1073753918,
+          "name": "td.l2.page.4.body.2.0"
+        },
+        {
+          "id": 1073753923,
+          "name": "td.l2.page.4.chipt.0"
+        },
+        {
+          "id": 1073753925,
+          "name": "td.l2.page.4.chipt.1"
+        },
+        {
+          "id": 1073753927,
+          "name": "td.l2.page.4.chipt.2"
+        },
+        {
+          "id": 1073753932,
+          "name": "td.l2.page.4.clueface"
+        },
+        {
+          "id": 1073753933,
+          "name": "td.l2.page.4.cluename"
+        },
+        {
+          "id": 1073753934,
+          "name": "td.l2.page.4.cluesay.0"
+        },
+        {
+          "id": 1073753935,
+          "name": "td.l2.page.4.cluesay.1"
+        },
+        {
+          "id": 1073753936,
+          "name": "td.l2.page.4.cluesay.2"
+        }
+      ],
+      "addedRecords": [
+        {
+          "id": 1073754497,
+          "name": "help617"
+        },
+        {
+          "id": 1073754498,
+          "name": "help617.bg"
+        },
+        {
+          "id": 1073754496,
+          "name": "clues.help617"
+        },
+        {
+          "id": 1073754501,
+          "name": "help617.close"
+        },
+        {
+          "id": 1073754500,
+          "name": "help617.body"
+        },
+        {
+          "id": 1073754499,
+          "name": "help617.title"
+        },
+        {
+          "id": 1073754495,
+          "name": "td.l2.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754494,
+          "name": "td.l2.page.1.furniture617.0"
+        },
+        {
+          "id": 1073754493,
+          "name": "td.l1.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754492,
+          "name": "td.l1.page.1.furniture617.0"
+        },
+        {
+          "id": 1073754491,
+          "name": "td.l1.page.7.rule617.1"
+        },
+        {
+          "id": 1073754490,
+          "name": "td.l1.page.7.rule617.0"
+        },
+        {
+          "id": 1073754489,
+          "name": "td.l2.page.4.rewrite617.3"
+        },
+        {
+          "id": 1073754488,
+          "name": "td.l2.page.4.rewrite617.2"
+        },
+        {
+          "id": 1073754487,
+          "name": "td.l2.page.4.rewrite617.1"
+        },
+        {
+          "id": 1073754486,
+          "name": "td.l2.page.4.rewrite617.0"
+        },
+        {
+          "id": 1073754485,
+          "name": "td.l2.page.3.rewrite617.3"
+        },
+        {
+          "id": 1073754484,
+          "name": "td.l2.page.3.rewrite617.2"
+        },
+        {
+          "id": 1073754483,
+          "name": "td.l2.page.3.rewrite617.1"
+        },
+        {
+          "id": 1073754482,
+          "name": "td.l2.page.3.rewrite617.0"
+        },
+        {
+          "id": 1073754481,
+          "name": "td.l2.page.2.rewrite617.3"
+        },
+        {
+          "id": 1073754480,
+          "name": "td.l2.page.2.rewrite617.2"
+        },
+        {
+          "id": 1073754479,
+          "name": "td.l2.page.2.rewrite617.1"
+        },
+        {
+          "id": 1073754478,
+          "name": "td.l2.page.2.rewrite617.0"
+        },
+        {
+          "id": 1073754477,
+          "name": "td.l2.page.1.rewrite617.3"
+        },
+        {
+          "id": 1073754476,
+          "name": "td.l2.page.1.rewrite617.2"
+        },
+        {
+          "id": 1073754475,
+          "name": "td.l2.page.1.rewrite617.1"
+        },
+        {
+          "id": 1073754474,
+          "name": "td.l2.page.1.rewrite617.0"
+        },
+        {
+          "id": 1073754473,
+          "name": "td.home.page.1.furniture617.3"
+        },
+        {
+          "id": 1073754472,
+          "name": "td.home.page.1.furniture617.2"
+        },
+        {
+          "id": 1073754471,
+          "name": "td.home.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754470,
+          "name": "td.home.page.1.furniture617.0"
+        }
+      ],
+      "removedRecords": []
+    },
+    {
+      "version": "618",
+      "file": "正式版618.gil",
+      "bytes": 5350638,
+      "sha256": "678db2c3b4719045fdae88159f9a9f9b34a3a3e8f38fdd91a521c720ccab01c0",
+      "records": 4662,
+      "scriptSha256": "323142b04c9b4cb88bbe5991a30f241711f6098dbefa8c36b246a6092a7d0344",
+      "scriptMatchesCurrentDist": false,
+      "previous": "617_v3",
+      "changedRecords": [
+        {
+          "id": 1073754496,
+          "name": "clues.help617"
+        }
+      ],
+      "addedRecords": [],
+      "removedRecords": []
+    },
+    {
+      "version": "619_修正版",
+      "file": "正式版619_修正版.gil",
+      "bytes": 5356459,
+      "sha256": "258cb3fa8c41f60d102b91bc7d3525910d27d99dc82f16a78b711d17bf0d71ba",
+      "records": 4668,
+      "scriptSha256": "450f5583a995168b1da6841310eac5d568e43ac9e3fb64af6c95aa0b5d4a7b40",
+      "scriptMatchesCurrentDist": false,
+      "previous": "618",
+      "changedRecords": [
+        {
+          "id": 1073741846,
+          "name": "root"
+        },
+        {
+          "id": 1073752124,
+          "name": "td.home.page.1"
+        },
+        {
+          "id": 1073752280,
+          "name": "td.l1.page.1"
+        },
+        {
+          "id": 1073753420,
+          "name": "td.l2.page.1"
+        },
+        {
+          "id": 1073752142,
+          "name": "td.home.page.1.svg.59"
+        },
+        {
+          "id": 1073752143,
+          "name": "td.home.page.1.svg.60"
+        },
+        {
+          "id": 1073752144,
+          "name": "td.home.page.1.svg.61"
+        },
+        {
+          "id": 1073752145,
+          "name": "td.home.page.1.svg.62"
+        },
+        {
+          "id": 1073752146,
+          "name": "td.home.page.1.svg.63"
+        },
+        {
+          "id": 1073752147,
+          "name": "td.home.page.1.svg.64"
+        },
+        {
+          "id": 1073752148,
+          "name": "td.home.page.1.svg.65"
+        },
+        {
+          "id": 1073752149,
+          "name": "td.home.page.1.svg.66"
+        },
+        {
+          "id": 1073752150,
+          "name": "td.home.page.1.svg.67"
+        },
+        {
+          "id": 1073752151,
+          "name": "td.home.page.1.svg.68"
+        },
+        {
+          "id": 1073754496,
+          "name": "clues.help617"
+        },
+        {
+          "id": 1073752333,
+          "name": "td.l1.page.1.svg.43"
+        },
+        {
+          "id": 1073752334,
+          "name": "td.l1.page.1.svg.44"
+        },
+        {
+          "id": 1073752335,
+          "name": "td.l1.page.1.svg.45"
+        },
+        {
+          "id": 1073752336,
+          "name": "td.l1.page.1.svg.46"
+        },
+        {
+          "id": 1073752337,
+          "name": "td.l1.page.1.svg.47"
+        },
+        {
+          "id": 1073752338,
+          "name": "td.l1.page.1.svg.48"
+        },
+        {
+          "id": 1073752339,
+          "name": "td.l1.page.1.svg.49"
+        },
+        {
+          "id": 1073752340,
+          "name": "td.l1.page.1.svg.50"
+        },
+        {
+          "id": 1073752341,
+          "name": "td.l1.page.1.svg.51"
+        },
+        {
+          "id": 1073752342,
+          "name": "td.l1.page.1.svg.52"
+        },
+        {
+          "id": 1073752458,
+          "name": "td.l1.page.2.svg.44"
+        },
+        {
+          "id": 1073752459,
+          "name": "td.l1.page.2.svg.45"
+        },
+        {
+          "id": 1073752460,
+          "name": "td.l1.page.2.svg.46"
+        },
+        {
+          "id": 1073752461,
+          "name": "td.l1.page.2.svg.47"
+        },
+        {
+          "id": 1073752462,
+          "name": "td.l1.page.2.svg.48"
+        },
+        {
+          "id": 1073752463,
+          "name": "td.l1.page.2.svg.49"
+        },
+        {
+          "id": 1073752464,
+          "name": "td.l1.page.2.svg.50"
+        },
+        {
+          "id": 1073752465,
+          "name": "td.l1.page.2.svg.51"
+        },
+        {
+          "id": 1073752466,
+          "name": "td.l1.page.2.svg.52"
+        },
+        {
+          "id": 1073752467,
+          "name": "td.l1.page.2.svg.53"
+        },
+        {
+          "id": 1073752588,
+          "name": "td.l1.page.3.svg.45"
+        },
+        {
+          "id": 1073752589,
+          "name": "td.l1.page.3.svg.46"
+        },
+        {
+          "id": 1073752590,
+          "name": "td.l1.page.3.svg.47"
+        },
+        {
+          "id": 1073752591,
+          "name": "td.l1.page.3.svg.48"
+        },
+        {
+          "id": 1073752592,
+          "name": "td.l1.page.3.svg.49"
+        },
+        {
+          "id": 1073752593,
+          "name": "td.l1.page.3.svg.50"
+        },
+        {
+          "id": 1073752594,
+          "name": "td.l1.page.3.svg.51"
+        },
+        {
+          "id": 1073752595,
+          "name": "td.l1.page.3.svg.52"
+        },
+        {
+          "id": 1073752596,
+          "name": "td.l1.page.3.svg.53"
+        },
+        {
+          "id": 1073752597,
+          "name": "td.l1.page.3.svg.54"
+        },
+        {
+          "id": 1073752727,
+          "name": "td.l1.page.4.svg.47"
+        },
+        {
+          "id": 1073752728,
+          "name": "td.l1.page.4.svg.48"
+        },
+        {
+          "id": 1073752729,
+          "name": "td.l1.page.4.svg.49"
+        },
+        {
+          "id": 1073752730,
+          "name": "td.l1.page.4.svg.50"
+        },
+        {
+          "id": 1073752731,
+          "name": "td.l1.page.4.svg.51"
+        },
+        {
+          "id": 1073752732,
+          "name": "td.l1.page.4.svg.52"
+        },
+        {
+          "id": 1073752733,
+          "name": "td.l1.page.4.svg.53"
+        },
+        {
+          "id": 1073752734,
+          "name": "td.l1.page.4.svg.54"
+        },
+        {
+          "id": 1073752735,
+          "name": "td.l1.page.4.svg.55"
+        },
+        {
+          "id": 1073752736,
+          "name": "td.l1.page.4.svg.56"
+        },
+        {
+          "id": 1073752858,
+          "name": "td.l1.page.5.svg.18"
+        },
+        {
+          "id": 1073752859,
+          "name": "td.l1.page.5.svg.46"
+        },
+        {
+          "id": 1073752860,
+          "name": "td.l1.page.5.svg.47"
+        },
+        {
+          "id": 1073752861,
+          "name": "td.l1.page.5.svg.48"
+        },
+        {
+          "id": 1073752862,
+          "name": "td.l1.page.5.svg.49"
+        },
+        {
+          "id": 1073752863,
+          "name": "td.l1.page.5.svg.50"
+        },
+        {
+          "id": 1073752864,
+          "name": "td.l1.page.5.svg.51"
+        },
+        {
+          "id": 1073752865,
+          "name": "td.l1.page.5.svg.52"
+        },
+        {
+          "id": 1073752866,
+          "name": "td.l1.page.5.svg.53"
+        },
+        {
+          "id": 1073752867,
+          "name": "td.l1.page.5.svg.54"
+        },
+        {
+          "id": 1073752885,
+          "name": "td.l1.page.5.svg.45"
+        },
+        {
+          "id": 1073753008,
+          "name": "td.l1.page.6.svg.44"
+        },
+        {
+          "id": 1073753009,
+          "name": "td.l1.page.6.svg.45"
+        },
+        {
+          "id": 1073753010,
+          "name": "td.l1.page.6.svg.46"
+        },
+        {
+          "id": 1073753011,
+          "name": "td.l1.page.6.svg.47"
+        },
+        {
+          "id": 1073753012,
+          "name": "td.l1.page.6.svg.48"
+        },
+        {
+          "id": 1073753013,
+          "name": "td.l1.page.6.svg.49"
+        },
+        {
+          "id": 1073753014,
+          "name": "td.l1.page.6.svg.50"
+        },
+        {
+          "id": 1073753015,
+          "name": "td.l1.page.6.svg.51"
+        },
+        {
+          "id": 1073753016,
+          "name": "td.l1.page.6.svg.52"
+        },
+        {
+          "id": 1073753017,
+          "name": "td.l1.page.6.svg.53"
+        },
+        {
+          "id": 1073753143,
+          "name": "td.l1.page.7.svg.16"
+        },
+        {
+          "id": 1073753144,
+          "name": "td.l1.page.7.svg.17"
+        },
+        {
+          "id": 1073753145,
+          "name": "td.l1.page.7.svg.45"
+        },
+        {
+          "id": 1073753146,
+          "name": "td.l1.page.7.svg.46"
+        },
+        {
+          "id": 1073753147,
+          "name": "td.l1.page.7.svg.47"
+        },
+        {
+          "id": 1073753148,
+          "name": "td.l1.page.7.svg.48"
+        },
+        {
+          "id": 1073753149,
+          "name": "td.l1.page.7.svg.49"
+        },
+        {
+          "id": 1073753150,
+          "name": "td.l1.page.7.svg.50"
+        },
+        {
+          "id": 1073753151,
+          "name": "td.l1.page.7.svg.51"
+        },
+        {
+          "id": 1073753152,
+          "name": "td.l1.page.7.svg.52"
+        },
+        {
+          "id": 1073753170,
+          "name": "td.l1.page.7.svg.43"
+        },
+        {
+          "id": 1073753171,
+          "name": "td.l1.page.7.svg.44"
+        },
+        {
+          "id": 1073753291,
+          "name": "td.l1.page.8.svg.44"
+        },
+        {
+          "id": 1073753292,
+          "name": "td.l1.page.8.svg.45"
+        },
+        {
+          "id": 1073753293,
+          "name": "td.l1.page.8.svg.46"
+        },
+        {
+          "id": 1073753294,
+          "name": "td.l1.page.8.svg.47"
+        },
+        {
+          "id": 1073753295,
+          "name": "td.l1.page.8.svg.48"
+        },
+        {
+          "id": 1073753296,
+          "name": "td.l1.page.8.svg.49"
+        },
+        {
+          "id": 1073753297,
+          "name": "td.l1.page.8.svg.50"
+        },
+        {
+          "id": 1073753298,
+          "name": "td.l1.page.8.svg.51"
+        },
+        {
+          "id": 1073753299,
+          "name": "td.l1.page.8.svg.52"
+        },
+        {
+          "id": 1073753300,
+          "name": "td.l1.page.8.svg.53"
+        },
+        {
+          "id": 1073753465,
+          "name": "td.l2.page.1.svg.62"
+        },
+        {
+          "id": 1073753466,
+          "name": "td.l2.page.1.svg.63"
+        },
+        {
+          "id": 1073753467,
+          "name": "td.l2.page.1.svg.64"
+        },
+        {
+          "id": 1073753468,
+          "name": "td.l2.page.1.svg.65"
+        },
+        {
+          "id": 1073753469,
+          "name": "td.l2.page.1.svg.66"
+        },
+        {
+          "id": 1073753470,
+          "name": "td.l2.page.1.svg.67"
+        },
+        {
+          "id": 1073753471,
+          "name": "td.l2.page.1.svg.68"
+        },
+        {
+          "id": 1073753472,
+          "name": "td.l2.page.1.svg.69"
+        },
+        {
+          "id": 1073753473,
+          "name": "td.l2.page.1.svg.70"
+        },
+        {
+          "id": 1073753474,
+          "name": "td.l2.page.1.svg.71"
+        },
+        {
+          "id": 1073753475,
+          "name": "td.l2.page.1.svg.72"
+        },
+        {
+          "id": 1073753476,
+          "name": "td.l2.page.1.svg.73"
+        },
+        {
+          "id": 1073754501,
+          "name": "help617.close"
+        },
+        {
+          "id": 1073754499,
+          "name": "help617.title"
+        },
+        {
+          "id": 1073754495,
+          "name": "td.l2.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754493,
+          "name": "td.l1.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754491,
+          "name": "td.l1.page.7.rule617.1"
+        },
+        {
+          "id": 1073754490,
+          "name": "td.l1.page.7.rule617.0"
+        },
+        {
+          "id": 1073754489,
+          "name": "td.l2.page.4.rewrite617.3"
+        },
+        {
+          "id": 1073754488,
+          "name": "td.l2.page.4.rewrite617.2"
+        },
+        {
+          "id": 1073754487,
+          "name": "td.l2.page.4.rewrite617.1"
+        },
+        {
+          "id": 1073754486,
+          "name": "td.l2.page.4.rewrite617.0"
+        },
+        {
+          "id": 1073754485,
+          "name": "td.l2.page.3.rewrite617.3"
+        },
+        {
+          "id": 1073754484,
+          "name": "td.l2.page.3.rewrite617.2"
+        },
+        {
+          "id": 1073754483,
+          "name": "td.l2.page.3.rewrite617.1"
+        },
+        {
+          "id": 1073754482,
+          "name": "td.l2.page.3.rewrite617.0"
+        },
+        {
+          "id": 1073754481,
+          "name": "td.l2.page.2.rewrite617.3"
+        },
+        {
+          "id": 1073754480,
+          "name": "td.l2.page.2.rewrite617.2"
+        },
+        {
+          "id": 1073754479,
+          "name": "td.l2.page.2.rewrite617.1"
+        },
+        {
+          "id": 1073754478,
+          "name": "td.l2.page.2.rewrite617.0"
+        },
+        {
+          "id": 1073754477,
+          "name": "td.l2.page.1.rewrite617.3"
+        },
+        {
+          "id": 1073754476,
+          "name": "td.l2.page.1.rewrite617.2"
+        },
+        {
+          "id": 1073754475,
+          "name": "td.l2.page.1.rewrite617.1"
+        },
+        {
+          "id": 1073754474,
+          "name": "td.l2.page.1.rewrite617.0"
+        },
+        {
+          "id": 1073754472,
+          "name": "td.home.page.1.furniture617.2"
+        },
+        {
+          "id": 1073753584,
+          "name": "td.l2.page.2.svg.59"
+        },
+        {
+          "id": 1073753585,
+          "name": "td.l2.page.2.svg.60"
+        },
+        {
+          "id": 1073753586,
+          "name": "td.l2.page.2.svg.61"
+        },
+        {
+          "id": 1073753587,
+          "name": "td.l2.page.2.svg.62"
+        },
+        {
+          "id": 1073753588,
+          "name": "td.l2.page.2.svg.63"
+        },
+        {
+          "id": 1073753589,
+          "name": "td.l2.page.2.svg.64"
+        },
+        {
+          "id": 1073753590,
+          "name": "td.l2.page.2.svg.65"
+        },
+        {
+          "id": 1073753591,
+          "name": "td.l2.page.2.svg.66"
+        },
+        {
+          "id": 1073753592,
+          "name": "td.l2.page.2.svg.67"
+        },
+        {
+          "id": 1073753593,
+          "name": "td.l2.page.2.svg.68"
+        },
+        {
+          "id": 1073753594,
+          "name": "td.l2.page.2.svg.69"
+        },
+        {
+          "id": 1073753595,
+          "name": "td.l2.page.2.svg.70"
+        },
+        {
+          "id": 1073753718,
+          "name": "td.l2.page.3.svg.60"
+        },
+        {
+          "id": 1073753719,
+          "name": "td.l2.page.3.svg.61"
+        },
+        {
+          "id": 1073753720,
+          "name": "td.l2.page.3.svg.62"
+        },
+        {
+          "id": 1073753721,
+          "name": "td.l2.page.3.svg.63"
+        },
+        {
+          "id": 1073753722,
+          "name": "td.l2.page.3.svg.64"
+        },
+        {
+          "id": 1073753723,
+          "name": "td.l2.page.3.svg.65"
+        },
+        {
+          "id": 1073753724,
+          "name": "td.l2.page.3.svg.66"
+        },
+        {
+          "id": 1073753725,
+          "name": "td.l2.page.3.svg.67"
+        },
+        {
+          "id": 1073753726,
+          "name": "td.l2.page.3.svg.68"
+        },
+        {
+          "id": 1073753727,
+          "name": "td.l2.page.3.svg.69"
+        },
+        {
+          "id": 1073753728,
+          "name": "td.l2.page.3.svg.70"
+        },
+        {
+          "id": 1073753729,
+          "name": "td.l2.page.3.svg.71"
+        },
+        {
+          "id": 1073753792,
+          "name": "td.l2.page.3.notet"
+        },
+        {
+          "id": 1073753798,
+          "name": "td.l2.page.3.cluename"
+        },
+        {
+          "id": 1073753847,
+          "name": "td.l2.page.4.svg.62"
+        },
+        {
+          "id": 1073753848,
+          "name": "td.l2.page.4.svg.63"
+        },
+        {
+          "id": 1073753849,
+          "name": "td.l2.page.4.svg.64"
+        },
+        {
+          "id": 1073753850,
+          "name": "td.l2.page.4.svg.65"
+        },
+        {
+          "id": 1073753851,
+          "name": "td.l2.page.4.svg.66"
+        },
+        {
+          "id": 1073753852,
+          "name": "td.l2.page.4.svg.67"
+        },
+        {
+          "id": 1073753853,
+          "name": "td.l2.page.4.svg.68"
+        },
+        {
+          "id": 1073753854,
+          "name": "td.l2.page.4.svg.69"
+        },
+        {
+          "id": 1073753855,
+          "name": "td.l2.page.4.svg.70"
+        },
+        {
+          "id": 1073753856,
+          "name": "td.l2.page.4.svg.71"
+        },
+        {
+          "id": 1073753857,
+          "name": "td.l2.page.4.svg.72"
+        },
+        {
+          "id": 1073753858,
+          "name": "td.l2.page.4.svg.73"
+        }
+      ],
+      "addedRecords": [
+        {
+          "id": 1073754506,
+          "name": "td.l2.page.1.help619.icon"
+        },
+        {
+          "id": 1073754504,
+          "name": "td.l1.page.1.help619.icon"
+        },
+        {
+          "id": 1073754502,
+          "name": "td.home.page.1.help619.icon"
+        },
+        {
+          "id": 1073754507,
+          "name": "td.l2.page.1.help619.tail"
+        },
+        {
+          "id": 1073754505,
+          "name": "td.l1.page.1.help619.tail"
+        },
+        {
+          "id": 1073754503,
+          "name": "td.home.page.1.help619.tail"
+        }
+      ],
+      "removedRecords": []
+    },
+    {
+      "version": "621",
+      "file": "正式版621.gil",
+      "bytes": 5357788,
+      "sha256": "04dcb0976d45f1c2e9b7357739831565148c409cf2655fc9cb02a7445a6ae8be",
+      "records": 4668,
+      "scriptSha256": "17f44986f01988a6b3d566ef6b7c97d4d3db33cc4a60c41c449027c9b5bd3e81",
+      "scriptMatchesCurrentDist": false,
+      "previous": "619_修正版",
+      "changedRecords": [
+        {
+          "id": 1073742359,
+          "name": "clues"
+        },
+        {
+          "id": 1073741916,
+          "name": "topbar"
+        },
+        {
+          "id": 1073752159,
+          "name": "td.home.page.1.caption"
+        },
+        {
+          "id": 1073752160,
+          "name": "td.home.page.1.legendtitle"
+        },
+        {
+          "id": 1073752161,
+          "name": "td.home.page.1.lg.0"
+        },
+        {
+          "id": 1073752162,
+          "name": "td.home.page.1.lgt.0"
+        },
+        {
+          "id": 1073752163,
+          "name": "td.home.page.1.lg.1"
+        },
+        {
+          "id": 1073752164,
+          "name": "td.home.page.1.lgt.1"
+        },
+        {
+          "id": 1073752165,
+          "name": "td.home.page.1.lg.2"
+        },
+        {
+          "id": 1073752166,
+          "name": "td.home.page.1.lgt.2"
+        },
+        {
+          "id": 1073752167,
+          "name": "td.home.page.1.lg.3"
+        },
+        {
+          "id": 1073752168,
+          "name": "td.home.page.1.lgt.3"
+        },
+        {
+          "id": 1073752169,
+          "name": "td.home.page.1.lg.4"
+        },
+        {
+          "id": 1073752170,
+          "name": "td.home.page.1.lgt.4"
+        },
+        {
+          "id": 1073752171,
+          "name": "td.home.page.1.lg.5.bg"
+        },
+        {
+          "id": 1073752172,
+          "name": "td.home.page.1.lg.5"
+        },
+        {
+          "id": 1073752173,
+          "name": "td.home.page.1.lgt.5"
+        },
+        {
+          "id": 1073752174,
+          "name": "td.home.page.1.lg.6.bg"
+        },
+        {
+          "id": 1073752175,
+          "name": "td.home.page.1.lg.6"
+        },
+        {
+          "id": 1073752176,
+          "name": "td.home.page.1.lgt.6"
+        },
+        {
+          "id": 1073752177,
+          "name": "td.home.page.1.lg.7.bg"
+        },
+        {
+          "id": 1073752178,
+          "name": "td.home.page.1.lg.7"
+        },
+        {
+          "id": 1073752179,
+          "name": "td.home.page.1.lgt.7"
+        },
+        {
+          "id": 1073752180,
+          "name": "td.home.page.1.lg.8.bg"
+        },
+        {
+          "id": 1073752181,
+          "name": "td.home.page.1.lg.8"
+        },
+        {
+          "id": 1073752182,
+          "name": "td.home.page.1.lgt.8"
+        },
+        {
+          "id": 1073752183,
+          "name": "td.home.page.1.lg.9.bg"
+        },
+        {
+          "id": 1073752184,
+          "name": "td.home.page.1.lg.9"
+        },
+        {
+          "id": 1073752185,
+          "name": "td.home.page.1.lgt.9"
+        },
+        {
+          "id": 1073752186,
+          "name": "td.home.page.1.lg.10.bg"
+        },
+        {
+          "id": 1073752187,
+          "name": "td.home.page.1.lg.10"
+        },
+        {
+          "id": 1073752188,
+          "name": "td.home.page.1.lgt.10"
+        },
+        {
+          "id": 1073752189,
+          "name": "td.home.page.1.lg.11.bg"
+        },
+        {
+          "id": 1073752190,
+          "name": "td.home.page.1.lg.11"
+        },
+        {
+          "id": 1073752191,
+          "name": "td.home.page.1.lgt.11"
+        },
+        {
+          "id": 1073752192,
+          "name": "td.home.page.1.coord"
+        },
+        {
+          "id": 1073754300,
+          "name": "td.home.page.1.ico.redo"
+        },
+        {
+          "id": 1073754299,
+          "name": "td.home.page.1.ico.redo.bg"
+        },
+        {
+          "id": 1073754297,
+          "name": "td.home.page.1.ico.undo"
+        },
+        {
+          "id": 1073754296,
+          "name": "td.home.page.1.ico.undo.bg"
+        },
+        {
+          "id": 1073754294,
+          "name": "td.home.page.1.ico.submit"
+        },
+        {
+          "id": 1073754293,
+          "name": "td.home.page.1.ico.submit.bg"
+        },
+        {
+          "id": 1073754496,
+          "name": "clues.help617"
+        },
+        {
+          "id": 1073754506,
+          "name": "td.l2.page.1.help619.icon"
+        },
+        {
+          "id": 1073754504,
+          "name": "td.l1.page.1.help619.icon"
+        },
+        {
+          "id": 1073754502,
+          "name": "td.home.page.1.help619.icon"
+        },
+        {
+          "id": 1073752201,
+          "name": "td.home.page.1.rule.1.body.0.0"
+        },
+        {
+          "id": 1073754295,
+          "name": "td.home.page.1.ico.submit.t"
+        },
+        {
+          "id": 1073752202,
+          "name": "td.home.page.1.rule.1.body.1.0"
+        },
+        {
+          "id": 1073752203,
+          "name": "td.home.page.1.rule.1.body.2.0"
+        },
+        {
+          "id": 1073752204,
+          "name": "td.home.page.1.rule.1.body.2.1"
+        },
+        {
+          "id": 1073752205,
+          "name": "td.home.page.1.rule.1.body.2.2"
+        },
+        {
+          "id": 1073752206,
+          "name": "td.home.page.1.rule.1.body.3.0"
+        },
+        {
+          "id": 1073752212,
+          "name": "td.home.page.1.rule.2.body.0.0"
+        },
+        {
+          "id": 1073752213,
+          "name": "td.home.page.1.rule.2.body.1.0"
+        },
+        {
+          "id": 1073752214,
+          "name": "td.home.page.1.rule.2.body.2.0"
+        },
+        {
+          "id": 1073752219,
+          "name": "td.home.page.1.rule.3.title"
+        },
+        {
+          "id": 1073752230,
+          "name": "td.home.page.1.rule.4.body.0.0"
+        },
+        {
+          "id": 1073752231,
+          "name": "td.home.page.1.rule.4.body.1.0"
+        },
+        {
+          "id": 1073752232,
+          "name": "td.home.page.1.rule.4.body.2.0"
+        },
+        {
+          "id": 1073752233,
+          "name": "td.home.page.1.rule.4.body.3.0"
+        },
+        {
+          "id": 1073752239,
+          "name": "td.home.page.1.rule.5.body.0.0"
+        },
+        {
+          "id": 1073754301,
+          "name": "td.home.page.1.ico.redo.t"
+        },
+        {
+          "id": 1073754298,
+          "name": "td.home.page.1.ico.undo.t"
+        },
+        {
+          "id": 1073752240,
+          "name": "td.home.page.1.rule.5.body.0.1"
+        },
+        {
+          "id": 1073752241,
+          "name": "td.home.page.1.rule.5.body.1.0"
+        },
+        {
+          "id": 1073752242,
+          "name": "td.home.page.1.rule.5.body.1.1"
+        },
+        {
+          "id": 1073752243,
+          "name": "td.home.page.1.rule.5.body.1.2"
+        },
+        {
+          "id": 1073752244,
+          "name": "td.home.page.1.rule.5.body.2.0"
+        },
+        {
+          "id": 1073752286,
+          "name": "td.l1.page.1.step.1"
+        },
+        {
+          "id": 1073752287,
+          "name": "td.l1.page.1.stepn.1.bg"
+        },
+        {
+          "id": 1073752288,
+          "name": "td.l1.page.1.stepn.1"
+        },
+        {
+          "id": 1073752289,
+          "name": "td.l1.page.1.stept.1"
+        },
+        {
+          "id": 1073752290,
+          "name": "td.l1.page.1.step.2"
+        },
+        {
+          "id": 1073752291,
+          "name": "td.l1.page.1.stepn.2.bg"
+        },
+        {
+          "id": 1073752292,
+          "name": "td.l1.page.1.stepn.2"
+        },
+        {
+          "id": 1073752293,
+          "name": "td.l1.page.1.stept.2"
+        },
+        {
+          "id": 1073752294,
+          "name": "td.l1.page.1.step.3"
+        },
+        {
+          "id": 1073752295,
+          "name": "td.l1.page.1.stepn.3.bg"
+        },
+        {
+          "id": 1073752296,
+          "name": "td.l1.page.1.stepn.3"
+        },
+        {
+          "id": 1073752297,
+          "name": "td.l1.page.1.stept.3"
+        },
+        {
+          "id": 1073752298,
+          "name": "td.l1.page.1.step.4"
+        },
+        {
+          "id": 1073752299,
+          "name": "td.l1.page.1.stepn.4.bg"
+        },
+        {
+          "id": 1073752300,
+          "name": "td.l1.page.1.stepn.4"
+        },
+        {
+          "id": 1073752301,
+          "name": "td.l1.page.1.stept.4"
+        },
+        {
+          "id": 1073752302,
+          "name": "td.l1.page.1.step.5"
+        },
+        {
+          "id": 1073752303,
+          "name": "td.l1.page.1.stepn.5.bg"
+        },
+        {
+          "id": 1073752304,
+          "name": "td.l1.page.1.stepn.5"
+        },
+        {
+          "id": 1073752305,
+          "name": "td.l1.page.1.stept.5"
+        },
+        {
+          "id": 1073752306,
+          "name": "td.l1.page.1.step.6"
+        },
+        {
+          "id": 1073752307,
+          "name": "td.l1.page.1.stepn.6.bg"
+        },
+        {
+          "id": 1073752308,
+          "name": "td.l1.page.1.stepn.6"
+        },
+        {
+          "id": 1073752309,
+          "name": "td.l1.page.1.stept.6"
+        },
+        {
+          "id": 1073752310,
+          "name": "td.l1.page.1.step.7"
+        },
+        {
+          "id": 1073752311,
+          "name": "td.l1.page.1.stepn.7.bg"
+        },
+        {
+          "id": 1073752312,
+          "name": "td.l1.page.1.stepn.7"
+        },
+        {
+          "id": 1073752313,
+          "name": "td.l1.page.1.stept.7"
+        },
+        {
+          "id": 1073752314,
+          "name": "td.l1.page.1.step.8"
+        },
+        {
+          "id": 1073752315,
+          "name": "td.l1.page.1.stepn.8.bg"
+        },
+        {
+          "id": 1073752316,
+          "name": "td.l1.page.1.stepn.8"
+        },
+        {
+          "id": 1073752317,
+          "name": "td.l1.page.1.stept.8"
+        },
+        {
+          "id": 1073752343,
+          "name": "td.l1.page.1.caption"
+        },
+        {
+          "id": 1073752344,
+          "name": "td.l1.page.1.legendtitle"
+        },
+        {
+          "id": 1073752345,
+          "name": "td.l1.page.1.lg.0"
+        },
+        {
+          "id": 1073752346,
+          "name": "td.l1.page.1.lgt.0"
+        },
+        {
+          "id": 1073752347,
+          "name": "td.l1.page.1.lg.1"
+        },
+        {
+          "id": 1073752348,
+          "name": "td.l1.page.1.lgt.1"
+        },
+        {
+          "id": 1073752349,
+          "name": "td.l1.page.1.lg.2"
+        },
+        {
+          "id": 1073752350,
+          "name": "td.l1.page.1.lgt.2"
+        },
+        {
+          "id": 1073752351,
+          "name": "td.l1.page.1.lg.3"
+        },
+        {
+          "id": 1073752352,
+          "name": "td.l1.page.1.lgt.3"
+        },
+        {
+          "id": 1073752353,
+          "name": "td.l1.page.1.lg.4"
+        },
+        {
+          "id": 1073752354,
+          "name": "td.l1.page.1.lgt.4"
+        },
+        {
+          "id": 1073752355,
+          "name": "td.l1.page.1.lg.5.bg"
+        },
+        {
+          "id": 1073752356,
+          "name": "td.l1.page.1.lg.5"
+        },
+        {
+          "id": 1073752357,
+          "name": "td.l1.page.1.lgt.5"
+        },
+        {
+          "id": 1073752358,
+          "name": "td.l1.page.1.lg.6.bg"
+        },
+        {
+          "id": 1073752359,
+          "name": "td.l1.page.1.lg.6"
+        },
+        {
+          "id": 1073752360,
+          "name": "td.l1.page.1.lgt.6"
+        },
+        {
+          "id": 1073752361,
+          "name": "td.l1.page.1.lg.7.bg"
+        },
+        {
+          "id": 1073752362,
+          "name": "td.l1.page.1.lg.7"
+        },
+        {
+          "id": 1073752363,
+          "name": "td.l1.page.1.lgt.7"
+        },
+        {
+          "id": 1073752364,
+          "name": "td.l1.page.1.lg.8.bg"
+        },
+        {
+          "id": 1073752365,
+          "name": "td.l1.page.1.lg.8"
+        },
+        {
+          "id": 1073752366,
+          "name": "td.l1.page.1.lgt.8"
+        },
+        {
+          "id": 1073752367,
+          "name": "td.l1.page.1.lg.9.bg"
+        },
+        {
+          "id": 1073752368,
+          "name": "td.l1.page.1.lg.9"
+        },
+        {
+          "id": 1073752369,
+          "name": "td.l1.page.1.lgt.9"
+        },
+        {
+          "id": 1073752370,
+          "name": "td.l1.page.1.lg.10.bg"
+        },
+        {
+          "id": 1073752371,
+          "name": "td.l1.page.1.lg.10"
+        },
+        {
+          "id": 1073752372,
+          "name": "td.l1.page.1.lgt.10"
+        },
+        {
+          "id": 1073752373,
+          "name": "td.l1.page.1.lg.11.bg"
+        },
+        {
+          "id": 1073752374,
+          "name": "td.l1.page.1.lg.11"
+        },
+        {
+          "id": 1073752375,
+          "name": "td.l1.page.1.lgt.11"
+        },
+        {
+          "id": 1073752376,
+          "name": "td.l1.page.1.coord"
+        },
+        {
+          "id": 1073752380,
+          "name": "td.l1.page.1.main.border"
+        },
+        {
+          "id": 1073752381,
+          "name": "td.l1.page.1.main"
+        },
+        {
+          "id": 1073752382,
+          "name": "td.l1.page.1.tagbg"
+        },
+        {
+          "id": 1073752383,
+          "name": "td.l1.page.1.tag"
+        },
+        {
+          "id": 1073752384,
+          "name": "td.l1.page.1.heading"
+        },
+        {
+          "id": 1073752385,
+          "name": "td.l1.page.1.body.0.0"
+        },
+        {
+          "id": 1073752386,
+          "name": "td.l1.page.1.body.1.0"
+        },
+        {
+          "id": 1073752387,
+          "name": "td.l1.page.1.body.1.1"
+        },
+        {
+          "id": 1073752388,
+          "name": "td.l1.page.1.body.1.2"
+        },
+        {
+          "id": 1073752389,
+          "name": "td.l1.page.1.body.2.0"
+        },
+        {
+          "id": 1073752403,
+          "name": "td.l1.page.1.notet"
+        },
+        {
+          "id": 1073752410,
+          "name": "td.l1.page.2.step.1"
+        },
+        {
+          "id": 1073752411,
+          "name": "td.l1.page.2.stepn.1.bg"
+        },
+        {
+          "id": 1073752412,
+          "name": "td.l1.page.2.stepn.1"
+        },
+        {
+          "id": 1073752413,
+          "name": "td.l1.page.2.stept.1"
+        },
+        {
+          "id": 1073752414,
+          "name": "td.l1.page.2.step.2"
+        },
+        {
+          "id": 1073752415,
+          "name": "td.l1.page.2.stepn.2.bg"
+        },
+        {
+          "id": 1073752416,
+          "name": "td.l1.page.2.stepn.2"
+        },
+        {
+          "id": 1073752417,
+          "name": "td.l1.page.2.stept.2"
+        },
+        {
+          "id": 1073752418,
+          "name": "td.l1.page.2.step.3"
+        },
+        {
+          "id": 1073752419,
+          "name": "td.l1.page.2.stepn.3.bg"
+        },
+        {
+          "id": 1073752420,
+          "name": "td.l1.page.2.stepn.3"
+        },
+        {
+          "id": 1073752421,
+          "name": "td.l1.page.2.stept.3"
+        },
+        {
+          "id": 1073752422,
+          "name": "td.l1.page.2.step.4"
+        },
+        {
+          "id": 1073752423,
+          "name": "td.l1.page.2.stepn.4.bg"
+        },
+        {
+          "id": 1073752424,
+          "name": "td.l1.page.2.stepn.4"
+        },
+        {
+          "id": 1073752425,
+          "name": "td.l1.page.2.stept.4"
+        },
+        {
+          "id": 1073752426,
+          "name": "td.l1.page.2.step.5"
+        },
+        {
+          "id": 1073752427,
+          "name": "td.l1.page.2.stepn.5.bg"
+        },
+        {
+          "id": 1073752428,
+          "name": "td.l1.page.2.stepn.5"
+        },
+        {
+          "id": 1073752429,
+          "name": "td.l1.page.2.stept.5"
+        },
+        {
+          "id": 1073752430,
+          "name": "td.l1.page.2.step.6"
+        },
+        {
+          "id": 1073752431,
+          "name": "td.l1.page.2.stepn.6.bg"
+        },
+        {
+          "id": 1073752432,
+          "name": "td.l1.page.2.stepn.6"
+        },
+        {
+          "id": 1073752433,
+          "name": "td.l1.page.2.stept.6"
+        },
+        {
+          "id": 1073752434,
+          "name": "td.l1.page.2.step.7"
+        },
+        {
+          "id": 1073752435,
+          "name": "td.l1.page.2.stepn.7.bg"
+        },
+        {
+          "id": 1073752436,
+          "name": "td.l1.page.2.stepn.7"
+        },
+        {
+          "id": 1073752437,
+          "name": "td.l1.page.2.stept.7"
+        },
+        {
+          "id": 1073752438,
+          "name": "td.l1.page.2.step.8"
+        },
+        {
+          "id": 1073752439,
+          "name": "td.l1.page.2.stepn.8.bg"
+        },
+        {
+          "id": 1073752440,
+          "name": "td.l1.page.2.stepn.8"
+        },
+        {
+          "id": 1073752441,
+          "name": "td.l1.page.2.stept.8"
+        },
+        {
+          "id": 1073752470,
+          "name": "td.l1.page.2.caption"
+        },
+        {
+          "id": 1073752471,
+          "name": "td.l1.page.2.legendtitle"
+        },
+        {
+          "id": 1073752472,
+          "name": "td.l1.page.2.lg.0"
+        },
+        {
+          "id": 1073752473,
+          "name": "td.l1.page.2.lgt.0"
+        },
+        {
+          "id": 1073752474,
+          "name": "td.l1.page.2.lg.1"
+        },
+        {
+          "id": 1073752475,
+          "name": "td.l1.page.2.lgt.1"
+        },
+        {
+          "id": 1073752476,
+          "name": "td.l1.page.2.lg.2"
+        },
+        {
+          "id": 1073752477,
+          "name": "td.l1.page.2.lgt.2"
+        },
+        {
+          "id": 1073752478,
+          "name": "td.l1.page.2.lg.3"
+        },
+        {
+          "id": 1073752479,
+          "name": "td.l1.page.2.lgt.3"
+        },
+        {
+          "id": 1073752480,
+          "name": "td.l1.page.2.lg.4"
+        },
+        {
+          "id": 1073752481,
+          "name": "td.l1.page.2.lgt.4"
+        },
+        {
+          "id": 1073752482,
+          "name": "td.l1.page.2.lg.5.bg"
+        },
+        {
+          "id": 1073752483,
+          "name": "td.l1.page.2.lg.5"
+        },
+        {
+          "id": 1073752484,
+          "name": "td.l1.page.2.lgt.5"
+        },
+        {
+          "id": 1073752485,
+          "name": "td.l1.page.2.lg.6.bg"
+        },
+        {
+          "id": 1073752486,
+          "name": "td.l1.page.2.lg.6"
+        },
+        {
+          "id": 1073752487,
+          "name": "td.l1.page.2.lgt.6"
+        },
+        {
+          "id": 1073752488,
+          "name": "td.l1.page.2.lg.7.bg"
+        },
+        {
+          "id": 1073752489,
+          "name": "td.l1.page.2.lg.7"
+        },
+        {
+          "id": 1073752490,
+          "name": "td.l1.page.2.lgt.7"
+        },
+        {
+          "id": 1073752491,
+          "name": "td.l1.page.2.lg.8.bg"
+        },
+        {
+          "id": 1073752492,
+          "name": "td.l1.page.2.lg.8"
+        },
+        {
+          "id": 1073752493,
+          "name": "td.l1.page.2.lgt.8"
+        },
+        {
+          "id": 1073752494,
+          "name": "td.l1.page.2.lg.9.bg"
+        },
+        {
+          "id": 1073752495,
+          "name": "td.l1.page.2.lg.9"
+        },
+        {
+          "id": 1073752496,
+          "name": "td.l1.page.2.lgt.9"
+        },
+        {
+          "id": 1073752497,
+          "name": "td.l1.page.2.lg.10.bg"
+        },
+        {
+          "id": 1073752498,
+          "name": "td.l1.page.2.lg.10"
+        },
+        {
+          "id": 1073752499,
+          "name": "td.l1.page.2.lgt.10"
+        },
+        {
+          "id": 1073752500,
+          "name": "td.l1.page.2.lg.11.bg"
+        },
+        {
+          "id": 1073752501,
+          "name": "td.l1.page.2.lg.11"
+        },
+        {
+          "id": 1073752502,
+          "name": "td.l1.page.2.lgt.11"
+        },
+        {
+          "id": 1073752503,
+          "name": "td.l1.page.2.coord"
+        },
+        {
+          "id": 1073752509,
+          "name": "td.l1.page.2.main.border"
+        },
+        {
+          "id": 1073752510,
+          "name": "td.l1.page.2.main"
+        },
+        {
+          "id": 1073752511,
+          "name": "td.l1.page.2.tagbg"
+        },
+        {
+          "id": 1073752512,
+          "name": "td.l1.page.2.tag"
+        },
+        {
+          "id": 1073752513,
+          "name": "td.l1.page.2.heading"
+        },
+        {
+          "id": 1073752514,
+          "name": "td.l1.page.2.body.0.0"
+        },
+        {
+          "id": 1073752515,
+          "name": "td.l1.page.2.body.1.0"
+        },
+        {
+          "id": 1073752516,
+          "name": "td.l1.page.2.body.1.1"
+        },
+        {
+          "id": 1073752517,
+          "name": "td.l1.page.2.body.1.2"
+        },
+        {
+          "id": 1073752518,
+          "name": "td.l1.page.2.body.2.0"
+        },
+        {
+          "id": 1073752523,
+          "name": "td.l1.page.2.notet"
+        },
+        {
+          "id": 1073752529,
+          "name": "td.l1.page.2.cluename"
+        },
+        {
+          "id": 1073752530,
+          "name": "td.l1.page.2.cluesay.0"
+        },
+        {
+          "id": 1073752531,
+          "name": "td.l1.page.2.cluesay.1"
+        },
+        {
+          "id": 1073752532,
+          "name": "td.l1.page.2.cluesay.2"
+        },
+        {
+          "id": 1073752539,
+          "name": "td.l1.page.3.step.1"
+        },
+        {
+          "id": 1073752540,
+          "name": "td.l1.page.3.stepn.1.bg"
+        },
+        {
+          "id": 1073752541,
+          "name": "td.l1.page.3.stepn.1"
+        },
+        {
+          "id": 1073752542,
+          "name": "td.l1.page.3.stept.1"
+        },
+        {
+          "id": 1073752543,
+          "name": "td.l1.page.3.step.2"
+        },
+        {
+          "id": 1073752544,
+          "name": "td.l1.page.3.stepn.2.bg"
+        },
+        {
+          "id": 1073752545,
+          "name": "td.l1.page.3.stepn.2"
+        },
+        {
+          "id": 1073752546,
+          "name": "td.l1.page.3.stept.2"
+        },
+        {
+          "id": 1073752547,
+          "name": "td.l1.page.3.step.3"
+        },
+        {
+          "id": 1073752548,
+          "name": "td.l1.page.3.stepn.3.bg"
+        },
+        {
+          "id": 1073752549,
+          "name": "td.l1.page.3.stepn.3"
+        },
+        {
+          "id": 1073752550,
+          "name": "td.l1.page.3.stept.3"
+        },
+        {
+          "id": 1073752551,
+          "name": "td.l1.page.3.step.4"
+        },
+        {
+          "id": 1073752552,
+          "name": "td.l1.page.3.stepn.4.bg"
+        },
+        {
+          "id": 1073752553,
+          "name": "td.l1.page.3.stepn.4"
+        },
+        {
+          "id": 1073752554,
+          "name": "td.l1.page.3.stept.4"
+        },
+        {
+          "id": 1073752555,
+          "name": "td.l1.page.3.step.5"
+        },
+        {
+          "id": 1073752556,
+          "name": "td.l1.page.3.stepn.5.bg"
+        },
+        {
+          "id": 1073752557,
+          "name": "td.l1.page.3.stepn.5"
+        },
+        {
+          "id": 1073752558,
+          "name": "td.l1.page.3.stept.5"
+        },
+        {
+          "id": 1073752559,
+          "name": "td.l1.page.3.step.6"
+        },
+        {
+          "id": 1073752560,
+          "name": "td.l1.page.3.stepn.6.bg"
+        },
+        {
+          "id": 1073752561,
+          "name": "td.l1.page.3.stepn.6"
+        },
+        {
+          "id": 1073752562,
+          "name": "td.l1.page.3.stept.6"
+        },
+        {
+          "id": 1073752563,
+          "name": "td.l1.page.3.step.7"
+        },
+        {
+          "id": 1073752564,
+          "name": "td.l1.page.3.stepn.7.bg"
+        },
+        {
+          "id": 1073752565,
+          "name": "td.l1.page.3.stepn.7"
+        },
+        {
+          "id": 1073752566,
+          "name": "td.l1.page.3.stept.7"
+        },
+        {
+          "id": 1073752567,
+          "name": "td.l1.page.3.step.8"
+        },
+        {
+          "id": 1073752568,
+          "name": "td.l1.page.3.stepn.8.bg"
+        },
+        {
+          "id": 1073752569,
+          "name": "td.l1.page.3.stepn.8"
+        },
+        {
+          "id": 1073752570,
+          "name": "td.l1.page.3.stept.8"
+        },
+        {
+          "id": 1073752608,
+          "name": "td.l1.page.3.caption"
+        },
+        {
+          "id": 1073752609,
+          "name": "td.l1.page.3.legendtitle"
+        },
+        {
+          "id": 1073752610,
+          "name": "td.l1.page.3.lg.0"
+        },
+        {
+          "id": 1073752611,
+          "name": "td.l1.page.3.lgt.0"
+        },
+        {
+          "id": 1073752612,
+          "name": "td.l1.page.3.lg.1"
+        },
+        {
+          "id": 1073752613,
+          "name": "td.l1.page.3.lgt.1"
+        },
+        {
+          "id": 1073752614,
+          "name": "td.l1.page.3.lg.2"
+        },
+        {
+          "id": 1073752615,
+          "name": "td.l1.page.3.lgt.2"
+        },
+        {
+          "id": 1073752616,
+          "name": "td.l1.page.3.lg.3"
+        },
+        {
+          "id": 1073752617,
+          "name": "td.l1.page.3.lgt.3"
+        },
+        {
+          "id": 1073752618,
+          "name": "td.l1.page.3.lg.4"
+        },
+        {
+          "id": 1073752619,
+          "name": "td.l1.page.3.lgt.4"
+        },
+        {
+          "id": 1073752620,
+          "name": "td.l1.page.3.lg.5.bg"
+        },
+        {
+          "id": 1073752621,
+          "name": "td.l1.page.3.lg.5"
+        },
+        {
+          "id": 1073752622,
+          "name": "td.l1.page.3.lgt.5"
+        },
+        {
+          "id": 1073752623,
+          "name": "td.l1.page.3.lg.6.bg"
+        },
+        {
+          "id": 1073752624,
+          "name": "td.l1.page.3.lg.6"
+        },
+        {
+          "id": 1073752625,
+          "name": "td.l1.page.3.lgt.6"
+        },
+        {
+          "id": 1073752626,
+          "name": "td.l1.page.3.lg.7.bg"
+        },
+        {
+          "id": 1073752627,
+          "name": "td.l1.page.3.lg.7"
+        },
+        {
+          "id": 1073752628,
+          "name": "td.l1.page.3.lgt.7"
+        },
+        {
+          "id": 1073752629,
+          "name": "td.l1.page.3.lg.8.bg"
+        },
+        {
+          "id": 1073752630,
+          "name": "td.l1.page.3.lg.8"
+        },
+        {
+          "id": 1073752631,
+          "name": "td.l1.page.3.lgt.8"
+        },
+        {
+          "id": 1073752632,
+          "name": "td.l1.page.3.lg.9.bg"
+        },
+        {
+          "id": 1073752633,
+          "name": "td.l1.page.3.lg.9"
+        },
+        {
+          "id": 1073752634,
+          "name": "td.l1.page.3.lgt.9"
+        },
+        {
+          "id": 1073752635,
+          "name": "td.l1.page.3.lg.10.bg"
+        },
+        {
+          "id": 1073752636,
+          "name": "td.l1.page.3.lg.10"
+        },
+        {
+          "id": 1073752637,
+          "name": "td.l1.page.3.lgt.10"
+        },
+        {
+          "id": 1073752638,
+          "name": "td.l1.page.3.lg.11.bg"
+        },
+        {
+          "id": 1073752639,
+          "name": "td.l1.page.3.lg.11"
+        },
+        {
+          "id": 1073752640,
+          "name": "td.l1.page.3.lgt.11"
+        },
+        {
+          "id": 1073752641,
+          "name": "td.l1.page.3.coord"
+        },
+        {
+          "id": 1073752647,
+          "name": "td.l1.page.3.main.border"
+        },
+        {
+          "id": 1073752648,
+          "name": "td.l1.page.3.main"
+        },
+        {
+          "id": 1073752649,
+          "name": "td.l1.page.3.tagbg"
+        },
+        {
+          "id": 1073752650,
+          "name": "td.l1.page.3.tag"
+        },
+        {
+          "id": 1073752651,
+          "name": "td.l1.page.3.heading"
+        },
+        {
+          "id": 1073752652,
+          "name": "td.l1.page.3.body.0.0"
+        },
+        {
+          "id": 1073754447,
+          "name": "td.l1.page.3.note.rule"
+        },
+        {
+          "id": 1073752653,
+          "name": "td.l1.page.3.body.0.1"
+        },
+        {
+          "id": 1073754461,
+          "name": "td.l1.page.3.body.0.1.key610.4"
+        },
+        {
+          "id": 1073754460,
+          "name": "td.l1.page.3.body.0.1.key610.3"
+        },
+        {
+          "id": 1073754459,
+          "name": "td.l1.page.3.body.0.1.key610.2"
+        },
+        {
+          "id": 1073754458,
+          "name": "td.l1.page.3.body.0.1.key610.1"
+        },
+        {
+          "id": 1073752654,
+          "name": "td.l1.page.3.body.1.0"
+        },
+        {
+          "id": 1073754465,
+          "name": "td.l1.page.3.body.1.0.key610.4"
+        },
+        {
+          "id": 1073754464,
+          "name": "td.l1.page.3.body.1.0.key610.3"
+        },
+        {
+          "id": 1073754463,
+          "name": "td.l1.page.3.body.1.0.key610.2"
+        },
+        {
+          "id": 1073754462,
+          "name": "td.l1.page.3.body.1.0.key610.1"
+        },
+        {
+          "id": 1073752655,
+          "name": "td.l1.page.3.body.2.0"
+        },
+        {
+          "id": 1073752669,
+          "name": "td.l1.page.3.notet"
+        },
+        {
+          "id": 1073752676,
+          "name": "td.l1.page.4.step.1"
+        },
+        {
+          "id": 1073752677,
+          "name": "td.l1.page.4.stepn.1.bg"
+        },
+        {
+          "id": 1073752678,
+          "name": "td.l1.page.4.stepn.1"
+        },
+        {
+          "id": 1073752679,
+          "name": "td.l1.page.4.stept.1"
+        },
+        {
+          "id": 1073752680,
+          "name": "td.l1.page.4.step.2"
+        },
+        {
+          "id": 1073752681,
+          "name": "td.l1.page.4.stepn.2.bg"
+        },
+        {
+          "id": 1073752682,
+          "name": "td.l1.page.4.stepn.2"
+        },
+        {
+          "id": 1073752683,
+          "name": "td.l1.page.4.stept.2"
+        },
+        {
+          "id": 1073752684,
+          "name": "td.l1.page.4.step.3"
+        },
+        {
+          "id": 1073752685,
+          "name": "td.l1.page.4.stepn.3.bg"
+        },
+        {
+          "id": 1073752686,
+          "name": "td.l1.page.4.stepn.3"
+        },
+        {
+          "id": 1073752687,
+          "name": "td.l1.page.4.stept.3"
+        },
+        {
+          "id": 1073752688,
+          "name": "td.l1.page.4.step.4"
+        },
+        {
+          "id": 1073752689,
+          "name": "td.l1.page.4.stepn.4.bg"
+        },
+        {
+          "id": 1073752690,
+          "name": "td.l1.page.4.stepn.4"
+        },
+        {
+          "id": 1073752691,
+          "name": "td.l1.page.4.stept.4"
+        },
+        {
+          "id": 1073752692,
+          "name": "td.l1.page.4.step.5"
+        },
+        {
+          "id": 1073752693,
+          "name": "td.l1.page.4.stepn.5.bg"
+        },
+        {
+          "id": 1073752694,
+          "name": "td.l1.page.4.stepn.5"
+        },
+        {
+          "id": 1073752695,
+          "name": "td.l1.page.4.stept.5"
+        },
+        {
+          "id": 1073752696,
+          "name": "td.l1.page.4.step.6"
+        },
+        {
+          "id": 1073752697,
+          "name": "td.l1.page.4.stepn.6.bg"
+        },
+        {
+          "id": 1073752698,
+          "name": "td.l1.page.4.stepn.6"
+        },
+        {
+          "id": 1073752699,
+          "name": "td.l1.page.4.stept.6"
+        },
+        {
+          "id": 1073752700,
+          "name": "td.l1.page.4.step.7"
+        },
+        {
+          "id": 1073752701,
+          "name": "td.l1.page.4.stepn.7.bg"
+        },
+        {
+          "id": 1073752702,
+          "name": "td.l1.page.4.stepn.7"
+        },
+        {
+          "id": 1073752703,
+          "name": "td.l1.page.4.stept.7"
+        },
+        {
+          "id": 1073752704,
+          "name": "td.l1.page.4.step.8"
+        },
+        {
+          "id": 1073752705,
+          "name": "td.l1.page.4.stepn.8.bg"
+        },
+        {
+          "id": 1073752706,
+          "name": "td.l1.page.4.stepn.8"
+        },
+        {
+          "id": 1073752707,
+          "name": "td.l1.page.4.stept.8"
+        },
+        {
+          "id": 1073752747,
+          "name": "td.l1.page.4.caption"
+        },
+        {
+          "id": 1073752748,
+          "name": "td.l1.page.4.legendtitle"
+        },
+        {
+          "id": 1073752749,
+          "name": "td.l1.page.4.lg.0"
+        },
+        {
+          "id": 1073752750,
+          "name": "td.l1.page.4.lgt.0"
+        },
+        {
+          "id": 1073752751,
+          "name": "td.l1.page.4.lg.1"
+        },
+        {
+          "id": 1073752752,
+          "name": "td.l1.page.4.lgt.1"
+        },
+        {
+          "id": 1073752753,
+          "name": "td.l1.page.4.lg.2"
+        },
+        {
+          "id": 1073752754,
+          "name": "td.l1.page.4.lgt.2"
+        },
+        {
+          "id": 1073752755,
+          "name": "td.l1.page.4.lg.3"
+        },
+        {
+          "id": 1073752756,
+          "name": "td.l1.page.4.lgt.3"
+        },
+        {
+          "id": 1073752757,
+          "name": "td.l1.page.4.lg.4"
+        },
+        {
+          "id": 1073752758,
+          "name": "td.l1.page.4.lgt.4"
+        },
+        {
+          "id": 1073752759,
+          "name": "td.l1.page.4.lg.5.bg"
+        },
+        {
+          "id": 1073752760,
+          "name": "td.l1.page.4.lg.5"
+        },
+        {
+          "id": 1073752761,
+          "name": "td.l1.page.4.lgt.5"
+        },
+        {
+          "id": 1073752762,
+          "name": "td.l1.page.4.lg.6.bg"
+        },
+        {
+          "id": 1073752763,
+          "name": "td.l1.page.4.lg.6"
+        },
+        {
+          "id": 1073752764,
+          "name": "td.l1.page.4.lgt.6"
+        },
+        {
+          "id": 1073752765,
+          "name": "td.l1.page.4.lg.7.bg"
+        },
+        {
+          "id": 1073752766,
+          "name": "td.l1.page.4.lg.7"
+        },
+        {
+          "id": 1073752767,
+          "name": "td.l1.page.4.lgt.7"
+        },
+        {
+          "id": 1073752768,
+          "name": "td.l1.page.4.lg.8.bg"
+        },
+        {
+          "id": 1073752769,
+          "name": "td.l1.page.4.lg.8"
+        },
+        {
+          "id": 1073752770,
+          "name": "td.l1.page.4.lgt.8"
+        },
+        {
+          "id": 1073752771,
+          "name": "td.l1.page.4.lg.9.bg"
+        },
+        {
+          "id": 1073752772,
+          "name": "td.l1.page.4.lg.9"
+        },
+        {
+          "id": 1073752773,
+          "name": "td.l1.page.4.lgt.9"
+        },
+        {
+          "id": 1073752774,
+          "name": "td.l1.page.4.lg.10.bg"
+        },
+        {
+          "id": 1073752775,
+          "name": "td.l1.page.4.lg.10"
+        },
+        {
+          "id": 1073752776,
+          "name": "td.l1.page.4.lgt.10"
+        },
+        {
+          "id": 1073752777,
+          "name": "td.l1.page.4.lg.11.bg"
+        },
+        {
+          "id": 1073752778,
+          "name": "td.l1.page.4.lg.11"
+        },
+        {
+          "id": 1073752779,
+          "name": "td.l1.page.4.lgt.11"
+        },
+        {
+          "id": 1073752780,
+          "name": "td.l1.page.4.coord"
+        },
+        {
+          "id": 1073752786,
+          "name": "td.l1.page.4.main.border"
+        },
+        {
+          "id": 1073752787,
+          "name": "td.l1.page.4.main"
+        },
+        {
+          "id": 1073752788,
+          "name": "td.l1.page.4.tagbg"
+        },
+        {
+          "id": 1073752789,
+          "name": "td.l1.page.4.tag"
+        },
+        {
+          "id": 1073752790,
+          "name": "td.l1.page.4.heading"
+        },
+        {
+          "id": 1073752791,
+          "name": "td.l1.page.4.body.0.0"
+        },
+        {
+          "id": 1073752792,
+          "name": "td.l1.page.4.body.1.0"
+        },
+        {
+          "id": 1073752793,
+          "name": "td.l1.page.4.body.2.0"
+        },
+        {
+          "id": 1073752799,
+          "name": "td.l1.page.4.cluename"
+        },
+        {
+          "id": 1073752800,
+          "name": "td.l1.page.4.cluesay.0"
+        },
+        {
+          "id": 1073752801,
+          "name": "td.l1.page.4.cluesay.1"
+        },
+        {
+          "id": 1073752802,
+          "name": "td.l1.page.4.cluesay.2"
+        },
+        {
+          "id": 1073752809,
+          "name": "td.l1.page.5.step.1"
+        },
+        {
+          "id": 1073752810,
+          "name": "td.l1.page.5.stepn.1.bg"
+        },
+        {
+          "id": 1073752811,
+          "name": "td.l1.page.5.stepn.1"
+        },
+        {
+          "id": 1073752812,
+          "name": "td.l1.page.5.stept.1"
+        },
+        {
+          "id": 1073752813,
+          "name": "td.l1.page.5.step.2"
+        },
+        {
+          "id": 1073752814,
+          "name": "td.l1.page.5.stepn.2.bg"
+        },
+        {
+          "id": 1073752815,
+          "name": "td.l1.page.5.stepn.2"
+        },
+        {
+          "id": 1073752816,
+          "name": "td.l1.page.5.stept.2"
+        },
+        {
+          "id": 1073752817,
+          "name": "td.l1.page.5.step.3"
+        },
+        {
+          "id": 1073752818,
+          "name": "td.l1.page.5.stepn.3.bg"
+        },
+        {
+          "id": 1073752819,
+          "name": "td.l1.page.5.stepn.3"
+        },
+        {
+          "id": 1073752820,
+          "name": "td.l1.page.5.stept.3"
+        },
+        {
+          "id": 1073752821,
+          "name": "td.l1.page.5.step.4"
+        },
+        {
+          "id": 1073752822,
+          "name": "td.l1.page.5.stepn.4.bg"
+        },
+        {
+          "id": 1073752823,
+          "name": "td.l1.page.5.stepn.4"
+        },
+        {
+          "id": 1073752824,
+          "name": "td.l1.page.5.stept.4"
+        },
+        {
+          "id": 1073752825,
+          "name": "td.l1.page.5.step.5"
+        },
+        {
+          "id": 1073752826,
+          "name": "td.l1.page.5.stepn.5.bg"
+        },
+        {
+          "id": 1073752827,
+          "name": "td.l1.page.5.stepn.5"
+        },
+        {
+          "id": 1073752828,
+          "name": "td.l1.page.5.stept.5"
+        },
+        {
+          "id": 1073752829,
+          "name": "td.l1.page.5.step.6"
+        },
+        {
+          "id": 1073752830,
+          "name": "td.l1.page.5.stepn.6.bg"
+        },
+        {
+          "id": 1073752831,
+          "name": "td.l1.page.5.stepn.6"
+        },
+        {
+          "id": 1073752832,
+          "name": "td.l1.page.5.stept.6"
+        },
+        {
+          "id": 1073752833,
+          "name": "td.l1.page.5.step.7"
+        },
+        {
+          "id": 1073752834,
+          "name": "td.l1.page.5.stepn.7.bg"
+        },
+        {
+          "id": 1073752835,
+          "name": "td.l1.page.5.stepn.7"
+        },
+        {
+          "id": 1073752836,
+          "name": "td.l1.page.5.stept.7"
+        },
+        {
+          "id": 1073752837,
+          "name": "td.l1.page.5.step.8"
+        },
+        {
+          "id": 1073752838,
+          "name": "td.l1.page.5.stepn.8.bg"
+        },
+        {
+          "id": 1073752839,
+          "name": "td.l1.page.5.stepn.8"
+        },
+        {
+          "id": 1073752840,
+          "name": "td.l1.page.5.stept.8"
+        },
+        {
+          "id": 1073752886,
+          "name": "td.l1.page.5.caption"
+        },
+        {
+          "id": 1073752887,
+          "name": "td.l1.page.5.legendtitle"
+        },
+        {
+          "id": 1073752888,
+          "name": "td.l1.page.5.lg.0"
+        },
+        {
+          "id": 1073752889,
+          "name": "td.l1.page.5.lgt.0"
+        },
+        {
+          "id": 1073752890,
+          "name": "td.l1.page.5.lg.1"
+        },
+        {
+          "id": 1073752891,
+          "name": "td.l1.page.5.lgt.1"
+        },
+        {
+          "id": 1073752892,
+          "name": "td.l1.page.5.lg.2"
+        },
+        {
+          "id": 1073752893,
+          "name": "td.l1.page.5.lgt.2"
+        },
+        {
+          "id": 1073752894,
+          "name": "td.l1.page.5.lg.3"
+        },
+        {
+          "id": 1073752895,
+          "name": "td.l1.page.5.lgt.3"
+        },
+        {
+          "id": 1073752896,
+          "name": "td.l1.page.5.lg.4"
+        },
+        {
+          "id": 1073752897,
+          "name": "td.l1.page.5.lgt.4"
+        },
+        {
+          "id": 1073752898,
+          "name": "td.l1.page.5.lg.5.bg"
+        },
+        {
+          "id": 1073752899,
+          "name": "td.l1.page.5.lg.5"
+        },
+        {
+          "id": 1073752900,
+          "name": "td.l1.page.5.lgt.5"
+        },
+        {
+          "id": 1073752901,
+          "name": "td.l1.page.5.lg.6.bg"
+        },
+        {
+          "id": 1073752902,
+          "name": "td.l1.page.5.lg.6"
+        },
+        {
+          "id": 1073752903,
+          "name": "td.l1.page.5.lgt.6"
+        },
+        {
+          "id": 1073752904,
+          "name": "td.l1.page.5.lg.7.bg"
+        },
+        {
+          "id": 1073752905,
+          "name": "td.l1.page.5.lg.7"
+        },
+        {
+          "id": 1073752906,
+          "name": "td.l1.page.5.lgt.7"
+        },
+        {
+          "id": 1073752907,
+          "name": "td.l1.page.5.lg.8.bg"
+        },
+        {
+          "id": 1073752908,
+          "name": "td.l1.page.5.lg.8"
+        },
+        {
+          "id": 1073752909,
+          "name": "td.l1.page.5.lgt.8"
+        },
+        {
+          "id": 1073752910,
+          "name": "td.l1.page.5.lg.9.bg"
+        },
+        {
+          "id": 1073752911,
+          "name": "td.l1.page.5.lg.9"
+        },
+        {
+          "id": 1073752912,
+          "name": "td.l1.page.5.lgt.9"
+        },
+        {
+          "id": 1073752913,
+          "name": "td.l1.page.5.lg.10.bg"
+        },
+        {
+          "id": 1073752914,
+          "name": "td.l1.page.5.lg.10"
+        },
+        {
+          "id": 1073752915,
+          "name": "td.l1.page.5.lgt.10"
+        },
+        {
+          "id": 1073752916,
+          "name": "td.l1.page.5.lg.11.bg"
+        },
+        {
+          "id": 1073752917,
+          "name": "td.l1.page.5.lg.11"
+        },
+        {
+          "id": 1073752918,
+          "name": "td.l1.page.5.lgt.11"
+        },
+        {
+          "id": 1073752919,
+          "name": "td.l1.page.5.coord"
+        },
+        {
+          "id": 1073752925,
+          "name": "td.l1.page.5.main.border"
+        },
+        {
+          "id": 1073752926,
+          "name": "td.l1.page.5.main"
+        },
+        {
+          "id": 1073752927,
+          "name": "td.l1.page.5.tagbg"
+        },
+        {
+          "id": 1073752928,
+          "name": "td.l1.page.5.tag"
+        },
+        {
+          "id": 1073752929,
+          "name": "td.l1.page.5.heading"
+        },
+        {
+          "id": 1073752930,
+          "name": "td.l1.page.5.body.0.0"
+        },
+        {
+          "id": 1073752931,
+          "name": "td.l1.page.5.body.1.0"
+        },
+        {
+          "id": 1073752932,
+          "name": "td.l1.page.5.body.1.1"
+        },
+        {
+          "id": 1073752933,
+          "name": "td.l1.page.5.body.1.2"
+        },
+        {
+          "id": 1073752934,
+          "name": "td.l1.page.5.body.2.0"
+        },
+        {
+          "id": 1073752935,
+          "name": "td.l1.page.5.body.2.1"
+        },
+        {
+          "id": 1073752950,
+          "name": "td.l1.page.5.cluename"
+        },
+        {
+          "id": 1073752951,
+          "name": "td.l1.page.5.cluesay.0"
+        },
+        {
+          "id": 1073752952,
+          "name": "td.l1.page.5.cluesay.1"
+        },
+        {
+          "id": 1073752953,
+          "name": "td.l1.page.5.cluesay.2"
+        },
+        {
+          "id": 1073752960,
+          "name": "td.l1.page.6.step.1"
+        },
+        {
+          "id": 1073752961,
+          "name": "td.l1.page.6.stepn.1.bg"
+        },
+        {
+          "id": 1073752962,
+          "name": "td.l1.page.6.stepn.1"
+        },
+        {
+          "id": 1073752963,
+          "name": "td.l1.page.6.stept.1"
+        },
+        {
+          "id": 1073752964,
+          "name": "td.l1.page.6.step.2"
+        },
+        {
+          "id": 1073752965,
+          "name": "td.l1.page.6.stepn.2.bg"
+        },
+        {
+          "id": 1073752966,
+          "name": "td.l1.page.6.stepn.2"
+        },
+        {
+          "id": 1073752967,
+          "name": "td.l1.page.6.stept.2"
+        },
+        {
+          "id": 1073752968,
+          "name": "td.l1.page.6.step.3"
+        },
+        {
+          "id": 1073752969,
+          "name": "td.l1.page.6.stepn.3.bg"
+        },
+        {
+          "id": 1073752970,
+          "name": "td.l1.page.6.stepn.3"
+        },
+        {
+          "id": 1073752971,
+          "name": "td.l1.page.6.stept.3"
+        },
+        {
+          "id": 1073752972,
+          "name": "td.l1.page.6.step.4"
+        },
+        {
+          "id": 1073752973,
+          "name": "td.l1.page.6.stepn.4.bg"
+        },
+        {
+          "id": 1073752974,
+          "name": "td.l1.page.6.stepn.4"
+        },
+        {
+          "id": 1073752975,
+          "name": "td.l1.page.6.stept.4"
+        },
+        {
+          "id": 1073752976,
+          "name": "td.l1.page.6.step.5"
+        },
+        {
+          "id": 1073752977,
+          "name": "td.l1.page.6.stepn.5.bg"
+        },
+        {
+          "id": 1073752978,
+          "name": "td.l1.page.6.stepn.5"
+        },
+        {
+          "id": 1073752979,
+          "name": "td.l1.page.6.stept.5"
+        },
+        {
+          "id": 1073752980,
+          "name": "td.l1.page.6.step.6"
+        },
+        {
+          "id": 1073752981,
+          "name": "td.l1.page.6.stepn.6.bg"
+        },
+        {
+          "id": 1073752982,
+          "name": "td.l1.page.6.stepn.6"
+        },
+        {
+          "id": 1073752983,
+          "name": "td.l1.page.6.stept.6"
+        },
+        {
+          "id": 1073752984,
+          "name": "td.l1.page.6.step.7"
+        },
+        {
+          "id": 1073752985,
+          "name": "td.l1.page.6.stepn.7.bg"
+        },
+        {
+          "id": 1073752986,
+          "name": "td.l1.page.6.stepn.7"
+        },
+        {
+          "id": 1073752987,
+          "name": "td.l1.page.6.stept.7"
+        },
+        {
+          "id": 1073752988,
+          "name": "td.l1.page.6.step.8"
+        },
+        {
+          "id": 1073752989,
+          "name": "td.l1.page.6.stepn.8.bg"
+        },
+        {
+          "id": 1073752990,
+          "name": "td.l1.page.6.stepn.8"
+        },
+        {
+          "id": 1073752991,
+          "name": "td.l1.page.6.stept.8"
+        },
+        {
+          "id": 1073753025,
+          "name": "td.l1.page.6.caption"
+        },
+        {
+          "id": 1073753026,
+          "name": "td.l1.page.6.legendtitle"
+        },
+        {
+          "id": 1073753027,
+          "name": "td.l1.page.6.lg.0"
+        },
+        {
+          "id": 1073753028,
+          "name": "td.l1.page.6.lgt.0"
+        },
+        {
+          "id": 1073753029,
+          "name": "td.l1.page.6.lg.1"
+        },
+        {
+          "id": 1073753030,
+          "name": "td.l1.page.6.lgt.1"
+        },
+        {
+          "id": 1073753031,
+          "name": "td.l1.page.6.lg.2"
+        },
+        {
+          "id": 1073753032,
+          "name": "td.l1.page.6.lgt.2"
+        },
+        {
+          "id": 1073753033,
+          "name": "td.l1.page.6.lg.3"
+        },
+        {
+          "id": 1073753034,
+          "name": "td.l1.page.6.lgt.3"
+        },
+        {
+          "id": 1073753035,
+          "name": "td.l1.page.6.lg.4"
+        },
+        {
+          "id": 1073753036,
+          "name": "td.l1.page.6.lgt.4"
+        },
+        {
+          "id": 1073753037,
+          "name": "td.l1.page.6.lg.5.bg"
+        },
+        {
+          "id": 1073753038,
+          "name": "td.l1.page.6.lg.5"
+        },
+        {
+          "id": 1073753039,
+          "name": "td.l1.page.6.lgt.5"
+        },
+        {
+          "id": 1073753040,
+          "name": "td.l1.page.6.lg.6.bg"
+        },
+        {
+          "id": 1073753041,
+          "name": "td.l1.page.6.lg.6"
+        },
+        {
+          "id": 1073753042,
+          "name": "td.l1.page.6.lgt.6"
+        },
+        {
+          "id": 1073753043,
+          "name": "td.l1.page.6.lg.7.bg"
+        },
+        {
+          "id": 1073753044,
+          "name": "td.l1.page.6.lg.7"
+        },
+        {
+          "id": 1073753045,
+          "name": "td.l1.page.6.lgt.7"
+        },
+        {
+          "id": 1073753046,
+          "name": "td.l1.page.6.lg.8.bg"
+        },
+        {
+          "id": 1073753047,
+          "name": "td.l1.page.6.lg.8"
+        },
+        {
+          "id": 1073753048,
+          "name": "td.l1.page.6.lgt.8"
+        },
+        {
+          "id": 1073753049,
+          "name": "td.l1.page.6.lg.9.bg"
+        },
+        {
+          "id": 1073753050,
+          "name": "td.l1.page.6.lg.9"
+        },
+        {
+          "id": 1073753051,
+          "name": "td.l1.page.6.lgt.9"
+        },
+        {
+          "id": 1073753052,
+          "name": "td.l1.page.6.lg.10.bg"
+        },
+        {
+          "id": 1073753053,
+          "name": "td.l1.page.6.lg.10"
+        },
+        {
+          "id": 1073753054,
+          "name": "td.l1.page.6.lgt.10"
+        },
+        {
+          "id": 1073753055,
+          "name": "td.l1.page.6.lg.11.bg"
+        },
+        {
+          "id": 1073753056,
+          "name": "td.l1.page.6.lg.11"
+        },
+        {
+          "id": 1073753057,
+          "name": "td.l1.page.6.lgt.11"
+        },
+        {
+          "id": 1073753058,
+          "name": "td.l1.page.6.coord"
+        },
+        {
+          "id": 1073753064,
+          "name": "td.l1.page.6.main.border"
+        },
+        {
+          "id": 1073753065,
+          "name": "td.l1.page.6.main"
+        },
+        {
+          "id": 1073753066,
+          "name": "td.l1.page.6.tagbg"
+        },
+        {
+          "id": 1073753067,
+          "name": "td.l1.page.6.tag"
+        },
+        {
+          "id": 1073753068,
+          "name": "td.l1.page.6.heading"
+        },
+        {
+          "id": 1073753069,
+          "name": "td.l1.page.6.body.0.0"
+        },
+        {
+          "id": 1073753070,
+          "name": "td.l1.page.6.body.1.0"
+        },
+        {
+          "id": 1073753071,
+          "name": "td.l1.page.6.body.2.0"
+        },
+        {
+          "id": 1073753072,
+          "name": "td.l1.page.6.body.2.1"
+        },
+        {
+          "id": 1073753073,
+          "name": "td.l1.page.6.body.2.2"
+        },
+        {
+          "id": 1073753086,
+          "name": "td.l1.page.6.cluename"
+        },
+        {
+          "id": 1073753087,
+          "name": "td.l1.page.6.cluesay.0"
+        },
+        {
+          "id": 1073753088,
+          "name": "td.l1.page.6.cluesay.1"
+        },
+        {
+          "id": 1073753089,
+          "name": "td.l1.page.6.cluesay.2"
+        },
+        {
+          "id": 1073753096,
+          "name": "td.l1.page.7.step.1"
+        },
+        {
+          "id": 1073753097,
+          "name": "td.l1.page.7.stepn.1.bg"
+        },
+        {
+          "id": 1073753098,
+          "name": "td.l1.page.7.stepn.1"
+        },
+        {
+          "id": 1073753099,
+          "name": "td.l1.page.7.stept.1"
+        },
+        {
+          "id": 1073753100,
+          "name": "td.l1.page.7.step.2"
+        },
+        {
+          "id": 1073753101,
+          "name": "td.l1.page.7.stepn.2.bg"
+        },
+        {
+          "id": 1073753102,
+          "name": "td.l1.page.7.stepn.2"
+        },
+        {
+          "id": 1073753103,
+          "name": "td.l1.page.7.stept.2"
+        },
+        {
+          "id": 1073753104,
+          "name": "td.l1.page.7.step.3"
+        },
+        {
+          "id": 1073753105,
+          "name": "td.l1.page.7.stepn.3.bg"
+        },
+        {
+          "id": 1073753106,
+          "name": "td.l1.page.7.stepn.3"
+        },
+        {
+          "id": 1073753107,
+          "name": "td.l1.page.7.stept.3"
+        },
+        {
+          "id": 1073753108,
+          "name": "td.l1.page.7.step.4"
+        },
+        {
+          "id": 1073753109,
+          "name": "td.l1.page.7.stepn.4.bg"
+        },
+        {
+          "id": 1073753110,
+          "name": "td.l1.page.7.stepn.4"
+        },
+        {
+          "id": 1073753111,
+          "name": "td.l1.page.7.stept.4"
+        },
+        {
+          "id": 1073753112,
+          "name": "td.l1.page.7.step.5"
+        },
+        {
+          "id": 1073753113,
+          "name": "td.l1.page.7.stepn.5.bg"
+        },
+        {
+          "id": 1073753114,
+          "name": "td.l1.page.7.stepn.5"
+        },
+        {
+          "id": 1073753115,
+          "name": "td.l1.page.7.stept.5"
+        },
+        {
+          "id": 1073753116,
+          "name": "td.l1.page.7.step.6"
+        },
+        {
+          "id": 1073753117,
+          "name": "td.l1.page.7.stepn.6.bg"
+        },
+        {
+          "id": 1073753118,
+          "name": "td.l1.page.7.stepn.6"
+        },
+        {
+          "id": 1073753119,
+          "name": "td.l1.page.7.stept.6"
+        },
+        {
+          "id": 1073753120,
+          "name": "td.l1.page.7.step.7"
+        },
+        {
+          "id": 1073753121,
+          "name": "td.l1.page.7.stepn.7.bg"
+        },
+        {
+          "id": 1073753122,
+          "name": "td.l1.page.7.stepn.7"
+        },
+        {
+          "id": 1073753123,
+          "name": "td.l1.page.7.stept.7"
+        },
+        {
+          "id": 1073753124,
+          "name": "td.l1.page.7.step.8"
+        },
+        {
+          "id": 1073753125,
+          "name": "td.l1.page.7.stepn.8.bg"
+        },
+        {
+          "id": 1073753126,
+          "name": "td.l1.page.7.stepn.8"
+        },
+        {
+          "id": 1073753127,
+          "name": "td.l1.page.7.stept.8"
+        },
+        {
+          "id": 1073753172,
+          "name": "td.l1.page.7.caption"
+        },
+        {
+          "id": 1073753173,
+          "name": "td.l1.page.7.legendtitle"
+        },
+        {
+          "id": 1073753174,
+          "name": "td.l1.page.7.lg.0"
+        },
+        {
+          "id": 1073753175,
+          "name": "td.l1.page.7.lgt.0"
+        },
+        {
+          "id": 1073753176,
+          "name": "td.l1.page.7.lg.1"
+        },
+        {
+          "id": 1073753177,
+          "name": "td.l1.page.7.lgt.1"
+        },
+        {
+          "id": 1073753178,
+          "name": "td.l1.page.7.lg.2"
+        },
+        {
+          "id": 1073753179,
+          "name": "td.l1.page.7.lgt.2"
+        },
+        {
+          "id": 1073753180,
+          "name": "td.l1.page.7.lg.3"
+        },
+        {
+          "id": 1073753181,
+          "name": "td.l1.page.7.lgt.3"
+        },
+        {
+          "id": 1073753182,
+          "name": "td.l1.page.7.lg.4"
+        },
+        {
+          "id": 1073753183,
+          "name": "td.l1.page.7.lgt.4"
+        },
+        {
+          "id": 1073753184,
+          "name": "td.l1.page.7.lg.5.bg"
+        },
+        {
+          "id": 1073753185,
+          "name": "td.l1.page.7.lg.5"
+        },
+        {
+          "id": 1073753186,
+          "name": "td.l1.page.7.lgt.5"
+        },
+        {
+          "id": 1073753187,
+          "name": "td.l1.page.7.lg.6.bg"
+        },
+        {
+          "id": 1073753188,
+          "name": "td.l1.page.7.lg.6"
+        },
+        {
+          "id": 1073753189,
+          "name": "td.l1.page.7.lgt.6"
+        },
+        {
+          "id": 1073753190,
+          "name": "td.l1.page.7.lg.7.bg"
+        },
+        {
+          "id": 1073753191,
+          "name": "td.l1.page.7.lg.7"
+        },
+        {
+          "id": 1073753192,
+          "name": "td.l1.page.7.lgt.7"
+        },
+        {
+          "id": 1073753193,
+          "name": "td.l1.page.7.lg.8.bg"
+        },
+        {
+          "id": 1073753194,
+          "name": "td.l1.page.7.lg.8"
+        },
+        {
+          "id": 1073753195,
+          "name": "td.l1.page.7.lgt.8"
+        },
+        {
+          "id": 1073753196,
+          "name": "td.l1.page.7.lg.9.bg"
+        },
+        {
+          "id": 1073753197,
+          "name": "td.l1.page.7.lg.9"
+        },
+        {
+          "id": 1073753198,
+          "name": "td.l1.page.7.lgt.9"
+        },
+        {
+          "id": 1073753199,
+          "name": "td.l1.page.7.lg.10.bg"
+        },
+        {
+          "id": 1073753200,
+          "name": "td.l1.page.7.lg.10"
+        },
+        {
+          "id": 1073753201,
+          "name": "td.l1.page.7.lgt.10"
+        },
+        {
+          "id": 1073753202,
+          "name": "td.l1.page.7.lg.11.bg"
+        },
+        {
+          "id": 1073753203,
+          "name": "td.l1.page.7.lg.11"
+        },
+        {
+          "id": 1073753204,
+          "name": "td.l1.page.7.lgt.11"
+        },
+        {
+          "id": 1073753205,
+          "name": "td.l1.page.7.coord"
+        },
+        {
+          "id": 1073753211,
+          "name": "td.l1.page.7.main.border"
+        },
+        {
+          "id": 1073753212,
+          "name": "td.l1.page.7.main"
+        },
+        {
+          "id": 1073753213,
+          "name": "td.l1.page.7.tagbg"
+        },
+        {
+          "id": 1073753214,
+          "name": "td.l1.page.7.tag"
+        },
+        {
+          "id": 1073753215,
+          "name": "td.l1.page.7.heading"
+        },
+        {
+          "id": 1073753216,
+          "name": "td.l1.page.7.body.0.0"
+        },
+        {
+          "id": 1073754101,
+          "name": "td.l1.page.7.body.x5"
+        },
+        {
+          "id": 1073753217,
+          "name": "td.l1.page.7.body.1.0"
+        },
+        {
+          "id": 1073753218,
+          "name": "td.l1.page.7.body.2.0"
+        },
+        {
+          "id": 1073753219,
+          "name": "td.l1.page.7.body.2.1"
+        },
+        {
+          "id": 1073753220,
+          "name": "td.l1.page.7.body.3.0"
+        },
+        {
+          "id": 1073753233,
+          "name": "td.l1.page.7.cluename"
+        },
+        {
+          "id": 1073753234,
+          "name": "td.l1.page.7.cluesay.0"
+        },
+        {
+          "id": 1073753235,
+          "name": "td.l1.page.7.cluesay.1"
+        },
+        {
+          "id": 1073753236,
+          "name": "td.l1.page.7.cluesay.2"
+        },
+        {
+          "id": 1073753243,
+          "name": "td.l1.page.8.step.1"
+        },
+        {
+          "id": 1073753244,
+          "name": "td.l1.page.8.stepn.1.bg"
+        },
+        {
+          "id": 1073753245,
+          "name": "td.l1.page.8.stepn.1"
+        },
+        {
+          "id": 1073753246,
+          "name": "td.l1.page.8.stept.1"
+        },
+        {
+          "id": 1073753247,
+          "name": "td.l1.page.8.step.2"
+        },
+        {
+          "id": 1073753248,
+          "name": "td.l1.page.8.stepn.2.bg"
+        },
+        {
+          "id": 1073753249,
+          "name": "td.l1.page.8.stepn.2"
+        },
+        {
+          "id": 1073753250,
+          "name": "td.l1.page.8.stept.2"
+        },
+        {
+          "id": 1073753251,
+          "name": "td.l1.page.8.step.3"
+        },
+        {
+          "id": 1073753252,
+          "name": "td.l1.page.8.stepn.3.bg"
+        },
+        {
+          "id": 1073753253,
+          "name": "td.l1.page.8.stepn.3"
+        },
+        {
+          "id": 1073753254,
+          "name": "td.l1.page.8.stept.3"
+        },
+        {
+          "id": 1073753255,
+          "name": "td.l1.page.8.step.4"
+        },
+        {
+          "id": 1073753256,
+          "name": "td.l1.page.8.stepn.4.bg"
+        },
+        {
+          "id": 1073753257,
+          "name": "td.l1.page.8.stepn.4"
+        },
+        {
+          "id": 1073753258,
+          "name": "td.l1.page.8.stept.4"
+        },
+        {
+          "id": 1073753259,
+          "name": "td.l1.page.8.step.5"
+        },
+        {
+          "id": 1073753260,
+          "name": "td.l1.page.8.stepn.5.bg"
+        },
+        {
+          "id": 1073753261,
+          "name": "td.l1.page.8.stepn.5"
+        },
+        {
+          "id": 1073753262,
+          "name": "td.l1.page.8.stept.5"
+        },
+        {
+          "id": 1073753263,
+          "name": "td.l1.page.8.step.6"
+        },
+        {
+          "id": 1073753264,
+          "name": "td.l1.page.8.stepn.6.bg"
+        },
+        {
+          "id": 1073753265,
+          "name": "td.l1.page.8.stepn.6"
+        },
+        {
+          "id": 1073753266,
+          "name": "td.l1.page.8.stept.6"
+        },
+        {
+          "id": 1073753267,
+          "name": "td.l1.page.8.step.7"
+        },
+        {
+          "id": 1073753268,
+          "name": "td.l1.page.8.stepn.7.bg"
+        },
+        {
+          "id": 1073753269,
+          "name": "td.l1.page.8.stepn.7"
+        },
+        {
+          "id": 1073753270,
+          "name": "td.l1.page.8.stept.7"
+        },
+        {
+          "id": 1073753271,
+          "name": "td.l1.page.8.step.8"
+        },
+        {
+          "id": 1073753272,
+          "name": "td.l1.page.8.stepn.8.bg"
+        },
+        {
+          "id": 1073753273,
+          "name": "td.l1.page.8.stepn.8"
+        },
+        {
+          "id": 1073753274,
+          "name": "td.l1.page.8.stept.8"
+        },
+        {
+          "id": 1073753313,
+          "name": "td.l1.page.8.caption"
+        },
+        {
+          "id": 1073753314,
+          "name": "td.l1.page.8.legendtitle"
+        },
+        {
+          "id": 1073753315,
+          "name": "td.l1.page.8.lg.0"
+        },
+        {
+          "id": 1073753316,
+          "name": "td.l1.page.8.lgt.0"
+        },
+        {
+          "id": 1073753317,
+          "name": "td.l1.page.8.lg.1"
+        },
+        {
+          "id": 1073753318,
+          "name": "td.l1.page.8.lgt.1"
+        },
+        {
+          "id": 1073753319,
+          "name": "td.l1.page.8.lg.2"
+        },
+        {
+          "id": 1073753320,
+          "name": "td.l1.page.8.lgt.2"
+        },
+        {
+          "id": 1073753321,
+          "name": "td.l1.page.8.lg.3"
+        },
+        {
+          "id": 1073753322,
+          "name": "td.l1.page.8.lgt.3"
+        },
+        {
+          "id": 1073753323,
+          "name": "td.l1.page.8.lg.4"
+        },
+        {
+          "id": 1073753324,
+          "name": "td.l1.page.8.lgt.4"
+        },
+        {
+          "id": 1073753325,
+          "name": "td.l1.page.8.lg.5.bg"
+        },
+        {
+          "id": 1073753326,
+          "name": "td.l1.page.8.lg.5"
+        },
+        {
+          "id": 1073753327,
+          "name": "td.l1.page.8.lgt.5"
+        },
+        {
+          "id": 1073753328,
+          "name": "td.l1.page.8.lg.6.bg"
+        },
+        {
+          "id": 1073753329,
+          "name": "td.l1.page.8.lg.6"
+        },
+        {
+          "id": 1073753330,
+          "name": "td.l1.page.8.lgt.6"
+        },
+        {
+          "id": 1073753331,
+          "name": "td.l1.page.8.lg.7.bg"
+        },
+        {
+          "id": 1073753332,
+          "name": "td.l1.page.8.lg.7"
+        },
+        {
+          "id": 1073753333,
+          "name": "td.l1.page.8.lgt.7"
+        },
+        {
+          "id": 1073753334,
+          "name": "td.l1.page.8.lg.8.bg"
+        },
+        {
+          "id": 1073753335,
+          "name": "td.l1.page.8.lg.8"
+        },
+        {
+          "id": 1073753336,
+          "name": "td.l1.page.8.lgt.8"
+        },
+        {
+          "id": 1073753337,
+          "name": "td.l1.page.8.lg.9.bg"
+        },
+        {
+          "id": 1073753338,
+          "name": "td.l1.page.8.lg.9"
+        },
+        {
+          "id": 1073753339,
+          "name": "td.l1.page.8.lgt.9"
+        },
+        {
+          "id": 1073753340,
+          "name": "td.l1.page.8.lg.10.bg"
+        },
+        {
+          "id": 1073753341,
+          "name": "td.l1.page.8.lg.10"
+        },
+        {
+          "id": 1073753342,
+          "name": "td.l1.page.8.lgt.10"
+        },
+        {
+          "id": 1073753343,
+          "name": "td.l1.page.8.lg.11.bg"
+        },
+        {
+          "id": 1073753344,
+          "name": "td.l1.page.8.lg.11"
+        },
+        {
+          "id": 1073753345,
+          "name": "td.l1.page.8.lgt.11"
+        },
+        {
+          "id": 1073753346,
+          "name": "td.l1.page.8.coord"
+        },
+        {
+          "id": 1073753352,
+          "name": "td.l1.page.8.main.border"
+        },
+        {
+          "id": 1073753353,
+          "name": "td.l1.page.8.main"
+        },
+        {
+          "id": 1073753354,
+          "name": "td.l1.page.8.tagbg"
+        },
+        {
+          "id": 1073753355,
+          "name": "td.l1.page.8.tag"
+        },
+        {
+          "id": 1073753356,
+          "name": "td.l1.page.8.heading"
+        },
+        {
+          "id": 1073753357,
+          "name": "td.l1.page.8.body.0.0"
+        },
+        {
+          "id": 1073754106,
+          "name": "td.l1.page.8.body.x7"
+        },
+        {
+          "id": 1073754105,
+          "name": "td.l1.page.8.body.x6"
+        },
+        {
+          "id": 1073754104,
+          "name": "td.l1.page.8.body.x5"
+        },
+        {
+          "id": 1073753358,
+          "name": "td.l1.page.8.body.1.0"
+        },
+        {
+          "id": 1073753359,
+          "name": "td.l1.page.8.body.1.1"
+        },
+        {
+          "id": 1073753360,
+          "name": "td.l1.page.8.body.1.2"
+        },
+        {
+          "id": 1073753361,
+          "name": "td.l1.page.8.body.2.0"
+        },
+        {
+          "id": 1073753373,
+          "name": "td.l1.page.8.notet"
+        },
+        {
+          "id": 1073753426,
+          "name": "td.l2.page.1.step.1"
+        },
+        {
+          "id": 1073753427,
+          "name": "td.l2.page.1.stepn.1.bg"
+        },
+        {
+          "id": 1073753428,
+          "name": "td.l2.page.1.stepn.1"
+        },
+        {
+          "id": 1073753429,
+          "name": "td.l2.page.1.stept.1"
+        },
+        {
+          "id": 1073753430,
+          "name": "td.l2.page.1.step.2"
+        },
+        {
+          "id": 1073753431,
+          "name": "td.l2.page.1.stepn.2.bg"
+        },
+        {
+          "id": 1073753432,
+          "name": "td.l2.page.1.stepn.2"
+        },
+        {
+          "id": 1073753433,
+          "name": "td.l2.page.1.stept.2"
+        },
+        {
+          "id": 1073753434,
+          "name": "td.l2.page.1.step.3"
+        },
+        {
+          "id": 1073753435,
+          "name": "td.l2.page.1.stepn.3.bg"
+        },
+        {
+          "id": 1073753436,
+          "name": "td.l2.page.1.stepn.3"
+        },
+        {
+          "id": 1073753437,
+          "name": "td.l2.page.1.stept.3"
+        },
+        {
+          "id": 1073753438,
+          "name": "td.l2.page.1.step.4"
+        },
+        {
+          "id": 1073753439,
+          "name": "td.l2.page.1.stepn.4.bg"
+        },
+        {
+          "id": 1073753440,
+          "name": "td.l2.page.1.stepn.4"
+        },
+        {
+          "id": 1073753441,
+          "name": "td.l2.page.1.stept.4"
+        },
+        {
+          "id": 1073753479,
+          "name": "td.l2.page.1.caption"
+        },
+        {
+          "id": 1073753480,
+          "name": "td.l2.page.1.legendtitle"
+        },
+        {
+          "id": 1073753481,
+          "name": "td.l2.page.1.lg.0"
+        },
+        {
+          "id": 1073753482,
+          "name": "td.l2.page.1.lgt.0"
+        },
+        {
+          "id": 1073753483,
+          "name": "td.l2.page.1.lg.1"
+        },
+        {
+          "id": 1073753484,
+          "name": "td.l2.page.1.lgt.1"
+        },
+        {
+          "id": 1073753485,
+          "name": "td.l2.page.1.lg.2"
+        },
+        {
+          "id": 1073753486,
+          "name": "td.l2.page.1.lgt.2"
+        },
+        {
+          "id": 1073753487,
+          "name": "td.l2.page.1.lg.3"
+        },
+        {
+          "id": 1073753488,
+          "name": "td.l2.page.1.lgt.3"
+        },
+        {
+          "id": 1073753489,
+          "name": "td.l2.page.1.lg.4"
+        },
+        {
+          "id": 1073753490,
+          "name": "td.l2.page.1.lgt.4"
+        },
+        {
+          "id": 1073753491,
+          "name": "td.l2.page.1.lg.5"
+        },
+        {
+          "id": 1073753492,
+          "name": "td.l2.page.1.lgt.5"
+        },
+        {
+          "id": 1073753493,
+          "name": "td.l2.page.1.lg.6.bg"
+        },
+        {
+          "id": 1073753494,
+          "name": "td.l2.page.1.lg.6"
+        },
+        {
+          "id": 1073753495,
+          "name": "td.l2.page.1.lgt.6"
+        },
+        {
+          "id": 1073753496,
+          "name": "td.l2.page.1.lg.7.bg"
+        },
+        {
+          "id": 1073753497,
+          "name": "td.l2.page.1.lg.7"
+        },
+        {
+          "id": 1073753498,
+          "name": "td.l2.page.1.lgt.7"
+        },
+        {
+          "id": 1073753499,
+          "name": "td.l2.page.1.lg.8.bg"
+        },
+        {
+          "id": 1073753500,
+          "name": "td.l2.page.1.lg.8"
+        },
+        {
+          "id": 1073753501,
+          "name": "td.l2.page.1.lgt.8"
+        },
+        {
+          "id": 1073753502,
+          "name": "td.l2.page.1.lg.9.bg"
+        },
+        {
+          "id": 1073753503,
+          "name": "td.l2.page.1.lg.9"
+        },
+        {
+          "id": 1073753504,
+          "name": "td.l2.page.1.lgt.9"
+        },
+        {
+          "id": 1073753505,
+          "name": "td.l2.page.1.lg.10.bg"
+        },
+        {
+          "id": 1073753506,
+          "name": "td.l2.page.1.lg.10"
+        },
+        {
+          "id": 1073753507,
+          "name": "td.l2.page.1.lgt.10"
+        },
+        {
+          "id": 1073753508,
+          "name": "td.l2.page.1.lg.11.bg"
+        },
+        {
+          "id": 1073753509,
+          "name": "td.l2.page.1.lg.11"
+        },
+        {
+          "id": 1073753510,
+          "name": "td.l2.page.1.lgt.11"
+        },
+        {
+          "id": 1073753511,
+          "name": "td.l2.page.1.lg.12.bg"
+        },
+        {
+          "id": 1073753512,
+          "name": "td.l2.page.1.lg.12"
+        },
+        {
+          "id": 1073753513,
+          "name": "td.l2.page.1.lgt.12"
+        },
+        {
+          "id": 1073753514,
+          "name": "td.l2.page.1.coord"
+        },
+        {
+          "id": 1073753518,
+          "name": "td.l2.page.1.main.border"
+        },
+        {
+          "id": 1073753519,
+          "name": "td.l2.page.1.main"
+        },
+        {
+          "id": 1073753520,
+          "name": "td.l2.page.1.tagbg"
+        },
+        {
+          "id": 1073753521,
+          "name": "td.l2.page.1.tag"
+        },
+        {
+          "id": 1073753522,
+          "name": "td.l2.page.1.heading"
+        },
+        {
+          "id": 1073754495,
+          "name": "td.l2.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754494,
+          "name": "td.l2.page.1.furniture617.0"
+        },
+        {
+          "id": 1073754507,
+          "name": "td.l2.page.1.help619.tail"
+        },
+        {
+          "id": 1073754493,
+          "name": "td.l1.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754492,
+          "name": "td.l1.page.1.furniture617.0"
+        },
+        {
+          "id": 1073754505,
+          "name": "td.l1.page.1.help619.tail"
+        },
+        {
+          "id": 1073754490,
+          "name": "td.l1.page.7.rule617.0"
+        },
+        {
+          "id": 1073754489,
+          "name": "td.l2.page.4.rewrite617.3"
+        },
+        {
+          "id": 1073754488,
+          "name": "td.l2.page.4.rewrite617.2"
+        },
+        {
+          "id": 1073754487,
+          "name": "td.l2.page.4.rewrite617.1"
+        },
+        {
+          "id": 1073754486,
+          "name": "td.l2.page.4.rewrite617.0"
+        },
+        {
+          "id": 1073754485,
+          "name": "td.l2.page.3.rewrite617.3"
+        },
+        {
+          "id": 1073754484,
+          "name": "td.l2.page.3.rewrite617.2"
+        },
+        {
+          "id": 1073754483,
+          "name": "td.l2.page.3.rewrite617.1"
+        },
+        {
+          "id": 1073754482,
+          "name": "td.l2.page.3.rewrite617.0"
+        },
+        {
+          "id": 1073754481,
+          "name": "td.l2.page.2.rewrite617.3"
+        },
+        {
+          "id": 1073754480,
+          "name": "td.l2.page.2.rewrite617.2"
+        },
+        {
+          "id": 1073754479,
+          "name": "td.l2.page.2.rewrite617.1"
+        },
+        {
+          "id": 1073754478,
+          "name": "td.l2.page.2.rewrite617.0"
+        },
+        {
+          "id": 1073754477,
+          "name": "td.l2.page.1.rewrite617.3"
+        },
+        {
+          "id": 1073754476,
+          "name": "td.l2.page.1.rewrite617.2"
+        },
+        {
+          "id": 1073754475,
+          "name": "td.l2.page.1.rewrite617.1"
+        },
+        {
+          "id": 1073754474,
+          "name": "td.l2.page.1.rewrite617.0"
+        },
+        {
+          "id": 1073754473,
+          "name": "td.home.page.1.furniture617.3"
+        },
+        {
+          "id": 1073754472,
+          "name": "td.home.page.1.furniture617.2"
+        },
+        {
+          "id": 1073754471,
+          "name": "td.home.page.1.furniture617.1"
+        },
+        {
+          "id": 1073754470,
+          "name": "td.home.page.1.furniture617.0"
+        },
+        {
+          "id": 1073754503,
+          "name": "td.home.page.1.help619.tail"
+        },
+        {
+          "id": 1073753541,
+          "name": "td.l2.page.1.notet"
+        },
+        {
+          "id": 1073753548,
+          "name": "td.l2.page.2.step.1"
+        },
+        {
+          "id": 1073753549,
+          "name": "td.l2.page.2.stepn.1.bg"
+        },
+        {
+          "id": 1073753550,
+          "name": "td.l2.page.2.stepn.1"
+        },
+        {
+          "id": 1073753551,
+          "name": "td.l2.page.2.stept.1"
+        },
+        {
+          "id": 1073753552,
+          "name": "td.l2.page.2.step.2"
+        },
+        {
+          "id": 1073753553,
+          "name": "td.l2.page.2.stepn.2.bg"
+        },
+        {
+          "id": 1073753554,
+          "name": "td.l2.page.2.stepn.2"
+        },
+        {
+          "id": 1073753555,
+          "name": "td.l2.page.2.stept.2"
+        },
+        {
+          "id": 1073753556,
+          "name": "td.l2.page.2.step.3"
+        },
+        {
+          "id": 1073753557,
+          "name": "td.l2.page.2.stepn.3.bg"
+        },
+        {
+          "id": 1073753558,
+          "name": "td.l2.page.2.stepn.3"
+        },
+        {
+          "id": 1073753559,
+          "name": "td.l2.page.2.stept.3"
+        },
+        {
+          "id": 1073753560,
+          "name": "td.l2.page.2.step.4"
+        },
+        {
+          "id": 1073753561,
+          "name": "td.l2.page.2.stepn.4.bg"
+        },
+        {
+          "id": 1073753562,
+          "name": "td.l2.page.2.stepn.4"
+        },
+        {
+          "id": 1073753563,
+          "name": "td.l2.page.2.stept.4"
+        },
+        {
+          "id": 1073753608,
+          "name": "td.l2.page.2.caption"
+        },
+        {
+          "id": 1073753609,
+          "name": "td.l2.page.2.legendtitle"
+        },
+        {
+          "id": 1073753610,
+          "name": "td.l2.page.2.lg.0"
+        },
+        {
+          "id": 1073753611,
+          "name": "td.l2.page.2.lgt.0"
+        },
+        {
+          "id": 1073753612,
+          "name": "td.l2.page.2.lg.1"
+        },
+        {
+          "id": 1073753613,
+          "name": "td.l2.page.2.lgt.1"
+        },
+        {
+          "id": 1073753614,
+          "name": "td.l2.page.2.lg.2"
+        },
+        {
+          "id": 1073753615,
+          "name": "td.l2.page.2.lgt.2"
+        },
+        {
+          "id": 1073753616,
+          "name": "td.l2.page.2.lg.3"
+        },
+        {
+          "id": 1073753617,
+          "name": "td.l2.page.2.lgt.3"
+        },
+        {
+          "id": 1073753618,
+          "name": "td.l2.page.2.lg.4"
+        },
+        {
+          "id": 1073753619,
+          "name": "td.l2.page.2.lgt.4"
+        },
+        {
+          "id": 1073753620,
+          "name": "td.l2.page.2.lg.5"
+        },
+        {
+          "id": 1073753621,
+          "name": "td.l2.page.2.lgt.5"
+        },
+        {
+          "id": 1073753622,
+          "name": "td.l2.page.2.lg.6.bg"
+        },
+        {
+          "id": 1073753623,
+          "name": "td.l2.page.2.lg.6"
+        },
+        {
+          "id": 1073753624,
+          "name": "td.l2.page.2.lgt.6"
+        },
+        {
+          "id": 1073753625,
+          "name": "td.l2.page.2.lg.7.bg"
+        },
+        {
+          "id": 1073753626,
+          "name": "td.l2.page.2.lg.7"
+        },
+        {
+          "id": 1073753627,
+          "name": "td.l2.page.2.lgt.7"
+        },
+        {
+          "id": 1073753628,
+          "name": "td.l2.page.2.lg.8.bg"
+        },
+        {
+          "id": 1073753629,
+          "name": "td.l2.page.2.lg.8"
+        },
+        {
+          "id": 1073753630,
+          "name": "td.l2.page.2.lgt.8"
+        },
+        {
+          "id": 1073753631,
+          "name": "td.l2.page.2.lg.9.bg"
+        },
+        {
+          "id": 1073753632,
+          "name": "td.l2.page.2.lg.9"
+        },
+        {
+          "id": 1073753633,
+          "name": "td.l2.page.2.lgt.9"
+        },
+        {
+          "id": 1073753634,
+          "name": "td.l2.page.2.lg.10.bg"
+        },
+        {
+          "id": 1073753635,
+          "name": "td.l2.page.2.lg.10"
+        },
+        {
+          "id": 1073753636,
+          "name": "td.l2.page.2.lgt.10"
+        },
+        {
+          "id": 1073753637,
+          "name": "td.l2.page.2.lg.11.bg"
+        },
+        {
+          "id": 1073753638,
+          "name": "td.l2.page.2.lg.11"
+        },
+        {
+          "id": 1073753639,
+          "name": "td.l2.page.2.lgt.11"
+        },
+        {
+          "id": 1073753640,
+          "name": "td.l2.page.2.lg.12.bg"
+        },
+        {
+          "id": 1073753641,
+          "name": "td.l2.page.2.lg.12"
+        },
+        {
+          "id": 1073753642,
+          "name": "td.l2.page.2.lgt.12"
+        },
+        {
+          "id": 1073753643,
+          "name": "td.l2.page.2.coord"
+        },
+        {
+          "id": 1073753649,
+          "name": "td.l2.page.2.main.border"
+        },
+        {
+          "id": 1073753650,
+          "name": "td.l2.page.2.main"
+        },
+        {
+          "id": 1073753651,
+          "name": "td.l2.page.2.tagbg"
+        },
+        {
+          "id": 1073753652,
+          "name": "td.l2.page.2.tag"
+        },
+        {
+          "id": 1073753653,
+          "name": "td.l2.page.2.heading"
+        },
+        {
+          "id": 1073753673,
+          "name": "td.l2.page.2.cluename"
+        },
+        {
+          "id": 1073753674,
+          "name": "td.l2.page.2.cluesay.0"
+        },
+        {
+          "id": 1073753681,
+          "name": "td.l2.page.3.step.1"
+        },
+        {
+          "id": 1073753682,
+          "name": "td.l2.page.3.stepn.1.bg"
+        },
+        {
+          "id": 1073753683,
+          "name": "td.l2.page.3.stepn.1"
+        },
+        {
+          "id": 1073753684,
+          "name": "td.l2.page.3.stept.1"
+        },
+        {
+          "id": 1073753685,
+          "name": "td.l2.page.3.step.2"
+        },
+        {
+          "id": 1073753686,
+          "name": "td.l2.page.3.stepn.2.bg"
+        },
+        {
+          "id": 1073753687,
+          "name": "td.l2.page.3.stepn.2"
+        },
+        {
+          "id": 1073753688,
+          "name": "td.l2.page.3.stept.2"
+        },
+        {
+          "id": 1073753689,
+          "name": "td.l2.page.3.step.3"
+        },
+        {
+          "id": 1073753690,
+          "name": "td.l2.page.3.stepn.3.bg"
+        },
+        {
+          "id": 1073753691,
+          "name": "td.l2.page.3.stepn.3"
+        },
+        {
+          "id": 1073753692,
+          "name": "td.l2.page.3.stept.3"
+        },
+        {
+          "id": 1073753693,
+          "name": "td.l2.page.3.step.4"
+        },
+        {
+          "id": 1073753694,
+          "name": "td.l2.page.3.stepn.4.bg"
+        },
+        {
+          "id": 1073753695,
+          "name": "td.l2.page.3.stepn.4"
+        },
+        {
+          "id": 1073753696,
+          "name": "td.l2.page.3.stept.4"
+        },
+        {
+          "id": 1073753737,
+          "name": "td.l2.page.3.caption"
+        },
+        {
+          "id": 1073753738,
+          "name": "td.l2.page.3.legendtitle"
+        },
+        {
+          "id": 1073753739,
+          "name": "td.l2.page.3.lg.0"
+        },
+        {
+          "id": 1073753740,
+          "name": "td.l2.page.3.lgt.0"
+        },
+        {
+          "id": 1073753741,
+          "name": "td.l2.page.3.lg.1"
+        },
+        {
+          "id": 1073753742,
+          "name": "td.l2.page.3.lgt.1"
+        },
+        {
+          "id": 1073753743,
+          "name": "td.l2.page.3.lg.2"
+        },
+        {
+          "id": 1073753744,
+          "name": "td.l2.page.3.lgt.2"
+        },
+        {
+          "id": 1073753745,
+          "name": "td.l2.page.3.lg.3"
+        },
+        {
+          "id": 1073753746,
+          "name": "td.l2.page.3.lgt.3"
+        },
+        {
+          "id": 1073753747,
+          "name": "td.l2.page.3.lg.4"
+        },
+        {
+          "id": 1073753748,
+          "name": "td.l2.page.3.lgt.4"
+        },
+        {
+          "id": 1073753749,
+          "name": "td.l2.page.3.lg.5"
+        },
+        {
+          "id": 1073753750,
+          "name": "td.l2.page.3.lgt.5"
+        },
+        {
+          "id": 1073753751,
+          "name": "td.l2.page.3.lg.6.bg"
+        },
+        {
+          "id": 1073753752,
+          "name": "td.l2.page.3.lg.6"
+        },
+        {
+          "id": 1073753753,
+          "name": "td.l2.page.3.lgt.6"
+        },
+        {
+          "id": 1073753754,
+          "name": "td.l2.page.3.lg.7.bg"
+        },
+        {
+          "id": 1073753755,
+          "name": "td.l2.page.3.lg.7"
+        },
+        {
+          "id": 1073753756,
+          "name": "td.l2.page.3.lgt.7"
+        },
+        {
+          "id": 1073753757,
+          "name": "td.l2.page.3.lg.8.bg"
+        },
+        {
+          "id": 1073753758,
+          "name": "td.l2.page.3.lg.8"
+        },
+        {
+          "id": 1073753759,
+          "name": "td.l2.page.3.lgt.8"
+        },
+        {
+          "id": 1073753760,
+          "name": "td.l2.page.3.lg.9.bg"
+        },
+        {
+          "id": 1073753761,
+          "name": "td.l2.page.3.lg.9"
+        },
+        {
+          "id": 1073753762,
+          "name": "td.l2.page.3.lgt.9"
+        },
+        {
+          "id": 1073753763,
+          "name": "td.l2.page.3.lg.10.bg"
+        },
+        {
+          "id": 1073753764,
+          "name": "td.l2.page.3.lg.10"
+        },
+        {
+          "id": 1073753765,
+          "name": "td.l2.page.3.lgt.10"
+        },
+        {
+          "id": 1073753766,
+          "name": "td.l2.page.3.lg.11.bg"
+        },
+        {
+          "id": 1073753767,
+          "name": "td.l2.page.3.lg.11"
+        },
+        {
+          "id": 1073753768,
+          "name": "td.l2.page.3.lgt.11"
+        },
+        {
+          "id": 1073753769,
+          "name": "td.l2.page.3.lg.12.bg"
+        },
+        {
+          "id": 1073753770,
+          "name": "td.l2.page.3.lg.12"
+        },
+        {
+          "id": 1073753771,
+          "name": "td.l2.page.3.lgt.12"
+        },
+        {
+          "id": 1073753772,
+          "name": "td.l2.page.3.coord"
+        },
+        {
+          "id": 1073753778,
+          "name": "td.l2.page.3.main.border"
+        },
+        {
+          "id": 1073753779,
+          "name": "td.l2.page.3.main"
+        },
+        {
+          "id": 1073753780,
+          "name": "td.l2.page.3.tagbg"
+        },
+        {
+          "id": 1073753781,
+          "name": "td.l2.page.3.tag"
+        },
+        {
+          "id": 1073753782,
+          "name": "td.l2.page.3.heading"
+        },
+        {
+          "id": 1073753792,
+          "name": "td.l2.page.3.notet"
+        },
+        {
+          "id": 1073753798,
+          "name": "td.l2.page.3.cluename"
+        },
+        {
+          "id": 1073753799,
+          "name": "td.l2.page.3.cluesay.0"
+        },
+        {
+          "id": 1073753808,
+          "name": "td.l2.page.4.step.1"
+        },
+        {
+          "id": 1073753809,
+          "name": "td.l2.page.4.stepn.1.bg"
+        },
+        {
+          "id": 1073753810,
+          "name": "td.l2.page.4.stepn.1"
+        },
+        {
+          "id": 1073753811,
+          "name": "td.l2.page.4.stept.1"
+        },
+        {
+          "id": 1073753812,
+          "name": "td.l2.page.4.step.2"
+        },
+        {
+          "id": 1073753813,
+          "name": "td.l2.page.4.stepn.2.bg"
+        },
+        {
+          "id": 1073753814,
+          "name": "td.l2.page.4.stepn.2"
+        },
+        {
+          "id": 1073753815,
+          "name": "td.l2.page.4.stept.2"
+        },
+        {
+          "id": 1073753816,
+          "name": "td.l2.page.4.step.3"
+        },
+        {
+          "id": 1073753817,
+          "name": "td.l2.page.4.stepn.3.bg"
+        },
+        {
+          "id": 1073753818,
+          "name": "td.l2.page.4.stepn.3"
+        },
+        {
+          "id": 1073753819,
+          "name": "td.l2.page.4.stept.3"
+        },
+        {
+          "id": 1073753820,
+          "name": "td.l2.page.4.step.4"
+        },
+        {
+          "id": 1073753821,
+          "name": "td.l2.page.4.stepn.4.bg"
+        },
+        {
+          "id": 1073753822,
+          "name": "td.l2.page.4.stepn.4"
+        },
+        {
+          "id": 1073753823,
+          "name": "td.l2.page.4.stept.4"
+        },
+        {
+          "id": 1073753869,
+          "name": "td.l2.page.4.caption"
+        },
+        {
+          "id": 1073753870,
+          "name": "td.l2.page.4.legendtitle"
+        },
+        {
+          "id": 1073753871,
+          "name": "td.l2.page.4.lg.0"
+        },
+        {
+          "id": 1073753872,
+          "name": "td.l2.page.4.lgt.0"
+        },
+        {
+          "id": 1073753873,
+          "name": "td.l2.page.4.lg.1"
+        },
+        {
+          "id": 1073753874,
+          "name": "td.l2.page.4.lgt.1"
+        },
+        {
+          "id": 1073753875,
+          "name": "td.l2.page.4.lg.2"
+        },
+        {
+          "id": 1073753876,
+          "name": "td.l2.page.4.lgt.2"
+        },
+        {
+          "id": 1073753877,
+          "name": "td.l2.page.4.lg.3"
+        },
+        {
+          "id": 1073753878,
+          "name": "td.l2.page.4.lgt.3"
+        },
+        {
+          "id": 1073753879,
+          "name": "td.l2.page.4.lg.4"
+        },
+        {
+          "id": 1073753880,
+          "name": "td.l2.page.4.lgt.4"
+        },
+        {
+          "id": 1073753881,
+          "name": "td.l2.page.4.lg.5"
+        },
+        {
+          "id": 1073753882,
+          "name": "td.l2.page.4.lgt.5"
+        },
+        {
+          "id": 1073753883,
+          "name": "td.l2.page.4.lg.6.bg"
+        },
+        {
+          "id": 1073753884,
+          "name": "td.l2.page.4.lg.6"
+        },
+        {
+          "id": 1073753885,
+          "name": "td.l2.page.4.lgt.6"
+        },
+        {
+          "id": 1073753886,
+          "name": "td.l2.page.4.lg.7.bg"
+        },
+        {
+          "id": 1073753887,
+          "name": "td.l2.page.4.lg.7"
+        },
+        {
+          "id": 1073753888,
+          "name": "td.l2.page.4.lgt.7"
+        },
+        {
+          "id": 1073753889,
+          "name": "td.l2.page.4.lg.8.bg"
+        },
+        {
+          "id": 1073753890,
+          "name": "td.l2.page.4.lg.8"
+        },
+        {
+          "id": 1073753891,
+          "name": "td.l2.page.4.lgt.8"
+        },
+        {
+          "id": 1073753892,
+          "name": "td.l2.page.4.lg.9.bg"
+        },
+        {
+          "id": 1073753893,
+          "name": "td.l2.page.4.lg.9"
+        },
+        {
+          "id": 1073753894,
+          "name": "td.l2.page.4.lgt.9"
+        },
+        {
+          "id": 1073753895,
+          "name": "td.l2.page.4.lg.10.bg"
+        },
+        {
+          "id": 1073753896,
+          "name": "td.l2.page.4.lg.10"
+        },
+        {
+          "id": 1073753897,
+          "name": "td.l2.page.4.lgt.10"
+        },
+        {
+          "id": 1073753898,
+          "name": "td.l2.page.4.lg.11.bg"
+        },
+        {
+          "id": 1073753899,
+          "name": "td.l2.page.4.lg.11"
+        },
+        {
+          "id": 1073753900,
+          "name": "td.l2.page.4.lgt.11"
+        },
+        {
+          "id": 1073753901,
+          "name": "td.l2.page.4.lg.12.bg"
+        },
+        {
+          "id": 1073753902,
+          "name": "td.l2.page.4.lg.12"
+        },
+        {
+          "id": 1073753903,
+          "name": "td.l2.page.4.lgt.12"
+        },
+        {
+          "id": 1073753904,
+          "name": "td.l2.page.4.coord"
+        },
+        {
+          "id": 1073753910,
+          "name": "td.l2.page.4.main.border"
+        },
+        {
+          "id": 1073753911,
+          "name": "td.l2.page.4.main"
+        },
+        {
+          "id": 1073753912,
+          "name": "td.l2.page.4.tagbg"
+        },
+        {
+          "id": 1073753913,
+          "name": "td.l2.page.4.tag"
+        },
+        {
+          "id": 1073753914,
+          "name": "td.l2.page.4.heading"
+        },
+        {
+          "id": 1073753933,
+          "name": "td.l2.page.4.cluename"
+        },
+        {
+          "id": 1073753934,
+          "name": "td.l2.page.4.cluesay.0"
+        },
+        {
+          "id": 1073754013,
+          "name": "td.l1.page.1.stephit.1"
+        },
+        {
+          "id": 1073754014,
+          "name": "td.l1.page.1.stephit.2"
+        },
+        {
+          "id": 1073754015,
+          "name": "td.l1.page.1.stephit.3"
+        },
+        {
+          "id": 1073754016,
+          "name": "td.l1.page.1.stephit.4"
+        },
+        {
+          "id": 1073754017,
+          "name": "td.l1.page.1.stephit.5"
+        },
+        {
+          "id": 1073754018,
+          "name": "td.l1.page.1.stephit.6"
+        },
+        {
+          "id": 1073754019,
+          "name": "td.l1.page.1.stephit.7"
+        },
+        {
+          "id": 1073754020,
+          "name": "td.l1.page.1.stephit.8"
+        },
+        {
+          "id": 1073754021,
+          "name": "td.l1.page.2.stephit.1"
+        },
+        {
+          "id": 1073754022,
+          "name": "td.l1.page.2.stephit.2"
+        },
+        {
+          "id": 1073754023,
+          "name": "td.l1.page.2.stephit.3"
+        },
+        {
+          "id": 1073754024,
+          "name": "td.l1.page.2.stephit.4"
+        },
+        {
+          "id": 1073754025,
+          "name": "td.l1.page.2.stephit.5"
+        },
+        {
+          "id": 1073754026,
+          "name": "td.l1.page.2.stephit.6"
+        },
+        {
+          "id": 1073754027,
+          "name": "td.l1.page.2.stephit.7"
+        },
+        {
+          "id": 1073754028,
+          "name": "td.l1.page.2.stephit.8"
+        },
+        {
+          "id": 1073754029,
+          "name": "td.l1.page.3.stephit.1"
+        },
+        {
+          "id": 1073754030,
+          "name": "td.l1.page.3.stephit.2"
+        },
+        {
+          "id": 1073754031,
+          "name": "td.l1.page.3.stephit.3"
+        },
+        {
+          "id": 1073754032,
+          "name": "td.l1.page.3.stephit.4"
+        },
+        {
+          "id": 1073754033,
+          "name": "td.l1.page.3.stephit.5"
+        },
+        {
+          "id": 1073754034,
+          "name": "td.l1.page.3.stephit.6"
+        },
+        {
+          "id": 1073754035,
+          "name": "td.l1.page.3.stephit.7"
+        },
+        {
+          "id": 1073754036,
+          "name": "td.l1.page.3.stephit.8"
+        },
+        {
+          "id": 1073754037,
+          "name": "td.l1.page.4.stephit.1"
+        },
+        {
+          "id": 1073754038,
+          "name": "td.l1.page.4.stephit.2"
+        },
+        {
+          "id": 1073754039,
+          "name": "td.l1.page.4.stephit.3"
+        },
+        {
+          "id": 1073754040,
+          "name": "td.l1.page.4.stephit.4"
+        },
+        {
+          "id": 1073754041,
+          "name": "td.l1.page.4.stephit.5"
+        },
+        {
+          "id": 1073754042,
+          "name": "td.l1.page.4.stephit.6"
+        },
+        {
+          "id": 1073754043,
+          "name": "td.l1.page.4.stephit.7"
+        },
+        {
+          "id": 1073754044,
+          "name": "td.l1.page.4.stephit.8"
+        },
+        {
+          "id": 1073754045,
+          "name": "td.l1.page.5.stephit.1"
+        },
+        {
+          "id": 1073754046,
+          "name": "td.l1.page.5.stephit.2"
+        },
+        {
+          "id": 1073754047,
+          "name": "td.l1.page.5.stephit.3"
+        },
+        {
+          "id": 1073754048,
+          "name": "td.l1.page.5.stephit.4"
+        },
+        {
+          "id": 1073754049,
+          "name": "td.l1.page.5.stephit.5"
+        },
+        {
+          "id": 1073754050,
+          "name": "td.l1.page.5.stephit.6"
+        },
+        {
+          "id": 1073754051,
+          "name": "td.l1.page.5.stephit.7"
+        },
+        {
+          "id": 1073754052,
+          "name": "td.l1.page.5.stephit.8"
+        },
+        {
+          "id": 1073754053,
+          "name": "td.l1.page.6.stephit.1"
+        },
+        {
+          "id": 1073754054,
+          "name": "td.l1.page.6.stephit.2"
+        },
+        {
+          "id": 1073754055,
+          "name": "td.l1.page.6.stephit.3"
+        },
+        {
+          "id": 1073754056,
+          "name": "td.l1.page.6.stephit.4"
+        },
+        {
+          "id": 1073754057,
+          "name": "td.l1.page.6.stephit.5"
+        },
+        {
+          "id": 1073754058,
+          "name": "td.l1.page.6.stephit.6"
+        },
+        {
+          "id": 1073754059,
+          "name": "td.l1.page.6.stephit.7"
+        },
+        {
+          "id": 1073754060,
+          "name": "td.l1.page.6.stephit.8"
+        },
+        {
+          "id": 1073754061,
+          "name": "td.l1.page.7.stephit.1"
+        },
+        {
+          "id": 1073754062,
+          "name": "td.l1.page.7.stephit.2"
+        },
+        {
+          "id": 1073754063,
+          "name": "td.l1.page.7.stephit.3"
+        },
+        {
+          "id": 1073754064,
+          "name": "td.l1.page.7.stephit.4"
+        },
+        {
+          "id": 1073754065,
+          "name": "td.l1.page.7.stephit.5"
+        },
+        {
+          "id": 1073754066,
+          "name": "td.l1.page.7.stephit.6"
+        },
+        {
+          "id": 1073754067,
+          "name": "td.l1.page.7.stephit.7"
+        },
+        {
+          "id": 1073754068,
+          "name": "td.l1.page.7.stephit.8"
+        },
+        {
+          "id": 1073754069,
+          "name": "td.l1.page.8.stephit.1"
+        },
+        {
+          "id": 1073754070,
+          "name": "td.l1.page.8.stephit.2"
+        },
+        {
+          "id": 1073754071,
+          "name": "td.l1.page.8.stephit.3"
+        },
+        {
+          "id": 1073754072,
+          "name": "td.l1.page.8.stephit.4"
+        },
+        {
+          "id": 1073754073,
+          "name": "td.l1.page.8.stephit.5"
+        },
+        {
+          "id": 1073754074,
+          "name": "td.l1.page.8.stephit.6"
+        },
+        {
+          "id": 1073754075,
+          "name": "td.l1.page.8.stephit.7"
+        },
+        {
+          "id": 1073754076,
+          "name": "td.l1.page.8.stephit.8"
+        },
+        {
+          "id": 1073754077,
+          "name": "td.l2.page.1.stephit.1"
+        },
+        {
+          "id": 1073754078,
+          "name": "td.l2.page.1.stephit.2"
+        },
+        {
+          "id": 1073754079,
+          "name": "td.l2.page.1.stephit.3"
+        },
+        {
+          "id": 1073754080,
+          "name": "td.l2.page.1.stephit.4"
+        },
+        {
+          "id": 1073754081,
+          "name": "td.l2.page.2.stephit.1"
+        },
+        {
+          "id": 1073754082,
+          "name": "td.l2.page.2.stephit.2"
+        },
+        {
+          "id": 1073754083,
+          "name": "td.l2.page.2.stephit.3"
+        },
+        {
+          "id": 1073754084,
+          "name": "td.l2.page.2.stephit.4"
+        },
+        {
+          "id": 1073754085,
+          "name": "td.l2.page.3.stephit.1"
+        },
+        {
+          "id": 1073754086,
+          "name": "td.l2.page.3.stephit.2"
+        },
+        {
+          "id": 1073754087,
+          "name": "td.l2.page.3.stephit.3"
+        },
+        {
+          "id": 1073754088,
+          "name": "td.l2.page.3.stephit.4"
+        },
+        {
+          "id": 1073754089,
+          "name": "td.l2.page.4.stephit.1"
+        },
+        {
+          "id": 1073754090,
+          "name": "td.l2.page.4.stephit.2"
+        },
+        {
+          "id": 1073754091,
+          "name": "td.l2.page.4.stephit.3"
+        },
+        {
+          "id": 1073754092,
+          "name": "td.l2.page.4.stephit.4"
+        }
+      ],
+      "addedRecords": [],
+      "removedRecords": []
+    },
+    {
+      "version": "622",
+      "file": "正式版622.gil",
+      "bytes": 5358340,
+      "sha256": "ea3c64d1896c7a8a3535e29057e28e9b313644d1516294a0fcdd394aa6c9ac9b",
+      "records": 4668,
+      "scriptSha256": "9760ef323f507b693c0270d2bb28862972c482c7ba14744e10f4ca4a374f0a25",
+      "scriptMatchesCurrentDist": true,
+      "previous": "621",
+      "changedRecords": [
+        {
+          "id": 1073754496,
+          "name": "clues.help617"
+        },
+        {
+          "id": 1073752288,
+          "name": "td.l1.page.1.stepn.1"
+        },
+        {
+          "id": 1073752289,
+          "name": "td.l1.page.1.stept.1"
+        },
+        {
+          "id": 1073752292,
+          "name": "td.l1.page.1.stepn.2"
+        },
+        {
+          "id": 1073752293,
+          "name": "td.l1.page.1.stept.2"
+        },
+        {
+          "id": 1073752296,
+          "name": "td.l1.page.1.stepn.3"
+        },
+        {
+          "id": 1073752297,
+          "name": "td.l1.page.1.stept.3"
+        },
+        {
+          "id": 1073752300,
+          "name": "td.l1.page.1.stepn.4"
+        },
+        {
+          "id": 1073752301,
+          "name": "td.l1.page.1.stept.4"
+        },
+        {
+          "id": 1073752304,
+          "name": "td.l1.page.1.stepn.5"
+        },
+        {
+          "id": 1073752305,
+          "name": "td.l1.page.1.stept.5"
+        },
+        {
+          "id": 1073752308,
+          "name": "td.l1.page.1.stepn.6"
+        },
+        {
+          "id": 1073752309,
+          "name": "td.l1.page.1.stept.6"
+        },
+        {
+          "id": 1073752312,
+          "name": "td.l1.page.1.stepn.7"
+        },
+        {
+          "id": 1073752313,
+          "name": "td.l1.page.1.stept.7"
+        },
+        {
+          "id": 1073752316,
+          "name": "td.l1.page.1.stepn.8"
+        },
+        {
+          "id": 1073752317,
+          "name": "td.l1.page.1.stept.8"
+        },
+        {
+          "id": 1073752383,
+          "name": "td.l1.page.1.tag"
+        },
+        {
+          "id": 1073752385,
+          "name": "td.l1.page.1.body.0.0"
+        },
+        {
+          "id": 1073752386,
+          "name": "td.l1.page.1.body.1.0"
+        },
+        {
+          "id": 1073752387,
+          "name": "td.l1.page.1.body.1.1"
+        },
+        {
+          "id": 1073752388,
+          "name": "td.l1.page.1.body.1.2"
+        },
+        {
+          "id": 1073752389,
+          "name": "td.l1.page.1.body.2.0"
+        },
+        {
+          "id": 1073752394,
+          "name": "td.l1.page.1.chipt.0"
+        },
+        {
+          "id": 1073752396,
+          "name": "td.l1.page.1.chipt.1"
+        },
+        {
+          "id": 1073752398,
+          "name": "td.l1.page.1.chipt.2"
+        },
+        {
+          "id": 1073752412,
+          "name": "td.l1.page.2.stepn.1"
+        },
+        {
+          "id": 1073752413,
+          "name": "td.l1.page.2.stept.1"
+        },
+        {
+          "id": 1073752416,
+          "name": "td.l1.page.2.stepn.2"
+        },
+        {
+          "id": 1073752417,
+          "name": "td.l1.page.2.stept.2"
+        },
+        {
+          "id": 1073752420,
+          "name": "td.l1.page.2.stepn.3"
+        },
+        {
+          "id": 1073752421,
+          "name": "td.l1.page.2.stept.3"
+        },
+        {
+          "id": 1073752424,
+          "name": "td.l1.page.2.stepn.4"
+        },
+        {
+          "id": 1073752425,
+          "name": "td.l1.page.2.stept.4"
+        },
+        {
+          "id": 1073752428,
+          "name": "td.l1.page.2.stepn.5"
+        },
+        {
+          "id": 1073752429,
+          "name": "td.l1.page.2.stept.5"
+        },
+        {
+          "id": 1073752432,
+          "name": "td.l1.page.2.stepn.6"
+        },
+        {
+          "id": 1073752433,
+          "name": "td.l1.page.2.stept.6"
+        },
+        {
+          "id": 1073752436,
+          "name": "td.l1.page.2.stepn.7"
+        },
+        {
+          "id": 1073752437,
+          "name": "td.l1.page.2.stept.7"
+        },
+        {
+          "id": 1073752440,
+          "name": "td.l1.page.2.stepn.8"
+        },
+        {
+          "id": 1073752441,
+          "name": "td.l1.page.2.stept.8"
+        },
+        {
+          "id": 1073752512,
+          "name": "td.l1.page.2.tag"
+        },
+        {
+          "id": 1073752514,
+          "name": "td.l1.page.2.body.0.0"
+        },
+        {
+          "id": 1073752515,
+          "name": "td.l1.page.2.body.1.0"
+        },
+        {
+          "id": 1073752516,
+          "name": "td.l1.page.2.body.1.1"
+        },
+        {
+          "id": 1073752517,
+          "name": "td.l1.page.2.body.1.2"
+        },
+        {
+          "id": 1073752518,
+          "name": "td.l1.page.2.body.2.0"
+        },
+        {
+          "id": 1073752541,
+          "name": "td.l1.page.3.stepn.1"
+        },
+        {
+          "id": 1073752542,
+          "name": "td.l1.page.3.stept.1"
+        },
+        {
+          "id": 1073752545,
+          "name": "td.l1.page.3.stepn.2"
+        },
+        {
+          "id": 1073752546,
+          "name": "td.l1.page.3.stept.2"
+        },
+        {
+          "id": 1073752549,
+          "name": "td.l1.page.3.stepn.3"
+        },
+        {
+          "id": 1073752550,
+          "name": "td.l1.page.3.stept.3"
+        },
+        {
+          "id": 1073752553,
+          "name": "td.l1.page.3.stepn.4"
+        },
+        {
+          "id": 1073752554,
+          "name": "td.l1.page.3.stept.4"
+        },
+        {
+          "id": 1073752557,
+          "name": "td.l1.page.3.stepn.5"
+        },
+        {
+          "id": 1073752558,
+          "name": "td.l1.page.3.stept.5"
+        },
+        {
+          "id": 1073752561,
+          "name": "td.l1.page.3.stepn.6"
+        },
+        {
+          "id": 1073752562,
+          "name": "td.l1.page.3.stept.6"
+        },
+        {
+          "id": 1073752565,
+          "name": "td.l1.page.3.stepn.7"
+        },
+        {
+          "id": 1073752566,
+          "name": "td.l1.page.3.stept.7"
+        },
+        {
+          "id": 1073752569,
+          "name": "td.l1.page.3.stepn.8"
+        },
+        {
+          "id": 1073752570,
+          "name": "td.l1.page.3.stept.8"
+        },
+        {
+          "id": 1073754099,
+          "name": "td.l1.page.3.ico.redo"
+        },
+        {
+          "id": 1073754098,
+          "name": "td.l1.page.3.ico.redo.bg"
+        },
+        {
+          "id": 1073754096,
+          "name": "td.l1.page.3.ico.undo"
+        },
+        {
+          "id": 1073754095,
+          "name": "td.l1.page.3.ico.undo.bg"
+        },
+        {
+          "id": 1073752650,
+          "name": "td.l1.page.3.tag"
+        },
+        {
+          "id": 1073752652,
+          "name": "td.l1.page.3.body.0.0"
+        },
+        {
+          "id": 1073754447,
+          "name": "td.l1.page.3.note.rule"
+        },
+        {
+          "id": 1073754100,
+          "name": "td.l1.page.3.ico.redo.t"
+        },
+        {
+          "id": 1073754097,
+          "name": "td.l1.page.3.ico.undo.t"
+        },
+        {
+          "id": 1073752653,
+          "name": "td.l1.page.3.body.0.1"
+        },
+        {
+          "id": 1073754461,
+          "name": "td.l1.page.3.body.0.1.key610.4"
+        },
+        {
+          "id": 1073754460,
+          "name": "td.l1.page.3.body.0.1.key610.3"
+        },
+        {
+          "id": 1073754459,
+          "name": "td.l1.page.3.body.0.1.key610.2"
+        },
+        {
+          "id": 1073754458,
+          "name": "td.l1.page.3.body.0.1.key610.1"
+        },
+        {
+          "id": 1073752654,
+          "name": "td.l1.page.3.body.1.0"
+        },
+        {
+          "id": 1073754465,
+          "name": "td.l1.page.3.body.1.0.key610.4"
+        },
+        {
+          "id": 1073754464,
+          "name": "td.l1.page.3.body.1.0.key610.3"
+        },
+        {
+          "id": 1073754463,
+          "name": "td.l1.page.3.body.1.0.key610.2"
+        },
+        {
+          "id": 1073754462,
+          "name": "td.l1.page.3.body.1.0.key610.1"
+        },
+        {
+          "id": 1073752655,
+          "name": "td.l1.page.3.body.2.0"
+        },
+        {
+          "id": 1073752660,
+          "name": "td.l1.page.3.chipt.0"
+        },
+        {
+          "id": 1073752662,
+          "name": "td.l1.page.3.chipt.1"
+        },
+        {
+          "id": 1073752664,
+          "name": "td.l1.page.3.chipt.2"
+        },
+        {
+          "id": 1073752669,
+          "name": "td.l1.page.3.notet"
+        },
+        {
+          "id": 1073752678,
+          "name": "td.l1.page.4.stepn.1"
+        },
+        {
+          "id": 1073752679,
+          "name": "td.l1.page.4.stept.1"
+        },
+        {
+          "id": 1073752682,
+          "name": "td.l1.page.4.stepn.2"
+        },
+        {
+          "id": 1073752683,
+          "name": "td.l1.page.4.stept.2"
+        },
+        {
+          "id": 1073752686,
+          "name": "td.l1.page.4.stepn.3"
+        },
+        {
+          "id": 1073752687,
+          "name": "td.l1.page.4.stept.3"
+        },
+        {
+          "id": 1073752690,
+          "name": "td.l1.page.4.stepn.4"
+        },
+        {
+          "id": 1073752691,
+          "name": "td.l1.page.4.stept.4"
+        },
+        {
+          "id": 1073752694,
+          "name": "td.l1.page.4.stepn.5"
+        },
+        {
+          "id": 1073752695,
+          "name": "td.l1.page.4.stept.5"
+        },
+        {
+          "id": 1073752698,
+          "name": "td.l1.page.4.stepn.6"
+        },
+        {
+          "id": 1073752699,
+          "name": "td.l1.page.4.stept.6"
+        },
+        {
+          "id": 1073752702,
+          "name": "td.l1.page.4.stepn.7"
+        },
+        {
+          "id": 1073752703,
+          "name": "td.l1.page.4.stept.7"
+        },
+        {
+          "id": 1073752706,
+          "name": "td.l1.page.4.stepn.8"
+        },
+        {
+          "id": 1073752707,
+          "name": "td.l1.page.4.stept.8"
+        },
+        {
+          "id": 1073752789,
+          "name": "td.l1.page.4.tag"
+        },
+        {
+          "id": 1073752791,
+          "name": "td.l1.page.4.body.0.0"
+        },
+        {
+          "id": 1073752792,
+          "name": "td.l1.page.4.body.1.0"
+        },
+        {
+          "id": 1073752793,
+          "name": "td.l1.page.4.body.2.0"
+        },
+        {
+          "id": 1073752811,
+          "name": "td.l1.page.5.stepn.1"
+        },
+        {
+          "id": 1073752812,
+          "name": "td.l1.page.5.stept.1"
+        },
+        {
+          "id": 1073752815,
+          "name": "td.l1.page.5.stepn.2"
+        },
+        {
+          "id": 1073752816,
+          "name": "td.l1.page.5.stept.2"
+        },
+        {
+          "id": 1073752819,
+          "name": "td.l1.page.5.stepn.3"
+        },
+        {
+          "id": 1073752820,
+          "name": "td.l1.page.5.stept.3"
+        },
+        {
+          "id": 1073752823,
+          "name": "td.l1.page.5.stepn.4"
+        },
+        {
+          "id": 1073752824,
+          "name": "td.l1.page.5.stept.4"
+        },
+        {
+          "id": 1073752827,
+          "name": "td.l1.page.5.stepn.5"
+        },
+        {
+          "id": 1073752828,
+          "name": "td.l1.page.5.stept.5"
+        },
+        {
+          "id": 1073752831,
+          "name": "td.l1.page.5.stepn.6"
+        },
+        {
+          "id": 1073752832,
+          "name": "td.l1.page.5.stept.6"
+        },
+        {
+          "id": 1073752835,
+          "name": "td.l1.page.5.stepn.7"
+        },
+        {
+          "id": 1073752836,
+          "name": "td.l1.page.5.stept.7"
+        },
+        {
+          "id": 1073752839,
+          "name": "td.l1.page.5.stepn.8"
+        },
+        {
+          "id": 1073752840,
+          "name": "td.l1.page.5.stept.8"
+        },
+        {
+          "id": 1073752928,
+          "name": "td.l1.page.5.tag"
+        },
+        {
+          "id": 1073752930,
+          "name": "td.l1.page.5.body.0.0"
+        },
+        {
+          "id": 1073752931,
+          "name": "td.l1.page.5.body.1.0"
+        },
+        {
+          "id": 1073752932,
+          "name": "td.l1.page.5.body.1.1"
+        },
+        {
+          "id": 1073752933,
+          "name": "td.l1.page.5.body.1.2"
+        },
+        {
+          "id": 1073752934,
+          "name": "td.l1.page.5.body.2.0"
+        },
+        {
+          "id": 1073752935,
+          "name": "td.l1.page.5.body.2.1"
+        },
+        {
+          "id": 1073752940,
+          "name": "td.l1.page.5.chipt.0"
+        },
+        {
+          "id": 1073752942,
+          "name": "td.l1.page.5.chipt.1"
+        },
+        {
+          "id": 1073752944,
+          "name": "td.l1.page.5.chipt.2"
+        },
+        {
+          "id": 1073752962,
+          "name": "td.l1.page.6.stepn.1"
+        },
+        {
+          "id": 1073752963,
+          "name": "td.l1.page.6.stept.1"
+        },
+        {
+          "id": 1073752966,
+          "name": "td.l1.page.6.stepn.2"
+        },
+        {
+          "id": 1073752967,
+          "name": "td.l1.page.6.stept.2"
+        },
+        {
+          "id": 1073752970,
+          "name": "td.l1.page.6.stepn.3"
+        },
+        {
+          "id": 1073752971,
+          "name": "td.l1.page.6.stept.3"
+        },
+        {
+          "id": 1073752974,
+          "name": "td.l1.page.6.stepn.4"
+        },
+        {
+          "id": 1073752975,
+          "name": "td.l1.page.6.stept.4"
+        },
+        {
+          "id": 1073752978,
+          "name": "td.l1.page.6.stepn.5"
+        },
+        {
+          "id": 1073752979,
+          "name": "td.l1.page.6.stept.5"
+        },
+        {
+          "id": 1073752982,
+          "name": "td.l1.page.6.stepn.6"
+        },
+        {
+          "id": 1073752983,
+          "name": "td.l1.page.6.stept.6"
+        },
+        {
+          "id": 1073752986,
+          "name": "td.l1.page.6.stepn.7"
+        },
+        {
+          "id": 1073752987,
+          "name": "td.l1.page.6.stept.7"
+        },
+        {
+          "id": 1073752990,
+          "name": "td.l1.page.6.stepn.8"
+        },
+        {
+          "id": 1073752991,
+          "name": "td.l1.page.6.stept.8"
+        },
+        {
+          "id": 1073753067,
+          "name": "td.l1.page.6.tag"
+        },
+        {
+          "id": 1073753069,
+          "name": "td.l1.page.6.body.0.0"
+        },
+        {
+          "id": 1073753070,
+          "name": "td.l1.page.6.body.1.0"
+        },
+        {
+          "id": 1073753071,
+          "name": "td.l1.page.6.body.2.0"
+        },
+        {
+          "id": 1073753072,
+          "name": "td.l1.page.6.body.2.1"
+        },
+        {
+          "id": 1073753073,
+          "name": "td.l1.page.6.body.2.2"
+        },
+        {
+          "id": 1073753078,
+          "name": "td.l1.page.6.chipt.0"
+        },
+        {
+          "id": 1073753080,
+          "name": "td.l1.page.6.chipt.1"
+        },
+        {
+          "id": 1073753098,
+          "name": "td.l1.page.7.stepn.1"
+        },
+        {
+          "id": 1073753099,
+          "name": "td.l1.page.7.stept.1"
+        },
+        {
+          "id": 1073753102,
+          "name": "td.l1.page.7.stepn.2"
+        },
+        {
+          "id": 1073753103,
+          "name": "td.l1.page.7.stept.2"
+        },
+        {
+          "id": 1073753106,
+          "name": "td.l1.page.7.stepn.3"
+        },
+        {
+          "id": 1073753107,
+          "name": "td.l1.page.7.stept.3"
+        },
+        {
+          "id": 1073753110,
+          "name": "td.l1.page.7.stepn.4"
+        },
+        {
+          "id": 1073753111,
+          "name": "td.l1.page.7.stept.4"
+        },
+        {
+          "id": 1073753114,
+          "name": "td.l1.page.7.stepn.5"
+        },
+        {
+          "id": 1073753115,
+          "name": "td.l1.page.7.stept.5"
+        },
+        {
+          "id": 1073753118,
+          "name": "td.l1.page.7.stepn.6"
+        },
+        {
+          "id": 1073753119,
+          "name": "td.l1.page.7.stept.6"
+        },
+        {
+          "id": 1073753122,
+          "name": "td.l1.page.7.stepn.7"
+        },
+        {
+          "id": 1073753123,
+          "name": "td.l1.page.7.stept.7"
+        },
+        {
+          "id": 1073753126,
+          "name": "td.l1.page.7.stepn.8"
+        },
+        {
+          "id": 1073753127,
+          "name": "td.l1.page.7.stept.8"
+        },
+        {
+          "id": 1073753214,
+          "name": "td.l1.page.7.tag"
+        },
+        {
+          "id": 1073753216,
+          "name": "td.l1.page.7.body.0.0"
+        },
+        {
+          "id": 1073754101,
+          "name": "td.l1.page.7.body.x5"
+        },
+        {
+          "id": 1073753217,
+          "name": "td.l1.page.7.body.1.0"
+        },
+        {
+          "id": 1073753218,
+          "name": "td.l1.page.7.body.2.0"
+        },
+        {
+          "id": 1073753219,
+          "name": "td.l1.page.7.body.2.1"
+        },
+        {
+          "id": 1073753220,
+          "name": "td.l1.page.7.body.3.0"
+        },
+        {
+          "id": 1073753225,
+          "name": "td.l1.page.7.chipt.0"
+        },
+        {
+          "id": 1073753227,
+          "name": "td.l1.page.7.chipt.1"
+        },
+        {
+          "id": 1073754103,
+          "name": "td.l1.page.7.chipt.2"
+        },
+        {
+          "id": 1073753233,
+          "name": "td.l1.page.7.cluename"
+        },
+        {
+          "id": 1073753234,
+          "name": "td.l1.page.7.cluesay.0"
+        },
+        {
+          "id": 1073753235,
+          "name": "td.l1.page.7.cluesay.1"
+        },
+        {
+          "id": 1073753236,
+          "name": "td.l1.page.7.cluesay.2"
+        },
+        {
+          "id": 1073753245,
+          "name": "td.l1.page.8.stepn.1"
+        },
+        {
+          "id": 1073753246,
+          "name": "td.l1.page.8.stept.1"
+        },
+        {
+          "id": 1073753249,
+          "name": "td.l1.page.8.stepn.2"
+        },
+        {
+          "id": 1073753250,
+          "name": "td.l1.page.8.stept.2"
+        },
+        {
+          "id": 1073753253,
+          "name": "td.l1.page.8.stepn.3"
+        },
+        {
+          "id": 1073753254,
+          "name": "td.l1.page.8.stept.3"
+        },
+        {
+          "id": 1073753257,
+          "name": "td.l1.page.8.stepn.4"
+        },
+        {
+          "id": 1073753258,
+          "name": "td.l1.page.8.stept.4"
+        },
+        {
+          "id": 1073753261,
+          "name": "td.l1.page.8.stepn.5"
+        },
+        {
+          "id": 1073753262,
+          "name": "td.l1.page.8.stept.5"
+        },
+        {
+          "id": 1073753265,
+          "name": "td.l1.page.8.stepn.6"
+        },
+        {
+          "id": 1073753266,
+          "name": "td.l1.page.8.stept.6"
+        },
+        {
+          "id": 1073753269,
+          "name": "td.l1.page.8.stepn.7"
+        },
+        {
+          "id": 1073753270,
+          "name": "td.l1.page.8.stept.7"
+        },
+        {
+          "id": 1073753273,
+          "name": "td.l1.page.8.stepn.8"
+        },
+        {
+          "id": 1073753274,
+          "name": "td.l1.page.8.stept.8"
+        },
+        {
+          "id": 1073753355,
+          "name": "td.l1.page.8.tag"
+        },
+        {
+          "id": 1073753357,
+          "name": "td.l1.page.8.body.0.0"
+        },
+        {
+          "id": 1073754106,
+          "name": "td.l1.page.8.body.x7"
+        },
+        {
+          "id": 1073754105,
+          "name": "td.l1.page.8.body.x6"
+        },
+        {
+          "id": 1073754104,
+          "name": "td.l1.page.8.body.x5"
+        },
+        {
+          "id": 1073753358,
+          "name": "td.l1.page.8.body.1.0"
+        },
+        {
+          "id": 1073753359,
+          "name": "td.l1.page.8.body.1.1"
+        },
+        {
+          "id": 1073753360,
+          "name": "td.l1.page.8.body.1.2"
+        },
+        {
+          "id": 1073753361,
+          "name": "td.l1.page.8.body.2.0"
+        },
+        {
+          "id": 1073753366,
+          "name": "td.l1.page.8.chipt.0"
+        },
+        {
+          "id": 1073753368,
+          "name": "td.l1.page.8.chipt.1"
+        },
+        {
+          "id": 1073753428,
+          "name": "td.l2.page.1.stepn.1"
+        },
+        {
+          "id": 1073753429,
+          "name": "td.l2.page.1.stept.1"
+        },
+        {
+          "id": 1073753432,
+          "name": "td.l2.page.1.stepn.2"
+        },
+        {
+          "id": 1073753433,
+          "name": "td.l2.page.1.stept.2"
+        },
+        {
+          "id": 1073753436,
+          "name": "td.l2.page.1.stepn.3"
+        },
+        {
+          "id": 1073753437,
+          "name": "td.l2.page.1.stept.3"
+        },
+        {
+          "id": 1073753440,
+          "name": "td.l2.page.1.stepn.4"
+        },
+        {
+          "id": 1073753441,
+          "name": "td.l2.page.1.stept.4"
+        },
+        {
+          "id": 1073753521,
+          "name": "td.l2.page.1.tag"
+        },
+        {
+          "id": 1073754481,
+          "name": "td.l2.page.2.rewrite617.3"
+        },
+        {
+          "id": 1073754472,
+          "name": "td.home.page.1.furniture617.2"
+        },
+        {
+          "id": 1073754471,
+          "name": "td.home.page.1.furniture617.1"
+        },
+        {
+          "id": 1073753532,
+          "name": "td.l2.page.1.chipt.0"
+        },
+        {
+          "id": 1073753534,
+          "name": "td.l2.page.1.chipt.1"
+        },
+        {
+          "id": 1073753536,
+          "name": "td.l2.page.1.chipt.2"
+        },
+        {
+          "id": 1073753550,
+          "name": "td.l2.page.2.stepn.1"
+        },
+        {
+          "id": 1073753551,
+          "name": "td.l2.page.2.stept.1"
+        },
+        {
+          "id": 1073753554,
+          "name": "td.l2.page.2.stepn.2"
+        },
+        {
+          "id": 1073753555,
+          "name": "td.l2.page.2.stept.2"
+        },
+        {
+          "id": 1073753558,
+          "name": "td.l2.page.2.stepn.3"
+        },
+        {
+          "id": 1073753559,
+          "name": "td.l2.page.2.stept.3"
+        },
+        {
+          "id": 1073753562,
+          "name": "td.l2.page.2.stepn.4"
+        },
+        {
+          "id": 1073753563,
+          "name": "td.l2.page.2.stept.4"
+        },
+        {
+          "id": 1073753652,
+          "name": "td.l2.page.2.tag"
+        },
+        {
+          "id": 1073753663,
+          "name": "td.l2.page.2.chipt.0"
+        },
+        {
+          "id": 1073753665,
+          "name": "td.l2.page.2.chipt.1"
+        },
+        {
+          "id": 1073753667,
+          "name": "td.l2.page.2.chipt.2"
+        },
+        {
+          "id": 1073753683,
+          "name": "td.l2.page.3.stepn.1"
+        },
+        {
+          "id": 1073753684,
+          "name": "td.l2.page.3.stept.1"
+        },
+        {
+          "id": 1073753687,
+          "name": "td.l2.page.3.stepn.2"
+        },
+        {
+          "id": 1073753688,
+          "name": "td.l2.page.3.stept.2"
+        },
+        {
+          "id": 1073753691,
+          "name": "td.l2.page.3.stepn.3"
+        },
+        {
+          "id": 1073753692,
+          "name": "td.l2.page.3.stept.3"
+        },
+        {
+          "id": 1073753695,
+          "name": "td.l2.page.3.stepn.4"
+        },
+        {
+          "id": 1073753696,
+          "name": "td.l2.page.3.stept.4"
+        },
+        {
+          "id": 1073753781,
+          "name": "td.l2.page.3.tag"
+        },
+        {
+          "id": 1073753810,
+          "name": "td.l2.page.4.stepn.1"
+        },
+        {
+          "id": 1073753811,
+          "name": "td.l2.page.4.stept.1"
+        },
+        {
+          "id": 1073753814,
+          "name": "td.l2.page.4.stepn.2"
+        },
+        {
+          "id": 1073753815,
+          "name": "td.l2.page.4.stept.2"
+        },
+        {
+          "id": 1073753818,
+          "name": "td.l2.page.4.stepn.3"
+        },
+        {
+          "id": 1073753819,
+          "name": "td.l2.page.4.stept.3"
+        },
+        {
+          "id": 1073753822,
+          "name": "td.l2.page.4.stepn.4"
+        },
+        {
+          "id": 1073753823,
+          "name": "td.l2.page.4.stept.4"
+        },
+        {
+          "id": 1073753913,
+          "name": "td.l2.page.4.tag"
+        },
+        {
+          "id": 1073753923,
+          "name": "td.l2.page.4.chipt.0"
+        },
+        {
+          "id": 1073753925,
+          "name": "td.l2.page.4.chipt.1"
+        },
+        {
+          "id": 1073753927,
+          "name": "td.l2.page.4.chipt.2"
+        }
+      ],
+      "addedRecords": [],
+      "removedRecords": []
+    },
+    {
+      "version": "623",
+      "file": "正式版623.gil",
+      "bytes": 5358336,
+      "sha256": "105c1b53aad884a05163c5444e7222435137a6250b5f7bd1a9465d33b6020043",
+      "records": 4668,
+      "scriptSha256": "9760ef323f507b693c0270d2bb28862972c482c7ba14744e10f4ca4a374f0a25",
+      "scriptMatchesCurrentDist": true,
+      "previous": "622",
+      "changedRecords": [
+        {
+          "id": 1073752161,
+          "name": "td.home.page.1.lg.0"
+        },
+        {
+          "id": 1073752163,
+          "name": "td.home.page.1.lg.1"
+        },
+        {
+          "id": 1073752165,
+          "name": "td.home.page.1.lg.2"
+        },
+        {
+          "id": 1073752167,
+          "name": "td.home.page.1.lg.3"
+        },
+        {
+          "id": 1073752169,
+          "name": "td.home.page.1.lg.4"
+        },
+        {
+          "id": 1073752171,
+          "name": "td.home.page.1.lg.5.bg"
+        },
+        {
+          "id": 1073752172,
+          "name": "td.home.page.1.lg.5"
+        },
+        {
+          "id": 1073752174,
+          "name": "td.home.page.1.lg.6.bg"
+        },
+        {
+          "id": 1073752175,
+          "name": "td.home.page.1.lg.6"
+        },
+        {
+          "id": 1073752177,
+          "name": "td.home.page.1.lg.7.bg"
+        },
+        {
+          "id": 1073752178,
+          "name": "td.home.page.1.lg.7"
+        },
+        {
+          "id": 1073752180,
+          "name": "td.home.page.1.lg.8.bg"
+        },
+        {
+          "id": 1073752181,
+          "name": "td.home.page.1.lg.8"
+        },
+        {
+          "id": 1073752183,
+          "name": "td.home.page.1.lg.9.bg"
+        },
+        {
+          "id": 1073752184,
+          "name": "td.home.page.1.lg.9"
+        },
+        {
+          "id": 1073752186,
+          "name": "td.home.page.1.lg.10.bg"
+        },
+        {
+          "id": 1073752187,
+          "name": "td.home.page.1.lg.10"
+        },
+        {
+          "id": 1073752189,
+          "name": "td.home.page.1.lg.11.bg"
+        },
+        {
+          "id": 1073752190,
+          "name": "td.home.page.1.lg.11"
+        },
+        {
+          "id": 1073754300,
+          "name": "td.home.page.1.ico.redo"
+        },
+        {
+          "id": 1073754299,
+          "name": "td.home.page.1.ico.redo.bg"
+        },
+        {
+          "id": 1073754297,
+          "name": "td.home.page.1.ico.undo"
+        },
+        {
+          "id": 1073754296,
+          "name": "td.home.page.1.ico.undo.bg"
+        },
+        {
+          "id": 1073754294,
+          "name": "td.home.page.1.ico.submit"
+        },
+        {
+          "id": 1073754293,
+          "name": "td.home.page.1.ico.submit.bg"
+        },
+        {
+          "id": 1073754502,
+          "name": "td.home.page.1.help619.icon"
+        },
+        {
+          "id": 1073754295,
+          "name": "td.home.page.1.ico.submit.t"
+        },
+        {
+          "id": 1073752202,
+          "name": "td.home.page.1.rule.1.body.1.0"
+        },
+        {
+          "id": 1073754301,
+          "name": "td.home.page.1.ico.redo.t"
+        },
+        {
+          "id": 1073754298,
+          "name": "td.home.page.1.ico.undo.t"
+        },
+        {
+          "id": 1073752244,
+          "name": "td.home.page.1.rule.5.body.2.0"
+        },
+        {
+          "id": 1073752288,
+          "name": "td.l1.page.1.stepn.1"
+        },
+        {
+          "id": 1073752292,
+          "name": "td.l1.page.1.stepn.2"
+        },
+        {
+          "id": 1073752296,
+          "name": "td.l1.page.1.stepn.3"
+        },
+        {
+          "id": 1073752300,
+          "name": "td.l1.page.1.stepn.4"
+        },
+        {
+          "id": 1073752304,
+          "name": "td.l1.page.1.stepn.5"
+        },
+        {
+          "id": 1073752308,
+          "name": "td.l1.page.1.stepn.6"
+        },
+        {
+          "id": 1073752312,
+          "name": "td.l1.page.1.stepn.7"
+        },
+        {
+          "id": 1073752316,
+          "name": "td.l1.page.1.stepn.8"
+        },
+        {
+          "id": 1073752345,
+          "name": "td.l1.page.1.lg.0"
+        },
+        {
+          "id": 1073752347,
+          "name": "td.l1.page.1.lg.1"
+        },
+        {
+          "id": 1073752349,
+          "name": "td.l1.page.1.lg.2"
+        },
+        {
+          "id": 1073752351,
+          "name": "td.l1.page.1.lg.3"
+        },
+        {
+          "id": 1073752353,
+          "name": "td.l1.page.1.lg.4"
+        },
+        {
+          "id": 1073752355,
+          "name": "td.l1.page.1.lg.5.bg"
+        },
+        {
+          "id": 1073752356,
+          "name": "td.l1.page.1.lg.5"
+        },
+        {
+          "id": 1073752358,
+          "name": "td.l1.page.1.lg.6.bg"
+        },
+        {
+          "id": 1073752359,
+          "name": "td.l1.page.1.lg.6"
+        },
+        {
+          "id": 1073752361,
+          "name": "td.l1.page.1.lg.7.bg"
+        },
+        {
+          "id": 1073752362,
+          "name": "td.l1.page.1.lg.7"
+        },
+        {
+          "id": 1073752364,
+          "name": "td.l1.page.1.lg.8.bg"
+        },
+        {
+          "id": 1073752365,
+          "name": "td.l1.page.1.lg.8"
+        },
+        {
+          "id": 1073752367,
+          "name": "td.l1.page.1.lg.9.bg"
+        },
+        {
+          "id": 1073752368,
+          "name": "td.l1.page.1.lg.9"
+        },
+        {
+          "id": 1073752370,
+          "name": "td.l1.page.1.lg.10.bg"
+        },
+        {
+          "id": 1073752371,
+          "name": "td.l1.page.1.lg.10"
+        },
+        {
+          "id": 1073752373,
+          "name": "td.l1.page.1.lg.11.bg"
+        },
+        {
+          "id": 1073752374,
+          "name": "td.l1.page.1.lg.11"
+        },
+        {
+          "id": 1073752385,
+          "name": "td.l1.page.1.body.0.0"
+        },
+        {
+          "id": 1073752386,
+          "name": "td.l1.page.1.body.1.0"
+        },
+        {
+          "id": 1073752387,
+          "name": "td.l1.page.1.body.1.1"
+        },
+        {
+          "id": 1073752388,
+          "name": "td.l1.page.1.body.1.2"
+        },
+        {
+          "id": 1073752389,
+          "name": "td.l1.page.1.body.2.0"
+        },
+        {
+          "id": 1073752412,
+          "name": "td.l1.page.2.stepn.1"
+        },
+        {
+          "id": 1073752416,
+          "name": "td.l1.page.2.stepn.2"
+        },
+        {
+          "id": 1073752420,
+          "name": "td.l1.page.2.stepn.3"
+        },
+        {
+          "id": 1073752424,
+          "name": "td.l1.page.2.stepn.4"
+        },
+        {
+          "id": 1073752428,
+          "name": "td.l1.page.2.stepn.5"
+        },
+        {
+          "id": 1073752432,
+          "name": "td.l1.page.2.stepn.6"
+        },
+        {
+          "id": 1073752436,
+          "name": "td.l1.page.2.stepn.7"
+        },
+        {
+          "id": 1073752440,
+          "name": "td.l1.page.2.stepn.8"
+        },
+        {
+          "id": 1073752472,
+          "name": "td.l1.page.2.lg.0"
+        },
+        {
+          "id": 1073752474,
+          "name": "td.l1.page.2.lg.1"
+        },
+        {
+          "id": 1073752476,
+          "name": "td.l1.page.2.lg.2"
+        },
+        {
+          "id": 1073752478,
+          "name": "td.l1.page.2.lg.3"
+        },
+        {
+          "id": 1073752480,
+          "name": "td.l1.page.2.lg.4"
+        },
+        {
+          "id": 1073752482,
+          "name": "td.l1.page.2.lg.5.bg"
+        },
+        {
+          "id": 1073752483,
+          "name": "td.l1.page.2.lg.5"
+        },
+        {
+          "id": 1073752485,
+          "name": "td.l1.page.2.lg.6.bg"
+        },
+        {
+          "id": 1073752486,
+          "name": "td.l1.page.2.lg.6"
+        },
+        {
+          "id": 1073752488,
+          "name": "td.l1.page.2.lg.7.bg"
+        },
+        {
+          "id": 1073752489,
+          "name": "td.l1.page.2.lg.7"
+        },
+        {
+          "id": 1073752491,
+          "name": "td.l1.page.2.lg.8.bg"
+        },
+        {
+          "id": 1073752492,
+          "name": "td.l1.page.2.lg.8"
+        },
+        {
+          "id": 1073752494,
+          "name": "td.l1.page.2.lg.9.bg"
+        },
+        {
+          "id": 1073752495,
+          "name": "td.l1.page.2.lg.9"
+        },
+        {
+          "id": 1073752497,
+          "name": "td.l1.page.2.lg.10.bg"
+        },
+        {
+          "id": 1073752498,
+          "name": "td.l1.page.2.lg.10"
+        },
+        {
+          "id": 1073752500,
+          "name": "td.l1.page.2.lg.11.bg"
+        },
+        {
+          "id": 1073752501,
+          "name": "td.l1.page.2.lg.11"
+        },
+        {
+          "id": 1073752514,
+          "name": "td.l1.page.2.body.0.0"
+        },
+        {
+          "id": 1073752515,
+          "name": "td.l1.page.2.body.1.0"
+        },
+        {
+          "id": 1073752516,
+          "name": "td.l1.page.2.body.1.1"
+        },
+        {
+          "id": 1073752517,
+          "name": "td.l1.page.2.body.1.2"
+        },
+        {
+          "id": 1073752518,
+          "name": "td.l1.page.2.body.2.0"
+        },
+        {
+          "id": 1073752530,
+          "name": "td.l1.page.2.cluesay.0"
+        },
+        {
+          "id": 1073752531,
+          "name": "td.l1.page.2.cluesay.1"
+        },
+        {
+          "id": 1073752532,
+          "name": "td.l1.page.2.cluesay.2"
+        },
+        {
+          "id": 1073752541,
+          "name": "td.l1.page.3.stepn.1"
+        },
+        {
+          "id": 1073752545,
+          "name": "td.l1.page.3.stepn.2"
+        },
+        {
+          "id": 1073752549,
+          "name": "td.l1.page.3.stepn.3"
+        },
+        {
+          "id": 1073752553,
+          "name": "td.l1.page.3.stepn.4"
+        },
+        {
+          "id": 1073752557,
+          "name": "td.l1.page.3.stepn.5"
+        },
+        {
+          "id": 1073752561,
+          "name": "td.l1.page.3.stepn.6"
+        },
+        {
+          "id": 1073752565,
+          "name": "td.l1.page.3.stepn.7"
+        },
+        {
+          "id": 1073752569,
+          "name": "td.l1.page.3.stepn.8"
+        },
+        {
+          "id": 1073754099,
+          "name": "td.l1.page.3.ico.redo"
+        },
+        {
+          "id": 1073754098,
+          "name": "td.l1.page.3.ico.redo.bg"
+        },
+        {
+          "id": 1073754096,
+          "name": "td.l1.page.3.ico.undo"
+        },
+        {
+          "id": 1073754095,
+          "name": "td.l1.page.3.ico.undo.bg"
+        },
+        {
+          "id": 1073752610,
+          "name": "td.l1.page.3.lg.0"
+        },
+        {
+          "id": 1073752612,
+          "name": "td.l1.page.3.lg.1"
+        },
+        {
+          "id": 1073752614,
+          "name": "td.l1.page.3.lg.2"
+        },
+        {
+          "id": 1073752616,
+          "name": "td.l1.page.3.lg.3"
+        },
+        {
+          "id": 1073752618,
+          "name": "td.l1.page.3.lg.4"
+        },
+        {
+          "id": 1073752620,
+          "name": "td.l1.page.3.lg.5.bg"
+        },
+        {
+          "id": 1073752621,
+          "name": "td.l1.page.3.lg.5"
+        },
+        {
+          "id": 1073752623,
+          "name": "td.l1.page.3.lg.6.bg"
+        },
+        {
+          "id": 1073752624,
+          "name": "td.l1.page.3.lg.6"
+        },
+        {
+          "id": 1073752626,
+          "name": "td.l1.page.3.lg.7.bg"
+        },
+        {
+          "id": 1073752627,
+          "name": "td.l1.page.3.lg.7"
+        },
+        {
+          "id": 1073752629,
+          "name": "td.l1.page.3.lg.8.bg"
+        },
+        {
+          "id": 1073752630,
+          "name": "td.l1.page.3.lg.8"
+        },
+        {
+          "id": 1073752632,
+          "name": "td.l1.page.3.lg.9.bg"
+        },
+        {
+          "id": 1073752633,
+          "name": "td.l1.page.3.lg.9"
+        },
+        {
+          "id": 1073752635,
+          "name": "td.l1.page.3.lg.10.bg"
+        },
+        {
+          "id": 1073752636,
+          "name": "td.l1.page.3.lg.10"
+        },
+        {
+          "id": 1073752638,
+          "name": "td.l1.page.3.lg.11.bg"
+        },
+        {
+          "id": 1073752639,
+          "name": "td.l1.page.3.lg.11"
+        },
+        {
+          "id": 1073752652,
+          "name": "td.l1.page.3.body.0.0"
+        },
+        {
+          "id": 1073754447,
+          "name": "td.l1.page.3.note.rule"
+        },
+        {
+          "id": 1073754100,
+          "name": "td.l1.page.3.ico.redo.t"
+        },
+        {
+          "id": 1073754097,
+          "name": "td.l1.page.3.ico.undo.t"
+        },
+        {
+          "id": 1073752653,
+          "name": "td.l1.page.3.body.0.1"
+        },
+        {
+          "id": 1073754461,
+          "name": "td.l1.page.3.body.0.1.key610.4"
+        },
+        {
+          "id": 1073754460,
+          "name": "td.l1.page.3.body.0.1.key610.3"
+        },
+        {
+          "id": 1073754459,
+          "name": "td.l1.page.3.body.0.1.key610.2"
+        },
+        {
+          "id": 1073754458,
+          "name": "td.l1.page.3.body.0.1.key610.1"
+        },
+        {
+          "id": 1073752654,
+          "name": "td.l1.page.3.body.1.0"
+        },
+        {
+          "id": 1073754465,
+          "name": "td.l1.page.3.body.1.0.key610.4"
+        },
+        {
+          "id": 1073754464,
+          "name": "td.l1.page.3.body.1.0.key610.3"
+        },
+        {
+          "id": 1073754463,
+          "name": "td.l1.page.3.body.1.0.key610.2"
+        },
+        {
+          "id": 1073754462,
+          "name": "td.l1.page.3.body.1.0.key610.1"
+        },
+        {
+          "id": 1073752655,
+          "name": "td.l1.page.3.body.2.0"
+        },
+        {
+          "id": 1073752669,
+          "name": "td.l1.page.3.notet"
+        },
+        {
+          "id": 1073752678,
+          "name": "td.l1.page.4.stepn.1"
+        },
+        {
+          "id": 1073752682,
+          "name": "td.l1.page.4.stepn.2"
+        },
+        {
+          "id": 1073752686,
+          "name": "td.l1.page.4.stepn.3"
+        },
+        {
+          "id": 1073752690,
+          "name": "td.l1.page.4.stepn.4"
+        },
+        {
+          "id": 1073752694,
+          "name": "td.l1.page.4.stepn.5"
+        },
+        {
+          "id": 1073752698,
+          "name": "td.l1.page.4.stepn.6"
+        },
+        {
+          "id": 1073752702,
+          "name": "td.l1.page.4.stepn.7"
+        },
+        {
+          "id": 1073752706,
+          "name": "td.l1.page.4.stepn.8"
+        },
+        {
+          "id": 1073752749,
+          "name": "td.l1.page.4.lg.0"
+        },
+        {
+          "id": 1073752751,
+          "name": "td.l1.page.4.lg.1"
+        },
+        {
+          "id": 1073752753,
+          "name": "td.l1.page.4.lg.2"
+        },
+        {
+          "id": 1073752755,
+          "name": "td.l1.page.4.lg.3"
+        },
+        {
+          "id": 1073752757,
+          "name": "td.l1.page.4.lg.4"
+        },
+        {
+          "id": 1073752759,
+          "name": "td.l1.page.4.lg.5.bg"
+        },
+        {
+          "id": 1073752760,
+          "name": "td.l1.page.4.lg.5"
+        },
+        {
+          "id": 1073752762,
+          "name": "td.l1.page.4.lg.6.bg"
+        },
+        {
+          "id": 1073752763,
+          "name": "td.l1.page.4.lg.6"
+        },
+        {
+          "id": 1073752765,
+          "name": "td.l1.page.4.lg.7.bg"
+        },
+        {
+          "id": 1073752766,
+          "name": "td.l1.page.4.lg.7"
+        },
+        {
+          "id": 1073752768,
+          "name": "td.l1.page.4.lg.8.bg"
+        },
+        {
+          "id": 1073752769,
+          "name": "td.l1.page.4.lg.8"
+        },
+        {
+          "id": 1073752771,
+          "name": "td.l1.page.4.lg.9.bg"
+        },
+        {
+          "id": 1073752772,
+          "name": "td.l1.page.4.lg.9"
+        },
+        {
+          "id": 1073752774,
+          "name": "td.l1.page.4.lg.10.bg"
+        },
+        {
+          "id": 1073752775,
+          "name": "td.l1.page.4.lg.10"
+        },
+        {
+          "id": 1073752777,
+          "name": "td.l1.page.4.lg.11.bg"
+        },
+        {
+          "id": 1073752778,
+          "name": "td.l1.page.4.lg.11"
+        },
+        {
+          "id": 1073752791,
+          "name": "td.l1.page.4.body.0.0"
+        },
+        {
+          "id": 1073752792,
+          "name": "td.l1.page.4.body.1.0"
+        },
+        {
+          "id": 1073752793,
+          "name": "td.l1.page.4.body.2.0"
+        },
+        {
+          "id": 1073752800,
+          "name": "td.l1.page.4.cluesay.0"
+        },
+        {
+          "id": 1073752801,
+          "name": "td.l1.page.4.cluesay.1"
+        },
+        {
+          "id": 1073752802,
+          "name": "td.l1.page.4.cluesay.2"
+        },
+        {
+          "id": 1073752811,
+          "name": "td.l1.page.5.stepn.1"
+        },
+        {
+          "id": 1073752815,
+          "name": "td.l1.page.5.stepn.2"
+        },
+        {
+          "id": 1073752819,
+          "name": "td.l1.page.5.stepn.3"
+        },
+        {
+          "id": 1073752823,
+          "name": "td.l1.page.5.stepn.4"
+        },
+        {
+          "id": 1073752827,
+          "name": "td.l1.page.5.stepn.5"
+        },
+        {
+          "id": 1073752831,
+          "name": "td.l1.page.5.stepn.6"
+        },
+        {
+          "id": 1073752835,
+          "name": "td.l1.page.5.stepn.7"
+        },
+        {
+          "id": 1073752839,
+          "name": "td.l1.page.5.stepn.8"
+        },
+        {
+          "id": 1073752888,
+          "name": "td.l1.page.5.lg.0"
+        },
+        {
+          "id": 1073752890,
+          "name": "td.l1.page.5.lg.1"
+        },
+        {
+          "id": 1073752892,
+          "name": "td.l1.page.5.lg.2"
+        },
+        {
+          "id": 1073752894,
+          "name": "td.l1.page.5.lg.3"
+        },
+        {
+          "id": 1073752896,
+          "name": "td.l1.page.5.lg.4"
+        },
+        {
+          "id": 1073752898,
+          "name": "td.l1.page.5.lg.5.bg"
+        },
+        {
+          "id": 1073752899,
+          "name": "td.l1.page.5.lg.5"
+        },
+        {
+          "id": 1073752901,
+          "name": "td.l1.page.5.lg.6.bg"
+        },
+        {
+          "id": 1073752902,
+          "name": "td.l1.page.5.lg.6"
+        },
+        {
+          "id": 1073752904,
+          "name": "td.l1.page.5.lg.7.bg"
+        },
+        {
+          "id": 1073752905,
+          "name": "td.l1.page.5.lg.7"
+        },
+        {
+          "id": 1073752907,
+          "name": "td.l1.page.5.lg.8.bg"
+        },
+        {
+          "id": 1073752908,
+          "name": "td.l1.page.5.lg.8"
+        },
+        {
+          "id": 1073752910,
+          "name": "td.l1.page.5.lg.9.bg"
+        },
+        {
+          "id": 1073752911,
+          "name": "td.l1.page.5.lg.9"
+        },
+        {
+          "id": 1073752913,
+          "name": "td.l1.page.5.lg.10.bg"
+        },
+        {
+          "id": 1073752914,
+          "name": "td.l1.page.5.lg.10"
+        },
+        {
+          "id": 1073752916,
+          "name": "td.l1.page.5.lg.11.bg"
+        },
+        {
+          "id": 1073752917,
+          "name": "td.l1.page.5.lg.11"
+        },
+        {
+          "id": 1073752930,
+          "name": "td.l1.page.5.body.0.0"
+        },
+        {
+          "id": 1073752931,
+          "name": "td.l1.page.5.body.1.0"
+        },
+        {
+          "id": 1073752932,
+          "name": "td.l1.page.5.body.1.1"
+        },
+        {
+          "id": 1073752933,
+          "name": "td.l1.page.5.body.1.2"
+        },
+        {
+          "id": 1073752934,
+          "name": "td.l1.page.5.body.2.0"
+        },
+        {
+          "id": 1073752935,
+          "name": "td.l1.page.5.body.2.1"
+        },
+        {
+          "id": 1073752951,
+          "name": "td.l1.page.5.cluesay.0"
+        },
+        {
+          "id": 1073752952,
+          "name": "td.l1.page.5.cluesay.1"
+        },
+        {
+          "id": 1073752953,
+          "name": "td.l1.page.5.cluesay.2"
+        },
+        {
+          "id": 1073752962,
+          "name": "td.l1.page.6.stepn.1"
+        },
+        {
+          "id": 1073752966,
+          "name": "td.l1.page.6.stepn.2"
+        },
+        {
+          "id": 1073752970,
+          "name": "td.l1.page.6.stepn.3"
+        },
+        {
+          "id": 1073752974,
+          "name": "td.l1.page.6.stepn.4"
+        },
+        {
+          "id": 1073752978,
+          "name": "td.l1.page.6.stepn.5"
+        },
+        {
+          "id": 1073752982,
+          "name": "td.l1.page.6.stepn.6"
+        },
+        {
+          "id": 1073752986,
+          "name": "td.l1.page.6.stepn.7"
+        },
+        {
+          "id": 1073752990,
+          "name": "td.l1.page.6.stepn.8"
+        },
+        {
+          "id": 1073753027,
+          "name": "td.l1.page.6.lg.0"
+        },
+        {
+          "id": 1073753029,
+          "name": "td.l1.page.6.lg.1"
+        },
+        {
+          "id": 1073753031,
+          "name": "td.l1.page.6.lg.2"
+        },
+        {
+          "id": 1073753033,
+          "name": "td.l1.page.6.lg.3"
+        },
+        {
+          "id": 1073753035,
+          "name": "td.l1.page.6.lg.4"
+        },
+        {
+          "id": 1073753037,
+          "name": "td.l1.page.6.lg.5.bg"
+        },
+        {
+          "id": 1073753038,
+          "name": "td.l1.page.6.lg.5"
+        },
+        {
+          "id": 1073753040,
+          "name": "td.l1.page.6.lg.6.bg"
+        },
+        {
+          "id": 1073753041,
+          "name": "td.l1.page.6.lg.6"
+        },
+        {
+          "id": 1073753043,
+          "name": "td.l1.page.6.lg.7.bg"
+        },
+        {
+          "id": 1073753044,
+          "name": "td.l1.page.6.lg.7"
+        },
+        {
+          "id": 1073753046,
+          "name": "td.l1.page.6.lg.8.bg"
+        },
+        {
+          "id": 1073753047,
+          "name": "td.l1.page.6.lg.8"
+        },
+        {
+          "id": 1073753049,
+          "name": "td.l1.page.6.lg.9.bg"
+        },
+        {
+          "id": 1073753050,
+          "name": "td.l1.page.6.lg.9"
+        },
+        {
+          "id": 1073753052,
+          "name": "td.l1.page.6.lg.10.bg"
+        },
+        {
+          "id": 1073753053,
+          "name": "td.l1.page.6.lg.10"
+        },
+        {
+          "id": 1073753055,
+          "name": "td.l1.page.6.lg.11.bg"
+        },
+        {
+          "id": 1073753056,
+          "name": "td.l1.page.6.lg.11"
+        },
+        {
+          "id": 1073753069,
+          "name": "td.l1.page.6.body.0.0"
+        },
+        {
+          "id": 1073753070,
+          "name": "td.l1.page.6.body.1.0"
+        },
+        {
+          "id": 1073753071,
+          "name": "td.l1.page.6.body.2.0"
+        },
+        {
+          "id": 1073753072,
+          "name": "td.l1.page.6.body.2.1"
+        },
+        {
+          "id": 1073753073,
+          "name": "td.l1.page.6.body.2.2"
+        },
+        {
+          "id": 1073753080,
+          "name": "td.l1.page.6.chipt.1"
+        },
+        {
+          "id": 1073753087,
+          "name": "td.l1.page.6.cluesay.0"
+        },
+        {
+          "id": 1073753088,
+          "name": "td.l1.page.6.cluesay.1"
+        },
+        {
+          "id": 1073753089,
+          "name": "td.l1.page.6.cluesay.2"
+        },
+        {
+          "id": 1073753098,
+          "name": "td.l1.page.7.stepn.1"
+        },
+        {
+          "id": 1073753102,
+          "name": "td.l1.page.7.stepn.2"
+        },
+        {
+          "id": 1073753106,
+          "name": "td.l1.page.7.stepn.3"
+        },
+        {
+          "id": 1073753110,
+          "name": "td.l1.page.7.stepn.4"
+        },
+        {
+          "id": 1073753114,
+          "name": "td.l1.page.7.stepn.5"
+        },
+        {
+          "id": 1073753118,
+          "name": "td.l1.page.7.stepn.6"
+        },
+        {
+          "id": 1073753122,
+          "name": "td.l1.page.7.stepn.7"
+        },
+        {
+          "id": 1073753126,
+          "name": "td.l1.page.7.stepn.8"
+        },
+        {
+          "id": 1073753174,
+          "name": "td.l1.page.7.lg.0"
+        },
+        {
+          "id": 1073753176,
+          "name": "td.l1.page.7.lg.1"
+        },
+        {
+          "id": 1073753178,
+          "name": "td.l1.page.7.lg.2"
+        },
+        {
+          "id": 1073753180,
+          "name": "td.l1.page.7.lg.3"
+        },
+        {
+          "id": 1073753182,
+          "name": "td.l1.page.7.lg.4"
+        },
+        {
+          "id": 1073753184,
+          "name": "td.l1.page.7.lg.5.bg"
+        },
+        {
+          "id": 1073753185,
+          "name": "td.l1.page.7.lg.5"
+        },
+        {
+          "id": 1073753187,
+          "name": "td.l1.page.7.lg.6.bg"
+        },
+        {
+          "id": 1073753188,
+          "name": "td.l1.page.7.lg.6"
+        },
+        {
+          "id": 1073753190,
+          "name": "td.l1.page.7.lg.7.bg"
+        },
+        {
+          "id": 1073753191,
+          "name": "td.l1.page.7.lg.7"
+        },
+        {
+          "id": 1073753193,
+          "name": "td.l1.page.7.lg.8.bg"
+        },
+        {
+          "id": 1073753194,
+          "name": "td.l1.page.7.lg.8"
+        },
+        {
+          "id": 1073753196,
+          "name": "td.l1.page.7.lg.9.bg"
+        },
+        {
+          "id": 1073753197,
+          "name": "td.l1.page.7.lg.9"
+        },
+        {
+          "id": 1073753199,
+          "name": "td.l1.page.7.lg.10.bg"
+        },
+        {
+          "id": 1073753200,
+          "name": "td.l1.page.7.lg.10"
+        },
+        {
+          "id": 1073753202,
+          "name": "td.l1.page.7.lg.11.bg"
+        },
+        {
+          "id": 1073753203,
+          "name": "td.l1.page.7.lg.11"
+        },
+        {
+          "id": 1073753216,
+          "name": "td.l1.page.7.body.0.0"
+        },
+        {
+          "id": 1073753217,
+          "name": "td.l1.page.7.body.1.0"
+        },
+        {
+          "id": 1073753218,
+          "name": "td.l1.page.7.body.2.0"
+        },
+        {
+          "id": 1073753220,
+          "name": "td.l1.page.7.body.3.0"
+        },
+        {
+          "id": 1073753225,
+          "name": "td.l1.page.7.chipt.0"
+        },
+        {
+          "id": 1073754103,
+          "name": "td.l1.page.7.chipt.2"
+        },
+        {
+          "id": 1073753245,
+          "name": "td.l1.page.8.stepn.1"
+        },
+        {
+          "id": 1073753249,
+          "name": "td.l1.page.8.stepn.2"
+        },
+        {
+          "id": 1073753253,
+          "name": "td.l1.page.8.stepn.3"
+        },
+        {
+          "id": 1073753257,
+          "name": "td.l1.page.8.stepn.4"
+        },
+        {
+          "id": 1073753261,
+          "name": "td.l1.page.8.stepn.5"
+        },
+        {
+          "id": 1073753265,
+          "name": "td.l1.page.8.stepn.6"
+        },
+        {
+          "id": 1073753269,
+          "name": "td.l1.page.8.stepn.7"
+        },
+        {
+          "id": 1073753273,
+          "name": "td.l1.page.8.stepn.8"
+        },
+        {
+          "id": 1073754111,
+          "name": "td.l1.page.8.ico.hint"
+        },
+        {
+          "id": 1073754110,
+          "name": "td.l1.page.8.ico.hint.bg"
+        },
+        {
+          "id": 1073754108,
+          "name": "td.l1.page.8.ico.submit"
+        },
+        {
+          "id": 1073754107,
+          "name": "td.l1.page.8.ico.submit.bg"
+        },
+        {
+          "id": 1073753315,
+          "name": "td.l1.page.8.lg.0"
+        },
+        {
+          "id": 1073753317,
+          "name": "td.l1.page.8.lg.1"
+        },
+        {
+          "id": 1073753319,
+          "name": "td.l1.page.8.lg.2"
+        },
+        {
+          "id": 1073753321,
+          "name": "td.l1.page.8.lg.3"
+        },
+        {
+          "id": 1073753323,
+          "name": "td.l1.page.8.lg.4"
+        },
+        {
+          "id": 1073753325,
+          "name": "td.l1.page.8.lg.5.bg"
+        },
+        {
+          "id": 1073753326,
+          "name": "td.l1.page.8.lg.5"
+        },
+        {
+          "id": 1073753328,
+          "name": "td.l1.page.8.lg.6.bg"
+        },
+        {
+          "id": 1073753329,
+          "name": "td.l1.page.8.lg.6"
+        },
+        {
+          "id": 1073753331,
+          "name": "td.l1.page.8.lg.7.bg"
+        },
+        {
+          "id": 1073753332,
+          "name": "td.l1.page.8.lg.7"
+        },
+        {
+          "id": 1073753334,
+          "name": "td.l1.page.8.lg.8.bg"
+        },
+        {
+          "id": 1073753335,
+          "name": "td.l1.page.8.lg.8"
+        },
+        {
+          "id": 1073753337,
+          "name": "td.l1.page.8.lg.9.bg"
+        },
+        {
+          "id": 1073753338,
+          "name": "td.l1.page.8.lg.9"
+        },
+        {
+          "id": 1073753340,
+          "name": "td.l1.page.8.lg.10.bg"
+        },
+        {
+          "id": 1073753341,
+          "name": "td.l1.page.8.lg.10"
+        },
+        {
+          "id": 1073753343,
+          "name": "td.l1.page.8.lg.11.bg"
+        },
+        {
+          "id": 1073753344,
+          "name": "td.l1.page.8.lg.11"
+        },
+        {
+          "id": 1073753357,
+          "name": "td.l1.page.8.body.0.0"
+        },
+        {
+          "id": 1073754112,
+          "name": "td.l1.page.8.ico.hint.t"
+        },
+        {
+          "id": 1073754109,
+          "name": "td.l1.page.8.ico.submit.t"
+        },
+        {
+          "id": 1073754106,
+          "name": "td.l1.page.8.body.x7"
+        },
+        {
+          "id": 1073754105,
+          "name": "td.l1.page.8.body.x6"
+        },
+        {
+          "id": 1073754104,
+          "name": "td.l1.page.8.body.x5"
+        },
+        {
+          "id": 1073753358,
+          "name": "td.l1.page.8.body.1.0"
+        },
+        {
+          "id": 1073753359,
+          "name": "td.l1.page.8.body.1.1"
+        },
+        {
+          "id": 1073753360,
+          "name": "td.l1.page.8.body.1.2"
+        },
+        {
+          "id": 1073753361,
+          "name": "td.l1.page.8.body.2.0"
+        },
+        {
+          "id": 1073753373,
+          "name": "td.l1.page.8.notet"
+        },
+        {
+          "id": 1073753428,
+          "name": "td.l2.page.1.stepn.1"
+        },
+        {
+          "id": 1073753432,
+          "name": "td.l2.page.1.stepn.2"
+        },
+        {
+          "id": 1073753436,
+          "name": "td.l2.page.1.stepn.3"
+        },
+        {
+          "id": 1073753440,
+          "name": "td.l2.page.1.stepn.4"
+        },
+        {
+          "id": 1073753481,
+          "name": "td.l2.page.1.lg.0"
+        },
+        {
+          "id": 1073753483,
+          "name": "td.l2.page.1.lg.1"
+        },
+        {
+          "id": 1073753485,
+          "name": "td.l2.page.1.lg.2"
+        },
+        {
+          "id": 1073753487,
+          "name": "td.l2.page.1.lg.3"
+        },
+        {
+          "id": 1073753489,
+          "name": "td.l2.page.1.lg.4"
+        },
+        {
+          "id": 1073753491,
+          "name": "td.l2.page.1.lg.5"
+        },
+        {
+          "id": 1073753493,
+          "name": "td.l2.page.1.lg.6.bg"
+        },
+        {
+          "id": 1073753494,
+          "name": "td.l2.page.1.lg.6"
+        },
+        {
+          "id": 1073753496,
+          "name": "td.l2.page.1.lg.7.bg"
+        },
+        {
+          "id": 1073753497,
+          "name": "td.l2.page.1.lg.7"
+        },
+        {
+          "id": 1073753499,
+          "name": "td.l2.page.1.lg.8.bg"
+        },
+        {
+          "id": 1073753500,
+          "name": "td.l2.page.1.lg.8"
+        },
+        {
+          "id": 1073753502,
+          "name": "td.l2.page.1.lg.9.bg"
+        },
+        {
+          "id": 1073753503,
+          "name": "td.l2.page.1.lg.9"
+        },
+        {
+          "id": 1073753505,
+          "name": "td.l2.page.1.lg.10.bg"
+        },
+        {
+          "id": 1073753506,
+          "name": "td.l2.page.1.lg.10"
+        },
+        {
+          "id": 1073753508,
+          "name": "td.l2.page.1.lg.11.bg"
+        },
+        {
+          "id": 1073753509,
+          "name": "td.l2.page.1.lg.11"
+        },
+        {
+          "id": 1073753511,
+          "name": "td.l2.page.1.lg.12.bg"
+        },
+        {
+          "id": 1073753512,
+          "name": "td.l2.page.1.lg.12"
+        },
+        {
+          "id": 1073754480,
+          "name": "td.l2.page.2.rewrite617.2"
+        },
+        {
+          "id": 1073754479,
+          "name": "td.l2.page.2.rewrite617.1"
+        },
+        {
+          "id": 1073754478,
+          "name": "td.l2.page.2.rewrite617.0"
+        },
+        {
+          "id": 1073754472,
+          "name": "td.home.page.1.furniture617.2"
+        },
+        {
+          "id": 1073754471,
+          "name": "td.home.page.1.furniture617.1"
+        },
+        {
+          "id": 1073753536,
+          "name": "td.l2.page.1.chipt.2"
+        },
+        {
+          "id": 1073753550,
+          "name": "td.l2.page.2.stepn.1"
+        },
+        {
+          "id": 1073753554,
+          "name": "td.l2.page.2.stepn.2"
+        },
+        {
+          "id": 1073753558,
+          "name": "td.l2.page.2.stepn.3"
+        },
+        {
+          "id": 1073753562,
+          "name": "td.l2.page.2.stepn.4"
+        },
+        {
+          "id": 1073753610,
+          "name": "td.l2.page.2.lg.0"
+        },
+        {
+          "id": 1073753612,
+          "name": "td.l2.page.2.lg.1"
+        },
+        {
+          "id": 1073753614,
+          "name": "td.l2.page.2.lg.2"
+        },
+        {
+          "id": 1073753616,
+          "name": "td.l2.page.2.lg.3"
+        },
+        {
+          "id": 1073753618,
+          "name": "td.l2.page.2.lg.4"
+        },
+        {
+          "id": 1073753620,
+          "name": "td.l2.page.2.lg.5"
+        },
+        {
+          "id": 1073753622,
+          "name": "td.l2.page.2.lg.6.bg"
+        },
+        {
+          "id": 1073753623,
+          "name": "td.l2.page.2.lg.6"
+        },
+        {
+          "id": 1073753625,
+          "name": "td.l2.page.2.lg.7.bg"
+        },
+        {
+          "id": 1073753626,
+          "name": "td.l2.page.2.lg.7"
+        },
+        {
+          "id": 1073753628,
+          "name": "td.l2.page.2.lg.8.bg"
+        },
+        {
+          "id": 1073753629,
+          "name": "td.l2.page.2.lg.8"
+        },
+        {
+          "id": 1073753631,
+          "name": "td.l2.page.2.lg.9.bg"
+        },
+        {
+          "id": 1073753632,
+          "name": "td.l2.page.2.lg.9"
+        },
+        {
+          "id": 1073753634,
+          "name": "td.l2.page.2.lg.10.bg"
+        },
+        {
+          "id": 1073753635,
+          "name": "td.l2.page.2.lg.10"
+        },
+        {
+          "id": 1073753637,
+          "name": "td.l2.page.2.lg.11.bg"
+        },
+        {
+          "id": 1073753638,
+          "name": "td.l2.page.2.lg.11"
+        },
+        {
+          "id": 1073753640,
+          "name": "td.l2.page.2.lg.12.bg"
+        },
+        {
+          "id": 1073753641,
+          "name": "td.l2.page.2.lg.12"
+        },
+        {
+          "id": 1073753654,
+          "name": "td.l2.page.2.body.0.0"
+        },
+        {
+          "id": 1073753655,
+          "name": "td.l2.page.2.body.0.1"
+        },
+        {
+          "id": 1073753656,
+          "name": "td.l2.page.2.body.0.2"
+        },
+        {
+          "id": 1073753657,
+          "name": "td.l2.page.2.body.1.0"
+        },
+        {
+          "id": 1073753683,
+          "name": "td.l2.page.3.stepn.1"
+        },
+        {
+          "id": 1073753687,
+          "name": "td.l2.page.3.stepn.2"
+        },
+        {
+          "id": 1073753691,
+          "name": "td.l2.page.3.stepn.3"
+        },
+        {
+          "id": 1073753695,
+          "name": "td.l2.page.3.stepn.4"
+        },
+        {
+          "id": 1073753739,
+          "name": "td.l2.page.3.lg.0"
+        },
+        {
+          "id": 1073753741,
+          "name": "td.l2.page.3.lg.1"
+        },
+        {
+          "id": 1073753743,
+          "name": "td.l2.page.3.lg.2"
+        },
+        {
+          "id": 1073753745,
+          "name": "td.l2.page.3.lg.3"
+        },
+        {
+          "id": 1073753747,
+          "name": "td.l2.page.3.lg.4"
+        },
+        {
+          "id": 1073753749,
+          "name": "td.l2.page.3.lg.5"
+        },
+        {
+          "id": 1073753751,
+          "name": "td.l2.page.3.lg.6.bg"
+        },
+        {
+          "id": 1073753752,
+          "name": "td.l2.page.3.lg.6"
+        },
+        {
+          "id": 1073753754,
+          "name": "td.l2.page.3.lg.7.bg"
+        },
+        {
+          "id": 1073753755,
+          "name": "td.l2.page.3.lg.7"
+        },
+        {
+          "id": 1073753757,
+          "name": "td.l2.page.3.lg.8.bg"
+        },
+        {
+          "id": 1073753758,
+          "name": "td.l2.page.3.lg.8"
+        },
+        {
+          "id": 1073753760,
+          "name": "td.l2.page.3.lg.9.bg"
+        },
+        {
+          "id": 1073753761,
+          "name": "td.l2.page.3.lg.9"
+        },
+        {
+          "id": 1073753763,
+          "name": "td.l2.page.3.lg.10.bg"
+        },
+        {
+          "id": 1073753764,
+          "name": "td.l2.page.3.lg.10"
+        },
+        {
+          "id": 1073753766,
+          "name": "td.l2.page.3.lg.11.bg"
+        },
+        {
+          "id": 1073753767,
+          "name": "td.l2.page.3.lg.11"
+        },
+        {
+          "id": 1073753769,
+          "name": "td.l2.page.3.lg.12.bg"
+        },
+        {
+          "id": 1073753770,
+          "name": "td.l2.page.3.lg.12"
+        },
+        {
+          "id": 1073753810,
+          "name": "td.l2.page.4.stepn.1"
+        },
+        {
+          "id": 1073753814,
+          "name": "td.l2.page.4.stepn.2"
+        },
+        {
+          "id": 1073753818,
+          "name": "td.l2.page.4.stepn.3"
+        },
+        {
+          "id": 1073753822,
+          "name": "td.l2.page.4.stepn.4"
+        },
+        {
+          "id": 1073753871,
+          "name": "td.l2.page.4.lg.0"
+        },
+        {
+          "id": 1073753873,
+          "name": "td.l2.page.4.lg.1"
+        },
+        {
+          "id": 1073753875,
+          "name": "td.l2.page.4.lg.2"
+        },
+        {
+          "id": 1073753877,
+          "name": "td.l2.page.4.lg.3"
+        },
+        {
+          "id": 1073753879,
+          "name": "td.l2.page.4.lg.4"
+        },
+        {
+          "id": 1073753881,
+          "name": "td.l2.page.4.lg.5"
+        },
+        {
+          "id": 1073753883,
+          "name": "td.l2.page.4.lg.6.bg"
+        },
+        {
+          "id": 1073753884,
+          "name": "td.l2.page.4.lg.6"
+        },
+        {
+          "id": 1073753886,
+          "name": "td.l2.page.4.lg.7.bg"
+        },
+        {
+          "id": 1073753887,
+          "name": "td.l2.page.4.lg.7"
+        },
+        {
+          "id": 1073753889,
+          "name": "td.l2.page.4.lg.8.bg"
+        },
+        {
+          "id": 1073753890,
+          "name": "td.l2.page.4.lg.8"
+        },
+        {
+          "id": 1073753892,
+          "name": "td.l2.page.4.lg.9.bg"
+        },
+        {
+          "id": 1073753893,
+          "name": "td.l2.page.4.lg.9"
+        },
+        {
+          "id": 1073753895,
+          "name": "td.l2.page.4.lg.10.bg"
+        },
+        {
+          "id": 1073753896,
+          "name": "td.l2.page.4.lg.10"
+        },
+        {
+          "id": 1073753898,
+          "name": "td.l2.page.4.lg.11.bg"
+        },
+        {
+          "id": 1073753899,
+          "name": "td.l2.page.4.lg.11"
+        },
+        {
+          "id": 1073753901,
+          "name": "td.l2.page.4.lg.12.bg"
+        },
+        {
+          "id": 1073753902,
+          "name": "td.l2.page.4.lg.12"
+        },
+        {
+          "id": 1073753923,
+          "name": "td.l2.page.4.chipt.0"
+        },
+        {
+          "id": 1073753927,
+          "name": "td.l2.page.4.chipt.2"
+        }
+      ],
+      "addedRecords": [],
+      "removedRecords": []
+    }
+  ]
+}
