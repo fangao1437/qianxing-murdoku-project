@@ -19,6 +19,18 @@ local Qianxing  = require("engine_adapter_qianxing")
 local Levels = require("levels.init")
 
 local Murdoku = {}
+-- 614: one settlement clock per preview session, including startup/menu time.
+local settle_session = { elapsed = 0, unlocked = false }
+function Murdoku.reset_settle_session()
+  settle_session = { elapsed = 0, unlocked = false }
+end
+function Murdoku.advance_settle_session(dt)
+  if not settle_session.unlocked then
+    settle_session.elapsed = math.min(60, settle_session.elapsed + math.max(0, tonumber(dt) or 0))
+    if settle_session.elapsed >= 60 then settle_session.unlocked = true end
+  end
+end
+function Murdoku.get_settle_session() return settle_session end
 Murdoku.__index = Murdoku
 Murdoku.VERSION = "1.0.0"
 
@@ -388,6 +400,7 @@ function Murdoku.start(level_id, opts)
   local want_screen = nil
   if opts.screen ~= nil then want_screen = opts.screen end
   controller = UIC.new(core, {
+    settle_session = settle_session,
     debug = opts.debug,
     skip_intro = (opts.skip_intro ~= false),   -- ★ 2026-10-08 恢复：**默认跳过开屏**（★ 显式传 false 仍可放开场 ✓）
     -- ★ 2026-10-08 **退出菜单要的两个回调**（★ 从提交 295 删掉的原文照抄恢复 ✓ adapter 只在这一层拿得到 ✓）
@@ -436,6 +449,7 @@ function Murdoku.start(level_id, opts)
     --   · last_level() —— 「从存档点开始」要接续的那一关
     --   两者都读局内存档，取不到就返回 nil，卡片只显示关名 —— **不编数据**。
     progress = function(lid) return Murdoku.progress_of(lid) end,
+    on_result = function(kind, wrong, seconds) Murdoku.record_result(level.id, kind, wrong, seconds) end,
     last_level = function() return Murdoku.last_played() end,
     -- ★★★ 2026-09-30：**界面要知道"现在跑的是哪一关"** —— 棋盘上的**房间名标签**
     --   要按当前关卡的房间框来摆（房间框由 `Levels.ui_list()` 算好）。
@@ -2319,6 +2333,30 @@ function Murdoku.mark_cleared(id)
     -- ★ 2026-10-15：同上，**只写本地** ✓
     a:save(SAVE_PROGRESS, p, { no_signal = true })
   end)
+end
+
+-- 609: retain the best successful result. Failures never erase a record.
+function Murdoku.record_result(id, outcome, wrong, seconds)
+  if id == nil or (outcome ~= "success" and outcome ~= "perfect") then return false end
+  local a = store()
+  if not a or not a.save or not a.load then return false end
+  wrong = math.max(0, math.floor(tonumber(wrong) or 0))
+  seconds = math.max(0, math.floor(tonumber(seconds) or 0))
+  if outcome == "perfect" then wrong = 0 end
+  local p = a:load(SAVE_PROGRESS)
+  if type(p) ~= "table" then p = {} end
+  local cur = p[tostring(id)]
+  if type(cur) ~= "table" then cur = {} end
+  local rank = { success = 1, perfect = 2 }
+  local oldrank = rank[cur.outcome] or 0
+  local better = rank[outcome] > oldrank or (rank[outcome] == oldrank and
+    (wrong < (cur.wrong or math.huge) or (wrong == cur.wrong and seconds < (cur.seconds or math.huge))))
+  if not better then return false end
+  cur.cleared, cur.started = true, true
+  cur.outcome, cur.wrong, cur.seconds = outcome, wrong, seconds
+  p[tostring(id)] = cur
+  a:save(SAVE_PROGRESS, p, {no_signal = true})
+  return true
 end
 
 function Murdoku.progress_of(id)

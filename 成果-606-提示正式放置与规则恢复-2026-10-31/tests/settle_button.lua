@@ -112,6 +112,9 @@ do
     on_settle_only = function() calls.settle_only = calls.settle_only + 1 end,
   })
   c:on_input({ action = "settle_only" })
+  ok(calls.settle_only == 0 and calls.save == 0, "未满60秒不结算、不存档")
+  c:tick(60)
+  c:on_input({ action = "settle_only" })
   ok(calls.settle_only == 1, "① on_settle_only 被调了 1 次", "实测 " .. calls.settle_only)
   ok(calls.save == 0, "② ★★ on_save **一次都没被调**（= 不接存档线 ✓）", "实测 " .. calls.save)
   ok(calls.settle == 0, "③ 也没走「存档＋结算」那一个回调（两者语义不同 ✓）", "实测 " .. calls.settle)
@@ -126,6 +129,9 @@ do
     on_save   = function() calls.save = calls.save + 1 end,
     on_settle = function() calls.settle = calls.settle + 1 end,
   })
+  c:on_input({ action = "exit_menu_settle" })
+  ok(calls.save == 0 and calls.settle == 0, "未满60秒拦截存档并结算")
+  c:tick(60)
   c:on_input({ action = "exit_menu_settle" })
   ok(calls.save == 1 and calls.settle == 1,
     "exit_menu_settle ⇒ on_save 1 次 ＋ on_settle 1 次",

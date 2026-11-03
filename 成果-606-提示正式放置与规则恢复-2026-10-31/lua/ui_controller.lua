@@ -665,9 +665,50 @@ function Controller:_verdict_step()
   v.animation_complete = animation_complete
   if not v.done and el >= (#v.list - 1) * (dur + gap) + dur then
     v.done = true
-    if v.wrong == 0 then self:_settle_by_roles() end
+    -- 608: three outcomes. perfect = all correct; success = thief correct only; fail = thief wrong.
+    local thief_ok = self:_verdict_thief_ok(v)
+    if v.wrong == 0 then
+      self:_settle_by_roles()
+      self:_mark_outcome("perfect")
+    elseif thief_ok == true then
+      self:_settle_by_roles()
+      self:_mark_outcome("success")
+    elseif thief_ok == false then
+      self:_show_fail()
+    end
     self.dirty = true
   end
+end
+
+-- 608: whether the thief's own placement is correct (nil = unknown, keep old toast-only behaviour)
+function Controller:_verdict_thief_ok(v)
+  local core = self.core
+  local thief = core and core.roles and core.roles.thief
+  if thief == nil or v == nil then return nil end
+  for i = 1, #v.list do
+    if v.list[i].id == thief then return v.list[i].ok == true end
+  end
+  return nil
+end
+
+function Controller:_mark_outcome(kind)
+  if self.modal ~= nil and self.modal.kind == "result" and self.modal.win then
+    self.modal.outcome = kind
+    if self.opts.on_result then
+      self.opts.on_result(kind, (self._verdict and self._verdict.wrong) or 0, self.result_seconds or self.core.elapsed or 0)
+    end
+  end
+end
+
+-- 608: failure popup (thief misplaced). Reuses the result modal with win=false.
+function Controller:_show_fail()
+  local core = self.core
+  local okv, v2 = pcall(function() return core:view() end)
+  self.result_seconds = (okv and type(v2) == "table" and type(v2.hud) == "table") and v2.hud.time or nil
+  local got, total = core:score()
+  self.modal = { kind = "result", win = false, outcome = "fail",
+                 message = string.format("盗窃者没有找对（%d/%d 位置正确）", got, total) }
+  self:fx("modal", M.EFFECTS.FAIL)
 end
 
 -- 把答案（roles）替玩家填进去并结算（与改前 `do_submit` 末段一字不差，只是挪成函数）
@@ -733,6 +774,7 @@ end
 
 --- 真正执行"重置关卡"。
 function Controller:do_restart()
+  -- 614: restarting a puzzle must not reset the preview settlement clock.
   self:_clear_verdict()
   local core = self.core
   if core ~= nil and core.reset ~= nil then core:reset() end
@@ -1744,6 +1786,7 @@ function Controller:on_input(event)
     self.dirty = true
 
   elseif a == "exit_menu_settle" then
+    if not self:can_settle() then return end
     if self.opts.on_save then self.opts.on_save() end
     if self.opts.on_settle then self.opts.on_settle() end
     self.dirty = true
@@ -1765,6 +1808,7 @@ function Controller:on_input(event)
   --     ★ 对照 ✓：弹窗里那颗走 `exit_menu_settle` ⇒ **先 `on_save()` 再 `on_settle()`** ✓
   --   ★ 回调缺失时**静默不做事** ✓（★ 与别处一致 ✓ 不留半截副作用 ✓）
   elseif a == "settle_only" then
+    if not self:can_settle() then return end
     if self.opts.on_settle_only then self.opts.on_settle_only() end
 
     elseif a == "pick_level" then
@@ -1794,6 +1838,11 @@ function Controller:on_input(event)
   -- ★★★ 2026-09-29 新增：主页四键 + 整屏切换（用户要求的布局与流程）
   elseif a == "home" then
     self.screen = "home"; self.modal = nil; self.dirty = true
+
+  -- 608: "play again" = reset the level + close the popup (do_restart clears circles / modal / toast)
+  elseif a == "replay" then
+    self.result_seconds = nil
+    self:do_restart()
 
   elseif a == "levelselect" then
     self.screen = "select"; self.modal = nil; self.dirty = true; self.select_page = 1
@@ -1933,7 +1982,35 @@ end
 --      正常情况下置 dirty 的是调用方（`fx()` 的 12 个调用点旁边都有 dirty），
 --      这一条只是保证"将来有人只调 fx() 忘了置 dirty"时它下一帧仍会被放出去；
 --      render 结束会把 `effects` 清空 ⇒ **不会退化成每帧重绘**。
+-- 614: production reads the preview clock; isolated controllers use a local clock.
+function Controller:can_settle()
+  local session = self.opts and self.opts.settle_session
+  if self.core.status == "solved" then
+    if session then session.unlocked = true else self._settle_unlocked = true end
+    return true
+  end
+  return (session and session.unlocked == true) or self._settle_unlocked == true
+end
+
+function Controller:settle_seconds_left()
+  if self:can_settle() then return 0 end
+  local session = self.opts and self.opts.settle_session
+  return math.max(1, math.ceil(60 - (session and session.elapsed or self._settle_elapsed or 0)))
+end
+
 function Controller:tick(dt)
+  if not (self.opts and self.opts.settle_session) and not self._settle_unlocked then
+    self._settle_elapsed = math.min(60, (self._settle_elapsed or 0) + math.max(0, dt or 0))
+    if self._settle_elapsed >= 60 then self._settle_unlocked = true end
+  end
+  local remaining = self:settle_seconds_left()
+  if self._settle_display_second ~= remaining then
+    self._settle_display_second = remaining
+    if self.screen == "home" or self.screen == "select" or
+       (self.modal and (self.modal.kind == "result" or self.modal.kind == "exit_menu")) then
+      self.dirty = true
+    end
+  end
   self.now = (self.now or 0) + (dt or 0)
   self._frame_n = (self._frame_n or 0) + 1   -- v362：帧序号（同帧缓存的键；Controller 上没有 adapter.clock）
   if self._verdict ~= nil then pcall(self._verdict_step, self) end   -- v368：红/绿判定圈逐帧推进
@@ -2768,10 +2845,25 @@ function Controller:build_layout(ui_adapter)
     return n
   end
   local function btn(id, parent, r, text, event, style, enabled)
+    -- 615: modal.cancel keeps the editor (no-countdown) layout unless the exit-menu countdown is shown.
     return push({ id = id, kind = "button", parent = parent, rect = r, text = text,
-                  style = style or "stamp", enabled = (enabled ~= false), event = event })
+                  style = style or "stamp", enabled = (enabled ~= false), event = event,
+                  settle_shift = (id == "modal.cancel") and 0 or nil })
   end
 
+  local function push_settle_countdowns()
+    -- 612: editor-backed labels; one update per displayed second, no runtime geometry.
+    local remaining = self:settle_seconds_left()
+    local gate_text = tostring(remaining) .. "秒后可结算"
+    for _, spec in ipairs({
+      {"settle.btn.countdown", "root", (self.screen == "home" or self.screen == "select")},
+      {"result.settle.countdown", "modal", self.modal and self.modal.kind == "result"},
+      {"modal.settle.countdown", "modal", self.modal and self.modal.kind == "exit_menu"},
+    }) do
+      push({id=spec[1], kind="text", parent=spec[2], visible=spec[3] and remaining > 0 or false,
+            text=gate_text, rect={x=0,y=0,w=240,h=40}})
+    end
+  end
   push({ id = "root", kind = "container", rect = { x = 0, y = 0, w = M.DESIGN.width, h = M.DESIGN.height }, style = "screen" })
 
   -- ★★★★★ 2026-10-04 **把 `stage` 也写进规划** —— 它原来"不在计划里"，导致子控件偏移算错。
@@ -3852,9 +3944,17 @@ function Controller:build_layout(ui_adapter)
       --     （标题已经说「恭喜破案」了，正文再喊一次就重了 ✓）
       local body = modal.message or ""
       if modal.win then body = body:gsub("^破案！", "") end
-      push({ id = "modal.title", kind = "text", parent = "modal",
-             rect = { x = mx + 30, y = my + 40, w = mw - 60, h = 90 },
-             text = modal.win and "恭喜破案" or "没能找齐所有人", style = "modal.title" })
+      -- 608: three outcomes, each with its own editor-side text control (text lives in the archive).
+      local outcome = modal.outcome or (modal.win and "perfect" or "fail")
+      local oi = (outcome == "perfect" and 1) or (outcome == "success" and 2) or 3
+      local title_rect = { x = mx + 30, y = my + 40, w = mw - 60, h = 90 }
+      push({ id = "modal.title", kind = "text", parent = "modal", rect = title_rect,
+             text = " ", style = "modal.title" })
+      local TITLES = { "恭喜完美破案", "恭喜成功破案", "破案失败" }
+      for i = 1, 3 do
+        push({ id = "result.title." .. i, kind = "text", parent = "modal", rect = title_rect,
+               visible = (oi == i), text = TITLES[i], style = "modal.title" })
+      end
       -- ★★★★★★★★ 2026-10-16 **v252：分析标语挪进 `win` 区（每关一颗 `win.N`）** ✗✓✓
       --   ★ 用户原话 ✓：「★ **每关的通关弹窗的分析标语也像 clue 一样单独设一个对应区域放对应内容，
       --     ★ 父级叫 win，子控件叫 win.i(1,2,3等)**」✓
@@ -3879,24 +3979,37 @@ function Controller:build_layout(ui_adapter)
       push({ id = "win", kind = "container", parent = "modal", rect = win_rect })
       for i = 1, win_n do
         push({ id = "win." .. i, kind = "text", parent = "win", rect = win_rect,
-               visible = (win_idx == i),
+               visible = false,
                -- ★ 只给"当前那关"那一颗写兜底 ✓ —— ★ 别的关卡的内容**脚本不知道**（★ 那是编辑器的事 ✓）
                text = (win_idx == i) and body or nil,
                style = "modal.body" })
+      end
+      -- 608: analysis lines for the two non-perfect outcomes
+      local MSGS = { [1] = "全部当事人的位置均已摆对，完美通关！", [2] = "盗窃者已被抓获，但仍有位置摆错\n全部摆对，才算完美通关",
+                     [3] = "盗窃者没有找对\n看看红圈的位置，再玩一次吧" }
+      for i = 1, 3 do
+        push({ id = "result.msg." .. i, kind = "text", parent = "modal", rect = win_rect,
+               visible = (oi == i), text = MSGS[i], style = "modal.body" })
       end
       -- ★ 老的 `modal.body` **不再承担这句话** ✓ —— ★ 留着这条、但**藏起来** ✓
       --   （★ 不藏的话，编辑器里那份旧内容会跟新区域**叠一遍** ✗）
       push({ id = "modal.body", kind = "text", parent = "modal",
              rect = { x = mx + 30, y = my + 140, w = mw - 60, h = 110 },
              visible = false, style = "modal.body" })
+      -- 610: actual verdict result in the editor-backed win area.
+      local result_text = ""
+      local result_time = self:format_time(self.result_seconds or vm.hud.time)
+      if outcome == "perfect" then
+        result_text = "完美 · " .. result_time
+      elseif outcome == "success" then
+        result_text = string.format("成功 · 误判%d人 · %s", (self._verdict and self._verdict.wrong) or math.max(0, total - got), result_time)
+      end
+      push({ id = "win.result", kind = "text", parent = "win",
+             rect = { x = mx + 30, y = my + 262, w = mw - 60, h = 44 },
+             visible = outcome ~= "fail", text = result_text, style = "muted" })
       push({ id = "modal.stats", kind = "text", parent = "modal",
              rect = { x = mx + 30, y = my + 262, w = mw - 60, h = 44 },
-             text = string.format("用时 %s · 误指认 %d 次 · 位置 %d/%d",
-                                  -- ★ 2026-10-12 **定格值优先** ✓（用户：「用时不要走动，取胜利时的时间填入」✓）
-                                  --   取不到才退回实时值 ✓（老路径不变 ✓）
-                                  self:format_time(self.result_seconds or vm.hud.time),
-                                  vm.hud.failed_accusations, got, total),
-             style = "muted" })
+             visible = false, text = "", style = "muted" })
       -- ★★★★★★ 2026-10-12 **胜利界面改成【四键**，与 `exit_menu` 同款**】** ✗✓✓
       --
       --   ★★ 用户指令 ✓（★ 原话 ✓）：
@@ -3943,9 +4056,9 @@ function Controller:build_layout(ui_adapter)
       btn("result.exit", "modal", { x = kx, y = my + 446, w = kw, h = kh },
           "退出至菜单", { action = "exit_menu_go" }, "stamp")
       btn("result.home", "modal", { x = kx, y = my + 542, w = kw, h = kh },
-          "返回首页", { action = "home" }, "stamp")
+          "再玩一次", { action = "replay" }, "stamp")
       btn("result.settle", "modal", { x = kx, y = my + 638, w = kw, h = kh },
-          "存档并结算", { action = "exit_menu_settle" }, "stamp.primary")
+          "存档并结算", { action = "exit_menu_settle" }, "stamp.primary", self:can_settle())
       -- ★ 胶囊底图：★ 与 `exit_menu` 同一张（107179 ✓ 日志里 `回读=107179` ✓）
       --   ★ 用自己的守卫 ✓ —— 不跟 `_exit_menu_art` 共用 ✗（★ 那个可能在这段之前已被置真 ✓）
       if (not self._result_art) and self.adapter ~= nil then
@@ -4003,9 +4116,11 @@ function Controller:build_layout(ui_adapter)
       btn("modal.save", "modal", { x = kx, y = my + 146, w = kw, h = kh },
           "仅存档", { action = "exit_menu_save" }, "stamp")
       btn("modal.settle", "modal", { x = kx, y = my + 242, w = kw, h = kh },
-          "存档并结算", { action = "exit_menu_settle" }, "stamp.primary")
-      btn("modal.cancel", "modal", { x = kx, y = my + 338, w = kw, h = kh },
+          "存档并结算", { action = "exit_menu_settle" }, "stamp.primary", self:can_settle())
+      local cancel = btn("modal.cancel", "modal", { x = kx, y = my + 338, w = kw, h = kh },
           "取消", { action = "close_modal" }, "tab")
+      -- 615: shift only while "xx秒后可结算" is visible; ledger writes only on state change.
+      cancel.settle_shift = (self:settle_seconds_left() > 0) and 30 or 0
 
       -- ★★★★★ 2026-10-07 **给四个键设【官方胶囊底图】** ✗✓（用户要求配图 ✓）
       --   ★ 为什么走脚本而不是改 `.gil`：`docs/官方素材方案-脚本一体化.md` 已论证
@@ -4429,6 +4544,9 @@ function Controller:build_layout(ui_adapter)
                  visible = true, text = t.info, style = "muted",
                  rect = { x = r.x + 16, y = r.y + r.h - 42, w = r.w - 32, h = 32 },
                  pos_runtime = true })
+          push({ id = "select.card." .. i .. ".result", kind = "text", parent = "root",
+                 visible = t.result ~= "", text = t.result,
+                 rect = { x = r.x, y = r.y + r.h + 10, w = math.max(r.w, 220), h = 72 } })
           self:push_room_thumb(push, "select.card." .. i, it, r, "select")
         else
           push({ id = "select.card." .. i, kind = "button", parent = "root", visible = false,
@@ -4438,7 +4556,7 @@ function Controller:build_layout(ui_adapter)
                  rect = r })
           -- 空卡片的三个附件也要显式隐藏 —— 否则上一屏的内容会**残留在空位上**
           -- ★ 与上面同口径：附件显式 `pos_runtime = true`（卡位变了它们也得跟着 ✓）
-          for _, suf in ipairs({ ".title", ".info" }) do
+          for _, suf in ipairs({ ".title", ".info", ".result" }) do
             push({ id = "select.card." .. i .. suf, kind = "text", parent = "root", visible = false,
                    rect = { x = r.x, y = r.y, w = 1, h = 1 }, pos_runtime = true })
           end
@@ -4502,7 +4620,7 @@ function Controller:build_layout(ui_adapter)
            visible = show_settle,
            text = "结算",
            rect = { x = 1744.6, y = 298.8, w = 84, h = 84 },
-           raycast = show_settle,
+           raycast = show_settle, enabled = self:can_settle(),
            event = { action = "settle_only" } })
     -- ★★★★★★★★ 2026-10-16 **v253：这里原来调的 `inherit_pos_runtime(nodes)` 已删** ✗✓
     --   ★ 用户指令 ✓：「把所有失效的几何/文字脚本代码从脚本中删除」✓
@@ -4510,10 +4628,12 @@ function Controller:build_layout(ui_adapter)
     --     ⇒ ★ 每个控件都被判成"脚本接管几何" ✗ —— ★ 而 v248 起口径已经改成"归编辑器" ✓
     --     ⇒ ★ 现在 `render` 只看**两件事**：★ ① 控件是不是脚本建的 ✓ ② 有没有**显式**写
     --       `pos_runtime = true` ✓（★ 见那里的头部注释 ✓）⇒ ★ "继承"这件事**不再参与判断** ✓✓
+    push_settle_countdowns()
     apply_screen_hide(nodes, self.screen)
     return nodes
   end
 
+  push_settle_countdowns()
   -- （同上：关卡路径这一处的 `inherit_pos_runtime(nodes)` 也已随 v253 删除 ✓）
   apply_screen_hide(nodes, self.screen)
 
@@ -4564,13 +4684,14 @@ function Controller:level_card_parts(it)
     bits[#bits + 1] = string.format("%dx%d", cols, rows)
   end
   local p = self.opts.progress and self.opts.progress(it.id) or nil
-  if type(p) == "table" then
-    local mark = "未开始"
-    if p.cleared then mark = "★ 已破案"
-    elseif p.started then mark = "· 进行中" end
-    bits[#bits + 1] = mark
+  local result = ""
+  if type(p) == "table" and (p.outcome == "perfect" or p.outcome == "success") then
+    local secs = math.max(0, math.floor(tonumber(p.seconds) or 0))
+    local time = string.format("%02d:%02d", math.floor(secs / 60), secs % 60)
+    if p.outcome == "perfect" then result = "完美\n耗时 " .. time
+    else result = string.format("成功 · 误判%d人\n耗时 %s", p.wrong or 0, time) end
   end
-  return { title = title, info = table.concat(bits, "　") }
+  return { title = title, info = table.concat(bits, "　"), result = result }
 end
 
 -- 房间色块的配色（**只在这里定义一处**）。

@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {readGil} from '../../成果-家具教程与性能-584至588-2026-10-29/tools/gil/gilread.mjs';
+import {writeGil,findScriptLeaf} from '../../成果-家具教程与性能-584至588-2026-10-29/tools/gil/gilwrite.mjs';
+const [input,output]=process.argv.slice(2);
+if(!input||!output||input===output||fs.existsSync(output))throw Error('invalid or existing output');
+const g=readGil(input),script=fs.readFileSync('dist/client_script.lua');
+for(const marker of ['Murdoku.reset_settle_session()','Murdoku.advance_settle_session(dt)','settle_session = settle_session','function Controller:settle_seconds_left()'])if(!script.includes(Buffer.from(marker)))throw Error('missing '+marker);
+const leaf=findScriptLeaf(g).field;leaf.payload=script;leaf.len=script.length;
+const report=writeGil(g,output,{label:'614 preview-session settlement timer',expectRecs:g.recs.length,expectDiffs:1,assert(t){return findScriptLeaf(t).buf.equals(script)||'embedded script mismatch';}});
+console.log('614 records='+report.g2.recs.length+'; only embedded script changed');

@@ -416,6 +416,9 @@ local function build_adapter()
       --   ★ 父级 `win`、子控件 `win.1..win.4`（= 第 1..4 关 ✓ 顺序与关卡注册表一致 ✓）
       --   ★ 脚本只在"它是空的"时候写兜底 ✓ ⇒ ★ 你填了就以你的为准 ✓
       "win.1", "win.2", "win.3", "win.4",
+      -- 608: result popup texts per outcome (perfect / success / fail)
+      "result.title.1", "result.title.2", "result.title.3",
+      "result.msg.1", "result.msg.2", "result.msg.3",
     },
     widgets     = false,   -- ★★★★★★★★ 2026-10-15 **关掉：四个方块删掉** ✗✓✓
     --
@@ -1206,7 +1209,96 @@ local function current_tut_key()
   return key
 end
 
+-- 619: entry button and independent popup bind separately; no tree scan, writes only on click.
+local help617 = { bound = false, entry_bound = false, close_bound = false, open = false, overlay = false }
+local function help_visible(c, v)
+  if c == nil then return end
+  pcall(function() if c.SetVisible then c:SetVisible(v) else c.visible = v end end)
+  if v then pcall(function() if c.SetActive then c:SetActive(true) end end) end
+end
+local function help_write(c, v)
+  if c == nil then return end
+  pcall(function() if c.SetText then c:SetText(v) else c.text = v end end)
+end
+local function overlay_open()
+  for _, spec in pairs(TUT_SETS) do
+    local inst = tutorial_inst[spec.tag]
+    if inst ~= nil and inst.open then return true end
+  end
+  return help617.open == true
+end
+local function bind_help617()
+  if help617.bound or adapter == nil then return end
+  local util = tutorial_instance(TUT_SETS.l1)
+  if util == nil then return end
+  help617.controls = help617.controls or {}
+  local c = help617.controls
+  for _, name in ipairs({ "clues.help617", "help617", "help617.title", "help617.body", "help617.close", "help617.bg" }) do
+    if c[name] == nil then c[name] = adapter:find(name) end
+  end
+  local function close()
+    help_visible(c["help617"], false)
+    help617.open = false
+
+  end
+  help617.close = close
+  if not help617.initialized and c["help617"] ~= nil then
+    help617.initialized = true
+    close()
+    for _, name in ipairs({ "help617.title", "help617.body", "help617.close", "help617.bg" }) do help_visible(c[name], true) end
+    pcall(function() c["help617"].showCursor = true end)
+    pcall(function() c["help617"].disableCursorEventPassthrough = true end)
+    pcall(function() c["help617"].disableKeyEventPassthrough = true end)
+  end
+  if not help617.close_bound and c["help617.close"] ~= nil then
+    help617.close_bound = util:_bind("help617.close", close, c["help617.close"])
+  end
+  if not help617.entry_bound and c["clues.help617"] ~= nil then
+    help_visible(c["clues.help617"], true)
+    help617.entry_bound = util:_bind("clues.help617", function()
+      if print then print("[help622] 注释按钮收到点击") end
+      local cur = Murdoku.current()
+      local id = cur and cur.level and cur.level.id
+      if not cur or not cur.controller or not id or cur.controller.modal ~= nil or overlay_open() then return end
+      if current_tut_key() ~= tostring(id) then return end
+      if print then print("[help621] 点击本关注释：" .. tostring(id)) end
+      local tag = TUT_TRIGGER[id]
+      if tag then
+        local inst = tutorial_instance(TUT_SETS[tag])
+        if inst then
+          inst:init()
+          tutorial_seen[tag] = true
+          inst:go(1)
+          inst:open_ui()
+
+        end
+        return
+      end
+      if c["help617"] == nil or c["help617.body"] == nil then return end
+      local yes, no = {}, {}
+      for name, obj in pairs((cur.level and cur.level.objects) or {}) do
+        local target = obj.occupiable and yes or no
+        target[#target + 1] = tostring(name)
+      end
+      table.sort(yes); table.sort(no)
+      help_write(c["help617.title"], (cur.level and cur.level.name or "本关") .. " · 注释")
+      help_write(c["help617.body"], "可站人的家具：" .. (#yes > 0 and table.concat(yes, "、") or "本关未配置") .. "。\n\n不可站人的家具：" .. (#no > 0 and table.concat(no, "、") or "本关未配置") .. "。\n\n普通可站空格也可放人；墙体、禁用格及水域不能站人。\n具体家具以本关配置为准。")
+      help617.level = id
+      help617.open = true
+      help_visible(c["help617"], true)
+
+    end, c["clues.help617"])
+  end
+  help617.bound = help617.entry_bound and help617.close_bound
+end
+
 local function tick_tutorial()
+  bind_help617()
+  if help617.open then
+    local cur = Murdoku.current()
+    if not cur or not cur.controller or cur.controller.screen ~= nil or cur.controller.modal ~= nil or not cur.level or cur.level.id ~= help617.level then help617.close() end
+  end
+
   if adapter == nil then return end
   if tutorial_module() == nil then return end
 
@@ -1233,6 +1325,14 @@ local function tick_tutorial()
   if started then
     key = current_tut_key()          -- ★ 唯一入口：判据在 `tut_key_and_probe` 里
     probe = tut_last_probe           -- ★ 同一帧的那份快照（诊断日志用，不二次读）
+  end
+  -- 621: reuse the existing page probe; only write on visibility transitions.
+  local help_cur = Murdoku.current()
+  local help_want = key ~= nil and key ~= "home" and help_cur ~= nil
+    and help_cur.controller ~= nil and help_cur.controller.modal == nil and not overlay_open()
+  if help617.entry_visible ~= help_want and help617.controls and help617.controls["clues.help617"] then
+    help_visible(help617.controls["clues.help617"], help_want)
+    help617.entry_visible = help_want
   end
   local key_changed = (key ~= tut_key_prev)
   if not key_changed then
@@ -1308,6 +1408,7 @@ end
 local TPL_PROBE_DONE = false   -- v311 模板探针只跑一次
 
 function OnInit()
+  Murdoku.reset_settle_session()
   -- ① 逐帧更新开关（OnUpdate 全靠它）—— 内部已 pcall
   pcall(enable_update)
 
@@ -1381,6 +1482,7 @@ function OnEnable() end
 function OnDisable() end
 
 function OnUpdate(dt)
+  Murdoku.advance_settle_session(dt)
   -- ★ 2026-10-22（v311/v312）**模板探针**：等格子实例建出来之后跑一次（OnInit 时格子还没建）。
   --   结果只在日志（前缀 `[tplprobe]`）；配置项在 build_adapter 的 cfg 表里（`adapter.cfg`）。
   if not TPL_PROBE_DONE and adapter ~= nil then

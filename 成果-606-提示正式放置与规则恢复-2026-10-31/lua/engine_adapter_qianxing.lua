@@ -2738,6 +2738,7 @@ end
 --   ★ 规则 ✓：★ **这些内层名字一律跳过**（★ 它们的主人=父控件，显隐由父控件/状态决定 ✓）
 --     ★ 以后加新控件若用了别的内层名 ⇒ **一并加到这里** ✓
 local DECOR = {
+  ["clues.help617"] = true,
   ["board.floors"] = true, ["board.rugs"] = true,
   label = true, bg = true, pic = true, icon = true,
   face = true, note = true, x = true, obj = true, text = true, portrait = true,
@@ -2767,7 +2768,7 @@ local CURSOR_CONTAINERS = {
 --   （打开=显示 `teach.lX` + `teach.text.lX`，关闭=隐藏），**永远不会出现在任何屏幕计划里**。
 --   ⇒ 如果不豁免，`hide_unlisted` 每趟都会把整棵教程浮层藏掉（真机实测：教程"打开了"但一片空白）。
 --   ⚠️ 以后新增这种"自管显隐的顶层容器"时，名字要加到这里，并同步 `tutorial_ui` 的配置。
-local SELF_MANAGED_TOP = { teach = true }
+local SELF_MANAGED_TOP = { teach = true, help617 = true }
 
 function Adapter:hide_unlisted(keep)
   local hidden = 0
@@ -5619,7 +5620,38 @@ function Adapter:set_property(id, key, value, nkey)
   local ctrl = self:find(id)
   if ctrl == nil then return false end
 
+  if key == "settle_shift" then
+    -- 615: editor position is the base layout; move down only while countdown is visible.
+    local base = self._settle_shift_base
+    if base == nil or base.ctrl ~= ctrl then
+      local ok, x, y = pcall(function() return ctrl:GetAnchoredPosition() end)
+      if not ok or type(x) ~= "number" or type(y) ~= "number" then return false end
+      base = { ctrl = ctrl, x = x, y = y, shift = 0 }
+      self._settle_shift_base = base
+    end
+    local shift = tonumber(value) or 0
+    local ok = pcall(function() ctrl:SetAnchoredPosition(base.x, base.y - shift) end)
+    if ok then base.shift = shift end
+    return ok
+  end
+
   if key == "text" then
+    if id:match("%.settle%.countdown$") or id == "settle.btn.countdown"
+       or id:match("^select%.card%.%d+%.result$") then
+      local expected = tostring(value or "")
+      local size = id:match("%.result$") and 16 or 14
+      local ok = pcall(function()
+        ctrl.adaptiveFontSize = false
+        ctrl.minimumFontSize = size
+        ctrl.fontSize = size
+        ctrl.fontColor = 0xFFF9F2E9
+        ctrl.text = expected
+      end)
+      if not ok then return false end
+      local read_ok, actual = pcall(function() return ctrl.text end)
+      return read_ok and actual == expected
+    end
+
     -- ★★ 2026-09-28：**按钮的文字走 `label` 子控件**。
     --
     -- 起因：我生成了 35 个按钮的 `label` 子控件（真机 `label(visible=true)` ✅），
@@ -5646,6 +5678,8 @@ function Adapter:set_property(id, key, value, nkey)
     --   ★ 机制 ✓：★ **先读一眼** ——
     --     · ★ 已经有内容 ⇒ **不写** ✓（★ 算送达 ✓ 免得每帧重发 ✓）
     --     · ★ 读不到 / 是空的 ⇒ **照旧写** ✓（★ 新关卡、刚导入的档 ⇒ 也不会出现空按钮 ✓✓）
+    -- 611: editor-backed select result text can initially expose nil rather than an empty string.
+    -- Write directly; the controller property ledger still suppresses unchanged writes.
     local tef_target = nil
     do
       if self.text_editor_first and self.text_editor_first[id] then
@@ -6248,7 +6282,7 @@ function Adapter:set_property(id, key, value, nkey)
               -- 600: hide fixed furniture layers as a unit; preserve primitive visibility.
               local nm = nil
               pcall(function() nm = k.name end)
-              if nm ~= "furn" and nm ~= "rug_layer" and nm ~= "board.floors" and nm ~= "board.rugs" then hide_kids(k, depth + 1) end
+              if nm ~= "furn" and nm ~= "rug_layer" and nm ~= "board.floors" and nm ~= "board.rugs" and nm ~= "x" then hide_kids(k, depth + 1) end -- 607: X strokes inherit visibility from their parent
             end
           end
         end
@@ -6314,6 +6348,11 @@ function Adapter:set_property(id, key, value, nkey)
     end
   elseif key == "enabled" then
     if ctrl.interactable ~= nil then ctrl.interactable = value and true or false end
+    if id == "settle.btn" or id == "result.settle" or id == "modal.settle" then
+      local bg = self:sub(id, "bg")
+      if bg then bg.imageColor = value and 0xFFFFFFFF or 0xFF686B70 end
+    end
+
 
   elseif key == "rect" and self.apply_rect then
     if ctrl.SetAnchoredPosition then ctrl:SetAnchoredPosition(value.x, value.y) end

@@ -1,0 +1,42 @@
+package.path='lua/?.lua;lua/?/init.lua;'..package.path
+local Main=require('main')
+local Core=require('murdoku_core')
+local UI=require('ui_controller')
+local L=require('levels.case_001')
+local n=0
+local function check(x,msg) assert(x,msg);n=n+1 end
+Main.reset_settle_session()
+Main.advance_settle_session(12)
+local session=Main.get_settle_session()
+local function new() return UI.new(Core.new(L),{skip_intro=true,settle_session=session}) end
+local c=new();c.screen='home'
+check(c:settle_seconds_left()==48,'startup included')
+Main.advance_settle_session(8);c:tick(8)
+check(c:settle_seconds_left()==40,'menu included without double count')
+c.screen=nil;c:tick(0);c:do_restart()
+check(c:settle_seconds_left()==40,'restart preserved')
+c=new();c.screen='select'
+check(c:settle_seconds_left()==40,'replacement controller preserved')
+Main.advance_settle_session(39);c:tick(39)
+check(c:settle_seconds_left()==1 and not c:can_settle(),'59 seconds locked')
+c.dirty=false;c:tick(0)
+check(not c.dirty,'unchanged countdown does not dirty menu')
+Main.advance_settle_session(1);c:tick(1)
+check(c:can_settle() and c:settle_seconds_left()==0,'60 seconds unlocked')
+check(c.dirty,'unlock refreshes menu')
+c:do_restart();check(c:can_settle(),'restart after unlock preserved')
+c=new();check(c:can_settle(),'switch after unlock preserved')
+Main.advance_settle_session(900);check(session.elapsed==60,'clock capped')
+Main.reset_settle_session();session=Main.get_settle_session();c=new()
+check(not c:can_settle() and c:settle_seconds_left()==60,'new preview resets')
+c.core.status='solved';check(c:can_settle(),'win unlocks early')
+c:do_restart();check(c:can_settle(),'win unlock persists on restart')
+c=new();check(c:can_settle(),'win unlock persists on switch')
+Main.reset_settle_session();session=Main.get_settle_session();c=new();c.screen='home'
+Main.advance_settle_session(30);c:tick(30)
+local baseline=UI.new(Core.new(L),{skip_intro=true});baseline.screen='home';baseline:tick(30)
+check(c.core.elapsed==baseline.core.elapsed,'session clock preserves existing puzzle timer behavior')
+local f=assert(io.open('lua/entry_client_script.lua','rb'));local entry=f:read('*a');f:close()
+check(entry:find('function OnInit%(%)%s+Murdoku.reset_settle_session%(%)')~=nil,'reset only at preview init')
+check(entry:find('function OnUpdate%(dt%)%s+Murdoku.advance_settle_session%(dt%)')~=nil,'advance before startup retry gates')
+print('settle_session614: '..n..' passed')
