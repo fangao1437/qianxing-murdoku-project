@@ -1,4 +1,4 @@
-﻿### lua tools/design_gate.lua（线索与家具登记在 tools/design_clues.lua，不进关卡文件）
+>﻿### lua tools/design_gate.lua（线索与家具登记在 tools/design_clues.lua，不进关卡文件）
 
 == 内容设计期闸门（离线）==
 

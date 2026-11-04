@@ -1,4 +1,4 @@
-案件 003《月谕茶会》7×7 v2b（复合线索版）· 验证记录（真实输出）
+>案件 003《月谕茶会》7×7 v2b（复合线索版）· 验证记录（真实输出）
 生成时间：2026-10-19 约 03:05；工作副本 miHoYo Launcher/_work/qm-case003
 本机 Lua：C:/Users/18182/AppData/Local/Programs/Lua/bin/lua.exe（Lua 5.4.6）
 取证：副本内 lua/levels/case_003.lua = case_003-7x7-v2b-候选.lua；脚本 = verify_case_003_7x7.lua（官方 Solve.solve）

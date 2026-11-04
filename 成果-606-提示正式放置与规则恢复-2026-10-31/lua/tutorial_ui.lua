@@ -176,8 +176,9 @@ function M:_bind(name, fn, resolved)
   local ok = pcall(function()
     local ev = Enum and Enum.CursorEventType and Enum.CursorEventType.CursorClick
     if ev == nil then error("CursorClick unavailable") end
-    if ctrl.raycastTarget ~= nil then ctrl.raycastTarget = true end
-    if ctrl.interactable ~= nil then ctrl.interactable = true end
+    -- Optional properties must not abort listener registration on image controls.
+    pcall(function() ctrl.raycastTarget = true end)
+    pcall(function() ctrl.interactable = true end)
     ctrl:AddCursorEventListener(ev, function() fn() end)
   end)
   if ok then self.bound[ctrl] = true end

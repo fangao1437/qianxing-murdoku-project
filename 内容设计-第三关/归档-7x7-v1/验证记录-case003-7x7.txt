@@ -1,4 +1,4 @@
-案件 003《月谕茶会》7×7 版 · 验证记录（真实输出）
+>案件 003《月谕茶会》7×7 版 · 验证记录（真实输出）
 生成时间：2026-10-19 约 02:26；工作副本 miHoYo Launcher/_work/qm-case003
 本机 Lua：C:/Users/18182/AppData/Local/Programs/Lua/bin/lua.exe（Lua 5.4.6）
 取证：副本内 lua/levels/case_003.lua = 本候选；脚本 = 副本根目录 verify_case_003_7x7.lua

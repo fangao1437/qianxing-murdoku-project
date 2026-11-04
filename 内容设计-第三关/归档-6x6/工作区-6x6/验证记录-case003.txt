@@ -1,4 +1,4 @@
-案件 003《月谕茶会》· 验证记录（真实输出）
+>案件 003《月谕茶会》· 验证记录（真实输出）
 生成时间：2026-10-19 约 00:58（工作副本 miHoYo Launcher/_work/qm-case003）
 本机 Lua：C:/Users/18182/AppData/Local/Programs/Lua/bin/lua.exe（Lua 5.4.6）
 取证方式：把 qianxing-murdoku 的 lua/ tools/（不含 tools/bin） tests/ 复制到 _work/qm-case003，

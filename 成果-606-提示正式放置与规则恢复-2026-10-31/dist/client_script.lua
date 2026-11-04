@@ -679,8 +679,15 @@ reg("right_of", {
 
 reg("above", {
   params = { "a", "b" },
-  validate = function(ctx, cl) return ctx.is_above(ctx.pos(cl.a), ctx.pos(cl.b)) end,
-  text = function(ctx, cl) return string.format("%s 在 %s 北边（同一列）", ctx.name(cl.a), ctx.name(cl.b)) end,
+  validate = function(ctx, cl)
+    local a, b = ctx.pos(cl.a), ctx.pos(cl.b)
+    if cl.same_column == false then return a ~= nil and b ~= nil and a.r < b.r end
+    return ctx.is_above(a, b)
+  end,
+  text = function(ctx, cl)
+    if cl.same_column == false then return string.format("%s 在 %s 的上方（不要求同列）", ctx.name(cl.a), ctx.name(cl.b)) end
+    return string.format("%s 在 %s 北边（同一列）", ctx.name(cl.a), ctx.name(cl.b))
+  end,
 })
 
 reg("below", {
@@ -16029,7 +16036,12 @@ end
 --   ★ 规则 ✓：★ **这些内层名字一律跳过**（★ 它们的主人=父控件，显隐由父控件/状态决定 ✓）
 --     ★ 以后加新控件若用了别的内层名 ⇒ **一并加到这里** ✓
 local DECOR = {
+  ["home.tutorial627.bg"] = true,
+  ["home.tutorial627.ring"] = true,
+  ["home.tutorial627.label"] = true,
+  ["home.tutorial627.hit"] = true,
   ["clues.help617"] = true,
+  ["clues.help627.hit"] = true,
   ["board.floors"] = true, ["board.rugs"] = true,
   label = true, bg = true, pic = true, icon = true,
   face = true, note = true, x = true, obj = true, text = true, portrait = true,
@@ -23656,8 +23668,9 @@ function M:_bind(name, fn, resolved)
   local ok = pcall(function()
     local ev = Enum and Enum.CursorEventType and Enum.CursorEventType.CursorClick
     if ev == nil then error("CursorClick unavailable") end
-    if ctrl.raycastTarget ~= nil then ctrl.raycastTarget = true end
-    if ctrl.interactable ~= nil then ctrl.interactable = true end
+    -- Optional properties must not abort listener registration on image controls.
+    pcall(function() ctrl.raycastTarget = true end)
+    pcall(function() ctrl.interactable = true end)
     ctrl:AddCursorEventListener(ev, function() fn() end)
   end)
   if ok then self.bound[ctrl] = true end
@@ -24694,7 +24707,8 @@ __M["levels.case_002"] = function()
   ★ 与编辑器的对应：本关是 LIST 的第 2 项 ⇒ 内容源是 `row.2.*`（6 行 ⇒ row.2.1 … row.2.6）
     通用线索在 `row.2.clue`（子控件 `clue.2.1`）✓
 ----------------------------------------------------------------------------]]--
---[[----------------------------------------------------------------------------  levels/case_001.lua —— 案件 001《双影》（原 case_002 的内容，2026-10-18 归位到第 2 关）
+--[[----------------------------------------------------------------------------
+  levels/case_001.lua —— 案件 001《双影》（原 case_002 的内容，2026-10-18 归位到第 2 关）
 
   主题：6×6，6 枚棋子（5 名嫌疑人 + 1 名受害者）。**本案没有同伙。**
 
@@ -24741,7 +24755,7 @@ __M["levels.case_002"] = function()
         卡 1 a：画廊助理 在 桌子 旁边
         卡 2 b：有两人坐在椅子上
         卡 3 c：夜班门卫 在 书架 旁边
-        卡 4 d：随行记者 在 夜班门卫 的上方（同一列）  ← ★ 本案唯一的假话
+        卡 4 d：随行记者 在 夜班门卫 的上方（不要求同列）  ← ★ 本案唯一的假话
         卡 5 e：只有 随行记者 在 植物 旁边
         卡 6 v：我独自一人，且 临时搬运工 在我下方的不同区域中
     ★ 通用线索（不属于任何人的卡）：地毯上没有人
@@ -24830,7 +24844,7 @@ return {
     { type = "beside_object", who = "B", object = "桌子" },                  -- a
     { type = "n_on_object",   object = "椅子", n = 2 },                      -- b
     { type = "beside_object", who = "A", object = "书架" },                  -- c
-    { type = "above",         a = "E", b = "A" },                            -- d（唯一假话）
+    { type = "above",         a = "E", b = "A", same_column = false },                            -- d（唯一假话）
     { type = "only_beside",   who = "E", object = "植物" },                  -- e
     { type = "alone_and_below_in_other_room", who = "V", a = "C", b = "V" }, -- v
   },
@@ -24855,14 +24869,8 @@ return {
     E = { r = 6, c = 3 },   -- R3
   },
 
-  --[[ 设计备注：为什么不用 left_of / right_of / above / below 当常规线索
-       这四种判定是「**同一行**且列更小 / **同一列**且行更小」
-       （见 murdoku_core.lua 的 ctx.is_left_of / ctx.is_above）。
-       本工程开了 one_per_row + one_per_col，任意两人**不可能同行同列**，
-       所以这四个线索在本作里**永远为假**。
-       d 的那句「e 在 a 的上方」正是利用这一点：它恒假，所以它是天然的假话候选；
-       但玩家**不能靠这一点**直接排除它（其它线索同样可能假），
-       要靠"逐条剔除 + 只剩一个可选位置"两步才能锁定。 ]]
+  -- 628：卡4的上方只比较行号，不要求同列；不能用每列一人直接判假。
+  -- 在给定解中 E=(6,3)、A=(5,2)，E位于A下方，故卡4为假。
 }
 
 end
@@ -25219,7 +25227,7 @@ local function check_canvas()
       --   ⇒ ★ 待办（`接手待办.md` P1）：把"递增标记"并进安装脚本或 `archive_version.mjs`，
       --     由工具强制递增，而不是靠人记得 ✓
       if print then
-        print("[murdoku] ===== 构建标记 v606 / 2026-10-31 / 正式版606：提示正式放置、重进清理、规则恢复、长按显示门槛 =====")
+        print("[murdoku] ===== 构建标记 v634 / 2026-11-05 / 正式版634：教程收官与空控件清理 =====")
       end
       if print then print("[murdoku] 画布 " .. num(w) .. "×" .. num(h) .. "，与设计一致") end
     else
@@ -26255,13 +26263,35 @@ local function overlay_open()
   end
   return help617.open == true
 end
+local HOME_TUTORIAL_CONTROLS = { "home.tutorial627.bg", "home.tutorial627.ring", "home.tutorial627.label", "home.tutorial627.hit" }
+local function sync_home_tutorial628(want)
+  local c = help617.controls or {}
+  local complete = true
+  for _, name in ipairs(HOME_TUTORIAL_CONTROLS) do
+    if c[name] == nil then c[name] = adapter:find(name) end
+    if c[name] == nil then complete = false else help_visible(c[name], want) end
+  end
+  help617.controls = c
+  help617.home_visible = complete and want or nil
+end
 local function bind_help617()
-  if help617.bound or adapter == nil then return end
+  if adapter == nil then return end
+  -- 624: cached handles belong to one adapter UI generation.
+  local generation = adapter._lookup_gen or 0
+  if help617.generation ~= generation then
+    if help617.close then help617.close() end
+    help617.generation = generation
+    help617.bound, help617.entry_bound, help617.close_bound = false, false, false
+    help617.controls = {}
+    help617.initialized, help617.entry_visible = false, nil
+    help617.home_bound, help617.home_visible = false, nil
+  end
+  if help617.bound and help617.home_bound then return end
   local util = tutorial_instance(TUT_SETS.l1)
   if util == nil then return end
   help617.controls = help617.controls or {}
   local c = help617.controls
-  for _, name in ipairs({ "clues.help617", "help617", "help617.title", "help617.body", "help617.close", "help617.bg" }) do
+  for _, name in ipairs({ "clues.help617", "clues.help627.hit", "home.tutorial627.hit", "help617", "help617.title", "help617.body", "help617.close", "help617.bg" }) do
     if c[name] == nil then c[name] = adapter:find(name) end
   end
   local function close()
@@ -26281,15 +26311,13 @@ local function bind_help617()
   if not help617.close_bound and c["help617.close"] ~= nil then
     help617.close_bound = util:_bind("help617.close", close, c["help617.close"])
   end
-  if not help617.entry_bound and c["clues.help617"] ~= nil then
+  if not help617.entry_bound and c["clues.help627.hit"] ~= nil then
     help_visible(c["clues.help617"], true)
-    help617.entry_bound = util:_bind("clues.help617", function()
-      if print then print("[help622] 注释按钮收到点击") end
+    help617.entry_bound = util:_bind("clues.help627.hit", function()
       local cur = Murdoku.current()
       local id = cur and cur.level and cur.level.id
       if not cur or not cur.controller or not id or cur.controller.modal ~= nil or overlay_open() then return end
       if current_tut_key() ~= tostring(id) then return end
-      if print then print("[help621] 点击本关注释：" .. tostring(id)) end
       local tag = TUT_TRIGGER[id]
       if tag then
         local inst = tutorial_instance(TUT_SETS[tag])
@@ -26315,7 +26343,23 @@ local function bind_help617()
       help617.open = true
       help_visible(c["help617"], true)
 
-    end, c["clues.help617"])
+    end, c["clues.help627.hit"])
+  end
+  if help617.entry_bound and help617.logged_generation ~= generation then
+    help617.logged_generation = generation
+  end
+  if not help617.home_bound and c["home.tutorial627.hit"] ~= nil then
+    help617.home_bound = util:_bind("home.tutorial627.hit", function()
+      local cur = Murdoku.current()
+      if current_tut_key() ~= "home" or overlay_open() or (cur and cur.controller and cur.controller.modal ~= nil) then return end
+      local inst = tutorial_instance(TUT_SETS.home)
+      if inst then
+        inst:init()
+        tutorial_seen.home = true
+        inst:go(1)
+        inst:open_ui()
+      end
+    end, c["home.tutorial627.hit"])
   end
   help617.bound = help617.entry_bound and help617.close_bound
 end
@@ -26360,7 +26404,13 @@ local function tick_tutorial()
     and help_cur.controller ~= nil and help_cur.controller.modal == nil and not overlay_open()
   if help617.entry_visible ~= help_want and help617.controls and help617.controls["clues.help617"] then
     help_visible(help617.controls["clues.help617"], help_want)
+    help_visible(help617.controls["clues.help627.hit"], help_want)
     help617.entry_visible = help_want
+  end
+  local home_want = key == "home" and not overlay_open()
+    and not (help_cur and help_cur.controller and help_cur.controller.modal ~= nil)
+  if help617.home_visible ~= home_want then
+    sync_home_tutorial628(home_want)
   end
   local key_changed = (key ~= tut_key_prev)
   if not key_changed then

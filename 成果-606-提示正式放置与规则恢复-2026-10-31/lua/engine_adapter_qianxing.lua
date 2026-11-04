@@ -2738,7 +2738,12 @@ end
 --   ★ 规则 ✓：★ **这些内层名字一律跳过**（★ 它们的主人=父控件，显隐由父控件/状态决定 ✓）
 --     ★ 以后加新控件若用了别的内层名 ⇒ **一并加到这里** ✓
 local DECOR = {
+  ["home.tutorial627.bg"] = true,
+  ["home.tutorial627.ring"] = true,
+  ["home.tutorial627.label"] = true,
+  ["home.tutorial627.hit"] = true,
   ["clues.help617"] = true,
+  ["clues.help627.hit"] = true,
   ["board.floors"] = true, ["board.rugs"] = true,
   label = true, bg = true, pic = true, icon = true,
   face = true, note = true, x = true, obj = true, text = true, portrait = true,

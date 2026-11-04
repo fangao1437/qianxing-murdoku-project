@@ -521,8 +521,15 @@ reg("right_of", {
 
 reg("above", {
   params = { "a", "b" },
-  validate = function(ctx, cl) return ctx.is_above(ctx.pos(cl.a), ctx.pos(cl.b)) end,
-  text = function(ctx, cl) return string.format("%s 在 %s 北边（同一列）", ctx.name(cl.a), ctx.name(cl.b)) end,
+  validate = function(ctx, cl)
+    local a, b = ctx.pos(cl.a), ctx.pos(cl.b)
+    if cl.same_column == false then return a ~= nil and b ~= nil and a.r < b.r end
+    return ctx.is_above(a, b)
+  end,
+  text = function(ctx, cl)
+    if cl.same_column == false then return string.format("%s 在 %s 的上方（不要求同列）", ctx.name(cl.a), ctx.name(cl.b)) end
+    return string.format("%s 在 %s 北边（同一列）", ctx.name(cl.a), ctx.name(cl.b))
+  end,
 })
 
 reg("below", {

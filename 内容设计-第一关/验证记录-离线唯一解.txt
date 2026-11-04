@@ -1,4 +1,4 @@
-﻿### lua tools/design_check_case_001.lua（线索只在本脚本里注入内存副本，不进关卡文件）
+>﻿### lua tools/design_check_case_001.lua（线索只在本脚本里注入内存副本，不进关卡文件）
 
 == 第一关设计期闸门（v2 新家具版）==
 

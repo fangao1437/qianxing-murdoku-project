@@ -191,7 +191,7 @@ local function check_canvas()
       --   ⇒ ★ 待办（`接手待办.md` P1）：把"递增标记"并进安装脚本或 `archive_version.mjs`，
       --     由工具强制递增，而不是靠人记得 ✓
       if print then
-        print("[murdoku] ===== 构建标记 v606 / 2026-10-31 / 正式版606：提示正式放置、重进清理、规则恢复、长按显示门槛 =====")
+        print("[murdoku] ===== 构建标记 v634 / 2026-11-05 / 正式版634：教程收官与空控件清理 =====")
       end
       if print then print("[murdoku] 画布 " .. num(w) .. "×" .. num(h) .. "，与设计一致") end
     else
@@ -1227,13 +1227,35 @@ local function overlay_open()
   end
   return help617.open == true
 end
+local HOME_TUTORIAL_CONTROLS = { "home.tutorial627.bg", "home.tutorial627.ring", "home.tutorial627.label", "home.tutorial627.hit" }
+local function sync_home_tutorial628(want)
+  local c = help617.controls or {}
+  local complete = true
+  for _, name in ipairs(HOME_TUTORIAL_CONTROLS) do
+    if c[name] == nil then c[name] = adapter:find(name) end
+    if c[name] == nil then complete = false else help_visible(c[name], want) end
+  end
+  help617.controls = c
+  help617.home_visible = complete and want or nil
+end
 local function bind_help617()
-  if help617.bound or adapter == nil then return end
+  if adapter == nil then return end
+  -- 624: cached handles belong to one adapter UI generation.
+  local generation = adapter._lookup_gen or 0
+  if help617.generation ~= generation then
+    if help617.close then help617.close() end
+    help617.generation = generation
+    help617.bound, help617.entry_bound, help617.close_bound = false, false, false
+    help617.controls = {}
+    help617.initialized, help617.entry_visible = false, nil
+    help617.home_bound, help617.home_visible = false, nil
+  end
+  if help617.bound and help617.home_bound then return end
   local util = tutorial_instance(TUT_SETS.l1)
   if util == nil then return end
   help617.controls = help617.controls or {}
   local c = help617.controls
-  for _, name in ipairs({ "clues.help617", "help617", "help617.title", "help617.body", "help617.close", "help617.bg" }) do
+  for _, name in ipairs({ "clues.help617", "clues.help627.hit", "home.tutorial627.hit", "help617", "help617.title", "help617.body", "help617.close", "help617.bg" }) do
     if c[name] == nil then c[name] = adapter:find(name) end
   end
   local function close()
@@ -1253,15 +1275,13 @@ local function bind_help617()
   if not help617.close_bound and c["help617.close"] ~= nil then
     help617.close_bound = util:_bind("help617.close", close, c["help617.close"])
   end
-  if not help617.entry_bound and c["clues.help617"] ~= nil then
+  if not help617.entry_bound and c["clues.help627.hit"] ~= nil then
     help_visible(c["clues.help617"], true)
-    help617.entry_bound = util:_bind("clues.help617", function()
-      if print then print("[help622] 注释按钮收到点击") end
+    help617.entry_bound = util:_bind("clues.help627.hit", function()
       local cur = Murdoku.current()
       local id = cur and cur.level and cur.level.id
       if not cur or not cur.controller or not id or cur.controller.modal ~= nil or overlay_open() then return end
       if current_tut_key() ~= tostring(id) then return end
-      if print then print("[help621] 点击本关注释：" .. tostring(id)) end
       local tag = TUT_TRIGGER[id]
       if tag then
         local inst = tutorial_instance(TUT_SETS[tag])
@@ -1287,7 +1307,23 @@ local function bind_help617()
       help617.open = true
       help_visible(c["help617"], true)
 
-    end, c["clues.help617"])
+    end, c["clues.help627.hit"])
+  end
+  if help617.entry_bound and help617.logged_generation ~= generation then
+    help617.logged_generation = generation
+  end
+  if not help617.home_bound and c["home.tutorial627.hit"] ~= nil then
+    help617.home_bound = util:_bind("home.tutorial627.hit", function()
+      local cur = Murdoku.current()
+      if current_tut_key() ~= "home" or overlay_open() or (cur and cur.controller and cur.controller.modal ~= nil) then return end
+      local inst = tutorial_instance(TUT_SETS.home)
+      if inst then
+        inst:init()
+        tutorial_seen.home = true
+        inst:go(1)
+        inst:open_ui()
+      end
+    end, c["home.tutorial627.hit"])
   end
   help617.bound = help617.entry_bound and help617.close_bound
 end
@@ -1332,7 +1368,13 @@ local function tick_tutorial()
     and help_cur.controller ~= nil and help_cur.controller.modal == nil and not overlay_open()
   if help617.entry_visible ~= help_want and help617.controls and help617.controls["clues.help617"] then
     help_visible(help617.controls["clues.help617"], help_want)
+    help_visible(help617.controls["clues.help627.hit"], help_want)
     help617.entry_visible = help_want
+  end
+  local home_want = key == "home" and not overlay_open()
+    and not (help_cur and help_cur.controller and help_cur.controller.modal ~= nil)
+  if help617.home_visible ~= home_want then
+    sync_home_tutorial628(home_want)
   end
   local key_changed = (key ~= tut_key_prev)
   if not key_changed then
