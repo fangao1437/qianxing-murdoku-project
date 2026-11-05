@@ -774,6 +774,8 @@ end
 
 --- 真正执行"重置关卡"。
 function Controller:do_restart()
+  self.core.hint635_used=nil
+  self.hint635=nil
   -- 614: restarting a puzzle must not reset the preview settlement clock.
   self:_clear_verdict()
   local core = self.core
@@ -1554,6 +1556,49 @@ function Controller:on_key(event)
   return false
 end
 
+-- 635: independent per-attempt counters; neither dismissal nor undo refunds/charges.
+function Controller:hint635_action(action)
+  if self.screen ~= nil or self.modal ~= nil then return end
+  local core=self.core
+  core.hint635_used=core.hint635_used or {position=0,clue=0}
+  local used=core.hint635_used
+  local function message(text, timed)
+    self.hint635={kind="message",text=text,until_time=timed and ((self.now or 0)+3) or nil}
+  end
+  if action=="close" then self.hint635=nil;return end
+  if action=="toggle" then
+    if self.hint635 then
+      self.hint635=nil
+    elseif not core.selected and self.general_focus~=true then
+      message("请先选中一条线索卡",true)
+    else
+      self.hint635={kind="menu"}
+    end
+    return
+  end
+  if not self.hint635 or self.hint635.kind~="menu" then return end
+  if action=="position" then
+    if used.position>=1 then message("本关揭示位置次数已用完",true);return end
+    local ok,msg=core:hint()
+    if not ok then message(msg,true);return end
+    used.position=used.position+1
+    self.hint635=nil
+    self:_clear_verdict();self._grid_refill_pending=true
+    self._clue_sel_key,self._clue_sel_pos=nil,nil;self.focused_clue=nil
+    self.dirty=true;self:fx("hex.hint",M.EFFECTS.SELECT)
+  elseif action=="clue" then
+    if used.clue>=2 then message("本关验证线索次数已用完",true);return end
+    self:_sync_clue_focus()
+    local general=self.general_focus==true
+    local index=general and 1 or self.focused_clue
+    if not index or (not general and not core.selected) then message("请先选中一条线索卡",true);return end
+    local truth=core:answer_clue(index,general)
+    if truth==nil then message("请先选中一条线索卡",true);return end
+    used.clue=used.clue+1
+    message(truth and "该线索为真" or "该线索为假",false)
+  end
+end
+
 function Controller:on_input(event)
   local core = self.core
   local a = event.action
@@ -1702,17 +1747,7 @@ function Controller:on_input(event)
     end
 
   elseif a == "hint" then
-    local ok, msg = core:hint()
-    self.toast = msg
-    self.toast_until = self.now + M.TOAST_SECONDS   -- ★ A8：只补截止时刻，文案一行不动
-    if ok then
-      self:_clear_verdict()
-      self._grid_refill_pending = true
-      self._clue_sel_key, self._clue_sel_pos = nil, nil
-      self.focused_clue = nil
-      self.dirty = true
-      self:fx("hex.hint", M.EFFECTS.SELECT)
-    end
+    self:hint635_action("toggle")
 
   elseif a == "reveal" then
     -- 直接揭示答案（照 murdoku 的 Reveal，用于教学/放弃）
@@ -2012,6 +2047,8 @@ function Controller:tick(dt)
     end
   end
   self.now = (self.now or 0) + (dt or 0)
+  if self.hint635 and (self.screen~=nil or self.modal~=nil or
+      (self.hint635.until_time and self.now>=self.hint635.until_time)) then self.hint635=nil end
   self._frame_n = (self._frame_n or 0) + 1   -- v362：帧序号（同帧缓存的键；Controller 上没有 adapter.clock）
   if self._verdict ~= nil then pcall(self._verdict_step, self) end   -- v368：红/绿判定圈逐帧推进
 

@@ -2543,15 +2543,33 @@ function Core:clear_all()
   return true
 end
 
-function Core:hint()
-  local candidates = {}
+-- 635: evaluate against a separate complete answer board, never the player's guesses.
+function Core:answer_clue(index, general)
+  local list=general and self.general_clues or self.clues
+  local cl=list and list[index]
+  if not cl or not cl.type or not M.clues[cl.type] then return nil end
+  local answer=M.new(self.level)
+  answer.clues=self.clues
+  answer.general_clues=self.general_clues
+  answer.roles=self.roles
+  answer.pos={}; answer.grid={}; answer.row_count={}; answer.col_count={}
+  for r=1,self.rows do answer.grid[r]={};answer.row_count[r]=0 end
+  for c=1,self.cols do answer.col_count[c]=0 end
   for id,p in pairs(self.solution) do
-    local cur=self.pos[id]
-    if not (cur and cur.r==p.r and cur.c==p.c and self.placed[id]) and not self:is_blocked(p.r,p.c) then candidates[#candidates+1]=id end
+    answer.pos[id]={r=p.r,c=p.c};answer.grid[p.r][p.c]=id
+    answer.row_count[p.r]=answer.row_count[p.r]+1;answer.col_count[p.c]=answer.col_count[p.c]+1
   end
-  if #candidates==0 then return false,"已经没有可提示的位置" end
-  table.sort(candidates,function(a,b)return tostring(a)<tostring(b)end)
-  local id=candidates[1];local p=self.solution[id];local rules=self:rules()
+  return M.clues[cl.type].validate(make_context(answer,self.roles),cl) and true or false
+end
+
+function Core:hint()
+  local id=self.selected
+  if not id or not self.solution[id] then return false,"请先选中一张人物卡" end
+  local p=self.solution[id]
+  if self:is_blocked(p.r,p.c) then return false,"该人物位置不可揭示" end
+  local cur=self.pos[id]
+  if cur and cur.r==p.r and cur.c==p.c and self.placed[id] then return false,"该人物已在正确位置" end
+  local rules=self:rules()
   -- A hint corrects incompatible guesses, then uses the same formal-placement entry.
   for r=1,self.rows do for c=1,self.cols do
     local who=self.grid[r][c]

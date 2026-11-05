@@ -191,7 +191,7 @@ local function check_canvas()
       --   ⇒ ★ 待办（`接手待办.md` P1）：把"递增标记"并进安装脚本或 `archive_version.mjs`，
       --     由工具强制递增，而不是靠人记得 ✓
       if print then
-        print("[murdoku] ===== 构建标记 v634 / 2026-11-05 / 正式版634：教程收官与空控件清理 =====")
+        print("[murdoku] ===== 构建标记 v635 / 2026-11-05 / 正式版635：选中人物揭示与线索验证 =====")
       end
       if print then print("[murdoku] 画布 " .. num(w) .. "×" .. num(h) .. "，与设计一致") end
     else
@@ -1328,7 +1328,55 @@ local function bind_help617()
   help617.bound = help617.entry_bound and help617.close_bound
 end
 
+-- 635: compact hint popups; selection remains available behind the message.
+local hint635_ui={}
+local function tick_hint635()
+  if not adapter then return end
+  local util=tutorial_instance(TUT_SETS.l1)
+  if not util then return end
+  local gen=adapter._lookup_gen or 0
+  if hint635_ui.generation~=gen then hint635_ui={generation=gen,controls={},bound={}} end
+  local h=hint635_ui
+  local names={"hint635.menu","hint635.result","hint635.menu.bg","hint635.menu.title",
+    "hint635.menu.position","hint635.menu.clue","hint635.menu.close",
+    "hint635.result.bg","hint635.result.body","hint635.result.close",
+    "hint635.menu.position.hit","hint635.menu.clue.hit","hint635.menu.close.hit","hint635.result.close.hit"}
+  for _,name in ipairs(names) do
+    if not h.controls[name] then
+      h.controls[name]=adapter:find(name)
+      if h.controls[name] then help_visible(h.controls[name],name~="hint635.menu" and name~="hint635.result") end
+    end
+  end
+  local cur=Murdoku.current()
+  local ctrl=cur and cur.controller
+  local actions={["hint635.menu.position.hit"]="position",["hint635.menu.clue.hit"]="clue",
+    ["hint635.menu.close.hit"]="close",["hint635.result.close.hit"]="close"}
+  for name,action in pairs(actions) do
+    if not h.bound[name] and h.controls[name] then
+      local chosen=action
+      h.bound[name]=util:_bind(name,function()
+        local c=Murdoku.current()
+        if c and c.controller then c.controller:hint635_action(chosen); tick_hint635() end
+      end,h.controls[name])
+    end
+  end
+  if ctrl and (ctrl.screen~=nil or ctrl.modal~=nil or overlay_open()) then ctrl.hint635=nil end
+  local state=ctrl and ctrl.hint635
+  local signature=state and (state.kind..":"..(state.text or "")) or "closed"
+  local used=ctrl and ctrl.core and ctrl.core.hint635_used or {position=0,clue=0}
+  signature=signature..":"..tostring(used.position)..":"..tostring(used.clue)
+  if h.signature~=signature or h.controller~=ctrl then
+    h.signature=signature;h.controller=ctrl
+    help_visible(h.controls["hint635.menu"],state~=nil and state.kind=="menu")
+    help_visible(h.controls["hint635.result"],state~=nil and state.kind=="message")
+    help_write(h.controls["hint635.menu.position"],"揭示选中人物的所在位置（"..tostring(1-used.position).."/1）")
+    help_write(h.controls["hint635.menu.clue"],"验证选中线索的真假（"..tostring(2-used.clue).."/2）")
+    help_write(h.controls["hint635.result.body"],state and state.text or "")
+  end
+end
+
 local function tick_tutorial()
+  tick_hint635()
   bind_help617()
   if help617.open then
     local cur = Murdoku.current()
