@@ -1,0 +1,673 @@
+[
+  {
+    "level": 3,
+    "base_count": 293760,
+    "all_true_boards": 1,
+    "all_true_examples": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          4,
+          6
+        ]
+      ]
+    ],
+    "audit": [
+      {
+        "person": "A",
+        "candidate_layouts": 10,
+        "positions": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "own_card_true": 1,
+        "solutions": 1,
+        "candidate_boards": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              3,
+              5
+            ]
+          ]
+        ]
+      },
+      {
+        "person": "B",
+        "candidate_layouts": 4,
+        "positions": [
+          [
+            2,
+            1
+          ]
+        ],
+        "own_card_true": 1,
+        "solutions": 0,
+        "candidate_boards": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              4
+            ]
+          ]
+        ]
+      },
+      {
+        "person": "C",
+        "candidate_layouts": 2,
+        "positions": [
+          [
+            3,
+            3
+          ]
+        ],
+        "own_card_true": 1,
+        "solutions": 0,
+        "candidate_boards": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        ]
+      },
+      {
+        "person": "D",
+        "candidate_layouts": 0,
+        "positions": [],
+        "own_card_true": 0,
+        "solutions": 0,
+        "candidate_boards": []
+      },
+      {
+        "person": "E",
+        "candidate_layouts": 0,
+        "positions": [],
+        "own_card_true": 0,
+        "solutions": 0,
+        "candidate_boards": []
+      }
+    ],
+    "unique_boards": 1,
+    "unique_thieves": 1,
+    "answer": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "thief": "A",
+    "truth": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "level": 4,
+    "base_count": 432000,
+    "all_true_boards": 0,
+    "all_true_examples": [],
+    "audit": [
+      {
+        "person": "A",
+        "candidate_layouts": 1,
+        "positions": [
+          [
+            3,
+            1
+          ]
+        ],
+        "own_card_true": 0,
+        "solutions": 1,
+        "candidate_boards": [
+          [
+            [
+              3,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        ]
+      },
+      {
+        "person": "B",
+        "candidate_layouts": 0,
+        "positions": [],
+        "own_card_true": 0,
+        "solutions": 0,
+        "candidate_boards": []
+      },
+      {
+        "person": "C",
+        "candidate_layouts": 0,
+        "positions": [],
+        "own_card_true": 0,
+        "solutions": 0,
+        "candidate_boards": []
+      },
+      {
+        "person": "D",
+        "candidate_layouts": 0,
+        "positions": [],
+        "own_card_true": 0,
+        "solutions": 0,
+        "candidate_boards": []
+      },
+      {
+        "person": "E",
+        "candidate_layouts": 0,
+        "positions": [],
+        "own_card_true": 0,
+        "solutions": 0,
+        "candidate_boards": []
+      }
+    ],
+    "unique_boards": 1,
+    "unique_thieves": 1,
+    "answer": [
+      [
+        3,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "thief": "A",
+    "truth": [
+      false,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  }
+]
