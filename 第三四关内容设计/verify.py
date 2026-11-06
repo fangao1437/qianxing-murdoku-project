@@ -47,7 +47,6 @@ for d in data:
    if i!=h:v &= m
   pos=np.unique(x[v,h]); n=len(pos)
   final=v & (masks[h] if n>1 else ~masks[h]) if n else np.zeros(len(x),bool)
-  if d['k']==2:final &= np.logical_and.reduce(masks)
   ids=np.flatnonzero(final)
   solutions.extend([(int(i),h) for i in ids])
   audits.append(dict(person=names[h],candidate_layouts=int(v.sum()),positions=coord(pos),own_card_true=int((v&masks[h]).sum()),solutions=len(ids),candidate_boards=[coord(a) for a in x[v]] if v.sum()<15 else []))
