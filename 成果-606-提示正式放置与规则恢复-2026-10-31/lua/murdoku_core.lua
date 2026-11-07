@@ -405,6 +405,27 @@ local function reg(type_name, def)
   return def
 end
 
+-- 638：复合口供占一个卡位，任一子句为假则整卡为假。
+reg("all_of", {
+  params = { "clauses" },
+  validate = function(ctx, cl)
+    if type(cl.clauses) ~= "table" or #cl.clauses == 0 then return false end
+    for _, part in ipairs(cl.clauses) do
+      local def = M.clues[part.type]
+      if not def or not def.validate(ctx, part) then return false end
+    end
+    return true
+  end,
+  text = function(ctx, cl)
+    local texts = {}
+    for _, part in ipairs(cl.clauses or {}) do
+      local def = M.clues[part.type]
+      texts[#texts + 1] = def and def.text(ctx, part) or unregistered_text(ctx, part)
+    end
+    return table.concat(texts, "；")
+  end,
+})
+
 -- ============ 位置类 ============
 
 reg("at", {

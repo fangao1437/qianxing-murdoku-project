@@ -29,9 +29,11 @@ local M = {}
 --   ⇒ 通用线索那块也是同一个口径：`row.<关>.clue`
 --     （★ 只有"有关卡声明了 general_clues"的那一关才需要它 —— 目前是 case_002 ⇒
 --       应是 **row.3.clue**，不是 row.2.clue ✗ 那一格属于 case_001，而 case_001 没有通用线索）
-local LIST = {  "levels.case_001",          -- 第 1 关：案件 001 · 夜盗独行（5×5，5 人；row.1.1 … row.1.5）
-  "levels.case_002",          -- 第 2 关：案件 002 · 双影（6×6，6 人 ＋ 通用线索；row.2.1 … row.2.6 ＋ row.2.clue）
-  "levels.case_003",          -- 第 3 关：案件 003 · 第三方（未配 row 内容；row.3.*）
+local LIST = {
+  "levels.case_001",
+  "levels.case_002",
+  "levels.case_003",
+  "levels.case_004",
 }
 
 M._errors = {}
