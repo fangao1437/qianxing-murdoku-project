@@ -2774,6 +2774,7 @@ local CURSOR_CONTAINERS = {
 --   ⇒ 如果不豁免，`hide_unlisted` 每趟都会把整棵教程浮层藏掉（真机实测：教程"打开了"但一片空白）。
 --   ⚠️ 以后新增这种"自管显隐的顶层容器"时，名字要加到这里，并同步 `tutorial_ui` 的配置。
 local SELF_MANAGED_TOP = {
+  ["art641.home"] = true, ["art641.select"] = true, ["art641.game"] = true,
   teach = true, help617 = true,
   ["block640.modal"] = true, ["block640.confirm"] = true,
   ["block640.home"] = true, ["block640.l1"] = true, ["block640.l2"] = true,

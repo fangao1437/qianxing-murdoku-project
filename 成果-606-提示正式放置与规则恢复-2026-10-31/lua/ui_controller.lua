@@ -878,7 +878,7 @@ local HIGHLIGHT_TINT = 4294956107
 --   ★★ 配色 ✓：★ `imageColor` 是**乘算** ✓ ⇒ ★ 白底 × 米色 = 米色牌面 ✓
 --     （值取参考图的「图形」色 `#FAF4E8` ✓ 见 `docs/美术改造规格-参考执律庭实习.md` ✓）
 local CARD_MAT  = 106053
-local CARD_TINT = { r = 250, g = 244, b = 232 }
+local CARD_TINT = { r = 250, g = 244, b = 232, a = 0 }   -- 641: the reference artwork is drawn behind this unchanged button
 
 -- 长按窗口（秒）：按住不放超过这么久、且期间基本没移动 → 判定为长按
 --
@@ -8696,5 +8696,4 @@ function Controller:_render_impl(adapter, force)
   self.effects = {}
   self.dirty = false
 end
-
 return M

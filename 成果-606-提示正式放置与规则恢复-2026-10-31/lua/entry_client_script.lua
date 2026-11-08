@@ -1531,6 +1531,33 @@ local function sync_block640()
   end
 end
 
+-- 641: presentation-only screen decoration; gameplay and button events are unchanged.
+local art641_cache = nil
+local art641_gen = nil
+local art641_screen = false
+local function sync_art641()
+  if not adapter then return end
+  local cur = Murdoku.current()
+  local ctrl = cur and cur.controller
+  if not ctrl then return end
+  local screen = ctrl.screen or "game"
+  local gen = adapter._lookup_gen or 0
+  if art641_cache == nil or art641_gen ~= gen then
+    art641_cache = {}
+    for _, key in ipairs({"home", "select", "game"}) do
+      art641_cache[key] = adapter:find("art641." .. key)
+    end
+    art641_gen = gen
+    art641_screen = false
+  end
+  if art641_screen ~= screen then
+    for _, key in ipairs({"home", "select", "game"}) do
+      help_visible(art641_cache[key], screen == key)
+    end
+    art641_screen = screen
+  end
+end
+
 local TPL_PROBE_DONE = false   -- v311 模板探针只跑一次
 
 function OnInit()
@@ -1670,6 +1697,7 @@ function OnUpdate(dt)
     return
   end
   Murdoku.on_update(dt)
+  sync_art641()
   sync_block640()
 end
 

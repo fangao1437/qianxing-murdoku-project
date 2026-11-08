@@ -5385,7 +5385,7 @@ local HIGHLIGHT_TINT = 4294956107
 --   ★★ 配色 ✓：★ `imageColor` 是**乘算** ✓ ⇒ ★ 白底 × 米色 = 米色牌面 ✓
 --     （值取参考图的「图形」色 `#FAF4E8` ✓ 见 `docs/美术改造规格-参考执律庭实习.md` ✓）
 local CARD_MAT  = 106053
-local CARD_TINT = { r = 250, g = 244, b = 232 }
+local CARD_TINT = { r = 250, g = 244, b = 232, a = 0 }   -- 641: the reference artwork is drawn behind this unchanged button
 
 -- 长按窗口（秒）：按住不放超过这么久、且期间基本没移动 → 判定为长按
 --
@@ -16147,6 +16147,7 @@ local CURSOR_CONTAINERS = {
 --   ⇒ 如果不豁免，`hide_unlisted` 每趟都会把整棵教程浮层藏掉（真机实测：教程"打开了"但一片空白）。
 --   ⚠️ 以后新增这种"自管显隐的顶层容器"时，名字要加到这里，并同步 `tutorial_ui` 的配置。
 local SELF_MANAGED_TOP = {
+  ["art641.home"] = true, ["art641.select"] = true, ["art641.game"] = true,
   teach = true, help617 = true,
   ["block640.modal"] = true, ["block640.confirm"] = true,
   ["block640.home"] = true, ["block640.l1"] = true, ["block640.l2"] = true,
@@ -26502,6 +26503,33 @@ local function sync_block640()
   end
 end
 
+-- 641: presentation-only screen decoration; gameplay and button events are unchanged.
+local art641_cache = nil
+local art641_gen = nil
+local art641_screen = false
+local function sync_art641()
+  if not adapter then return end
+  local cur = Murdoku.current()
+  local ctrl = cur and cur.controller
+  if not ctrl then return end
+  local screen = ctrl.screen or "game"
+  local gen = adapter._lookup_gen or 0
+  if art641_cache == nil or art641_gen ~= gen then
+    art641_cache = {}
+    for _, key in ipairs({"home", "select", "game"}) do
+      art641_cache[key] = adapter:find("art641." .. key)
+    end
+    art641_gen = gen
+    art641_screen = false
+  end
+  if art641_screen ~= screen then
+    for _, key in ipairs({"home", "select", "game"}) do
+      help_visible(art641_cache[key], screen == key)
+    end
+    art641_screen = screen
+  end
+end
+
 local TPL_PROBE_DONE = false   -- v311 模板探针只跑一次
 
 function OnInit()
@@ -26641,6 +26669,7 @@ function OnUpdate(dt)
     return
   end
   Murdoku.on_update(dt)
+  sync_art641()
   sync_block640()
 end
 
