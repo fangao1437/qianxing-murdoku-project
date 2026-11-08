@@ -13203,7 +13203,6 @@ function Controller:_render_impl(adapter, force)
   self.effects = {}
   self.dirty = false
 end
-
 return M
 end
 
@@ -16147,7 +16146,11 @@ local CURSOR_CONTAINERS = {
 --   （打开=显示 `teach.lX` + `teach.text.lX`，关闭=隐藏），**永远不会出现在任何屏幕计划里**。
 --   ⇒ 如果不豁免，`hide_unlisted` 每趟都会把整棵教程浮层藏掉（真机实测：教程"打开了"但一片空白）。
 --   ⚠️ 以后新增这种"自管显隐的顶层容器"时，名字要加到这里，并同步 `tutorial_ui` 的配置。
-local SELF_MANAGED_TOP = { teach = true, help617 = true }
+local SELF_MANAGED_TOP = {
+  teach = true, help617 = true,
+  ["block640.modal"] = true, ["block640.confirm"] = true,
+  ["block640.home"] = true, ["block640.l1"] = true, ["block640.l2"] = true,
+}
 
 function Adapter:hide_unlisted(keep)
   local hidden = 0
@@ -26223,7 +26226,7 @@ local function bind_help617()
   if util == nil then return end
   help617.controls = help617.controls or {}
   local c = help617.controls
-  for _, name in ipairs({ "clues.help617", "clues.help627.hit", "home.tutorial627.hit", "help617", "help617.title", "help617.body", "help617.close", "help617.bg" }) do
+  for _, name in ipairs({ "clues.help617", "clues.help627.hit", "home.tutorial627.hit", "help617", "help617.title", "help617.body", "help617.close", "help617.close.hit", "help617.bg" }) do
     if c[name] == nil then c[name] = adapter:find(name) end
   end
   local function close()
@@ -26235,13 +26238,13 @@ local function bind_help617()
   if not help617.initialized and c["help617"] ~= nil then
     help617.initialized = true
     close()
-    for _, name in ipairs({ "help617.title", "help617.body", "help617.close", "help617.bg" }) do help_visible(c[name], true) end
+    for _, name in ipairs({ "help617.title", "help617.body", "help617.close", "help617.close.hit", "help617.bg" }) do help_visible(c[name], true) end
     pcall(function() c["help617"].showCursor = true end)
     pcall(function() c["help617"].disableCursorEventPassthrough = true end)
     pcall(function() c["help617"].disableKeyEventPassthrough = true end)
   end
-  if not help617.close_bound and c["help617.close"] ~= nil then
-    help617.close_bound = util:_bind("help617.close", close, c["help617.close"])
+  if not help617.close_bound and c["help617.close.hit"] ~= nil then
+    help617.close_bound = util:_bind("help617.close.hit", close, c["help617.close.hit"])
   end
   if not help617.entry_bound and c["clues.help627.hit"] ~= nil then
     help_visible(c["clues.help617"], true)
@@ -26463,6 +26466,42 @@ local function tick_tutorial()
   end
 end
 
+-- 640: full-screen pointer blockers; keyboard and existing holds are unchanged.
+local BLOCK640 = {
+  { tag = "confirm", targets = { "hex.ok", "hex.no", "hit.ok", "hit.no" } },
+  { tag = "modal", targets = { "modal" } },
+  { tag = "home", targets = { "td.home" } },
+  { tag = "l1", targets = { "td.l1" } },
+  { tag = "l2", targets = { "td.l2" } },
+}
+local function sync_block640()
+  if not adapter then return end
+  local util = tutorial_instance(TUT_SETS.l1)
+  if not util then return end
+  local cur = Murdoku.current()
+  local ctrl = cur and cur.controller
+  for _, spec in ipairs(BLOCK640) do
+    local want = false
+    if spec.tag == "modal" then want = ctrl ~= nil and ctrl.modal ~= nil
+    elseif spec.tag == "confirm" then want = ctrl ~= nil and ctrl.pending ~= nil
+    else local inst = tutorial_inst[spec.tag]; want = inst ~= nil and inst.open == true end
+    local name = "block640." .. spec.tag
+    local panel, hit = adapter:find(name), adapter:find(name .. ".hit")
+    util:_bind(name .. ".hit", function() end, hit)
+    help_visible(panel, want)
+    help_visible(hit, want)
+    if want then
+      pcall(function() panel.showCursor = true end)
+      pcall(function() panel.disableCursorEventPassthrough = true end)
+      pcall(function() panel:SetAsLastSibling() end)
+      for _, target in ipairs(spec.targets) do
+        local c = adapter:find(target)
+        if c then pcall(function() c:SetAsLastSibling() end) end
+      end
+    end
+  end
+end
+
 local TPL_PROBE_DONE = false   -- v311 模板探针只跑一次
 
 function OnInit()
@@ -26602,6 +26641,7 @@ function OnUpdate(dt)
     return
   end
   Murdoku.on_update(dt)
+  sync_block640()
 end
 
 -- 需要跟随关卡时停的表现可以放这里；本框架的 UI 计时走 OnUpdate
