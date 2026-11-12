@@ -1,0 +1,1896 @@
+{
+  "method": "每卡独立广义弧一致传播；全局行列排他与区域规则各自作为一张约束表；身份分支及严格余位判定另列；位置试探按最坏分支最大嵌套深度计数",
+  "limitations": "绝对人类最短推理不具备可计算的统一定义；本证书只在声明的传播与试位操作集中成立。不能把枚举中候选多直接算成假设次数。",
+  "tutorials": [
+    {
+      "level": 1,
+      "data": {
+        "room": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "doors": [
+          [
+            7,
+            8
+          ],
+          [
+            11,
+            16
+          ],
+          [
+            13,
+            18
+          ]
+        ],
+        "objects": {
+          "桌子": [
+            0,
+            5
+          ],
+          "植物": [
+            1,
+            20,
+            22
+          ],
+          "椅子": [
+            16,
+            23
+          ],
+          "地毯": [
+            10,
+            11,
+            8,
+            9
+          ]
+        },
+        "target": [
+          10,
+          6,
+          23,
+          2,
+          19
+        ],
+        "thief": "D",
+        "cards": [
+          [
+            "只有A在地毯上"
+          ],
+          [
+            "B在植物旁边"
+          ],
+          [
+            "C在椅子上"
+          ],
+          [
+            "D不在桌子旁边"
+          ],
+          [
+            "V在第5列"
+          ]
+        ]
+      },
+      "verification": {
+        "audit": [
+          {
+            "person": "A",
+            "boards": 1,
+            "positions": [
+              10
+            ],
+            "truth_required": false,
+            "solutions": 0,
+            "own_true": 1
+          },
+          {
+            "person": "B",
+            "boards": 1,
+            "positions": [
+              6
+            ],
+            "truth_required": false,
+            "solutions": 0,
+            "own_true": 1
+          },
+          {
+            "person": "C",
+            "boards": 5,
+            "positions": [
+              2,
+              6
+            ],
+            "truth_required": true,
+            "solutions": 0,
+            "own_true": 0
+          },
+          {
+            "person": "D",
+            "boards": 2,
+            "positions": [
+              2,
+              6
+            ],
+            "truth_required": true,
+            "solutions": 1,
+            "own_true": 1
+          }
+        ],
+        "alltrue": 4,
+        "solutions": 1,
+        "correct": true,
+        "relaxed": [
+          0,
+          0,
+          5,
+          1
+        ]
+      },
+      "proof": [
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "solved",
+          "domains": [
+            1024,
+            64,
+            8388608,
+            4,
+            524288
+          ]
+        }
+      ],
+      "additional_position_depth": 0
+    },
+    {
+      "level": 2,
+      "data": {
+        "room": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          2,
+          3,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "doors": [
+          [
+            9,
+            10
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            20,
+            21
+          ]
+        ],
+        "objects": {
+          "桌子": [
+            1,
+            2,
+            34
+          ],
+          "椅子": [
+            0,
+            9
+          ],
+          "地毯": [
+            3,
+            14,
+            15,
+            24,
+            30
+          ],
+          "雕塑": [
+            5
+          ],
+          "书架": [
+            31
+          ],
+          "植物": [
+            13,
+            27,
+            33
+          ]
+        },
+        "target": [
+          25,
+          0,
+          22,
+          9,
+          32,
+          17
+        ],
+        "thief": "D",
+        "cards": [
+          [
+            "A在书架旁边"
+          ],
+          [
+            "B在桌子旁边",
+            "椅子上有2人"
+          ],
+          [
+            "C在V下方",
+            "C与V不在同一房间"
+          ],
+          [
+            "D在地毯上"
+          ],
+          [
+            "只有E在植物旁边"
+          ],
+          [
+            "V独自在房间"
+          ]
+        ]
+      },
+      "verification": {
+        "audit": [
+          {
+            "person": "A",
+            "boards": 0,
+            "positions": [],
+            "truth_required": null,
+            "solutions": 0,
+            "own_true": 0
+          },
+          {
+            "person": "B",
+            "boards": 0,
+            "positions": [],
+            "truth_required": null,
+            "solutions": 0,
+            "own_true": 0
+          },
+          {
+            "person": "C",
+            "boards": 0,
+            "positions": [],
+            "truth_required": null,
+            "solutions": 0,
+            "own_true": 0
+          },
+          {
+            "person": "D",
+            "boards": 1,
+            "positions": [
+              9
+            ],
+            "truth_required": false,
+            "solutions": 1,
+            "own_true": 0
+          },
+          {
+            "person": "E",
+            "boards": 0,
+            "positions": [],
+            "truth_required": null,
+            "solutions": 0,
+            "own_true": 0
+          }
+        ],
+        "alltrue": 0,
+        "solutions": 1,
+        "correct": true,
+        "relaxed": [
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "proof": [
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "solved",
+          "domains": [
+            33554432,
+            1,
+            4194304,
+            512,
+            4294967296,
+            131072
+          ]
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        }
+      ],
+      "additional_position_depth": 0
+    }
+  ],
+  "levels": [
+    {
+      "generated_boards": 518400,
+      "base_count": 293760,
+      "all_true_boards": 2,
+      "audit": [
+        {
+          "person": "A",
+          "candidate_layouts": 5,
+          "positions": [
+            1,
+            6
+          ],
+          "own_true": 1,
+          "final_solutions": 1,
+          "candidate_boards": [
+            [
+              1,
+              6,
+              14,
+              27,
+              34,
+              23
+            ],
+            [
+              1,
+              6,
+              20,
+              15,
+              28,
+              35
+            ],
+            [
+              1,
+              6,
+              20,
+              15,
+              35,
+              28
+            ],
+            [
+              6,
+              1,
+              15,
+              20,
+              28,
+              35
+            ],
+            [
+              6,
+              1,
+              15,
+              20,
+              35,
+              28
+            ]
+          ]
+        },
+        {
+          "person": "B",
+          "candidate_layouts": 1,
+          "positions": [
+            6
+          ],
+          "own_true": 1,
+          "final_solutions": 0,
+          "candidate_boards": [
+            [
+              1,
+              6,
+              14,
+              27,
+              34,
+              23
+            ]
+          ]
+        },
+        {
+          "person": "C",
+          "candidate_layouts": 1,
+          "positions": [
+            14
+          ],
+          "own_true": 1,
+          "final_solutions": 0,
+          "candidate_boards": [
+            [
+              1,
+              6,
+              14,
+              27,
+              34,
+              23
+            ]
+          ]
+        },
+        {
+          "person": "D",
+          "candidate_layouts": 0,
+          "positions": [],
+          "own_true": 0,
+          "final_solutions": 0,
+          "candidate_boards": []
+        },
+        {
+          "person": "E",
+          "candidate_layouts": 0,
+          "positions": [],
+          "own_true": 0,
+          "final_solutions": 0,
+          "candidate_boards": []
+        }
+      ],
+      "unique_boards": 1,
+      "unique_thieves": 1,
+      "thief": "A",
+      "target": [
+        1,
+        6,
+        14,
+        27,
+        34,
+        23
+      ],
+      "truth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "single_card_domains": [
+        [
+          22,
+          33,
+          22,
+          33,
+          33,
+          33
+        ],
+        [
+          2,
+          32,
+          32,
+          32,
+          32,
+          32
+        ],
+        [
+          33,
+          21,
+          22,
+          33,
+          33,
+          33
+        ],
+        [
+          33,
+          33,
+          33,
+          5,
+          33,
+          33
+        ],
+        [
+          33,
+          33,
+          33,
+          28,
+          28,
+          33
+        ],
+        [
+          32,
+          2,
+          32,
+          32,
+          32,
+          32
+        ]
+      ],
+      "level": 3,
+      "position_assumption_depth": 1,
+      "identity_branch_proofs": [
+        {
+          "depth": 1,
+          "status": "branch",
+          "person": "A",
+          "children": [
+            {
+              "cell": 1,
+              "result": {
+                "depth": 0,
+                "status": "solved",
+                "domains": [
+                  2,
+                  64,
+                  16384,
+                  134217728,
+                  17179869184,
+                  8388608
+                ]
+              }
+            },
+            {
+              "cell": 6,
+              "result": {
+                "depth": 0,
+                "status": "contradiction"
+              }
+            }
+          ],
+          "domains": [
+            66,
+            66,
+            1097728,
+            135299072,
+            51808043008,
+            34636562432
+          ]
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        }
+      ],
+      "correct_identity_proof": {
+        "depth": 1,
+        "status": "branch",
+        "person": "A",
+        "children": [
+          {
+            "cell": 1,
+            "result": {
+              "depth": 0,
+              "status": "solved",
+              "domains": [
+                2,
+                64,
+                16384,
+                134217728,
+                17179869184,
+                8388608
+              ]
+            }
+          },
+          {
+            "cell": 6,
+            "result": {
+              "depth": 0,
+              "status": "contradiction"
+            }
+          }
+        ],
+        "domains": [
+          66,
+          66,
+          1097728,
+          135299072,
+          51808043008,
+          34636562432
+        ]
+      },
+      "stalled_domains": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        [
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ]
+      ],
+      "branch_traces": [
+        {
+          "person": "A",
+          "cell": [
+            1,
+            2
+          ],
+          "status": "solved",
+          "domains": [
+            [
+              [
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                3
+              ]
+            ],
+            [
+              [
+                5,
+                4
+              ]
+            ],
+            [
+              [
+                6,
+                5
+              ]
+            ],
+            [
+              [
+                4,
+                6
+              ]
+            ]
+          ],
+          "trace": [
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "B",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "after": [
+                [
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：A比C靠上2行",
+              "person": "C",
+              "before": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  3
+                ]
+              ],
+              "after": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：A比C靠上2行",
+              "person": "D",
+              "before": [
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "after": [
+                [
+                  4,
+                  3
+                ],
+                [
+                  5,
+                  4
+                ]
+              ]
+            },
+            {
+              "rule": "卡C真：B比C靠左2列",
+              "person": "C",
+              "before": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "after": [
+                [
+                  3,
+                  3
+                ]
+              ]
+            },
+            {
+              "rule": "卡C真：B比C靠左2列",
+              "person": "D",
+              "before": [
+                [
+                  4,
+                  3
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "after": [
+                [
+                  5,
+                  4
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "E",
+              "before": [
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  6,
+                  5
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "V",
+              "before": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  4,
+                  6
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "person": "A",
+          "cell": [
+            2,
+            1
+          ],
+          "status": "contradiction",
+          "reason": "卡C真：B比C靠左2列使C无位置",
+          "trace": [
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "B",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "after": [
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：A比C靠上2行",
+              "person": "C",
+              "before": [
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  3
+                ]
+              ],
+              "after": [
+                [
+                  4,
+                  3
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：A比C靠上2行",
+              "person": "D",
+              "before": [
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "after": [
+                [
+                  3,
+                  4
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：A比C靠上2行",
+              "person": "E",
+              "before": [
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：A比C靠上2行",
+              "person": "V",
+              "before": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  5,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "unchanged": [
+        "房间",
+        "门",
+        "家具",
+        "答案站位",
+        "盗窃者身份"
+      ],
+      "new_furniture": 0
+    },
+    {
+      "generated_boards": 518400,
+      "base_count": 432000,
+      "all_true_boards": 0,
+      "audit": [
+        {
+          "person": "A",
+          "candidate_layouts": 24,
+          "positions": [
+            21,
+            22,
+            23,
+            33,
+            34,
+            35
+          ],
+          "own_true": 0,
+          "final_solutions": 0,
+          "candidate_boards": [
+            [
+              21,
+              35,
+              8,
+              28,
+              1,
+              12
+            ],
+            [
+              22,
+              35,
+              8,
+              27,
+              1,
+              12
+            ],
+            [
+              23,
+              33,
+              8,
+              28,
+              1,
+              12
+            ],
+            [
+              23,
+              34,
+              8,
+              27,
+              1,
+              12
+            ],
+            [
+              21,
+              35,
+              8,
+              28,
+              12,
+              1
+            ],
+            [
+              21,
+              35,
+              8,
+              28,
+              13,
+              0
+            ],
+            [
+              22,
+              35,
+              8,
+              27,
+              12,
+              1
+            ],
+            [
+              22,
+              35,
+              8,
+              27,
+              13,
+              0
+            ],
+            [
+              23,
+              33,
+              8,
+              28,
+              12,
+              1
+            ],
+            [
+              23,
+              33,
+              8,
+              28,
+              13,
+              0
+            ],
+            [
+              23,
+              34,
+              8,
+              27,
+              12,
+              1
+            ],
+            [
+              23,
+              34,
+              8,
+              27,
+              13,
+              0
+            ],
+            [
+              33,
+              28,
+              8,
+              23,
+              1,
+              12
+            ],
+            [
+              34,
+              27,
+              8,
+              23,
+              1,
+              12
+            ],
+            [
+              35,
+              27,
+              8,
+              22,
+              1,
+              12
+            ],
+            [
+              35,
+              28,
+              8,
+              21,
+              1,
+              12
+            ],
+            [
+              33,
+              28,
+              8,
+              23,
+              12,
+              1
+            ],
+            [
+              33,
+              28,
+              8,
+              23,
+              13,
+              0
+            ],
+            [
+              34,
+              27,
+              8,
+              23,
+              12,
+              1
+            ],
+            [
+              34,
+              27,
+              8,
+              23,
+              13,
+              0
+            ],
+            [
+              35,
+              27,
+              8,
+              22,
+              12,
+              1
+            ],
+            [
+              35,
+              27,
+              8,
+              22,
+              13,
+              0
+            ],
+            [
+              35,
+              28,
+              8,
+              21,
+              12,
+              1
+            ],
+            [
+              35,
+              28,
+              8,
+              21,
+              13,
+              0
+            ]
+          ]
+        },
+        {
+          "person": "B",
+          "candidate_layouts": 0,
+          "positions": [],
+          "own_true": 0,
+          "final_solutions": 0,
+          "candidate_boards": []
+        },
+        {
+          "person": "C",
+          "candidate_layouts": 0,
+          "positions": [],
+          "own_true": 0,
+          "final_solutions": 0,
+          "candidate_boards": []
+        },
+        {
+          "person": "D",
+          "candidate_layouts": 0,
+          "positions": [],
+          "own_true": 0,
+          "final_solutions": 0,
+          "candidate_boards": []
+        },
+        {
+          "person": "E",
+          "candidate_layouts": 1,
+          "positions": [
+            12
+          ],
+          "own_true": 0,
+          "final_solutions": 1,
+          "candidate_boards": [
+            [
+              27,
+              1,
+              8,
+              34,
+              12,
+              23
+            ]
+          ]
+        }
+      ],
+      "unique_boards": 1,
+      "unique_thieves": 1,
+      "thief": "E",
+      "target": [
+        27,
+        1,
+        8,
+        34,
+        12,
+        23
+      ],
+      "truth": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "single_card_domains": [
+        [
+          21,
+          32,
+          32,
+          2,
+          32,
+          32
+        ],
+        [
+          35,
+          29,
+          35,
+          35,
+          30,
+          35
+        ],
+        [
+          31,
+          31,
+          2,
+          31,
+          31,
+          31
+        ],
+        [
+          35,
+          35,
+          35,
+          35,
+          29,
+          35
+        ],
+        [
+          35,
+          29,
+          35,
+          29,
+          35,
+          35
+        ],
+        [
+          29,
+          35,
+          35,
+          35,
+          35,
+          29
+        ]
+      ],
+      "level": 4,
+      "position_assumption_depth": 1,
+      "identity_branch_proofs": [
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 0,
+          "status": "contradiction"
+        },
+        {
+          "depth": 1,
+          "status": "branch",
+          "person": "A",
+          "children": [
+            {
+              "cell": 12,
+              "result": {
+                "depth": 0,
+                "status": "contradiction"
+              }
+            },
+            {
+              "cell": 27,
+              "result": {
+                "depth": 0,
+                "status": "solved",
+                "domains": [
+                  134217728,
+                  2,
+                  256,
+                  17179869184,
+                  4096,
+                  8388608
+                ]
+              }
+            }
+          ],
+          "domains": [
+            134221824,
+            51547996162,
+            256,
+            17179869186,
+            134221824,
+            12582914
+          ]
+        }
+      ],
+      "correct_identity_proof": {
+        "depth": 1,
+        "status": "branch",
+        "person": "A",
+        "children": [
+          {
+            "cell": 12,
+            "result": {
+              "depth": 0,
+              "status": "contradiction"
+            }
+          },
+          {
+            "cell": 27,
+            "result": {
+              "depth": 0,
+              "status": "solved",
+              "domains": [
+                134217728,
+                2,
+                256,
+                17179869184,
+                4096,
+                8388608
+              ]
+            }
+          }
+        ],
+        "domains": [
+          134221824,
+          51547996162,
+          256,
+          17179869186,
+          134221824,
+          12582914
+        ]
+      },
+      "stalled_domains": [
+        [
+          [
+            3,
+            1
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            1
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ]
+        ]
+      ],
+      "branch_traces": [
+        {
+          "person": "A",
+          "cell": [
+            3,
+            1
+          ],
+          "status": "contradiction",
+          "reason": "卡D真：A与D在同一房间；E不在椅子旁边使B无位置",
+          "trace": [
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "B",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  4,
+                  6
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  4,
+                  6
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "D",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  6,
+                  5
+                ]
+              ],
+              "after": [
+                [
+                  6,
+                  5
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "E",
+              "before": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "after": [
+                [
+                  5,
+                  4
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "V",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  4,
+                  5
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  1,
+                  2
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "person": "A",
+          "cell": [
+            5,
+            4
+          ],
+          "status": "solved",
+          "domains": [
+            [
+              [
+                5,
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                6,
+                5
+              ]
+            ],
+            [
+              [
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                4,
+                6
+              ]
+            ]
+          ],
+          "trace": [
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "B",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  4,
+                  6
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "E",
+              "before": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  4
+                ]
+              ],
+              "after": [
+                [
+                  3,
+                  1
+                ]
+              ]
+            },
+            {
+              "rule": "门相邻＋无辜人数唯一最多",
+              "person": "V",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  4,
+                  5
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  4,
+                  5
+                ],
+                [
+                  4,
+                  6
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：D在椅子上；A在D左方",
+              "person": "B",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  6,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：D在椅子上；A在D左方",
+              "person": "D",
+              "before": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  6,
+                  5
+                ]
+              ],
+              "after": [
+                [
+                  6,
+                  5
+                ]
+              ]
+            },
+            {
+              "rule": "卡A真：D在椅子上；A在D左方",
+              "person": "V",
+              "before": [
+                [
+                  4,
+                  5
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "after": [
+                [
+                  4,
+                  6
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "unchanged": [
+        "房间",
+        "门",
+        "家具",
+        "答案站位",
+        "盗窃者身份"
+      ],
+      "new_furniture": 0
+    }
+  ]
+}
