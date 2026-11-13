@@ -1,0 +1,4320 @@
+{
+ "source": "https://www.murdoku.com/play_puzzles/_puzzleCatalog.json + /play_puzzles/en/{id}.json",
+ "collected": "2026-11-13",
+ "catalog_puzzles": 74,
+ "valid_puzzles": 73,
+ "clue_cards": 657,
+ "note": "char_quote_en_N 为主句，char_subquote_en_N 为副句；victim 卡为固定句。lie/liar/false/true 零命中。",
+ "puzzles": [
+  {
+   "id": "promo-brazil-house-party",
+   "difficulty": "very easy",
+   "grid": "5x5",
+   "title": "House Party",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside the plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside the shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "promo-comiccon-2026-in",
+   "difficulty": "easy",
+   "grid": "6x6",
+   "title": "The Villain's Lair",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was north of Esha.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on the Secret Stairs.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was on the chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside the statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one chair for (C), in R1 C3. Press and hold to place (C) in that square.",
+    "There's now only one remaining bed square for (E), in R4 C4. This isolates (D) on the last square beside a statue, in R2 C2.",
+    "This isolates (A) in the last possible square north of (E), in R3 C6.",
+    "This isolates (B) in the last square in the Secret Stairs in R6 C5, then (V) in the last square in R5 C1. (V) was alone with (E), Edith is the murderer!"
+   ]
+  },
+  {
+   "id": "promo-comiccon-2026",
+   "difficulty": "easy",
+   "grid": "6x6",
+   "title": "The Secret Lab",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was north of Edith.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on the Secret Stairs.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was on the chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside the statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one chair for (C), in R1 C3. Press and hold to place (C) in that square.",
+    "There's now only one remaining bed square for (E), in R4 C4. This isolates (D) on the last square beside a statue, in R2 C2.",
+    "This isolates (A) in the last possible square north of (E), in R3 C6.",
+    "This isolates (B) in the last square in the Secret Stairs in R6 C5, then (V) in the last square in R5 C1. (V) was alone with (E), Edith is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-24h-delivery-easy",
+   "difficulty": "very easy",
+   "grid": "6x6",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the box.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was the only person",
+     "sub": "on a carpet."
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the Bedroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was either beside a shrub",
+     "sub": "or a plant."
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-a-messy-situation-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "A Messy Situation",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was southeast of Abigail\nand northwest of Hawa",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was on a mud puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was alone with Carl.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was on a mud puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was sitting in a chair.\nShe was exactly one row north of France.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was not beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was no empty area."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-a-walk-in-the-park-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside an",
+     "sub": "empty boat."
+    },
+    {
+     "speaker": 1,
+     "main": "She was in the bottom row.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was sitting on",
+     "sub": "a chair."
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside some",
+     "sub": "flowers."
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the Restroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was on a path.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the",
+     "sub": "Bonsai Exhibit."
+    },
+    {
+     "speaker": 7,
+     "main": "She was on a boat.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-backyard-garden-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was with Elyse in",
+     "sub": "the Living Room."
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the Shed.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the Bedroom",
+     "sub": "or in the Sunroom."
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting on a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the Garden.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-blackout",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "Blackout",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was beside a table. He was not alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the Main Bedroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in a corner of the Guest room.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside a chair. She was not sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was on a carpet. He was alone\nwith a woman.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "There was a TV somewhere in\nher row.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person on a bed.",
+    "There was exactly one person on a chair."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-book-club-very-easy",
+   "difficulty": "very easy",
+   "grid": "6x6",
+   "title": "The Book Club",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was south of Cameron.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was the only person sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the Library. He was not beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-brazil-biennale-easy",
+   "difficulty": "easy",
+   "grid": "12x12",
+   "title": "The São Paulo Biennale",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was in the Food Court. He was not on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was in Kiosk F.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in Kiosk A.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in the Washroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the same area as Ali.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was in Kiosk D.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was in the Entrance. She was not on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "She was in Kiosk B.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 11,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one square in Kiosk B for (S). Left press and hold to place (S) in R4 C5.",
+    "There's now only one square for (N) in Kiosk D, this isolates (N) in R5 C12. This isolates (E) in the only remaining square in Kiosk A. This also isolates (R) in the last square in the Entrance that isn't a carpet, in R12 C8.",
+    "This isolates (A) in the last square the Food Court that isn't a carpet,  which isolates (K) in the last square in the Food Court, with (A).",
+    "This isolates (J) in the last square in the Washroom, and (H) on the last square. This isolates (W) on the last square beside a shelf, then (F) in the last square beside a table.",
+    "(F) was alone with (V), Freida is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-car-repair-easy",
+   "difficulty": "very easy",
+   "grid": "6x6",
+   "title": "Car Repair",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was in a car.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was on an oil slick.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was alone in\nthe Waiting Area.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-date-night-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "Date Night",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "There was no man in her area.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "Her square was not beside a River square.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was one column west of Addison, in another area.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was with the only person on a path square.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside a River square. She was not on the Lovers' Bridge.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside the statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was alone with the only person sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "No one was in the River."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-discord-island-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "Discord Island",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "Beside a TV.\nNorth of Mihomir.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "Beside an easel.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "In the first or in the last column.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "The only person sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "In a three people area.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "Not on a path square.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The only person on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "Beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was no area with exactly one person."
+   ],
+   "official_hint_steps": [
+    "(C) cannot be on a chair or on a carpet, per (M) and (R)'s clues. This sets (C) in R1. Block the rest of R1.",
+    "Per the general clue, no one was alone. (J) cannot be in C1 in Help-to-Solve, or he would be alone, and (J) cannot be in C1 in Book Discussion, as he cannot sit on a chair or be on a carpet.",
+    "This sets (J) in C9, which isolates (C). There's now only one square beside a TV without a carpet or a chair, where (A) can be north of (M). This isolates (A).",
+    "There's only one square available in C1: R8 C1, this isolates (M) in that square, which isolates (J).",
+    "(A) can't be alone per the general clue, someone must be in R6 C7. Block the rest of R6 and C7. This isolates (R) on the last carpet square in R3 C5.",
+    "This isolates (X) in the last square beside a shelf, then (N) in the last square in Book Discussion. (P) is in the last non-path square, and (G) is in the last square, alone with (J). Jacob is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-fireside-beach-very-easy",
+   "difficulty": "very easy",
+   "grid": "5x5",
+   "title": "Fireside Beach",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was south of Corinne.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the Woods. He was not beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the last column.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside the boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one possible square for (D) beside the boulder, this isolates her in R5 C4. Press and hold to place (D).",
+    "There's now only one possible square for (B) in the Woods that is not beside a tree, in R1 C1.",
+    "This isolates (C) in the last remaining square in C5: R3 C5.",
+    "This isolates (A) in the last square south of (C), R4 C2, then (V) in the last square, R2 C3. (V) was alone with (B) in the Woods, Basil is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-freezing-rain-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "Freezing Rain",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in the Restroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was alone with someone who was on the bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was on a puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was not in a corner.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was the only person on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was in the Living Room, beside a wall. The area on the other side was empty.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-fresh-paint-easy",
+   "difficulty": "very easy",
+   "grid": "6x6",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was on a paint spill.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the bottom row.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside the plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-frontier-town-hard",
+   "difficulty": "hard",
+   "grid": "10x10",
+   "title": "Frontier Town",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a cash register.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was in a corner of her area.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "Not the outlaw. He was beside a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the Bank.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was sitting on a horse.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a cactus.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was sitting in a chair. She was with the outlaw.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was south of Hazel, in a different area.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "The Victim. Not the outlaw. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There's exactly one outlaw hiding amongst the suspects. The outlaw may or may not be the murderer.",
+    "The outlaw was beside a table."
+   ],
+   "official_hint_steps": [
+    "According to the clues, the outlaw must be a suspect who's beside a table, and with (H), who's sitting in a chair. (H) would block all squares beside a table if she was sitting in R2 C1 or R9 C2. And no suspect could possibly be an outlaw and fit beside the table in the Chapel.",
+    "So, the only area where (H) could possibly sit with a suspect who's beside a table is in the Bank. By placing (H) on the R7 C10 chair, (E) is the only suspect who can fit in any square beside a table in the Bank. Block (E)'s intersecting square, R10 C9.",
+    "This isolates (A) in the last square beside a Register. (I) is south of (H), so (I) and (E) must be in R8 and R10, in any order. No one else can fit in these two rows.",
+    "This isolates (F) on the last horse, then (E). This sets (I) in R8.",
+    "(G) is in R5 C2 or R6 C5, block the intersecting squares R6 C2 and R5 C5. This isolates (C) in the last chair.",
+    "(B) is in R6 C3 or R1 C5, block the intersecting squares R6 C5 and R1 C3. This isolates (G) in the last square beside a cactus.",
+    "This isolates (D) in the last square beside a chair, then (I) in the last R8 square, then (B) in the last corner, then (V) in the last square."
+   ]
+  },
+  {
+   "id": "puzzle-full-house-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "Full House",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was the only suspect\nbeside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was sitting in a chair.  She was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was not beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was the only person on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was alone in the Bathroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone\nwith the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was no empty area.",
+    "Reminder: The victim is not a suspect."
+   ],
+   "official_hint_steps": [
+    "(E) is on a bed in C1 or R8, block the intersecting square R8 C1.",
+    "No suspect can sit in the Bathroom, per (F)'s clue, or beside a shelf, per (B)'s clue. Only (C) or (H) can be in the Study, the other one must be on a chair in the Dining Room in C4 or in the Living Room.\nAll possible squares for (A), (G) and (C)/(H) are in R6, R7 and C4. That's exactly three people in three lines, no one else can occupy any of these lines. Block every square in R6, R7 and C4 that's not beside the TV, beside a plant or on a chair.",
+    "There's no empty room, per the general clue. Who can occupy the Main Bedroom? (E) is the only option at this point. ((V) must be with the murderer, he can't be alone in any area.) This isolates (E) in R8 C3. Block every other bed square.\nWho can occupy the Guest Bedroom? At this point, (B) is the only suspect who can possibly fit there.",
+    "Because there's no empty room, we can also ask which suspect can possibly be in the Kitchen? (D) is the only possibility remaining for the person in the Kitchen. This isolates (D) not beside a table in R5 C8.",
+    "(A) can't possibly be in R6 C4, or then (G) and either (C) or (H) would both need to fit in C6, which is impossible. This isolates (A) in R7 C5.",
+    "This sets either (C) or (H) in R9 and C4, in some order. This isolates (G) in R6 C7.",
+    "In R3, only one square is available : R3 C2, someone must be in that square. It must be (B), who we already know is in the Guest Room. This isolates (F) in R1 C1.",
+    "This isolates (C) in the last C9 square, R9 C9, then (H) in R2 C4 and (V) in R4 C6.\n(The victim is not a suspect, so he's allowed to be beside a shelf). (H) was alone with (V) in the Dining Room, (H) is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-grizzly-night-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "Grizzly Night",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in Tent A or Tent C.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was not on a carpet. She was in the top or in the bottom row.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was the only person beside a shrub.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was the only person in a car.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in the last column. She was south of Clark.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was in the Woods. Someone else was beside the bear.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person on a carpet."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-hells-kitchen-medium",
+   "difficulty": "medium",
+   "grid": "8x8",
+   "title": "Hell's Kitchen",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was not sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was not sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in the Restroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was at the Reception.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Every man was beside a table.",
+    "For every man beside a table, a woman was beside the same table."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-hoarders-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "Hoarders",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was sitting in a chair\nin the Dining Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in a corner\nof her room.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the car.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a box.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was alone with Eloise.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "Based on (E)’s clue, we can deduce that she has to be in R6 in the car. We can block the rest of R6.",
+    "Now, let’s focus on (G)’s clue. Because he has to be in the Garage with (E), he has to take R7 C6 since that’s the last square left in the Garage. This isolates (E).",
+    "This isolates (B) in the last chair in the Dining Room.",
+    "This isolates (F) in the last square beside a box, in R8 C2.",
+    "This isolates (C) on the last bed square, then (A) in the Kitchen.",
+    "This isolates (A) in the last corner, then (V)."
+   ]
+  },
+  {
+   "id": "puzzle-holiday-shopping-medium",
+   "difficulty": "medium",
+   "grid": "12x12",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was north",
+     "sub": "of Vlimbo."
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the Walkway,",
+     "sub": "in front of a door."
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a",
+     "sub": "teddy bear."
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside a register.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the Coffee Shop.",
+     "sub": "She was not with Figgy."
+    },
+    {
+     "speaker": 5,
+     "main": "She was the only",
+     "sub": "person sitting in a chair."
+    },
+    {
+     "speaker": 6,
+     "main": "She was in the Bookstore.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was alone in",
+     "sub": "Santa's Lodge."
+    },
+    {
+     "speaker": 8,
+     "main": "She was in the fifth column.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "He was exactly one row",
+     "sub": "north of Gemma."
+    },
+    {
+     "speaker": 10,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-horse-with-no-name-easy",
+   "difficulty": "easy",
+   "grid": "6x6",
+   "title": "A Horse With No Name",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a cactus.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was not in the Desert. She was in the same diagonal as Aldous.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was north of Aldous.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside the table.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside a boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. Not the outlaw. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There's exactly one outlaw hiding amongst the suspects. The outlaw may or may not be the murderer.",
+    "The outlaw was on the horse."
+   ],
+   "official_hint_steps": [
+    "The outlaw must be on the horse in R3 C5. Block the rest of R3 and C5.",
+    "Which suspect can be the outlaw on the horse? (A), (B), (D) and (E) cannot fit in R3 C5, so (C) is the only possibility. ",
+    "This isolates (A) on the only square beside a cactus south of (C), in R5 C6.",
+    "This isolates (D) in the last square beside a table, then (B) in the last square in the same diagonal as (A).",
+    "This isolates (E) in the last square beside a boulder. (V) is in the last remaining square."
+   ]
+  },
+  {
+   "id": "puzzle-horsetrack-hard",
+   "difficulty": "hard",
+   "grid": "12x12",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "Jockey.",
+     "sub": "He was ahead of Blake."
+    },
+    {
+     "speaker": 1,
+     "main": "Jockey.",
+     "sub": "He was ahead of Claire."
+    },
+    {
+     "speaker": 2,
+     "main": "Jockey.",
+     "sub": "She was ahead of Dale."
+    },
+    {
+     "speaker": 3,
+     "main": "Jockey.",
+     "sub": "He was behind A, B, C."
+    },
+    {
+     "speaker": 4,
+     "main": "She was either in the",
+     "sub": "first or in the last column."
+    },
+    {
+     "speaker": 5,
+     "main": "He was in the Jockeys' Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was the only",
+     "sub": "person sitting on a chair."
+    },
+    {
+     "speaker": 8,
+     "main": "She was alone with Ella.",
+     "sub": "She was not on a carpet."
+    },
+    {
+     "speaker": 9,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "She was in the",
+     "sub": "VIP Area."
+    },
+    {
+     "speaker": 11,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Every Jockey was sitting on a horse on the Horse Track.",
+    "The horse nearest the finish line was ahead the next horse, and so on."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-lake-fishing-medium",
+   "difficulty": "medium",
+   "grid": "8x8",
+   "title": "Lake Fishing",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was on a boat.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was on the Dock.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a shrub.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was southwest of Blaine.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was not beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was with a man.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "No area contained exactly one person."
+   ],
+   "official_hint_steps": [
+    "Per the general clue, B cannot be alone on the Dock, B must be on the Dock with someone else. Block the rest of R3 and R4. This isolates A on the last boat.",
+    "This sets B and the other person on the Dock in C1 and C2, block the rest of C1-C2. D can now only be in R4 C1, with B in R3 C2.",
+    "Per the general clue, F cannot be alone on the Rocky Shore, this isolates F beside the boulder in R1 C4. Someone must be with him in R2 C8.",
+    "This isolates C in the last square beside a shrub. Someone must be with her in R7C5. This isolates E in the Lake, in the last square not beside a tree.",
+    "This isolates G on the North Shore, then V on the South Shore, alone with C. Corina is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-lakeside-cabin-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "Lakeside Cabin",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in the Cabin alone with\nanother woman.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was exactly one row\nabove Harper.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the fifth row.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was south of Alice\nand west of Finlay.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was the only person sitting on a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a tree. Someone north of him was beside the same tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was not in a corner.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was in Forest (West) or Forest (East).\nHe was not beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "The Lake can be occupied."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-lisboa-quiosque",
+   "difficulty": "easy",
+   "grid": "5x5",
+   "title": "The Book Kiosk",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in Kiosk 1.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was not in the same area as Benedito.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside the trashcan.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "Since (D) is beside a trashcan, he has to be in R1 C2. This leaves (A) in R2 C4, the remaining square in Kiosk 1 that she must occupy.",
+    "(B) must be in R5 C3 since it's the last square for him to be beside a table. Since (C) cannot be in the same area as (B), she takes the last Walkway square in R3 C1.",
+    "This leaves the last square R4 C5 for (E) – hence (B) is the murderer."
+   ]
+  },
+  {
+   "id": "puzzle-main-street-expert",
+   "difficulty": "expert",
+   "grid": "12x12",
+   "title": "Main Street",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was alone with\nIliana. He was north of her.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was sitting in\na chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "Exactly three columns west of\nher, someone was in a car.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside a wall, there was an empty area on the other side.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in an Elevator. There\nwas a woman in the other Elevator.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in a\ncar or in the bus.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the first or second column.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside a potted plant.\nHe was with Briggs.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was on a Sidewalk.\nShe was east of Donna.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "He was alone\non a Sidewalk.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "Two rows north of her,\nsomeone was beside a statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 11,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "(H)+(B) cannot be in the Park or they would block Elevator (B). (H)+(B) also cannot be in North Tower or they would block Elevator (A). They must be in South Tower, this isolates (B) in the only chair in South Tower.",
+    "This sets the woman in Elevator (B) in row 12. This sets (H) and the unknown woman in C11-C12 in any order.",
+    "Someone must be in North Tower R4, this area can't be empty. (D) can't be on a Sidewalk: a Sidewalk is occupied by (A)+(I), who are alone together, the other is occupied by (J), who's also alone. The only area where (D) could be is in North Tower or Elevator A, beside an empty Fountain.",
+    "(K) is two rows south of someone beside a statue, and the person beside the statue must now be in the Park. This sets (K) in R12. This isolates someone beside the statue in R10 C4, which isolates (H), then (K).",
+    "(A)+(I) now cannot both fit on the South Sidewalk, they must be on the North Sidewalk. (A) who's north of (I) must then be in R2 C10, (I) in R5, (J) in R8.",
+    "With (K) being in Elevator B, (E) must be in Elevator A, in R1. This isolates (D) in the last square adjacent to the Fountain area.",
+    "(C) is the only person who fits in R10 C4. This isolates someone in the car in R7 C1, block the rest of R7 and C1. This isolates (E).",
+    "This isolates (I) on the last square on the North Sidewalk that's east of (D). There's only one square available for (F), in R7 C1, which isolates (G) in the last available C2 square.",
+    "This isolates (J), and (V) in the last remaining square. (V) was alone with (F), Felicia is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-midnight-rain-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "Midnight Rain",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was the only person on a water puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was beside the shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was alone.\nShe was beside a lamppost.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "Exactly one column east of him, there was a man inside the car.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was not beside a water puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was in the last column.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one square beside a shelf, this isolates (B) in R1 C2.",
+    "Who can be the man inside the car per (D)'s clue? (A) is on a water puddle and (B) is already placed, (F) is the only possibility, in the last column. This sets (F) as the man inside the car in R5 C7, which sets (D) in C6.",
+    "Because (D) is in C6, no one else can be in the same column. This isolates (A) in the last water puddle in R6 C1. Because (A) is the only person in a water puddle, block R7 C6.",
+    "(B) is in the Newspaper Stall, (F) on the Street and (A) on Sidewalk (South), (C) can only be alone on Sidewalk (North). This isolates (C) in the last square beside a lamppost in that area, R3 C4.",
+    "(C) is alone, this isolates (D) on the Street in R4 C6. This isolates (E) in the last square not beside a water puddle, R2 C3, then (V) in the last square. (V) was alone with (A), Archer is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-minigolf-hard",
+   "difficulty": "hard",
+   "grid": "10x10",
+   "title": "Minigolf",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was exactly one row south of someone on a flag.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was not in a corner.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was the only person on a path tile.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was on a sand tile.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was in the top row.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside some flowers.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was alone on The Desert with someone.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person beside a table.",
+    "There was exactly one person beside a barrel."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-mystery-islands-expert",
+   "difficulty": "expert",
+   "grid": "16x16",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She is on Empty or Desert Island.",
+     "sub": "There is a shark in her row."
+    },
+    {
+     "speaker": 1,
+     "main": "The only man on Desert Island.",
+     "sub": "He is beside exactly two cacti."
+    },
+    {
+     "speaker": 2,
+     "main": "Alone with someone in the Sea.",
+     "sub": "He was east of Olivia."
+    },
+    {
+     "speaker": 3,
+     "main": "She is northeast of Ayla.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She is on a sand tile.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He is the southmost person",
+     "sub": "on Town Island."
+    },
+    {
+     "speaker": 6,
+     "main": "He is six rows south of Jared,",
+     "sub": "who is on the same island."
+    },
+    {
+     "speaker": 7,
+     "main": "With Denise on an island. Both",
+     "sub": "are not next to a tree or cacti."
+    },
+    {
+     "speaker": 8,
+     "main": "She is north of Nikita,",
+     "sub": "who is on the same island."
+    },
+    {
+     "speaker": 9,
+     "main": "He is beside a tree and",
+     "sub": "east of Lyra."
+    },
+    {
+     "speaker": 10,
+     "main": "He was the only person",
+     "sub": "in a house."
+    },
+    {
+     "speaker": 11,
+     "main": "She is beside a tree in a four",
+     "sub": "person island of three women."
+    },
+    {
+     "speaker": 12,
+     "main": "There is at least one shark in his",
+     "sub": "column. He is on an island."
+    },
+    {
+     "speaker": 13,
+     "main": "She is south of Irene, who is on the",
+     "sub": "same island."
+    },
+    {
+     "speaker": 14,
+     "main": "Only two people are south of her.",
+     "sub": ""
+    },
+    {
+     "speaker": 15,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Every island had a unique number of occupants (0 is possible)."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-neighbour-dispute-medium",
+   "difficulty": "medium",
+   "grid": "8x8",
+   "title": "Neighbour Dispute",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was alone in one of his own areas.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was in one of her own areas.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was alone with a man.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person sitting in a chair."
+   ],
+   "official_hint_steps": [
+    "(C) is on a bed in R8 or C7, block the intersecting square R8 C7, where no one could possibly be (anyone in R8 C7 would block all possible bed squares for (C)).",
+    "(E) is on a carpet in R4 or C3, block the intersecting square R4 C3. Someone must be in the last chair in R3 C5, per the general clue. Block the rest of R3 and C5.",
+    "This isolates (F) in the last square beside a tree in R2 C4, which isolates (G) in the last square beside a TV in R6 C3.",
+    "(A) must be alone in one of his own areas, and (F) is in his Backyard and (G) is in his House. (A) can only be alone in Arnold's Pool. This isolates (A) in the last square in his Pool, R1 C2.",
+    "(E) is in R4 C6 or R4 C7, block the rest of R4. ",
+    "(D) alone with a man can only possibly be alone with (C). (G) occupies Arnold's House, so (C) must be alone with (D) in Brie's House. This isolates (C) and (D).",
+    "This isolates (B) in the last available square in one of her areas, R3 C5, then (V) in the last remaining square. (V) was alone with (G), Ginevra is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-netflix-and-kill-easy",
+   "difficulty": "very easy",
+   "grid": "6x6",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on the bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was the only person",
+     "sub": "sitting in a chair."
+    },
+    {
+     "speaker": 3,
+     "main": "He was in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside the TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-outdoor-painting-very-easy",
+   "difficulty": "very easy",
+   "grid": "6x6",
+   "title": "Outdoor Painting",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in the first column.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was one row south of Donovan, in another area.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was beside the boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside the easel.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "To be beside the boulder, (C) needs to be in the same area. (C) must be in R1, block the rest of R1.",
+    "(D) must be beside the easel in R2, R3 or R4. (B) is one row south of (D) and in another area, so on the Sidewalk. (D) can only possibly be in R4 C5 and (B) in R5 C6.",
+    "This isolates (E) in the last chair.",
+    "This isolates (A) in the last C1 square, then (V) in the last remaining square."
+   ]
+  },
+  {
+   "id": "puzzle-piano-lesson-easy",
+   "difficulty": "easy",
+   "grid": "6x6",
+   "title": "The Piano Lesson",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in the Closet.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was beside the statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "There was someone north of her in the same area.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was exactly one row north of someone beside the piano.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person on a carpet."
+   ],
+   "official_hint_steps": [
+    "(D) needs to be exactly one row north of someone beside the piano, which sets (D) in R1, and an unknown person beside the piano in R2 C3. Block the rest of R2 and C3.",
+    "The unknown person beside the piano is on a carpet, and that's the only person on a carpet according to the general clue. Block every other carpet square. This isolates (B) in the last square beside the statue.",
+    "This isolates (A) in the last square in the Closet, which isolates (E) in the last square on a chair.",
+    "This isolates (D) in the last square in R1. (C) must have someone north of her in the same area, so she can't be beside the piano, as no one in the Study would be north of her. This isolates (C) in the last R6 square, and (V) as the person beside the piano. V was alone with E, so E is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-preppers-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "There was a box in",
+     "sub": "his area. He was not beside it."
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the Bedroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "There was a man on the bed",
+     "sub": "in her room."
+    },
+    {
+     "speaker": 3,
+     "main": "Someone else was beside",
+     "sub": "a shelf in her area."
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the bottom row.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was sitting",
+     "sub": "in a chair."
+    },
+    {
+     "speaker": 7,
+     "main": "He was in the Bathroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-remote-village-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "The Remote Village",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "There was a woman inside a car exactly one row south of him.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was north of Ethan.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "There was no man in her area.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "There was at least one woman in his area.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the fifth column.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was beside a shrub.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person sitting in a chair."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-river-crossing-hard",
+   "difficulty": "hard",
+   "grid": "9x10",
+   "title": "River Crossing",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a crate.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in a carriage.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was exactly six rows south of the outlaw.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was on a horse.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "Not the outlaw.\nHe was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. Not the outlaw. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There's exactly one outlaw hiding amongst the suspects. The outlaw may or may not be the murderer.",
+    "The outlaw was alone.",
+    "Either the top row or the bottom row was empty."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-sleeping-with-the-fishes-hard",
+   "difficulty": "hard",
+   "grid": "11x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was on a boat.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "There was a woman beside a crate",
+     "sub": "in his room."
+    },
+    {
+     "speaker": 2,
+     "main": "She was on a boat.",
+     "sub": "She was east of Antony"
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the",
+     "sub": "Fish Market."
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was on Dock A or B.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a crate.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "One of the boats is entirelyinside the two empty columns."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-solitary-confinement-expert",
+   "difficulty": "expert",
+   "grid": "16x16",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "Two rows north of him,",
+     "sub": "someone was in Solitary."
+    },
+    {
+     "speaker": 1,
+     "main": "He was alone in a Cell,",
+     "sub": "sitting in a chair."
+    },
+    {
+     "speaker": 2,
+     "main": "He was in a Cell, on a bed. There was an",
+     "sub": "empty Cell beside his."
+    },
+    {
+     "speaker": 3,
+     "main": "He was in a Cell, beside a table.  There",
+     "sub": "was an empty Cell beside his."
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside",
+     "sub": "a table."
+    },
+    {
+     "speaker": 5,
+     "main": "He was in the Showers.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was the only person",
+     "sub": "on a water puddle."
+    },
+    {
+     "speaker": 7,
+     "main": "He was in the",
+     "sub": "last column."
+    },
+    {
+     "speaker": 8,
+     "main": "He was in front of a door.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "He was beside a",
+     "sub": "punching bag."
+    },
+    {
+     "speaker": 10,
+     "main": "He was in the Cafeteria alone",
+     "sub": "with someone who was in a corner."
+    },
+    {
+     "speaker": 11,
+     "main": "He was beside a shelf.",
+     "sub": "He was with another guard."
+    },
+    {
+     "speaker": 12,
+     "main": "She was the only Guard",
+     "sub": "sitting in a chair."
+    },
+    {
+     "speaker": 13,
+     "main": "He was at the Reception.",
+     "sub": ""
+    },
+    {
+     "speaker": 14,
+     "main": "She was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 15,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Everyone from A to J is a Prisoner. Everyone else is a Guard."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-summer-isles-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in a house.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was on a boat.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was on Squirrel Island",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside the same object",
+     "sub": "type as Hana."
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside a boar.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a shrub.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the fifth column.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was on an island with",
+     "sub": "three other people."
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Every island had a unique number of people (0 is possible)"
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-surprise-visitors-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "Surprise Visitors",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the last column.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was the only person beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was beside a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person on a carpet."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-abandoned-museum-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "The Abandoned Museum",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was exactly one column\nwest of George.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was sitting on a chair. She\nwas alone with a man.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the first column.\nShe was south of Alysson.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "There was a man sitting on a\nchair in her area.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was beside a statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was either beside a statue\nor some rubble.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside some rubble.\nHe was not in the Lobby.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-art-museum-heist-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "The Art Museum Heist",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was in the Exhibition Hall with exactly two other people.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the Air Ducts. He was exactly\none column east of Hassan.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the Vault.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "Everyone in her area was\nbeside a statue, including herself.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting on a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was one column west of Axel.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a crate.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "(G) is in the Warehouse beside a crate, and (C) is in the Vault. There's only one square beside a statue in the Warehouse and in the Vault, so (D) can't be in the Warehouse or in the Vault, as (G) and (C) wouldn't also be able to be beside a statue. This sets (D) in the Exhibition Hall.",
+    "(H) can't be in C9, as (B) needs to be one column east of (H).  So (A), (D) and (H) are the three people in the Exhibition Hall, and they must all be beside a statue, per (D)'s clue. No one else can be in that area, per (A)'s clue.",
+    "In order to place exactly three people in the Exhibition Hall, (A), (D) and (H) must be in R1, R2 and R3 in some order. Block R4 in the Exhibition Hall. This isolates (H) in the only square beside a statue remaining, R1 C3.",
+    "This isolates (B) in the Air Duct in R9 C4, then (C) in the last square inside the Vault, then (G) in the last square beside a crate.",
+    "(A) and (D) are in R2 or R3 in some order. Whoever is in R3 must be beside the statue, in R3 C7. Block the rest of C7. This isolates (E) in R4 C8.",
+    "(F) needs to be exactly one column west of (A). (F) and (A) can't be in C6 and C7 or they would block (D) completely. This sets (F) in R6 C5, which isolates (A) and (D).",
+    "This isolates (V) in R7 C9, alone with (B) in the Air Duct. Bruce is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-art-school-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "There was a framed painting",
+     "sub": "on his square."
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "There was a woman alone",
+     "sub": "in the Gallery one row north of her."
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside an easel, directly",
+     "sub": "south of it."
+    },
+    {
+     "speaker": 5,
+     "main": "He was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was the only person",
+     "sub": "sitting in a chair."
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside",
+     "sub": "a table."
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-barbershop-medium",
+   "difficulty": "medium",
+   "grid": "8x8",
+   "title": "The Barbershop",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the table in the Entrance.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "No one in his area\nhad a beard.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a TV.\nHe was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside a box.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside the shelf\nin the Waiting Area.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-beach-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "The Beach",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was sitting in a chair. She was not on the Beach.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was on the Beach.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was alone in the Lifeguard's Tower.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    " (C) cannot be on the Beach and she cannot be in the Lifeguard's Tower per (F)'s clue. She can only be sitting in the Changing Room, in R2 C7.",
+    "This leaves one square left for (F) to be in the Lifeguard’s Tower, so (F) is in R1 C1.",
+    "The only square left for (A) to be beside a boulder is R6 C2.",
+    "This also narrows down (B) to R5 C6, the last carpet square.",
+    "Now, the only square left for (E) to be beside a chair is R4 C3.",
+    "And (D) will take the last square on the beach, which is R3 C4. This leaves the last square R7 C5 for (V)."
+   ]
+  },
+  {
+   "id": "puzzle-the-botanical-garden-hard",
+   "difficulty": "hard",
+   "grid": "12x12",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was one row north",
+     "sub": "of Dawn."
+    },
+    {
+     "speaker": 1,
+     "main": "She was sitting in a chair",
+     "sub": "in the Arboretum."
+    },
+    {
+     "speaker": 2,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was on a path.",
+     "sub": "She was alone."
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting in a chair.",
+     "sub": "She was alone with a man."
+    },
+    {
+     "speaker": 5,
+     "main": "He was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a bonsai.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was beside a shrub.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was sitting in a chair.",
+     "sub": "She was alone."
+    },
+    {
+     "speaker": 9,
+     "main": "He was beside a Lily pad.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "She was beside a cactus.",
+     "sub": ""
+    },
+    {
+     "speaker": 11,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-bus-stop-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "The Bus Stop",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was exactly one column east of someone inside a car.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was in the bus.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the Yard. He was not beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was with Colby.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was sitting in the chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was not with Adonis.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's exactly one available chair for (E), this isolates (E).",
+    "This isolates (C) in the only remaining square in the Yard that's not beside a tree.",
+    "This isolates (B) in the last square inside the bus. (D) must be in the same area as (C), in the Yard, this isolates (D) in the last square in the Yard.",
+    "(A) is exactly one column east of someone inside a car. This isolates an unknown person in the last car square, R7 C5. Block the rest of R7 and the rest of C5.",
+    "This isolates (A) in the last C6 square. There are two squares remaining, R3 C7 and R7 C5. (G) is not in the same area as (A), she must be the person in the car, and (V) must be the person on the Sidewalk with (A). Adonis is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-ceos-office-expert",
+   "difficulty": "expert",
+   "grid": "16x16",
+   "title": "The CEO's Office",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a trash can. She was in the same area as the only woman office owner.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was in the Cubicles area. She was not with Flora or Kaleb.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was not sitting in a chair. He was with the CEO.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was sitting in a chair in an Office. She was not in the CEO's Office.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was exactly one row south of an office owner.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was sitting in a chair in the top row.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "His column was not adjacent to Dillard's column.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was in the Hallway. Only one office owner was south of her.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "There were exactly three office owners who were west of her.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "He was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 11,
+     "main": "He was in the bottom row. He was not sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 12,
+     "main": "She was alone in the Conference room.",
+     "sub": ""
+    },
+    {
+     "speaker": 13,
+     "main": "She was not in the Cubicles area.",
+     "sub": ""
+    },
+    {
+     "speaker": 14,
+     "main": "He was in the Kitchen with Aylin or Jolly, who was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 15,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There are five office owners. All owners occupy their own office, including the CEO.",
+    "The CEO may be referred to as both \"the CEO\" or an \"office owner\"."
+   ],
+   "official_hint_steps": [
+    "Let's look at (O)'s clue. He is in the Kitchen either with (A) or (J), but (A) needs to be with an office owner, so she's in an Office. (A) can't be in the Kitchen. This sets (J) on a chair in the Kitchen. (J) is east of three office owners, who are all in separate areas per the general clue. There are exactly three offices to the left of C11, so in order for (J) to be east of them all, (J) must be in the chair in R10 C9.",
+    "Per (J)'s clue, this sets one office owner in C8 in Office D. Block the rest of C8. Another office owner west of (J) must be in R4 C7 in Office A. Block the rest of R4 and C7. The third office owner is somewhere in Office C.",
+    "Because (M) is alone in the Conference Room, the only chair in R1 for (G) is in Office B. This isolates (G) in R1 C14.",
+    "(L) must be in R16, and not in a chair. The only remaining chairs for (E) are in R13, in Office C or Office D. Block the rest of R13.",
+    "(I), in the Hallway and north of exactly one office owner, can't be in R11 or R12, as there would be at least two office owners south of her: the one in Office C and the one in Office D.\nThis sets (I) in R14 or R15 in the Hallway.",
+    "Let's examine R13, R14, R15 and R16. Per (A)'s clue, there's exactly one woman office owner, so that person can't be alone. (E) is either with someone who's the office owner, or she's with (A). There also needs to be another office owner in Office C or Office D, where (E) isn't. So in total, Office C and Office D will hold three people, plus (I), who needs to be in R14 or R15. No one can fit in the CEO's Office in R13 or below.",
+    "Per (C)'s clue, two people need to be in the CEO's Office. They're in the two remaining squares. (C), not sitting in a chair, is in R12 C13 and the unknown CEO is in R11 C15.",
+    "Where can (F) be? She can't be one row south of (E). If (E) is an office owner, then (A) would need to also fit in (E)'s area, but (A)(E)(F)(I)(L) can't all fit in R13-R14-R15-R16. Per (J)'s clue, the person in R4 C7 is an office owner. If (F) were in R4 C7, (A) would need to be in R3 C8 beside the trash can, but (A) and (F) can't both be office owners in the same office. (F) must then be in R2, one row south of (G), who's the office owner of Office B. This isolates (F) in the last available R2 square, R2 C10.",
+    "This sets (M) in R3, in the Conference Room. Per (J)'s clue, an office owner is in R4 C7, so (A), who needs to be with the only woman office owner, can't be in R4 C7 herself. This isolates (A) in the only remaining square beside a trashcan inside an Office, R14 C12. (E) must be the office owner in the same area. Per (J)'s clue, she must be west of (J), in R13 C8.",
+    "Per (B)'s clue, she is not with (F) or (K), this isolates (K) in R7 C3. This isolates (M). (L) is then the office owner in Office C. This isolates (L) in R16 C6, and (I) one square north of (L) in R15 C2. This isolates (O) in the last square in the Kitchen.",
+    "(K) can't be in the Cubicles area per (B)'s clue. This isolates (K) in the last square beside a shelf, R7 C3. This isolates (M) in R3 C4.",
+    "Where can we place (N)? She cannot be in the Cubicles area, and cannot be in Office A as the owner since (E) is the only woman office owner. This places (N) in R9 C1 in the Front Desk. This isolates (D) in R6 C16 then (B) in R5 C11.",
+    "(H) cannot be in a column that's adjacent to (D), so he cannot be in C15. This means (H) is in R4 C7, as the office owner of Office A. This isolates (V) as the CEO in R11 C15 with (C). Carter is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-commercial-square-hard",
+   "difficulty": "hard",
+   "grid": "11x11",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside the statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the Walkway,\nbeside the Fountain area.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the\nBoard Game Store.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a\ncash register.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was the only person\nsitting in any Store.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was sitting in a\nchair in the Walkway.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside a\ngarbage can.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "He was exactly one\ncolumn east of Amara.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "He was not in a corner\nof a Store.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There were at least two people in each store."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-courtroom-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was at the",
+     "sub": "Judge's Bench."
+    },
+    {
+     "speaker": 1,
+     "main": "He was alone with the only person",
+     "sub": "sitting in a chair."
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the Gallery.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was at the Witness Stand.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the Security area.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-dead-plumber-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was in the first column.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was on the bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "Someone else in his room was",
+     "sub": "on a water puddle."
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-donut-house-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "The Donut House",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was on a bed. She was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "There was a man sitting in a chair exactly two rows north of him.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one empty area."
+   ],
+   "official_hint_steps": [
+    "Who can be the man sitting in a chair, two rows north of (H)? The only chairs that can be two rows north of (H) are in the Living Room or in the Guest Bedroom, in a corner, which excludes (C), (D) and (F). (E) is then the only man who can sit in a chair two rows north of (H). (E) is alone either in the Living Room or in the Guest Bedroom.",
+    "(A) per her own clue is alone in the Guest Bedroom or in the Main Bedroom. (C) is in the Main Bedroom or in the Living Room, but not with (A) or (E). In other words, the Living Room, Main Bedroom and Guest Bedroom all must be occupied by (A), (E), (C) in any order. The Kitchen is occupied by (D) and the Hallway is occupied by (B), the only area with any carpet. This leaves the Washroom as the only possible empty room, block every square in the Washroom.",
+    "There is exactly one available square in R9. This is a 9x9 grid with exactly 9 characters, there's exactly one person per row, so someone must be in R9 C7. Block the rest of C7.",
+    "(A), alone and on a bed, can't be alone in the Main Bedroom anymore. She must then be on the R3 bed. Block the rest of R3, and block the rest of the Guest Bedroom.",
+    "This isolates someone in the last R1 square : R1 C2. Block the rest of C2.",
+    "This isolates (E) on the last chair, block the rest of the Living Room. This sets (H) two rows south of him in R8.",
+    "This isolates (C) in the last square beside a TV, then (A), then (H). This isolates (B) on the last carpet square, and (G) in the last square beside a shelf.",
+    "This isolates (D) in the last square in the Kitchen in R1 C2 and (F) in the last square beside a plant in R9 C7. This isolates (V) in the last square in R7 C4, alone with (B). Bonnie is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-flower-store-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "The Flower Store",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the bonsai.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was in the Preparation area.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the first column.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was on the Store Floor. There was a man in her area.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "(F) is on the Store Floor with a man. (A), beside the bonsai, is in the Cashier area. (E) is the only man who can be with (F), this isolates (E) in R5 C1.",
+    "This isolates (A) in the last square beside the bonsai",
+    "This isolates (D) in the last chair.",
+    "This isolates (C) on the last carpet square.",
+    "This isolates (B) in the last square in the Preparation Area.",
+    "This isolates (F) in the last square on the Store Floor, then (V) in the last remaining square."
+   ]
+  },
+  {
+   "id": "puzzle-the-french-restaurant-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "The French Restaurant",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was the only man in the\nDining Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a shelf.\nHe was not in the Kitchen.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the Entrance.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was in the Kitchen,\nbeside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was the only person\nsitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with\nthe murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "Per (A)'s clue, (G) can't be beside a plant in the Dining Room, this isolates (G) in R7 C8, beside the plant in the Entrance. This isolates (E) in R9 C9, the last square in the Entrance.",
+    "(D) can't be in the Kitchen or in the Dining Room (per (A)'s clue), (D) must then be in R3 C7, in the last square beside a shelf.",
+    "This isolates (B) in R8 C3, in the last carpet square.",
+    "There's exactly one square available in R5 : R5 C5. We need to place 9 people on a 9x9 grid, so there can be no empty row, someone must be there. (H), the only person on a chair, must then be on the chair in R5 C5. Block every other chair.",
+    "There's only one square available in R6 : R6 C2, block the rest of C2. This sets (F) in R2; in R2 C1 or R2 C4, block the rest of R2. ",
+    "This isolates (C) in the last square beside a table, in R4 C4, then (A) in the last square in the Dining Room, R6 C2, then (F) in R2 C1.",
+    "This isolates (V) in the last square, R1 C6. (V) was alone with (D), Denis is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-garage-band-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "The Garage Band",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside the drum set.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was in the car or on the bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was not beside a box.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was beside the tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one possible square beside the tree for (F), this isolates (F) in R7 C6.",
+    "This sets (A) beside the drum set in R5, block the rest of R5. (B) cannot be in the car, this isolates (B) on the last bed square, R1 C5.",
+    "This isolates (A) in R5 C7, then (C) in the last square beside a shelf, R2 C3.",
+    "This isolates (E) in the last chair in R4 C1, then (D) in the last square not beside a box, R3 C2.",
+    "This isolates (V) in the last remaining square. (V) was alone with (A) in the Garage, Axel is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-golf-expert",
+   "difficulty": "expert",
+   "grid": "16x16",
+   "title": "The Golf Course",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a\nwater square.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was beside a tree in Hole 4.\nShe had a higher hole number than Harry,",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was not in the first\nor in the last column.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was beside a flag.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She occupied the flag in an\neven-numbered hole.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She did not occupy the hole\nimmediately before Naomi's hole.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was the only man to\noccupy a golf tee.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "In his hole, there was a\nwoman in a cart.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was northwest of Flor and\nin the same hole.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "She occupied the golf tee\non either the Hole 6, 7 or 8.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "He  was in the same\nhole as Mona.",
+     "sub": ""
+    },
+    {
+     "speaker": 11,
+     "main": "His hole number is greater\nthan Naomi's hole number.",
+     "sub": ""
+    },
+    {
+     "speaker": 12,
+     "main": "She was on the flag for either Hole\n3, 4 or 5.",
+     "sub": ""
+    },
+    {
+     "speaker": 13,
+     "main": "She was within a\nsand pit.",
+     "sub": ""
+    },
+    {
+     "speaker": 14,
+     "main": "He was in the northmost\nrow and beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 15,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Even-numbered holes have an even number of occupants (this includes zero occupants).",
+    "Odd-numbered holes have an odd number of occupants."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-great-escape-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was alone in the",
+     "sub": "Laundry Room."
+    },
+    {
+     "speaker": 2,
+     "main": "He was sitting  in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was the only person",
+     "sub": "on a water puddle."
+    },
+    {
+     "speaker": 4,
+     "main": "He was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was in the Hallway.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a wall.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was in the car.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-hiking-trip-hard",
+   "difficulty": "hard",
+   "grid": "12x14",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was on the Windy Trail.",
+     "sub": "Everyone there wore a cap."
+    },
+    {
+     "speaker": 1,
+     "main": "She was exactly two",
+     "sub": "rows north of Finlay."
+    },
+    {
+     "speaker": 2,
+     "main": "He was on the Rocky Trail.",
+     "sub": "Everyone there wore glasses."
+    },
+    {
+     "speaker": 3,
+     "main": "He was alone in",
+     "sub": "Pine Forest."
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the",
+     "sub": "Ranger's Hut."
+    },
+    {
+     "speaker": 5,
+     "main": "There was a bear in his column,",
+     "sub": "exactly 4 rows north of him."
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was in the bottom row. Her",
+     "sub": "area contained at least 3 people."
+    },
+    {
+     "speaker": 8,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "He was beside a bear.",
+     "sub": ""
+    },
+    {
+     "speaker": 10,
+     "main": "He was in the Grove.",
+     "sub": ""
+    },
+    {
+     "speaker": 11,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There are two empty rows. Each empty rows contains a bear."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-library-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "The Library (Hard)",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was in the Reading Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the Fiction area or in the Archives.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "He was alone with someone in the Hallway.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was exactly one row north of Damien.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was beside a box.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was the only person sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "(D) is with someone in the Hallway. Because they cannot be in the same row, either one must be in row 6, in the only Hallway square: R6 C4. Block the rest of R6 and C4. Also, block the non-Hallway squares in R5.",
+    "(B) cannot be sitting in a chair per H's clue. This isolates (B) in the last square beside a plant without a chair : R9 C9. This isolates (A) in the last square in the Reading Room without a chair, which isolates (H) in the last chair.",
+    "This isolates (E) on the last carpet square. \n(D) and the person with (D) in the Hallway must be in C4 and C5, in any order. No one else can occupy these two columns, block the rest of C5. This isolates (C) in the last square in the Archives, which isolates (G) in the last square beside a box.",
+    "(F) can only be one row north of (D) by being in R5. This isolates (D) and (F), then (V) in the last square. (V) was alone with (G), Gideon is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-movie-studio-expert",
+   "difficulty": "expert",
+   "grid": "16x16",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a camera,",
+     "sub": "he was directly left of it."
+    },
+    {
+     "speaker": 1,
+     "main": "She was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the sixth column.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside",
+     "sub": "some flowers."
+    },
+    {
+     "speaker": 4,
+     "main": "He was on a set.",
+     "sub": "He was beside a wall."
+    },
+    {
+     "speaker": 5,
+     "main": "He was beside a cactus.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "A woman in his room",
+     "sub": "was beside the camera."
+    },
+    {
+     "speaker": 7,
+     "main": "She was on the",
+     "sub": "Horror Set."
+    },
+    {
+     "speaker": 8,
+     "main": "He was on a",
+     "sub": "mud puddle."
+    },
+    {
+     "speaker": 9,
+     "main": "He was not in a corner",
+     "sub": "of the room."
+    },
+    {
+     "speaker": 10,
+     "main": "He was in a corner",
+     "sub": "of a Set."
+    },
+    {
+     "speaker": 11,
+     "main": "He was beside",
+     "sub": "some rubble."
+    },
+    {
+     "speaker": 12,
+     "main": "He was beside a catapult.",
+     "sub": ""
+    },
+    {
+     "speaker": 13,
+     "main": "She was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 14,
+     "main": "She was sitting",
+     "sub": "on a chair."
+    },
+    {
+     "speaker": 15,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Each camera had exactly one person beside it."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-panic-room-hard",
+   "difficulty": "hard",
+   "grid": "10x10",
+   "title": "The Panic Room",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a statue.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the Guest Bedroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was in the Panic Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was beside a TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was exactly one row south of someone on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was with a woman in the Dining Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "She was exactly two columns east of a woman.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "(E) in the Panic Room, (F) beside a TV and (C) in the Guest Bedroom must occupy C8, C9 and C10 in some order. No one else can fit in C8, C9 or C10.",
+    "(D), beside a shelf, must then be in the Kitchen. (H) is with a woman in the Dining Room. (E), (D), (H) and the woman with (H) all occupy R1, R2, R3 and R4 in some order. In order to fit all four people in these four rows, either (H) or the woman must be in R4 C1. Block the rest of R4 and C1.",
+    "This isolates (B) in the last possible chair for him, R6 C7. This isolates (D) in R2 C6, as (D) can't occupy C8, C9 or C10.",
+    "(A), beside a statue, can only be in R7 C2 or R5 C4. Block the intersecting square R7 C4.",
+    "All the remaining carpet squares are in the Guest Bedroom. (G), one row south of someone on a carpet, must then be in R10. This isolates (C), the only person who can fit on the carpet in the Guest Bedroom, in R9 C8.",
+    "(F) can't fit in the Panic Room between R1 and R3 (see step 2). This isolates (F) in R5 C10 and (E) in the last square in the Panic Room in R3 C9. This isolates (A) in the last square beside a statue in R7 C2.",
+    "This isolates (G) in the last R10 square, R10 C5. (I) must be two columns east of a woman, and the only possibility is if she's two columns east of (V). This sets (V) as the person in R4 C1, (I) in R8 C3, and (H) in R1 C4. (V) was alone with (H), Harold is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-picnic-easy",
+   "difficulty": "easy",
+   "grid": "7x7",
+   "title": "The Picnic",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was sitting in a chair in the Gazebo.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the Picnic Area.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was beside some flowers and beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was in the Pond. He was north of Ethan.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one square where D can be beside some flowers and beside a tree, this isolates D in the Garden in the last column. Block her entire row and column.",
+    "This isolates B on the only chair remaining in the Gazebo.\nBecause E is south of F, he cannot be in the top row. This isolates E in the last remaining chair.",
+    "This isolates F in the last square in the Pond that's also north of E, which isolates A on the last carpet square. This isolates C in the last square in the Picnic Area, then V. V was alone with B, Bruno is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-pigsty-very-easy",
+   "difficulty": "very easy",
+   "grid": "5x5",
+   "title": "The Pigsty",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was in the Pigsty",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was not on a mud puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside the table.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the Pasture.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one square beside a table, this isolates (C). This isolates (A) in the last square in the Pigsty.",
+    "This isolates (D) in the last square in the Pasture.",
+    "This isolates (B) in the last square not on a mud puddle, then (V) in the last remaining square. (V) was alone with (B), Brent is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-retirement-community-medium",
+   "difficulty": "medium",
+   "grid": "10x10",
+   "title": "The Retirement Community",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was alone in Condo A or Condo B.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was on a bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was in a cart.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the top row.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "Exactly one row north of him, there was a man inside a cart.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "He was in a corner of the Pickleball Court.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "Who can be the man in a cart, per (H)'s clue? (A) on a carpet, (B) in a Condo, (G) in the top row and (I) on the Pickleball Court all can't be in a cart. (C) is the only possibility. This isolates (C) in R5 C2.",
+    "This sets (H) in R6, one row south of (C). This also isolates (F) in the last golf cart, in R8 C7. This sets (I) in the bottom row, R10.",
+    "There's only one remaining chair for (D), this isolates (D) in R9 C1.",
+    "All remaining carpet squares for (A) are all in R7, block the rest of R7. (E), on a bed, can't be in R1 because (G) is already in R1. (E) also can't be in R6, as (H) is in R6, and (A) is in R7. This isolates (E) in R2 C4.",
+    "(B), who's alone in a Condo, can't be in Condo A with (E). (B) must be alone in Condo B in the last remaining square, R4 C10. Block the rest of Condo B.",
+    "This isolates (I). This also isolates (A) on the last carpet square, R7 C3, then (H) in the last square in R6, R6 C6.",
+    "This isolates (G) in the last R1 square, R1 C9, then (V) in the last square, R3 C5. (V) was alone with (E), Eirlys is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-riding-lesson-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "The Riding Lesson",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a shrub.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was one column west of a woman sitting on a horse.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the fifth column.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the Stable.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was sitting on a horse in the Training Ring.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was in the Tool Shed with Brandon.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was on a mud puddle.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. She was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-stamps-collector-hard",
+   "difficulty": "hard",
+   "grid": "9x10",
+   "title": "The Stamps Collector",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was the only person\non a bed in the house.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the Kitchen, alone with\na woman who was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was either in the first\nor the last column.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was the only person\nsitting on a chair in the house.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "She was east of Adonis,\nand west of Hope.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was alone in the\nDining Room.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was north of Vinny.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He is in the\nlast remaining position.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-the-terracotta-courtyard-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "The Terracotta Courtyard",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "She was beside a plant.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "There was a shelf somewhere in his row, and another shelf in his column.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "He was in the Garage.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the car.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was alone. She was west of Dina.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was not on a carpet.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was on the bed.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "(D) must be in the car in R8, block the rest of R8. This isolates (G) on the last bed square in R7 C9.",
+    "This isolates (C) in the last square in the Garage, R9 C1. To be west of (D), (E) can only be in C2. This isolates (D) in the car in R8 C3.",
+    "There's only one chair remaining for (H) (he can't be in C2, as (E) must be there); this isolates (H) in R4 C6.",
+    "This isolates (A) in the last square beside a plant (remember that \"beside\" also means in the same area), in R2 C4.",
+    "(E) is alone so she can't be in the Dining Room with (A). She must be in the last Kitchen square, R6 C2.",
+    "This isolates (B) in the last square with a shelf somewhere in the same row and in the same column.",
+    "This isolates (F) in the last square without a carpet, R1 C5, then (V) in R5 C7. (V) was alone with (H), Hassan is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-waterstones-bookshop-easy",
+   "difficulty": "easy",
+   "grid": "9x9",
+   "title": "The Waterstones Bookshop",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was on the Mezzanine, beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside the sign in the Best Sellers area.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the Fiction area.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the top row.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was not beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was in the Non Fiction area.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was in the Stairs. He was in the fifth row.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [],
+   "official_hint_steps": [
+    "There's only one square available for (C) that is beside a sign in the Best Sellers area, this isolates (C) in R9 C5. (Remember that \"beside\" means in the same area.) Left press and hold to place (C) on that square. ",
+    "This isolates (E) in the last square in the top row, in R1 C7. This isolates (H) in the last square in the Stairs in R5; R5 C8.",
+    "This isolates (D) in the last square available in the Fiction area. This isolates (B) in the last square on the Mezzanine beside a shelf, R4 C2, which isolates (G) in the last square in the Non Fiction area, R2 C4.",
+    "This isolates (A) on the last chair, in R7 C9, then (F) on the last square not beside a table.",
+    "This isolates (V) in the last remaining square. (V) was alone with (C) in the Best Sellers area, Cora is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-wine-cellar-hard",
+   "difficulty": "hard",
+   "grid": "9x9",
+   "title": "The Wine Cellar",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was not beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "He was in the bottom row.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was beside a shelf.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was east of Benton. She was not beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was in the Basement. She was not beside the TV.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was alone. He was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was in the Bathroom.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was exactly one person on the bed.",
+    "There was no empty room.",
+    "There were exactly two people sitting in a chair."
+   ],
+   "official_hint_steps": [
+    "There's someone on the bed, per the general clue. Block the rest of C5. (B) is in R9, west of (D), this isolates (B) in the last R9 square, R9 C7. ",
+    "No room was empty according to the general clue. There are exactly five rooms between R1 and R5: the Bathroom, the Main Bedroom, the Living Room, the Dining Room and the Kitchen. To respect the general clue, there must be exactly one person in each of these rooms.\nWho can possibly be alone in the Kitchen? (H) is the only possibility.",
+    "Who can be on the bed in the Main Bedroom? (A) is the only possibility. This sets (A) as the person on the bed, block the rest of the Main Bedroom.",
+    "Then, who can be the person alone in the Living Room? (F) is the only possibility at this point. (G) and (A) are in R1 and R2, this isolates (H) in the Kitchen in R3 C9. This isolates (F) in the last Living Room chair, R5 C3.",
+    "Someone must be in the last Dining Room square, R4 C8. We know that (D) and (H) are the only two people in C8-C9, this isolates (D) in R4 C8.",
+    "This isolates an unknown person in the last R8 square : R8 C4. Block the rest of C4.\nThis also isolates someone in the last C6 square : R6 C6, block the rest of C6.",
+    "There are exactly two people sitting in a chair according to the general clue, this isolates (G) in the last remaining chair, in R2 C1. This isolates (A).",
+    "This isolates (C) in the last square beside a shelf, R8 C4, then (E) in the last square not beside a TV, then (V).\n(V) was alone with (E), Elodie is the murderer!"
+   ]
+  },
+  {
+   "id": "puzzle-the-zoo-expert",
+   "difficulty": "expert",
+   "grid": "16x16",
+   "title": "",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was exactly one row",
+     "sub": "north of Ivan."
+    },
+    {
+     "speaker": 1,
+     "main": "He was in Concessions",
+     "sub": "alone with a Visitor."
+    },
+    {
+     "speaker": 2,
+     "main": "She was exactly one row",
+     "sub": "north of Deborah."
+    },
+    {
+     "speaker": 3,
+     "main": "She was in the Main Area.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "She was beside a table.",
+     "sub": "She was not sitting."
+    },
+    {
+     "speaker": 5,
+     "main": "She was beside a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "He was sitting in a chair.",
+     "sub": "He was alone."
+    },
+    {
+     "speaker": 7,
+     "main": "He was alone.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "He was beside an animal.",
+     "sub": ""
+    },
+    {
+     "speaker": 9,
+     "main": "He was not in water,",
+     "sub": "but he was beside water."
+    },
+    {
+     "speaker": 10,
+     "main": "She was alone with",
+     "sub": "Mara."
+    },
+    {
+     "speaker": 11,
+     "main": "He was in water.",
+     "sub": "He was not beside an animal."
+    },
+    {
+     "speaker": 12,
+     "main": "She was in the 2nd column.",
+     "sub": ""
+    },
+    {
+     "speaker": 13,
+     "main": "She was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 14,
+     "main": "He was beside a boulder.",
+     "sub": ""
+    },
+    {
+     "speaker": 15,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "Everyone from Ivan to Vlad was a Zookeeper. Everyone else was a Visitor. Only Zookeepers could be in Habitats.",
+    "Each Habitat had at least one Zookeeper in it."
+   ],
+   "official_hint_steps": []
+  },
+  {
+   "id": "puzzle-white-wedding-medium",
+   "difficulty": "medium",
+   "grid": "9x9",
+   "title": "White Wedding",
+   "cards": [
+    {
+     "speaker": 0,
+     "main": "He was beside a table.",
+     "sub": ""
+    },
+    {
+     "speaker": 1,
+     "main": "She was beside some flowers.",
+     "sub": ""
+    },
+    {
+     "speaker": 2,
+     "main": "She was in the fifth column.",
+     "sub": ""
+    },
+    {
+     "speaker": 3,
+     "main": "She was on the Porch.",
+     "sub": ""
+    },
+    {
+     "speaker": 4,
+     "main": "He was northeast of Crystal.",
+     "sub": ""
+    },
+    {
+     "speaker": 5,
+     "main": "He was in a corner of his area.",
+     "sub": ""
+    },
+    {
+     "speaker": 6,
+     "main": "She was with someone who was beside a tree.",
+     "sub": ""
+    },
+    {
+     "speaker": 7,
+     "main": "She was sitting in a chair.",
+     "sub": ""
+    },
+    {
+     "speaker": 8,
+     "main": "The Victim. He was alone with the murderer.",
+     "sub": ""
+    }
+   ],
+   "general_clues": [
+    "There was a man and a woman on the Altar."
+   ],
+   "official_hint_steps": []
+  }
+ ]
+}
