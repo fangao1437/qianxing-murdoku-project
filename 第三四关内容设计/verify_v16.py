@@ -18,6 +18,8 @@ def independent(d):
         parts.append(x[~np.isin(x,blocked).any(axis=1)])
     x=np.concatenate(parts); q=room[x]; nr=int(room.max())+1
     def ev(s):
+        m=re.fullmatch(r'(椅子|地毯)上有(\d+)人',s)
+        if m: return np.isin(x,d['objects'][m[1]]).sum(axis=1)==int(m[2])
         m=re.fullmatch(r'([A-V])在([A-V])([上下左右])方',s)
         if m:
             arr=x//n if m[3] in '上下' else x%n
@@ -36,7 +38,9 @@ def independent(d):
         if only: z &= np.isin(x,cells).sum(axis=1)==1
         return ~z if neg=='不在' else z
     masks=[np.logical_and.reduce([ev(s) for s in c]) for c in d['cards']]
-    S=np.logical_and.reduce(masks); adj=[set() for _ in range(nr)]
+    G=np.ones(len(x),bool)
+    for s in d.get('general_clues',[]): G &= ev(s)
+    S=G & np.logical_and.reduce(masks); adj=[set() for _ in range(nr)]
     for a,b in d['doors']: adj[int(room[a])].add(int(room[b])); adj[int(room[b])].add(int(room[a]))
     rows=[]; finals=[]
     for h in range(n-1):
@@ -49,7 +53,7 @@ def independent(d):
                 region |= z
         pos=sorted(map(int,np.unique(x[S,h])))
         truth=d['level'] in (3,6) or len(pos)>=2
-        f=S&region if truth else region&~masks[h]&np.logical_and.reduce([v for i,v in enumerate(masks) if i!=h])
+        f=S&region if truth else G&region&~masks[h]&np.logical_and.reduce([v for i,v in enumerate(masks) if i!=h])
         boards=sorted(map(tuple,x[f].tolist())); finals.append(boards)
         rows.append(dict(person=names[h],mode='truth' if truth else 'lie',optional_positions=pos,boards=len(boards),is_target=boards==[tuple(d['target'])]))
     return x,masks,S,rows,finals
@@ -58,18 +62,23 @@ def verify(d):
     n=len(d['target']); names=names_of(n); h=names.index(d['thief']); teaching=d['level'] in (3,6)
     assert d['version']=='v16'; assert len(d['cards'])==n
     validate_geometry(d); m=Model(d); bs=[m.card(c) for c in d['cards']]
-    S=m.all
+    general=d.get('general_clues',[])
+    G=m.card(general)
+    S=G
     for b in bs: S &= b
     target=1<<m.t; tv=[bool(b&target) for b in bs]
     checks=[]
     def ck(label,ok,value=None):
         checks.append(dict(item=label,ok=bool(ok),value=value))
+    if general:
+        ck('通用线索至多一条且不引用人物身份',len(general)==1 and all(re.fullmatch(r'(椅子|地毯)上有\d+人',s) for s in general))
+        ck('通用线索答案处为真',bool(G&target))
     ck('全真教学/仅盗窃者假',all(tv) if teaching else tv==[i!=h for i in range(n)],tv)
     positions={names[j]:m.positions(S,j) for j in range(n-1)}
     finals=[]; audit=[]
     for j in range(n-1):
         truth=teaching or len(positions[names[j]])>=2
-        f=S&m.rb[j] if truth else m.rb[j]&(m.all^bs[j])
+        f=S&m.rb[j] if truth else G&m.rb[j]&(m.all^bs[j])
         if not truth:
             for i,b in enumerate(bs):
                 if i!=j: f &= b
@@ -85,7 +94,8 @@ def verify(d):
     single=[[len(m.positions(b,j)) for j in range(n)] for b in bs]
     ck('单卡不直接定位',min(map(min,single))>1,min(map(min,single)))
     clauses=[len(c) for c in d['cards']]; flat=sum(d['cards'],[])
-    ck('单卡至多两句且复合卡至多2',max(clauses)<=2 and sum(x>1 for x in clauses)<=2)
+    ck('第五七关每卡一句' if d['level'] in (5,7) else '单卡至多两句且复合卡至多2',all(x==1 for x in clauses) if d['level'] in (5,7) else max(clauses)<=2 and sum(x>1 for x in clauses)<=2)
+    ck('不使用模糊距离靠近',not any('靠近' in s for s in flat+general))
     ck('受害者单句',clauses[-1]==1)
     ck('否定至多2只有至多1',sum('不在' in s for s in flat)<=2 and sum(s.startswith('只有') for s in flat)<=1)
     ck('无内部标签及全局人数句',not any(re.search(r'在R\d+房间|在第\d+(行|列)|上有\d+人',s) for s in flat))
@@ -93,17 +103,21 @@ def verify(d):
     deletion=[]
     for i in range(n):
         if not tv[i]: continue
-        f=m.rb[h]
+        f=G&m.rb[h]
         for j,b in enumerate(bs):
             if j!=i: f &= (m.all^b) if (not teaching and j==h) else b
         deletion.append(dict(card=i+1,boards=f.bit_count(),unique_target=f==target))
     if not teaching: ck('真卡删卡非冗余',all(not x['unique_target'] for x in deletion))
+    if general:
+        f=m.rb[h]
+        for i,b in enumerate(bs): f &= (m.all^b) if not teaching and i==h else b
+        ck('通用线索非冗余',f!=target,f.bit_count())
     x,masks,S2,audit2,boards2=independent(d)
     ck('独立实现全线索盘面完全一致',sorted(map(tuple,x[S2].tolist()))==sorted(map(tuple,m.x[m.to_bool(S)].tolist())))
     ck('独立实现逐卡语义一致',all(np.array_equal(x[z],m.x[m.to_bool(b)]) for z,b in zip(masks,bs)))
     ck('独立实现每个身份最终盘面一致',all(sorted(map(tuple,m.x[m.to_bool(f)].tolist()))==b for f,b in zip(finals,boards2)))
     ck('独立实现候选位置一致',all(a['optional_positions']==positions[a['person']] for a in audit2))
-    out=dict(level=d['level'],version='v16',basis=BASIS,mode='teaching_all_true' if teaching else 'conditional_lie',PASS=all(c['ok'] for c in checks),checks=checks,truth_vector=tv,all_true_boards=S.bit_count(),final_solutions=finals[h].bit_count(),thief_own_positions=len(positions[names[h]]),thief_option_positions=[[v//n+1,v%n+1] for v in positions[names[h]]],identity_uniqueness_claimed=False,corrected_audit=audit,deletion_test=deletion,deletion_is_hard_gate=not teaching,legacy_audit_status='作废：不调用、不参与PASS',cards=d['cards'],display_cards=d['display_cards'],target=d['target'],objects=d['objects'])
+    out=dict(level=d['level'],version='v16',basis=BASIS,mode='teaching_all_true' if teaching else 'conditional_lie',PASS=all(c['ok'] for c in checks),checks=checks,truth_vector=tv,all_true_boards=S.bit_count(),final_solutions=finals[h].bit_count(),thief_own_positions=len(positions[names[h]]),thief_option_positions=[[v//n+1,v%n+1] for v in positions[names[h]]],identity_uniqueness_claimed=False,corrected_audit=audit,deletion_test=deletion,deletion_is_hard_gate=not teaching,legacy_audit_status='作废：不调用、不参与PASS',general_clues=general,cards=d['cards'],display_cards=d['display_cards'],target=d['target'],objects=d['objects'])
     print('L%d %s: S=%d P=%d final=%d checks=%d/%d'%(d['level'],'PASS' if out['PASS'] else 'FAIL',out['all_true_boards'],out['thief_own_positions'],out['final_solutions'],sum(c['ok'] for c in checks),len(checks)),flush=True)
     if not out['PASS']: print([c for c in checks if not c['ok']],flush=True)
     return out

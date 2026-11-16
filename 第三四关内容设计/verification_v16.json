@@ -50,6 +50,11 @@
         "value": null
       },
       {
+        "item": "不使用模糊距离靠近",
+        "ok": true,
+        "value": null
+      },
+      {
         "item": "受害者单句",
         "ok": true,
         "value": null
@@ -196,6 +201,7 @@
     ],
     "deletion_is_hard_gate": false,
     "legacy_audit_status": "作废：不调用、不参与PASS",
+    "general_clues": [],
     "cards": [
       [
         "A在B上方"
@@ -310,7 +316,12 @@
         "value": 2
       },
       {
-        "item": "单卡至多两句且复合卡至多2",
+        "item": "第五七关每卡一句",
+        "ok": true,
+        "value": null
+      },
+      {
+        "item": "不使用模糊距离靠近",
         "ok": true,
         "value": null
       },
@@ -413,74 +424,71 @@
     "deletion_test": [
       {
         "card": 1,
-        "boards": 2,
+        "boards": 10,
         "unique_target": false
       },
       {
         "card": 3,
-        "boards": 4,
+        "boards": 3,
         "unique_target": false
       },
       {
         "card": 4,
-        "boards": 4,
+        "boards": 14,
         "unique_target": false
       },
       {
         "card": 5,
-        "boards": 24,
+        "boards": 2,
         "unique_target": false
       },
       {
         "card": 6,
-        "boards": 2,
+        "boards": 24,
         "unique_target": false
       }
     ],
     "deletion_is_hard_gate": true,
     "legacy_audit_status": "作废：不调用、不参与PASS",
+    "general_clues": [],
     "cards": [
       [
-        "A与C在同一房间"
+        "A在椅子上"
       ],
       [
         "E在椅子上"
       ],
       [
-        "E在地毯上"
-      ],
-      [
-        "B不在桌子旁边",
-        "D在椅子上"
-      ],
-      [
-        "A在椅子上",
         "C在桌子旁边"
       ],
       [
-        "B与C不在同一房间"
+        "D在植物旁边"
+      ],
+      [
+        "E与V不在同一房间"
+      ],
+      [
+        "只有E在地毯上"
       ]
     ],
     "display_cards": [
       [
-        "我与C火漆验印在同一房间"
+        "我在椅子上"
       ],
       [
         "E证物登记在椅子上"
       ],
       [
-        "E证物登记在地毯上"
+        "我在桌子旁边"
       ],
       [
-        "B夜勘记录不在桌子旁边",
-        "我在椅子上"
+        "我在植物旁边"
       ],
       [
-        "A封条保管在椅子上",
-        "C火漆验印在桌子旁边"
+        "我与V守夜馆人不在同一房间"
       ],
       [
-        "B夜勘记录与C火漆验印不在同一房间"
+        "只有E证物登记在地毯上"
       ]
     ],
     "target": [
@@ -563,6 +571,11 @@
       },
       {
         "item": "单卡至多两句且复合卡至多2",
+        "ok": true,
+        "value": null
+      },
+      {
+        "item": "不使用模糊距离靠近",
         "ok": true,
         "value": null
       },
@@ -728,6 +741,7 @@
     ],
     "deletion_is_hard_gate": false,
     "legacy_audit_status": "作废：不调用、不参与PASS",
+    "general_clues": [],
     "cards": [
       [
         "B不在地毯旁边"
@@ -828,6 +842,16 @@
     "PASS": true,
     "checks": [
       {
+        "item": "通用线索至多一条且不引用人物身份",
+        "ok": true,
+        "value": null
+      },
+      {
+        "item": "通用线索答案处为真",
+        "ok": true,
+        "value": null
+      },
+      {
         "item": "全真教学/仅盗窃者假",
         "ok": true,
         "value": [
@@ -857,10 +881,15 @@
       {
         "item": "单卡不直接定位",
         "ok": true,
-        "value": 2
+        "value": 3
       },
       {
-        "item": "单卡至多两句且复合卡至多2",
+        "item": "第五七关每卡一句",
+        "ok": true,
+        "value": null
+      },
+      {
+        "item": "不使用模糊距离靠近",
         "ok": true,
         "value": null
       },
@@ -888,6 +917,11 @@
         "item": "真卡删卡非冗余",
         "ok": true,
         "value": null
+      },
+      {
+        "item": "通用线索非冗余",
+        "ok": true,
+        "value": 6
       },
       {
         "item": "独立实现全线索盘面完全一致",
@@ -963,7 +997,7 @@
     "deletion_test": [
       {
         "card": 1,
-        "boards": 8,
+        "boards": 25,
         "unique_target": false
       },
       {
@@ -973,64 +1007,63 @@
       },
       {
         "card": 4,
-        "boards": 4,
+        "boards": 36,
         "unique_target": false
       },
       {
         "card": 5,
-        "boards": 2,
+        "boards": 20,
         "unique_target": false
       },
       {
         "card": 6,
-        "boards": 34,
+        "boards": 32,
         "unique_target": false
       }
     ],
     "deletion_is_hard_gate": true,
     "legacy_audit_status": "作废：不调用、不参与PASS",
+    "general_clues": [
+      "椅子上有2人"
+    ],
     "cards": [
       [
-        "C在地毯上"
+        "C在桌子旁边"
       ],
       [
         "V在地毯上"
       ],
       [
-        "B在椅子上",
+        "C在地毯上"
+      ],
+      [
+        "D在桌子旁边"
+      ],
+      [
         "E在椅子上"
       ],
       [
-        "B在植物旁边",
-        "E独自在房间"
-      ],
-      [
-        "V不在桌子旁边"
-      ],
-      [
-        "A在植物旁边"
+        "B在椅子上"
       ]
     ],
     "display_cards": [
       [
-        "C誊写员在地毯上"
+        "C誊写员在桌子旁边"
       ],
       [
         "V藏卷人在地毯上"
       ],
       [
-        "B转架管理在椅子上",
-        "E线装匠人在椅子上"
+        "我在地毯上"
       ],
       [
-        "B转架管理在植物旁边",
-        "E线装匠人独自在房间"
+        "我在桌子旁边"
       ],
       [
-        "V藏卷人不在桌子旁边"
+        "我在椅子上"
       ],
       [
-        "A铜钥保管在植物旁边"
+        "B转架管理在椅子上"
       ]
     ],
     "target": [

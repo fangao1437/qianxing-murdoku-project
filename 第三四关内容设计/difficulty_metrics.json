@@ -1,0 +1,1081 @@
+{
+  "generated": "2026-11-17",
+  "purpose": "Murdoku 关卡难度判定指标的统一口径、版本演进与实测快照",
+  "authority": {
+    "current_design": "第三四关内容设计/current_design_v16.json",
+    "verification_entry": "第三四关内容设计/verify_v16.py",
+    "verification_report": "第三四关内容设计/verification_v16.json",
+    "spec": "第三四关内容设计/当前设计与验证口径_v16.md",
+    "archive": "708（当前设计）/ 707（历史记录）",
+    "spec_revision": "2026-11-17：S 定义纳入全部通用线索"
+  },
+  "metric_definitions": [
+    {
+      "id": "A1",
+      "name": "几何合法性",
+      "definition": "房间连通、门跨区相邻、家具不重叠且答案格不被不可站家具占用",
+      "field": "validate_geometry(d)",
+      "computed_by": "murdoku_engine_generic.validate_geometry",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "A2",
+      "name": "版本/卡数",
+      "definition": "version 与关卡数一致；卡数 = 人数",
+      "field": "d['version'], len(d['cards'])",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "A3",
+      "name": "模式",
+      "definition": "教学全真关(3/6) / 条件说谎关(5/7)",
+      "field": "verification_mode, mode",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": "教学关禁止启用假话反事实分支"
+    },
+    {
+      "id": "B1",
+      "name": "全线索盘数 S",
+      "definition": "全部卡面为真 ∧ 全部通用线索为真 ∧ 基础摆位规则（每行每列一人、家具可站性）；不摘卡、不含人数规则",
+      "field": "all_true_boards",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": "708 口径加入通用线索；通用线索在全部真假分支与删卡检查中始终成立。注意：v14 及以前的同名字段是「六卡全真摆法数」，定义不同，不可直接对比"
+    },
+    {
+      "id": "B2",
+      "name": "盗窃者可选格 P(h)",
+      "definition": "S 中盗窃者 h 的不同位置集合大小",
+      "field": "thief_own_positions",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": "教学关须 ≥2；真假关须 ≤1；v14 的 thief_own_positions 是摘卡后的候选格数，定义不同"
+    },
+    {
+      "id": "B3",
+      "name": "预设身份最终摆位",
+      "definition": "加入人数规则后预设盗窃者分支的摆位数，须为 1 且等于答案",
+      "field": "final_solutions",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "B4",
+      "name": "身份唯一性",
+      "definition": "是否声称盗窃者身份唯一",
+      "field": "identity_uniqueness_claimed",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": "v16 明确为 False：唯一摆位 ≠ 唯一身份；教学关其他身份结果只记录"
+    },
+    {
+      "id": "B5",
+      "name": "其他身份盘面",
+      "definition": "非预设身份分支不得给出其它盘面",
+      "field": "corrected_audit[*].boards",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16",
+        "仅真假关"
+      ],
+      "note": ""
+    },
+    {
+      "id": "C1",
+      "name": "位置试位深度",
+      "definition": "给定身份与真假条件后，广义弧一致传播停滞后任选人物分割候选格、递归传播，按最坏分支最大嵌套深度计数",
+      "field": "position_assumption_depth",
+      "computed_by": "verification_v8.json / verification_v11.json",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v8",
+        "v11"
+      ],
+      "note": "历史指标；v16 不重算、不作硬闸门"
+    },
+    {
+      "id": "C2",
+      "name": "GAC 传播深度",
+      "definition": "声明的传播/试位操作集下的广义弧一致传播深度；0=无需试位，1=需一次试位",
+      "field": "gac_depth",
+      "computed_by": "verify_v12/v13/v14.py",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v12",
+        "v13",
+        "v14"
+      ],
+      "note": "v16 起降级为历史观察项，不得冒充重算结果"
+    },
+    {
+      "id": "C3",
+      "name": "传播收缩步数",
+      "definition": "GAC 过程中域收缩事件数",
+      "field": "propagation_events",
+      "computed_by": "verify_v12/v13/v14.py",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v12-v14"
+      ],
+      "note": ""
+    },
+    {
+      "id": "C4",
+      "name": "身份分支数",
+      "definition": "严格摘卡审计中仍存在候选盘面的身份假设数",
+      "field": "identity_hypotheses",
+      "computed_by": "verify_v12/v13/v14.py",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v12-v14"
+      ],
+      "note": ""
+    },
+    {
+      "id": "C5",
+      "name": "最小矛盾子集",
+      "definition": "卡面全当真时，使合取为空的最小卡子集大小；谎言可察性指标，越小越易察觉",
+      "field": "contradiction_min_subset",
+      "computed_by": "verify_v12/v13/v14.py",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v12-v14",
+        "695基线"
+      ],
+      "note": ""
+    },
+    {
+      "id": "C6",
+      "name": "检查项通过数",
+      "definition": "当前验收清单通过项 / 总项",
+      "field": "checks",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": "教学关 15 项、真假关 16/19 项（第7关含通用线索额外 3 项）"
+    },
+    {
+      "id": "D1",
+      "name": "复合卡数",
+      "definition": "含 2 个子句的卡数量；教学关 ≤2 且每卡 ≤2 句，第5/7关须每卡 1 句",
+      "field": "card_clauses / checks",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "D2",
+      "name": "数字距离句",
+      "definition": "含「比…靠…N行/列」或方位距离句的条数，当前上限 2",
+      "field": "numeric_clauses / checks",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": "v14 的 7×7 关曾放宽到 3 条"
+    },
+    {
+      "id": "D3",
+      "name": "否定句 / only",
+      "definition": "「不在」≤2、「只有」≤1",
+      "field": "negative_clauses, only_clauses",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "D4",
+      "name": "内部标签与全局计数",
+      "definition": "禁用 在R#房间 / 第#行列 / 上有#人（卡面）；通用线索除外",
+      "field": "checks",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "D5",
+      "name": "模糊距离",
+      "definition": "禁用「靠近」等模糊表述",
+      "field": "checks",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "D6",
+      "name": "单卡不定位",
+      "definition": "任一卡单独作用后每个人仍有 ≥2 个可能格",
+      "field": "min_single_card_domain",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "D7",
+      "name": "浅蓝提示格数",
+      "definition": "卡面附带的位置提示候选格数量；方位卡按约定不做静态提示",
+      "field": "hint_preview[*].count",
+      "computed_by": "current_design_v16.json",
+      "current_hard_gate": false,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": "玩家可见的辅助强度，属观察项"
+    },
+    {
+      "id": "D8",
+      "name": "通用线索",
+      "definition": "至多 1 条、不引用人物身份、答案处为真、非冗余；在全部真假分支与删卡检查中始终成立，不占人物卡位，也不能成为假话",
+      "field": "general_clues / checks",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16",
+        "仅第7关使用"
+      ],
+      "note": ""
+    },
+    {
+      "id": "E1",
+      "name": "真卡删卡非冗余",
+      "definition": "摘掉任一真卡后完整严格题不再唯一；教学关为观察项、真假关为硬闸门",
+      "field": "deletion_test, deletion_is_hard_gate",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": "仅真假关",
+      "applicable_versions": [
+        "v13-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "E2",
+      "name": "谎言可察",
+      "definition": "全真摆法数为 0（有谎关）或 >0 且人数规则收口（无谎关）",
+      "field": "all_true_boards",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "E3",
+      "name": "不预告真假",
+      "definition": "announce=unknown；真假是推导结果",
+      "field": "announce",
+      "computed_by": "current_design_v16.json",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v12-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "F1",
+      "name": "双实现一致性（4 项）",
+      "definition": "位集主实现与独立逐行排列/NumPy 实现在全线索盘面、逐卡语义、各身份最终盘面、候选位置四项完全一致",
+      "field": "checks[-4:]",
+      "computed_by": "verify_v16.independent",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v13-v16"
+      ],
+      "note": ""
+    },
+    {
+      "id": "F2",
+      "name": "旧摘卡算法状态",
+      "definition": "Model.audit 保留但作废；当前验收不调用、不参与 PASS",
+      "field": "legacy_audit_status",
+      "computed_by": "verify_v16.verify",
+      "current_hard_gate": true,
+      "applicable_versions": [
+        "v16"
+      ],
+      "note": ""
+    }
+  ],
+  "depth_lineage": [
+    {
+      "version": "v8/v11",
+      "field": "position_assumption_depth",
+      "meaning": "位置试位深度",
+      "hard_gate": true,
+      "note": "给定身份与真假条件后测额外位置试探；身份枚举成本另列"
+    },
+    {
+      "version": "v12/v13/v14",
+      "field": "gac_depth",
+      "meaning": "广义弧一致传播深度",
+      "hard_gate": true,
+      "note": "0=纯演绎无需试位，1=需一次试位；曾作为难度带硬闸门"
+    },
+    {
+      "version": "v16",
+      "field": null,
+      "meaning": "无重算深度字段",
+      "hard_gate": false,
+      "note": "GAC 深度不作本次新验收硬闸门；历史深度记录不冒充重算结果"
+    }
+  ],
+  "field_definition_drift": [
+    {
+      "field": "all_true_boards",
+      "before": "v12–v14：六张卡全部为真的摆法数（用于判定话语是否为假）",
+      "after": "v16：S = 全部卡面为真 ∧ 基础摆位规则（不摘卡、不含人数规则）",
+      "example": "v14 第3关=2，v16 第3关=3；两者不可直接比较"
+    },
+    {
+      "field": "thief_own_positions",
+      "before": "v12–v14：摘掉盗窃者卡后其本人的候选格数",
+      "after": "v16：P(h) = S 中盗窃者的不同位置集合大小",
+      "example": "v14 第5关=1（摘卡口径），v16 第5关=0（全线索口径）"
+    },
+    {
+      "field": "contradiction_min_subset",
+      "before": "v12–v14：按卡面全当真求最小矛盾子集，谎言可察性",
+      "after": "v16：不再计算；695 基线快照仍保留历史值",
+      "example": "不得把历史矛盾子集写进 v16 验收结论"
+    },
+    {
+      "field": "identity_hypotheses / unique_thieves",
+      "before": "v12–v14：身份分支数，且断言 unique_thieves=1",
+      "after": "v16：identity_uniqueness_claimed=False，不声称身份唯一",
+      "example": "旧报告写死 unique_thieves=1 已作废"
+    }
+  ],
+  "current_v16_checklist": {
+    "3": [
+      {
+        "item": "全真教学/仅盗窃者假",
+        "ok": true
+      },
+      {
+        "item": "预设身份人数规则后唯一摆位",
+        "ok": true
+      },
+      {
+        "item": "全线索可选格至少2且人数规则确实消解",
+        "ok": true
+      },
+      {
+        "item": "教学分支禁止启用假话反事实",
+        "ok": true
+      },
+      {
+        "item": "单卡不直接定位",
+        "ok": true
+      },
+      {
+        "item": "单卡至多两句且复合卡至多2",
+        "ok": true
+      },
+      {
+        "item": "不使用模糊距离靠近",
+        "ok": true
+      },
+      {
+        "item": "受害者单句",
+        "ok": true
+      },
+      {
+        "item": "否定至多2只有至多1",
+        "ok": true
+      },
+      {
+        "item": "无内部标签及全局人数句",
+        "ok": true
+      },
+      {
+        "item": "方位距离条数至多2",
+        "ok": true
+      },
+      {
+        "item": "独立实现全线索盘面完全一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现逐卡语义一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现每个身份最终盘面一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现候选位置一致",
+        "ok": true
+      }
+    ],
+    "5": [
+      {
+        "item": "全真教学/仅盗窃者假",
+        "ok": true
+      },
+      {
+        "item": "预设身份人数规则后唯一摆位",
+        "ok": true
+      },
+      {
+        "item": "其他身份不得给出其他盘面",
+        "ok": true
+      },
+      {
+        "item": "盗窃者全线索候选格不超过1",
+        "ok": true
+      },
+      {
+        "item": "单卡不直接定位",
+        "ok": true
+      },
+      {
+        "item": "第五七关每卡一句",
+        "ok": true
+      },
+      {
+        "item": "不使用模糊距离靠近",
+        "ok": true
+      },
+      {
+        "item": "受害者单句",
+        "ok": true
+      },
+      {
+        "item": "否定至多2只有至多1",
+        "ok": true
+      },
+      {
+        "item": "无内部标签及全局人数句",
+        "ok": true
+      },
+      {
+        "item": "方位距离条数至多2",
+        "ok": true
+      },
+      {
+        "item": "真卡删卡非冗余",
+        "ok": true
+      },
+      {
+        "item": "独立实现全线索盘面完全一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现逐卡语义一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现每个身份最终盘面一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现候选位置一致",
+        "ok": true
+      }
+    ],
+    "6": [
+      {
+        "item": "全真教学/仅盗窃者假",
+        "ok": true
+      },
+      {
+        "item": "预设身份人数规则后唯一摆位",
+        "ok": true
+      },
+      {
+        "item": "全线索可选格至少2且人数规则确实消解",
+        "ok": true
+      },
+      {
+        "item": "教学分支禁止启用假话反事实",
+        "ok": true
+      },
+      {
+        "item": "单卡不直接定位",
+        "ok": true
+      },
+      {
+        "item": "单卡至多两句且复合卡至多2",
+        "ok": true
+      },
+      {
+        "item": "不使用模糊距离靠近",
+        "ok": true
+      },
+      {
+        "item": "受害者单句",
+        "ok": true
+      },
+      {
+        "item": "否定至多2只有至多1",
+        "ok": true
+      },
+      {
+        "item": "无内部标签及全局人数句",
+        "ok": true
+      },
+      {
+        "item": "方位距离条数至多2",
+        "ok": true
+      },
+      {
+        "item": "独立实现全线索盘面完全一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现逐卡语义一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现每个身份最终盘面一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现候选位置一致",
+        "ok": true
+      }
+    ],
+    "7": [
+      {
+        "item": "通用线索至多一条且不引用人物身份",
+        "ok": true
+      },
+      {
+        "item": "通用线索答案处为真",
+        "ok": true
+      },
+      {
+        "item": "全真教学/仅盗窃者假",
+        "ok": true
+      },
+      {
+        "item": "预设身份人数规则后唯一摆位",
+        "ok": true
+      },
+      {
+        "item": "其他身份不得给出其他盘面",
+        "ok": true
+      },
+      {
+        "item": "盗窃者全线索候选格不超过1",
+        "ok": true
+      },
+      {
+        "item": "单卡不直接定位",
+        "ok": true
+      },
+      {
+        "item": "第五七关每卡一句",
+        "ok": true
+      },
+      {
+        "item": "不使用模糊距离靠近",
+        "ok": true
+      },
+      {
+        "item": "受害者单句",
+        "ok": true
+      },
+      {
+        "item": "否定至多2只有至多1",
+        "ok": true
+      },
+      {
+        "item": "无内部标签及全局人数句",
+        "ok": true
+      },
+      {
+        "item": "方位距离条数至多2",
+        "ok": true
+      },
+      {
+        "item": "真卡删卡非冗余",
+        "ok": true
+      },
+      {
+        "item": "通用线索非冗余",
+        "ok": true
+      },
+      {
+        "item": "独立实现全线索盘面完全一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现逐卡语义一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现每个身份最终盘面一致",
+        "ok": true
+      },
+      {
+        "item": "独立实现候选位置一致",
+        "ok": true
+      }
+    ]
+  },
+  "current_v16_levels": [
+    {
+      "level": 3,
+      "grid": 6,
+      "verification_mode": "teaching_all_true",
+      "difficulty_band": "Easy 与 Medium 之间",
+      "truth_pattern": "六卡全真（推导结果）",
+      "announce": "unknown",
+      "thief": "A",
+      "general_clues": [],
+      "clause_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "compound_cards": 0,
+      "negative_clauses": 0,
+      "only_clauses": 1,
+      "directional_distance_clauses": 2,
+      "hint_preview_counts": [
+        0,
+        2,
+        3,
+        9,
+        0,
+        9
+      ],
+      "hint_total": 23,
+      "card_order_1based": [
+        1,
+        6,
+        3,
+        4,
+        5,
+        2
+      ],
+      "all_true_boards_S": 3,
+      "thief_option_positions_P": 2,
+      "final_solutions": 1,
+      "checks_passed": 15,
+      "checks_total": 15,
+      "PASS": true
+    },
+    {
+      "level": 5,
+      "grid": 6,
+      "verification_mode": "conditional_lie",
+      "difficulty_band": "708未重算GAC深度；按当前双实现口径验收",
+      "truth_pattern": "恰一谎（推导结果）",
+      "announce": "unknown",
+      "thief": "B",
+      "general_clues": [],
+      "clause_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "compound_cards": 0,
+      "negative_clauses": 1,
+      "only_clauses": 1,
+      "directional_distance_clauses": 0,
+      "hint_preview_counts": [
+        2,
+        2,
+        3,
+        2,
+        0,
+        3
+      ],
+      "hint_total": 12,
+      "card_order_1based": null,
+      "all_true_boards_S": 0,
+      "thief_option_positions_P": 0,
+      "final_solutions": 1,
+      "checks_passed": 16,
+      "checks_total": 16,
+      "PASS": true
+    },
+    {
+      "level": 6,
+      "grid": 7,
+      "verification_mode": "teaching_all_true",
+      "difficulty_band": "7×7 大盘面 · GAC 深度 0（纯演绎）",
+      "truth_pattern": "七卡全真 · 无谎言（推导结果）",
+      "announce": "unknown",
+      "thief": "B",
+      "general_clues": [],
+      "clause_counts": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "compound_cards": 2,
+      "negative_clauses": 2,
+      "only_clauses": 1,
+      "directional_distance_clauses": 0,
+      "hint_preview_counts": [
+        4,
+        0,
+        14,
+        3,
+        3,
+        0,
+        2
+      ],
+      "hint_total": 26,
+      "card_order_1based": null,
+      "all_true_boards_S": 4,
+      "thief_option_positions_P": 2,
+      "final_solutions": 1,
+      "checks_passed": 15,
+      "checks_total": 15,
+      "PASS": true
+    },
+    {
+      "level": 7,
+      "grid": 6,
+      "verification_mode": "conditional_lie",
+      "difficulty_band": "708未重算GAC深度；按当前双实现口径验收",
+      "truth_pattern": "恰一谎（推导结果）",
+      "announce": "unknown",
+      "thief": "B",
+      "general_clues": [
+        "椅子上有2人"
+      ],
+      "clause_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "compound_cards": 0,
+      "negative_clauses": 0,
+      "only_clauses": 0,
+      "directional_distance_clauses": 0,
+      "hint_preview_counts": [
+        8,
+        3,
+        3,
+        8,
+        4,
+        4
+      ],
+      "hint_total": 30,
+      "card_order_1based": null,
+      "all_true_boards_S": 0,
+      "thief_option_positions_P": 0,
+      "final_solutions": 1,
+      "checks_passed": 19,
+      "checks_total": 19,
+      "PASS": true
+    }
+  ],
+  "version_snapshots": {
+    "v11": [
+      {
+        "level": 3,
+        "position_assumption_depth": 0,
+        "all_true_boards": 2
+      },
+      {
+        "level": 4,
+        "position_assumption_depth": 1,
+        "all_true_boards": 0
+      }
+    ],
+    "v12": [
+      {
+        "level": 3,
+        "gac_depth": 0,
+        "identity_hypotheses": 3,
+        "all_true_boards": 2,
+        "thief_own_positions": 2,
+        "contradiction_min_subset": null,
+        "propagation_events": 24,
+        "min_single_card_domain": 2
+      },
+      {
+        "level": 4,
+        "gac_depth": 0,
+        "identity_hypotheses": 1,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 2,
+        "propagation_events": 19,
+        "min_single_card_domain": 2
+      }
+    ],
+    "v13": [
+      {
+        "level": 3,
+        "gac_depth": 0,
+        "identity_hypotheses": 3,
+        "all_true_boards": 2,
+        "thief_own_positions": 2,
+        "contradiction_min_subset": null,
+        "propagation_events": 23,
+        "compound_cards": 1,
+        "numeric_clauses": 0,
+        "negative_clauses": 0,
+        "min_single_card_domain": 2
+      },
+      {
+        "level": 4,
+        "gac_depth": 0,
+        "identity_hypotheses": 1,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 2,
+        "propagation_events": 20,
+        "compound_cards": 0,
+        "numeric_clauses": 0,
+        "negative_clauses": 0,
+        "min_single_card_domain": 2
+      },
+      {
+        "level": 5,
+        "gac_depth": 1,
+        "identity_hypotheses": 2,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 3,
+        "propagation_events": 33,
+        "compound_cards": 1,
+        "numeric_clauses": 1,
+        "negative_clauses": 0,
+        "min_single_card_domain": 2
+      },
+      {
+        "level": 6,
+        "gac_depth": 0,
+        "identity_hypotheses": 4,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 6,
+        "propagation_events": 32,
+        "compound_cards": 2,
+        "numeric_clauses": 1,
+        "negative_clauses": 1,
+        "min_single_card_domain": 2
+      }
+    ],
+    "v14": [
+      {
+        "level": 3,
+        "gac_depth": 0,
+        "identity_hypotheses": 3,
+        "all_true_boards": 2,
+        "thief_own_positions": 2,
+        "contradiction_min_subset": null,
+        "propagation_events": 23,
+        "compound_cards": 1,
+        "numeric_clauses": 0,
+        "negative_clauses": 0,
+        "min_single_card_domain": 2,
+        "PASS": true
+      },
+      {
+        "level": 4,
+        "gac_depth": 0,
+        "identity_hypotheses": 1,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 2,
+        "propagation_events": 20,
+        "compound_cards": 0,
+        "numeric_clauses": 0,
+        "negative_clauses": 0,
+        "min_single_card_domain": 2,
+        "PASS": true
+      },
+      {
+        "level": 5,
+        "gac_depth": 1,
+        "identity_hypotheses": 2,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 3,
+        "propagation_events": 34,
+        "compound_cards": 1,
+        "numeric_clauses": 2,
+        "negative_clauses": 1,
+        "min_single_card_domain": 2,
+        "PASS": true
+      },
+      {
+        "level": 6,
+        "gac_depth": 0,
+        "identity_hypotheses": 1,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 2,
+        "propagation_events": 49,
+        "compound_cards": 0,
+        "numeric_clauses": 3,
+        "negative_clauses": 0,
+        "min_single_card_domain": 2,
+        "PASS": true
+      },
+      {
+        "level": 7,
+        "gac_depth": 1,
+        "identity_hypotheses": 4,
+        "all_true_boards": 0,
+        "thief_own_positions": 1,
+        "contradiction_min_subset": 5,
+        "propagation_events": 31,
+        "compound_cards": 1,
+        "numeric_clauses": 2,
+        "negative_clauses": 1,
+        "min_single_card_domain": 2,
+        "PASS": true
+      }
+    ],
+    "v16": [
+      {
+        "level": 3,
+        "mode": "teaching_all_true",
+        "PASS": true,
+        "checks": [
+          15,
+          15
+        ],
+        "all_true_boards": 3,
+        "thief_own_positions": 2,
+        "final_solutions": 1,
+        "identity_uniqueness_claimed": false,
+        "deletion_is_hard_gate": false,
+        "legacy_audit_status": "作废：不调用、不参与PASS"
+      },
+      {
+        "level": 5,
+        "mode": "conditional_lie",
+        "PASS": true,
+        "checks": [
+          16,
+          16
+        ],
+        "all_true_boards": 0,
+        "thief_own_positions": 0,
+        "final_solutions": 1,
+        "identity_uniqueness_claimed": false,
+        "deletion_is_hard_gate": true,
+        "legacy_audit_status": "作废：不调用、不参与PASS"
+      },
+      {
+        "level": 6,
+        "mode": "teaching_all_true",
+        "PASS": true,
+        "checks": [
+          15,
+          15
+        ],
+        "all_true_boards": 4,
+        "thief_own_positions": 2,
+        "final_solutions": 1,
+        "identity_uniqueness_claimed": false,
+        "deletion_is_hard_gate": false,
+        "legacy_audit_status": "作废：不调用、不参与PASS"
+      },
+      {
+        "level": 7,
+        "mode": "conditional_lie",
+        "PASS": true,
+        "checks": [
+          19,
+          19
+        ],
+        "all_true_boards": 0,
+        "thief_own_positions": 0,
+        "final_solutions": 1,
+        "identity_uniqueness_claimed": false,
+        "deletion_is_hard_gate": true,
+        "legacy_audit_status": "作废：不调用、不参与PASS"
+      }
+    ],
+    "v16_695_baseline": [
+      {
+        "level": 5,
+        "gac_depth": 0,
+        "contradiction_min_subset": 2,
+        "legacy_audit_correct": true
+      },
+      {
+        "level": 6,
+        "gac_depth": 0,
+        "contradiction_min_subset": null,
+        "legacy_audit_correct": false
+      },
+      {
+        "level": 7,
+        "gac_depth": 0,
+        "contradiction_min_subset": 4,
+        "legacy_audit_correct": true
+      }
+    ]
+  },
+  "caveats": [
+    "历史版本（v11–v14）的 PASS 与 gac_depth 不得用于宣称 v16 当前通过。",
+    "v16 不以 GAC 深度作硬闸门；历史深度值只作追溯，不得冒充重算结果。",
+    "v16 明确不声称盗窃者身份唯一（identity_uniqueness_claimed=False）。",
+    "v14 与 v16 的 all_true_boards / thief_own_positions 同名不同义，禁止跨版本直接比较。",
+    "第4关保留 v14 设计，未宣称通过 v16 新口径唯一性审计。",
+    "归档的第7关 PNG 仍是 695 原始墙布局，以 current_design_v16.json 为准。"
+  ],
+  "regenerate": "python -B 第三四关内容设计/verify_v16.py"
+}

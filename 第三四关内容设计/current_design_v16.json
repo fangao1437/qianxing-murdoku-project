@@ -686,55 +686,51 @@
     },
     "cards": [
       [
-        "A与C在同一房间"
+        "A在椅子上"
       ],
       [
         "E在椅子上"
       ],
       [
-        "E在地毯上"
-      ],
-      [
-        "B不在桌子旁边",
-        "D在椅子上"
-      ],
-      [
-        "A在椅子上",
         "C在桌子旁边"
       ],
       [
-        "B与C不在同一房间"
+        "D在植物旁边"
+      ],
+      [
+        "E与V不在同一房间"
+      ],
+      [
+        "只有E在地毯上"
       ]
     ],
     "display_cards": [
       [
-        "我与C火漆验印在同一房间"
+        "我在椅子上"
       ],
       [
         "E证物登记在椅子上"
       ],
       [
-        "E证物登记在地毯上"
+        "我在桌子旁边"
       ],
       [
-        "B夜勘记录不在桌子旁边",
-        "我在椅子上"
+        "我在植物旁边"
       ],
       [
-        "A封条保管在椅子上",
-        "C火漆验印在桌子旁边"
+        "我与V守夜馆人不在同一房间"
       ],
       [
-        "B夜勘记录与C火漆验印不在同一房间"
+        "只有E证物登记在地毯上"
       ]
     ],
     "clause_roles": [
       [
         {
-          "text": "A与C在同一房间",
+          "text": "A在椅子上",
           "speaker": "A",
           "self_ref": true,
-          "display": "我与C火漆验印在同一房间"
+          "display": "我在椅子上"
         }
       ],
       [
@@ -747,46 +743,34 @@
       ],
       [
         {
-          "text": "E在地毯上",
+          "text": "C在桌子旁边",
           "speaker": "C",
-          "self_ref": false,
-          "display": "E证物登记在地毯上"
+          "self_ref": true,
+          "display": "我在桌子旁边"
         }
       ],
       [
         {
-          "text": "B不在桌子旁边",
-          "speaker": "D",
-          "self_ref": false,
-          "display": "B夜勘记录不在桌子旁边"
-        },
-        {
-          "text": "D在椅子上",
+          "text": "D在植物旁边",
           "speaker": "D",
           "self_ref": true,
-          "display": "我在椅子上"
+          "display": "我在植物旁边"
         }
       ],
       [
         {
-          "text": "A在椅子上",
+          "text": "E与V不在同一房间",
           "speaker": "E",
-          "self_ref": false,
-          "display": "A封条保管在椅子上"
-        },
-        {
-          "text": "C在桌子旁边",
-          "speaker": "E",
-          "self_ref": false,
-          "display": "C火漆验印在桌子旁边"
+          "self_ref": true,
+          "display": "我与V守夜馆人不在同一房间"
         }
       ],
       [
         {
-          "text": "B与C不在同一房间",
+          "text": "只有E在地毯上",
           "speaker": "V",
           "self_ref": false,
-          "display": "B夜勘记录与C火漆验印不在同一房间"
+          "display": "只有E证物登记在地毯上"
         }
       ]
     ],
@@ -803,7 +787,7 @@
         "slot": 1,
         "letter": "A",
         "who": "封条保管",
-        "what": "我与C火漆验印在同一房间"
+        "what": "我在椅子上"
       },
       {
         "slot": 2,
@@ -815,25 +799,25 @@
         "slot": 3,
         "letter": "C",
         "who": "火漆验印",
-        "what": "E证物登记在地毯上"
+        "what": "我在桌子旁边"
       },
       {
         "slot": 4,
         "letter": "D",
         "who": "暗房洗印",
-        "what": "B夜勘记录不在桌子旁边、我在椅子上"
+        "what": "我在植物旁边"
       },
       {
         "slot": 5,
         "letter": "E",
         "who": "证物登记",
-        "what": "A封条保管在椅子上、C火漆验印在桌子旁边"
+        "what": "我与V守夜馆人不在同一房间"
       },
       {
         "slot": 6,
         "letter": "V",
         "who": "守夜馆人",
-        "what": "B夜勘记录与C火漆验印不在同一房间"
+        "what": "只有E证物登记在地毯上"
       }
     ],
     "announce": "unknown",
@@ -846,7 +830,7 @@
       true
     ],
     "truth_pattern": "恰一谎（推导结果）",
-    "difficulty_band": "GAC 深度 0（纯演绎）",
+    "difficulty_band": "708未重算GAC深度；按当前双实现口径验收",
     "visual_theme": {
       "key": "archive-dark",
       "name": "夜勘卷宗 · 深棕墨 / 火漆红",
@@ -949,51 +933,64 @@
     ],
     "direction_hints": [],
     "source": "695_实际关卡数据.json（695 内嵌 Lua + 695 静态卡面）",
-    "rule_note": "全线索候选格，不含人数规则；第3/6关全真教学，不启用假话分支；第5/7关按候选格数量决定真假；旧摘卡候选闸门作废",
+    "rule_note": "全线索候选格含通用线索、不含人数规则；3/6全真教学；5/7条件真假；旧摘卡闸门作废",
     "base_meta": {
       "announce": "unknown",
       "false_clue": 2
     },
     "hint_preview": [
       {
-        "cells": {},
-        "count": 0,
-        "rule": "不做位置提示"
-      },
-      {
+        "rule": "该家具自己的格子",
         "cells": [
           "1:2",
           "6:5"
         ],
-        "count": 2,
-        "rule": "该家具自己的格子"
+        "count": 2
       },
       {
+        "rule": "该家具自己的格子",
+        "cells": [
+          "1:2",
+          "6:5"
+        ],
+        "count": 2
+      },
+      {
+        "rule": "该家具四邻、同区域、可站人的格",
+        "cells": [
+          "4:3",
+          "4:5",
+          "5:4"
+        ],
+        "count": 3
+      },
+      {
+        "rule": "该家具四邻、同区域、可站人的格",
+        "cells": [
+          "1:2",
+          "2:1"
+        ],
+        "count": 2
+      },
+      {
+        "rule": "不做位置提示",
+        "cells": [],
+        "count": 0
+      },
+      {
+        "rule": "该家具自己的格子",
         "cells": [
           "2:2",
           "2:3",
           "6:2"
         ],
-        "count": 3,
-        "rule": "该家具自己的格子"
-      },
-      {
-        "cells": {},
-        "count": 0,
-        "rule": "不做位置提示"
-      },
-      {
-        "cells": {},
-        "count": 0,
-        "rule": "不做位置提示"
-      },
-      {
-        "cells": {},
-        "count": 0,
-        "rule": "不做位置提示"
+        "count": 3
       }
     ],
-    "verification_mode": "conditional_lie"
+    "verification_mode": "conditional_lie",
+    "general_clues": [],
+    "general_hint_preview": [],
+    "save_revision": 708
   },
   {
     "level": 6,
@@ -1690,11 +1687,6 @@
         3
       ],
       [
-        "h",
-        3,
-        4
-      ],
-      [
         "v",
         4,
         1
@@ -1813,55 +1805,51 @@
     },
     "cards": [
       [
-        "C在地毯上"
+        "C在桌子旁边"
       ],
       [
         "V在地毯上"
       ],
       [
-        "B在椅子上",
+        "C在地毯上"
+      ],
+      [
+        "D在桌子旁边"
+      ],
+      [
         "E在椅子上"
       ],
       [
-        "B在植物旁边",
-        "E独自在房间"
-      ],
-      [
-        "V不在桌子旁边"
-      ],
-      [
-        "A在植物旁边"
+        "B在椅子上"
       ]
     ],
     "display_cards": [
       [
-        "C誊写员在地毯上"
+        "C誊写员在桌子旁边"
       ],
       [
         "V藏卷人在地毯上"
       ],
       [
-        "B转架管理在椅子上",
-        "E线装匠人在椅子上"
+        "我在地毯上"
       ],
       [
-        "B转架管理在植物旁边",
-        "E线装匠人独自在房间"
+        "我在桌子旁边"
       ],
       [
-        "V藏卷人不在桌子旁边"
+        "我在椅子上"
       ],
       [
-        "A铜钥保管在植物旁边"
+        "B转架管理在椅子上"
       ]
     ],
     "clause_roles": [
       [
         {
-          "text": "C在地毯上",
+          "text": "C在桌子旁边",
           "speaker": "A",
           "self_ref": false,
-          "display": "C誊写员在地毯上"
+          "display": "C誊写员在桌子旁边"
         }
       ],
       [
@@ -1874,46 +1862,34 @@
       ],
       [
         {
-          "text": "B在椅子上",
+          "text": "C在地毯上",
           "speaker": "C",
-          "self_ref": false,
-          "display": "B转架管理在椅子上"
-        },
+          "self_ref": true,
+          "display": "我在地毯上"
+        }
+      ],
+      [
+        {
+          "text": "D在桌子旁边",
+          "speaker": "D",
+          "self_ref": true,
+          "display": "我在桌子旁边"
+        }
+      ],
+      [
         {
           "text": "E在椅子上",
-          "speaker": "C",
-          "self_ref": false,
-          "display": "E线装匠人在椅子上"
-        }
-      ],
-      [
-        {
-          "text": "B在植物旁边",
-          "speaker": "D",
-          "self_ref": false,
-          "display": "B转架管理在植物旁边"
-        },
-        {
-          "text": "E独自在房间",
-          "speaker": "D",
-          "self_ref": false,
-          "display": "E线装匠人独自在房间"
-        }
-      ],
-      [
-        {
-          "text": "V不在桌子旁边",
           "speaker": "E",
-          "self_ref": false,
-          "display": "V藏卷人不在桌子旁边"
+          "self_ref": true,
+          "display": "我在椅子上"
         }
       ],
       [
         {
-          "text": "A在植物旁边",
+          "text": "B在椅子上",
           "speaker": "V",
           "self_ref": false,
-          "display": "A铜钥保管在植物旁边"
+          "display": "B转架管理在椅子上"
         }
       ]
     ],
@@ -1930,7 +1906,7 @@
         "slot": 1,
         "letter": "A",
         "who": "铜钥保管",
-        "what": "C誊写员在地毯上"
+        "what": "C誊写员在桌子旁边"
       },
       {
         "slot": 2,
@@ -1942,25 +1918,25 @@
         "slot": 3,
         "letter": "C",
         "who": "誊写员",
-        "what": "B转架管理在椅子上、E线装匠人在椅子上"
+        "what": "我在地毯上"
       },
       {
         "slot": 4,
         "letter": "D",
         "who": "铜牌登记",
-        "what": "B转架管理在植物旁边、E线装匠人独自在房间"
+        "what": "我在桌子旁边"
       },
       {
         "slot": 5,
         "letter": "E",
         "who": "线装匠人",
-        "what": "V藏卷人不在桌子旁边"
+        "what": "我在椅子上"
       },
       {
         "slot": 6,
         "letter": "V",
         "who": "藏卷人",
-        "what": "A铜钥保管在植物旁边"
+        "what": "B转架管理在椅子上"
       }
     ],
     "announce": "unknown",
@@ -1973,7 +1949,7 @@
       true
     ],
     "truth_pattern": "恰一谎（推导结果）",
-    "difficulty_band": "GAC 深度 0（纯演绎）",
+    "difficulty_band": "708未重算GAC深度；按当前双实现口径验收",
     "visual_theme": {
       "key": "sepia-rotated",
       "name": "旋转档案 · 深墨绿 / 铜金（90° 旋转关专属）",
@@ -2064,41 +2040,14 @@
     ],
     "direction_hints": [],
     "source": "695_实际关卡数据.json（695 内嵌 Lua + 695 静态卡面）",
-    "rule_note": "全线索候选格，不含人数规则；第3/6关全真教学，不启用假话分支；第5/7关按候选格数量决定真假；旧摘卡候选闸门作废",
+    "rule_note": "全线索候选格含通用线索、不含人数规则；3/6全真教学；5/7条件真假；旧摘卡闸门作废",
     "base_meta": {
       "announce": "unknown",
       "false_clue": 2
     },
     "hint_preview": [
       {
-        "cells": [
-          "2:3",
-          "2:4",
-          "3:4"
-        ],
-        "count": 3,
-        "rule": "该家具自己的格子"
-      },
-      {
-        "cells": [
-          "2:3",
-          "2:4",
-          "3:4"
-        ],
-        "count": 3,
-        "rule": "该家具自己的格子"
-      },
-      {
-        "cells": {},
-        "count": 0,
-        "rule": "不做位置提示"
-      },
-      {
-        "cells": {},
-        "count": 0,
-        "rule": "不做位置提示"
-      },
-      {
+        "rule": "该家具四邻、同区域、可站人的格",
         "cells": [
           "2:5",
           "3:1",
@@ -2109,18 +2058,77 @@
           "4:5",
           "5:1"
         ],
-        "count": 8,
-        "rule": "该家具四邻、同区域、可站人的格"
+        "count": 8
       },
       {
+        "rule": "该家具自己的格子",
+        "cells": [
+          "2:3",
+          "2:4",
+          "3:4"
+        ],
+        "count": 3
+      },
+      {
+        "rule": "该家具自己的格子",
+        "cells": [
+          "2:3",
+          "2:4",
+          "3:4"
+        ],
+        "count": 3
+      },
+      {
+        "rule": "该家具四邻、同区域、可站人的格",
+        "cells": [
+          "2:5",
+          "3:1",
+          "3:3",
+          "3:4",
+          "3:6",
+          "4:2",
+          "4:5",
+          "5:1"
+        ],
+        "count": 8
+      },
+      {
+        "rule": "该家具自己的格子",
         "cells": [
           "1:5",
-          "2:6"
+          "4:5",
+          "5:1",
+          "6:6"
         ],
-        "count": 2,
-        "rule": "该家具四邻、同区域、可站人的格"
+        "count": 4
+      },
+      {
+        "rule": "该家具自己的格子",
+        "cells": [
+          "1:5",
+          "4:5",
+          "5:1",
+          "6:6"
+        ],
+        "count": 4
       }
     ],
-    "verification_mode": "conditional_lie"
+    "verification_mode": "conditional_lie",
+    "general_clues": [
+      "椅子上有2人"
+    ],
+    "general_hint_preview": [
+      {
+        "rule": "该家具自己的格子",
+        "cells": [
+          "1:5",
+          "4:5",
+          "5:1",
+          "6:6"
+        ],
+        "count": 4
+      }
+    ],
+    "save_revision": 708
   }
 ]

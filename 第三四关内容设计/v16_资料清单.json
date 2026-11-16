@@ -1,4 +1,6 @@
 {
+  "save_revision": 708,
+  "revision_note": "第5/7关单句卡；第7关一条无身份通用线索；移除h3,4内墙；历史PNG未更新，以当前JSON与708内嵌缩略图为准",
   "current": "current_design_v16.json",
   "verification": "verification_v16.json",
   "entry": "verify_v16.py",
