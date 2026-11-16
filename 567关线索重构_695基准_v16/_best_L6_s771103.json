@@ -1,0 +1,850 @@
+{
+  "level": 6,
+  "objects": {
+    "桌子": [
+      2,
+      6,
+      8,
+      13,
+      14,
+      32,
+      39,
+      42,
+      47
+    ],
+    "椅子": [
+      15,
+      31
+    ],
+    "书架": [
+      5,
+      48
+    ],
+    "植物": [
+      9,
+      40
+    ],
+    "地毯": [
+      12,
+      33
+    ],
+    "雕塑": [
+      44
+    ]
+  },
+  "choice": [
+    20,
+    523,
+    41,
+    31,
+    18,
+    560,
+    3
+  ],
+  "result": {
+    "level": 6,
+    "grid": 7,
+    "PASS": true,
+    "checks": [
+      {
+        "group": "布局冻结",
+        "item": "room/doors/target/thief/size 与 695 逐项相同",
+        "ok": true,
+        "value": "L6 7×7 门5 答案[15, 41, 12, 25, 45, 30, 0]"
+      },
+      {
+        "group": "布局冻结",
+        "item": "家具类型均在已支持的 6 类内",
+        "ok": true,
+        "value": [
+          "桌子",
+          "椅子",
+          "书架",
+          "植物",
+          "地毯",
+          "雕塑"
+        ]
+      },
+      {
+        "group": "布局冻结",
+        "item": "卡数=人数",
+        "ok": true,
+        "value": 7
+      },
+      {
+        "group": "布局冻结",
+        "item": "不预告真假",
+        "ok": true,
+        "value": "unknown"
+      },
+      {
+        "group": "更正口径",
+        "item": "全线索摆法 S（不含人数规则）",
+        "ok": true,
+        "value": 4
+      },
+      {
+        "group": "更正口径",
+        "item": "仅指定盗窃者给出唯一且等于预设答案的解",
+        "ok": true,
+        "value": [
+          {
+            "person": "A",
+            "optional_positions": 1,
+            "mode": "truth",
+            "boards": 0,
+            "is_target": false
+          },
+          {
+            "person": "B",
+            "optional_positions": 2,
+            "mode": "truth",
+            "boards": 1,
+            "is_target": true
+          },
+          {
+            "person": "C",
+            "optional_positions": 1,
+            "mode": "truth",
+            "boards": 0,
+            "is_target": false
+          },
+          {
+            "person": "D",
+            "optional_positions": 3,
+            "mode": "truth",
+            "boards": 1,
+            "is_target": true
+          },
+          {
+            "person": "E",
+            "optional_positions": 1,
+            "mode": "truth",
+            "boards": 1,
+            "is_target": true
+          },
+          {
+            "person": "F",
+            "optional_positions": 1,
+            "mode": "truth",
+            "boards": 1,
+            "is_target": true
+          }
+        ]
+      },
+      {
+        "group": "更正口径",
+        "item": "★ 无谎言：全线索下盗窃者 ≥2 个可选位置",
+        "ok": true,
+        "value": "可选格2 全线索盘数4"
+      },
+      {
+        "group": "更正口径",
+        "item": "★ 使用人数规则后收敛为 1 解",
+        "ok": true,
+        "value": "全线索4盘 → 人数规则后1盘"
+      },
+      {
+        "group": "更正口径",
+        "item": "★ 人数规则确实排除了其它全线索摆法",
+        "ok": true,
+        "value": 3
+      },
+      {
+        "group": "谎言",
+        "item": "七卡全真（答案处逐卡为真）",
+        "ok": true,
+        "value": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "group": "方向提示",
+        "item": "人对人方位/距离提示 ≤2",
+        "ok": true,
+        "value": 0
+      },
+      {
+        "group": "方向提示",
+        "item": "尽可能少（记录实际条数，0 为最优）",
+        "ok": true,
+        "value": []
+      },
+      {
+        "group": "语言闸门",
+        "item": "V 卡单句",
+        "ok": true,
+        "value": 1
+      },
+      {
+        "group": "语言闸门",
+        "item": "单卡 ≤2 句",
+        "ok": true,
+        "value": 2
+      },
+      {
+        "group": "语言闸门",
+        "item": "复合卡 ≤2",
+        "ok": true,
+        "value": 2
+      },
+      {
+        "group": "语言闸门",
+        "item": "无内部标签 / 无全局计数 / 无数字距离句",
+        "ok": true,
+        "value": [
+          "neg",
+          "beside",
+          "beside",
+          "beside",
+          "beside",
+          "beside",
+          "neg",
+          "beside",
+          "only"
+        ]
+      },
+      {
+        "group": "语言闸门",
+        "item": "否定 ≤2 / 只有 ≤1",
+        "ok": true,
+        "value": "neg2 only1"
+      },
+      {
+        "group": "单卡不定位",
+        "item": "任一单卡对任一人物候选格 >1",
+        "ok": true,
+        "value": 2
+      },
+      {
+        "group": "删卡非冗余",
+        "item": "无谎言关按第 1 关实际行为记录（不作硬闸门）",
+        "ok": true,
+        "value": {
+          "note": "实测 695 第 1 关摘掉第 4/5 卡后人数规则仍唯一，故本关不强制",
+          "detail": [
+            {
+              "card": 0,
+              "unique_after_drop": true
+            },
+            {
+              "card": 1,
+              "unique_after_drop": false
+            },
+            {
+              "card": 2,
+              "unique_after_drop": true
+            },
+            {
+              "card": 3,
+              "unique_after_drop": false
+            },
+            {
+              "card": 4,
+              "unique_after_drop": false
+            },
+            {
+              "card": 5,
+              "unique_after_drop": true
+            },
+            {
+              "card": 6,
+              "unique_after_drop": false
+            }
+          ]
+        }
+      },
+      {
+        "group": "视觉区分",
+        "item": "三关主题互不重复",
+        "ok": true,
+        "value": [
+          "archive-dark",
+          "blueprint",
+          "sepia-rotated"
+        ]
+      },
+      {
+        "group": "双实现",
+        "item": "numpy 独立枚举与位集主判据一致",
+        "ok": true,
+        "value": {
+          "generated_boards": 1743840,
+          "S_boards": 4,
+          "all_true_board_is_target": true,
+          "thief_final_boards": 1,
+          "thief_final_is_target": true,
+          "other_final_boards": 3,
+          "thief_optional_positions": 2,
+          "audit": [
+            {
+              "person": "A",
+              "mode": "truth",
+              "boards": 0,
+              "optional_positions": 1,
+              "is_target": false
+            },
+            {
+              "person": "B",
+              "mode": "truth",
+              "boards": 1,
+              "optional_positions": 2,
+              "is_target": true
+            },
+            {
+              "person": "C",
+              "mode": "truth",
+              "boards": 0,
+              "optional_positions": 1,
+              "is_target": false
+            },
+            {
+              "person": "D",
+              "mode": "truth",
+              "boards": 1,
+              "optional_positions": 3,
+              "is_target": true
+            },
+            {
+              "person": "E",
+              "mode": "truth",
+              "boards": 1,
+              "optional_positions": 1,
+              "is_target": true
+            },
+            {
+              "person": "F",
+              "mode": "truth",
+              "boards": 1,
+              "optional_positions": 1,
+              "is_target": true
+            }
+          ]
+        }
+      }
+    ],
+    "cards": [
+      [
+        "B不在地毯旁边"
+      ],
+      [
+        "E在雕塑旁边",
+        "F在椅子旁边"
+      ],
+      [
+        "D在桌子旁边"
+      ],
+      [
+        "C在书架旁边"
+      ],
+      [
+        "B在书架旁边"
+      ],
+      [
+        "A不在植物旁边",
+        "C在桌子旁边"
+      ],
+      [
+        "只有A在椅子上"
+      ]
+    ],
+    "truth_vector": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "all_clue_boards": 4,
+    "optional_positions": {
+      "A": 1,
+      "B": 2,
+      "C": 1,
+      "D": 3,
+      "E": 1,
+      "F": 1
+    },
+    "corrected_audit": [
+      {
+        "person": "A",
+        "optional_positions": 1,
+        "mode": "truth",
+        "boards": 0,
+        "is_target": false
+      },
+      {
+        "person": "B",
+        "optional_positions": 2,
+        "mode": "truth",
+        "boards": 1,
+        "is_target": true
+      },
+      {
+        "person": "C",
+        "optional_positions": 1,
+        "mode": "truth",
+        "boards": 0,
+        "is_target": false
+      },
+      {
+        "person": "D",
+        "optional_positions": 3,
+        "mode": "truth",
+        "boards": 1,
+        "is_target": true
+      },
+      {
+        "person": "E",
+        "optional_positions": 1,
+        "mode": "truth",
+        "boards": 1,
+        "is_target": true
+      },
+      {
+        "person": "F",
+        "optional_positions": 1,
+        "mode": "truth",
+        "boards": 1,
+        "is_target": true
+      }
+    ],
+    "gac_depth": 0,
+    "contradiction_min_subset": null,
+    "vocabulary_cost": 12,
+    "categories": [
+      "neg",
+      "beside",
+      "beside",
+      "beside",
+      "beside",
+      "beside",
+      "neg",
+      "beside",
+      "only"
+    ],
+    "card_clauses": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      2,
+      1
+    ],
+    "single_card_min_domain": 2,
+    "deletion": [
+      {
+        "card": 0,
+        "unique_after_drop": true
+      },
+      {
+        "card": 1,
+        "unique_after_drop": false
+      },
+      {
+        "card": 2,
+        "unique_after_drop": true
+      },
+      {
+        "card": 3,
+        "unique_after_drop": false
+      },
+      {
+        "card": 4,
+        "unique_after_drop": false
+      },
+      {
+        "card": 5,
+        "unique_after_drop": true
+      },
+      {
+        "card": 6,
+        "unique_after_drop": false
+      }
+    ],
+    "independent_corrected": {
+      "generated_boards": 1743840,
+      "S_boards": 4,
+      "all_true_board_is_target": true,
+      "thief_final_boards": 1,
+      "thief_final_is_target": true,
+      "other_final_boards": 3,
+      "thief_optional_positions": 2,
+      "audit": [
+        {
+          "person": "A",
+          "mode": "truth",
+          "boards": 0,
+          "optional_positions": 1,
+          "is_target": false
+        },
+        {
+          "person": "B",
+          "mode": "truth",
+          "boards": 1,
+          "optional_positions": 2,
+          "is_target": true
+        },
+        {
+          "person": "C",
+          "mode": "truth",
+          "boards": 0,
+          "optional_positions": 1,
+          "is_target": false
+        },
+        {
+          "person": "D",
+          "mode": "truth",
+          "boards": 1,
+          "optional_positions": 3,
+          "is_target": true
+        },
+        {
+          "person": "E",
+          "mode": "truth",
+          "boards": 1,
+          "optional_positions": 1,
+          "is_target": true
+        },
+        {
+          "person": "F",
+          "mode": "truth",
+          "boards": 1,
+          "optional_positions": 1,
+          "is_target": true
+        }
+      ]
+    },
+    "legacy_audit_correct": false,
+    "legacy_audit_alltrue": 4,
+    "legacy_own_positions": [
+      0,
+      2,
+      0,
+      1,
+      1,
+      1
+    ],
+    "direction_hints": [],
+    "objects": {
+      "桌子": [
+        2,
+        6,
+        8,
+        13,
+        14,
+        32,
+        39,
+        42,
+        47
+      ],
+      "椅子": [
+        15,
+        31
+      ],
+      "书架": [
+        5,
+        48
+      ],
+      "植物": [
+        9,
+        40
+      ],
+      "地毯": [
+        12,
+        33
+      ],
+      "雕塑": [
+        44
+      ]
+    }
+  },
+  "design": {
+    "level": 6,
+    "grid": 7,
+    "room": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "doors": [
+      [
+        16,
+        23
+      ],
+      [
+        17,
+        18
+      ],
+      [
+        18,
+        25
+      ],
+      [
+        21,
+        28
+      ],
+      [
+        43,
+        44
+      ]
+    ],
+    "objects": {
+      "桌子": [
+        2,
+        6,
+        8,
+        13,
+        14,
+        32,
+        39,
+        42,
+        47
+      ],
+      "椅子": [
+        15,
+        31
+      ],
+      "书架": [
+        5,
+        48
+      ],
+      "植物": [
+        9,
+        40
+      ],
+      "地毯": [
+        12,
+        33
+      ],
+      "雕塑": [
+        44
+      ]
+    },
+    "target": [
+      15,
+      41,
+      12,
+      25,
+      45,
+      30,
+      0
+    ],
+    "thief": "B",
+    "cards": [
+      [
+        "B不在地毯旁边"
+      ],
+      [
+        "E在雕塑旁边",
+        "F在椅子旁边"
+      ],
+      [
+        "D在桌子旁边"
+      ],
+      [
+        "C在书架旁边"
+      ],
+      [
+        "B在书架旁边"
+      ],
+      [
+        "A不在植物旁边",
+        "C在桌子旁边"
+      ],
+      [
+        "只有A在椅子上"
+      ]
+    ],
+    "furniture_count": 18,
+    "announce": "unknown",
+    "visual_theme": {
+      "key": "blueprint",
+      "name": "蓝晒图 · 靛青网格 / 朱红批注（7×7 专属）",
+      "palette": {
+        "INK": "#3F2A1E",
+        "INK_SOFT": "#6B4A34",
+        "GRAY": "#B9AC97",
+        "GRAY_DARK": "#8A7A66",
+        "WHITE": "#F8F1E2",
+        "SHADOW": "#241812",
+        "CHAIR_BASE": "#E3D5B8",
+        "CHAIR_LIGHT": "#F0E6D0",
+        "CHAIR_OVL": "#B08A55",
+        "TABLE_BASE": "#D9C7A3",
+        "TABLE_EDGE": "#8A6B45",
+        "SHELF_BASE": "#C8BBA0",
+        "SHELF_OVL": "#8FA3AE",
+        "TV_BASE": "#9AA4A6",
+        "TV_DARK": "#3A3B3C",
+        "TREE_BASE": "#B6A88E",
+        "TREE_OVL": "#7C8A6A",
+        "TREE_LIGHT": "#9BA98A",
+        "TREE_DARK": "#4F5C45",
+        "PLANT_BASE": "#C08A5E",
+        "PLANT_OVL": "#84977A",
+        "PLANT_LEAF_DARK": "#5E6E58",
+        "BED_BASE": "#EDE2C9",
+        "BED_OVL": "#C7A46A",
+        "CARPET": "#D9C08A",
+        "CARPET_EDGE": "#5A4634",
+        "ROOM_TINT": "#E6DAC0",
+        "SEAL": "#A8391B",
+        "TAG": "#7A8FA0",
+        "GOLD": "#C9A961",
+        "PAPER": "#EFE4CE"
+      },
+      "room_colors": [
+        "#DCE7EF",
+        "#CBDDEA",
+        "#BFD2E4",
+        "#E1E7EC"
+      ],
+      "wall": "#1B3A56",
+      "door": "#C3563B",
+      "accent": "#B4412C",
+      "note": "7×7 新关专属：冷蓝晒图底 + 朱红批注门，与 6×6 四关的暖棕/浅色系明确区分"
+    },
+    "names": {
+      "A": "晒图学徒",
+      "B": "靛青描图",
+      "C": "野外测绘",
+      "D": "朱批校样",
+      "E": "蓝图管理",
+      "F": "工地放样",
+      "V": "总测绘师"
+    },
+    "difficulty_band": "Easy 与 Medium 之间（7×7 大盘面）",
+    "asset_mapping": [
+      {
+        "local_name": "桌子",
+        "official_id": 4,
+        "official_name": "Table",
+        "occupiable": false,
+        "freq_levels": 65,
+        "differentiated_name": "勘验台 · 卷宗封边",
+        "local_art_supported": true,
+        "cells": [
+          2,
+          6,
+          8,
+          13,
+          14,
+          32,
+          39,
+          42,
+          47
+        ]
+      },
+      {
+        "local_name": "植物",
+        "official_id": 1,
+        "official_name": "Plant",
+        "occupiable": false,
+        "freq_levels": 28,
+        "differentiated_name": "证物盆栽 · 五叶规整化",
+        "local_art_supported": true,
+        "cells": [
+          9,
+          40
+        ]
+      },
+      {
+        "local_name": "书架",
+        "official_id": 13,
+        "official_name": "Shelf",
+        "occupiable": false,
+        "freq_levels": 49,
+        "differentiated_name": "卷宗柜 · 档案盒脊",
+        "local_art_supported": true,
+        "cells": [
+          5,
+          48
+        ]
+      },
+      {
+        "local_name": "椅子",
+        "official_id": 2,
+        "official_name": "Chair",
+        "occupiable": true,
+        "freq_levels": 65,
+        "differentiated_name": "讯问椅 · 证物编号牌",
+        "local_art_supported": true,
+        "cells": [
+          15,
+          31
+        ]
+      },
+      {
+        "local_name": "地毯",
+        "official_id": 5,
+        "official_name": "Carpet",
+        "occupiable": true,
+        "freq_levels": null,
+        "differentiated_name": "档案纸地毯 · 骑缝章",
+        "local_art_supported": true,
+        "cells": [
+          12,
+          33
+        ]
+      }
+    ],
+    "version": "v16",
+    "source": "695_实际关卡数据.json（695 内嵌 Lua + 695 静态卡面）",
+    "rule_note": "可选位置=全线索下的候选格（覆盖 §一.14/630 旧定义）"
+  }
+}

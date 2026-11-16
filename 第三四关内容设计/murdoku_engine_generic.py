@@ -210,6 +210,9 @@ class Model:
         return [v for v in range(self.n * self.n) if b & self.cb(i, v)]
 
     def audit(self, cards):
+        """已作废的历史摘卡算法，仅供旧报告追溯，不得用于当前验收。"""
+        import warnings
+        warnings.warn('旧摘卡候选闸门已作废；当前验收使用 verify_v16.verify', FutureWarning, stacklevel=2)
         bs = [self.card(c) for c in cards]
         out = []; sol = []; alltrue = self.all
         for b in bs:

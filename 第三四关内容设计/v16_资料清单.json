@@ -1,0 +1,105 @@
+{
+  "current": "current_design_v16.json",
+  "verification": "verification_v16.json",
+  "entry": "verify_v16.py",
+  "historical": [
+    {
+      "file": "567关线索重构_695基准_v16/695_实际关卡数据.json",
+      "sha256": "ce3941ec9885517e403758675e24413facc397df323eddb6f8f05312ad15a632",
+      "bytes": 49360,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/design_selected_v16.json",
+      "sha256": "4e322216cf3b30e65d7d05345b87180e4568269b8a270c088b44f208de6bbf70",
+      "bytes": 29994,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/verification_v16.json",
+      "sha256": "33fff81fac06a5ecf3d53f13270045fc97bdcd2769727393cc1e15032e212d5b",
+      "bytes": 32429,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/design_v16.py",
+      "sha256": "35e11250c3e00fd55e9dfb059e6187fddaed8b849f5be7730a6d0d81665a7f4d",
+      "bytes": 30876,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/build_v16.py",
+      "sha256": "981333443c346ece4cb79fc400a17e4c5b8a8938164d24e831f61885cb5d2f68",
+      "bytes": 14664,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/extract_695.py",
+      "sha256": "b362a5e58c750d1d28a09bb99ce314f82781f745c21b3179ab1d49e4b9974648",
+      "bytes": 8052,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/render_v16.py",
+      "sha256": "76d8ddedc9d57a3068507f6b8dd849786f60b9f4557ce4f30b9a8ebe934df008",
+      "bytes": 10920,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/reverify_all.py",
+      "sha256": "a61f47df07064812bf930cca94bcfd2ad761aa33f5b70bbb8fc41d5591e3bb56",
+      "bytes": 3341,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/solve_v16.py",
+      "sha256": "ccd075cd98bfd1c647dc36ad779f88ef16c4241066862a74e23216e1c214c07d",
+      "bytes": 6745,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/_best_L5.json",
+      "sha256": "244f0b4f97ef3a3ee971eb55c6c7285448611b6593dcf33ab7a78211558627cf",
+      "bytes": 15747,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/_best_L6_s771103.json",
+      "sha256": "d788a054bbe5f1031891d446ed648a0c73b13d4e4f8da7ee28466cf49506bbc4",
+      "bytes": 17912,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/_best_L7.json",
+      "sha256": "1ccb707da25f49be417e1b793a87639197cff0f4d347912a1b40bd3212aad6d7",
+      "bytes": 15394,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/变更说明_v16.md",
+      "sha256": "e05f4ee65e38a8a57a69405ed346e09bc765736d3eb2d49b2f6bc5c4f10ba09d",
+      "bytes": 8489,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/第5关_设计图_v16.png",
+      "sha256": "5cdfedb900037c968884a9a7f1a817e8b56fe03339211552980b56b86057c149",
+      "bytes": 421816,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/第6关_设计图_v16.png",
+      "sha256": "6f22d7b360ae916764ab8deb797aab4d186b6328a6eaea0d94f8080c8e028968",
+      "bytes": 477637,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    },
+    {
+      "file": "567关线索重构_695基准_v16/第7关_设计图_v16.png",
+      "sha256": "a7b933fcfab7a1811737d5de2f15101240abef85f5ae41e18e3798a1744d2ee5",
+      "bytes": 415436,
+      "status": "695基线原始设计快照；当前验收以第三四关内容设计/current_design_v16.json为准"
+    }
+  ],
+  "level4": "保持v14，未宣称通过新口径验收",
+  "level7": "当前墙位v4,3；原始设计图仍为微调前，以current_design_v16.json和707缩略图为准"
+}
