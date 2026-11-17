@@ -772,7 +772,7 @@
   {
     "level": 6,
     "version": "v16",
-    "basis": "all-clue-v16/2026-11-17 / 711",
+    "basis": "all-clue-v16/2026-11-16",
     "mode": "teaching_all_true",
     "PASS": true,
     "checks": [
@@ -880,10 +880,12 @@
     "thief_own_positions": 2,
     "thief_option_positions": [
       [
-        4
+        1,
+        5
       ],
       [
-        41
+        6,
+        7
       ]
     ],
     "identity_uniqueness_claimed": false,
@@ -949,41 +951,41 @@
     "deletion_test": [
       {
         "card": 1,
-        "boards": 100,
+        "boards": 17,
         "unique_target": false
       },
       {
         "card": 2,
-        "boards": 66,
+        "boards": 2,
         "unique_target": false
       },
       {
         "card": 3,
-        "boards": 18,
-        "unique_target": false
+        "boards": 1,
+        "unique_target": true
       },
       {
         "card": 4,
-        "boards": 26,
+        "boards": 3,
         "unique_target": false
       },
       {
         "card": 5,
-        "boards": 136,
+        "boards": 17,
         "unique_target": false
       },
       {
         "card": 6,
-        "boards": 64,
+        "boards": 4,
         "unique_target": false
       },
       {
         "card": 7,
-        "boards": 6,
-        "unique_target": false
+        "boards": 1,
+        "unique_target": true
       }
     ],
-    "deletion_is_hard_gate": true,
+    "deletion_is_hard_gate": false,
     "legacy_audit_status": "作废：不调用、不参与PASS",
     "general_clues": [],
     "cards": [

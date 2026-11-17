@@ -1652,7 +1652,7 @@ function Core:clue_results(roles)
     out[i] = {
       index = i,
       type = cl.type,
-      text = def and def.text(ctx, cl) or ("待填内容（槽位 " .. tostring(i) .. "）"),
+      text = cl.display_text or (def and def.text(ctx, cl) or ("待填内容（槽位 " .. tostring(i) .. "）")),
       satisfied = satisfied,
     }
   end
@@ -1777,6 +1777,31 @@ end
 local function hint_for(self, cl)
   if type(cl) ~= "table" or cl.type == nil then return nil end
   local t = cl.type
+  -- 665：复合本人口供只合并可静态表达的位置条件，不使用答案或动态落子。
+  if t == "all_of" then
+    local combined = nil
+    for _, part in ipairs(cl.clauses or {}) do
+      local set = nil
+      if part.who ~= nil or part.type == "all_of" then set = hint_for(self, part) end
+      if set ~= nil then
+        if combined == nil then
+          combined = {}
+          for key in pairs(set) do combined[key] = true end
+        else
+          for key in pairs(combined) do if not set[key] then combined[key] = nil end end
+        end
+      end
+    end
+    return combined, "本人静态位置条件的交集；人物相对关系不单独高亮"
+  elseif t == "in_room" then
+    local set = {}
+    for r = 1, self.rows do
+      for c = 1, self.cols do
+        if self.room[r][c] == cl.room and standable(self, r, c) then set[cell_key(r, c)] = true end
+      end
+    end
+    return set, "该区域内可站人的格"
+  end
   if t == "on_object" or t == "only_on_object" or t == "one_on_object"
      or t == "n_on_object" or t == "nobody_on_object" then
     return object_own_cells(self, cl.object), "该家具自己的格子"

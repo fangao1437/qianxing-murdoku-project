@@ -234,7 +234,7 @@
     {
       "id": "D5",
       "name": "模糊距离",
-      "definition": "禁用「靠近」等模糊表述",
+      "definition": "仅禁「附近」（距离边界不明，历版从未使用）；「靠近」等既有设计词可用",
       "field": "checks",
       "computed_by": "verify_v16.verify",
       "current_hard_gate": true,

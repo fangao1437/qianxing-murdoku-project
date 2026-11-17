@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "name": "home-settle-648",
+  "base": "647.gil",
+  "output": "648.gil",
+  "homeLayers": [
+    "art647.home.settle.shadow",
+    "art647.home.settle.yellow.shadow",
+    "art647.home.settle.yellow.edge",
+    "art647.home.settle.yellow",
+    "art647.home.settle.outline",
+    "art647.home.settle.outline.tri.top",
+    "art647.home.settle.outline.tri.bottom",
+    "art647.home.settle.ribbon",
+    "art647.home.settle.ribbon.tri.top",
+    "art647.home.settle.ribbon.tri.bottom",
+    "art647.home.settle.text"
+  ],
+  "deletedRecords": [
+    "settle.btn/bg",
+    "settle.btn/label"
+  ],
+  "tint": {
+    "normal": "editor color",
+    "dim": "editor color * (104,107,112)/255 (old 0xFF686B70)",
+    "rows": [
+      {
+        "name": "art647.select.settle.shadow",
+        "normal": 1711276032,
+        "dim": 1711276032
+      },
+      {
+        "name": "art647.select.settle.yellow.shadow",
+        "normal": 1711276032,
+        "dim": 1711276032
+      },
+      {
+        "name": "art647.select.settle.yellow.edge",
+        "normal": 4285213458,
+        "dim": 4281078280
+      },
+      {
+        "name": "art647.select.settle.yellow",
+        "normal": 4294955315,
+        "dim": 4285028374
+      },
+      {
+        "name": "art647.select.settle.outline",
+        "normal": 4280160784,
+        "dim": 4278978567
+      },
+      {
+        "name": "art647.select.settle.outline.tri.top",
+        "normal": 4280160784,
+        "dim": 4278978567
+      },
+      {
+        "name": "art647.select.settle.outline.tri.bottom",
+        "normal": 4280160784,
+        "dim": 4278978567
+      },
+      {
+        "name": "art647.select.settle.ribbon",
+        "normal": 4286731335,
+        "dim": 4281672479
+      },
+      {
+        "name": "art647.select.settle.ribbon.tri.top",
+        "normal": 4286731335,
+        "dim": 4281672479
+      },
+      {
+        "name": "art647.select.settle.ribbon.tri.bottom",
+        "normal": 4286731335,
+        "dim": 4281672479
+      },
+      {
+        "name": "art647.home.settle.shadow",
+        "normal": 1711276032,
+        "dim": 1711276032
+      },
+      {
+        "name": "art647.home.settle.yellow.shadow",
+        "normal": 1711276032,
+        "dim": 1711276032
+      },
+      {
+        "name": "art647.home.settle.yellow.edge",
+        "normal": 4285213458,
+        "dim": 4281078280
+      },
+      {
+        "name": "art647.home.settle.yellow",
+        "normal": 4294955315,
+        "dim": 4285028374
+      },
+      {
+        "name": "art647.home.settle.outline",
+        "normal": 4280160784,
+        "dim": 4278978567
+      },
+      {
+        "name": "art647.home.settle.outline.tri.top",
+        "normal": 4280160784,
+        "dim": 4278978567
+      },
+      {
+        "name": "art647.home.settle.outline.tri.bottom",
+        "normal": 4280160784,
+        "dim": 4278978567
+      },
+      {
+        "name": "art647.home.settle.ribbon",
+        "normal": 4286731335,
+        "dim": 4281672479
+      },
+      {
+        "name": "art647.home.settle.ribbon.tri.top",
+        "normal": 4286731335,
+        "dim": 4281672479
+      },
+      {
+        "name": "art647.home.settle.ribbon.tri.bottom",
+        "normal": 4286731335,
+        "dim": 4281672479
+      }
+    ]
+  },
+  "pageTint": {
+    "normal": "0xFFFFFFFF",
+    "dim": "0x7FFFFFFF",
+    "target": [
+      "art647.select.diamond.left",
+      "art647.select.diamond.right"
+    ]
+  }
+}

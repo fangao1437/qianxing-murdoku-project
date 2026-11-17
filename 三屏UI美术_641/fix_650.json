@@ -1,0 +1,571 @@
+{
+  "version": 1,
+  "name": "select-fix-650",
+  "base": "649.gil",
+  "output": "650.gil",
+  "layerOrder": {
+    "art642.select.paper": "24 便利贴 + 16 旧红绳 + 2 新红绳",
+    "art642.select.thread": "8 牛皮纸 + 14 红节点",
+    "note": "paper 组整体在 thread 组之前 ⇒ 红绳在便利贴之上、牛皮纸之下；全局 recTop 顺序同步"
+  },
+  "reconnect": {
+    "from": [
+      1397.8,
+      350
+    ],
+    "to": [
+      1603,
+      571
+    ],
+    "lengthDesignPx": 301.6,
+    "rotation": -47.12,
+    "layers": [
+      "art650.select.cord.border.8",
+      "art650.select.cord.8"
+    ],
+    "visibleStub": "kraft4 右缘 → node4"
+  },
+  "tearCornerFix": {
+    "mode": "max-filter ±2 segments on existing cover widths",
+    "changedCovers": 100,
+    "bridges": [
+      {
+        "canvasRow": 704,
+        "x": [
+          77,
+          83
+        ]
+      },
+      {
+        "canvasRow": 705,
+        "x": [
+          77,
+          82
+        ]
+      },
+      {
+        "canvasRow": 706,
+        "x": [
+          76,
+          81
+        ]
+      },
+      {
+        "canvasRow": 803,
+        "x": [
+          162,
+          167
+        ]
+      },
+      {
+        "canvasRow": 804,
+        "x": [
+          162,
+          165
+        ]
+      }
+    ],
+    "rows": [
+      {
+        "name": "art649.select.tear.tr.cover.8",
+        "from": 1.7,
+        "to": 2.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.12",
+        "from": 2,
+        "to": 2.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.13",
+        "from": 1.82,
+        "to": 2.34
+      },
+      {
+        "name": "art649.select.tear.tr.cover.15",
+        "from": 1.82,
+        "to": 2.9
+      },
+      {
+        "name": "art649.select.tear.tr.cover.16",
+        "from": 2,
+        "to": 4.7
+      },
+      {
+        "name": "art649.select.tear.tr.cover.17",
+        "from": 2.9,
+        "to": 7.46
+      },
+      {
+        "name": "art649.select.tear.tr.cover.18",
+        "from": 4.7,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.19",
+        "from": 7.46,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.22",
+        "from": 7.46,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.23",
+        "from": 6.2,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.24",
+        "from": 5.92,
+        "to": 7.97
+      },
+      {
+        "name": "art649.select.tear.tr.cover.25",
+        "from": 6.8,
+        "to": 9.2
+      },
+      {
+        "name": "art649.select.tear.tr.cover.26",
+        "from": 7.97,
+        "to": 9.2
+      },
+      {
+        "name": "art649.select.tear.tr.cover.28",
+        "from": 7.97,
+        "to": 9.2
+      },
+      {
+        "name": "art649.select.tear.tr.cover.29",
+        "from": 5.41,
+        "to": 9.2
+      },
+      {
+        "name": "art649.select.tear.tr.cover.30",
+        "from": 5,
+        "to": 7.97
+      },
+      {
+        "name": "art649.select.tear.tr.cover.31",
+        "from": 4.38,
+        "to": 5.41
+      },
+      {
+        "name": "art649.select.tear.tr.cover.32",
+        "from": 3.2,
+        "to": 5.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.33",
+        "from": 4.9,
+        "to": 5.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.35",
+        "from": 4.9,
+        "to": 5.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.36",
+        "from": 3.87,
+        "to": 5.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.37",
+        "from": 2.6,
+        "to": 4.9
+      },
+      {
+        "name": "art649.select.tear.tr.cover.38",
+        "from": 2,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.tr.cover.39",
+        "from": 1.82,
+        "to": 2.6
+      },
+      {
+        "name": "art649.select.tear.tr.cover.48",
+        "from": 2.6,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.49",
+        "from": 3.87,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.51",
+        "from": 3.87,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.52",
+        "from": 2.6,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.53",
+        "from": 1.82,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.tr.cover.56",
+        "from": 2.3,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.tr.cover.57",
+        "from": 3.36,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.58",
+        "from": 3.87,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.60",
+        "from": 3.87,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.61",
+        "from": 2.6,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.tr.cover.62",
+        "from": 1.82,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.tr.cover.67",
+        "from": 1.82,
+        "to": 2.34
+      },
+      {
+        "name": "art649.select.tear.tr.cover.68",
+        "from": 2,
+        "to": 3.36
+      },
+      {
+        "name": "art649.select.tear.tr.cover.69",
+        "from": 2.34,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.tr.cover.70",
+        "from": 3.36,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.tr.cover.72",
+        "from": 3.36,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.tr.cover.73",
+        "from": 2.3,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.tr.cover.78",
+        "from": 1.7,
+        "to": 2.9
+      },
+      {
+        "name": "art649.select.tear.tr.cover.79",
+        "from": 2.34,
+        "to": 4.38
+      },
+      {
+        "name": "art649.select.tear.tr.cover.80",
+        "from": 2.9,
+        "to": 5
+      },
+      {
+        "name": "art649.select.tear.tr.cover.81",
+        "from": 4.38,
+        "to": 5
+      },
+      {
+        "name": "art649.select.tear.tr.cover.83",
+        "from": 4.38,
+        "to": 5
+      },
+      {
+        "name": "art649.select.tear.bl.cover.0",
+        "from": 2,
+        "to": 2.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.3",
+        "from": 2.34,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.bl.cover.4",
+        "from": 2.6,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.bl.cover.5",
+        "from": 3.87,
+        "to": 6.5
+      },
+      {
+        "name": "art649.select.tear.bl.cover.6",
+        "from": 4.4,
+        "to": 10.53
+      },
+      {
+        "name": "art649.select.tear.bl.cover.7",
+        "from": 6.5,
+        "to": 12.2
+      },
+      {
+        "name": "art649.select.tear.bl.cover.8",
+        "from": 10.53,
+        "to": 12.58
+      },
+      {
+        "name": "art649.select.tear.bl.cover.9",
+        "from": 12.2,
+        "to": 14.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.10",
+        "from": 12.58,
+        "to": 14.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.12",
+        "from": 13.4,
+        "to": 14.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.13",
+        "from": 12.8,
+        "to": 14.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.14",
+        "from": 12.8,
+        "to": 13.4
+      },
+      {
+        "name": "art649.select.tear.bl.cover.15",
+        "from": 11.04,
+        "to": 12.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.16",
+        "from": 11,
+        "to": 12.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.17",
+        "from": 9.51,
+        "to": 11.04
+      },
+      {
+        "name": "art649.select.tear.bl.cover.19",
+        "from": 9.51,
+        "to": 11
+      },
+      {
+        "name": "art649.select.tear.bl.cover.20",
+        "from": 5.9,
+        "to": 11
+      },
+      {
+        "name": "art649.select.tear.bl.cover.21",
+        "from": 2.6,
+        "to": 9.51
+      },
+      {
+        "name": "art649.select.tear.bl.cover.22",
+        "from": 2.34,
+        "to": 5.9
+      },
+      {
+        "name": "art649.select.tear.bl.cover.23",
+        "from": 1.7,
+        "to": 2.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.27",
+        "from": 1.7,
+        "to": 2.85
+      },
+      {
+        "name": "art649.select.tear.bl.cover.28",
+        "from": 2.34,
+        "to": 3.2
+      },
+      {
+        "name": "art649.select.tear.bl.cover.29",
+        "from": 2.85,
+        "to": 3.2
+      },
+      {
+        "name": "art649.select.tear.bl.cover.31",
+        "from": 2.85,
+        "to": 3.2
+      },
+      {
+        "name": "art649.select.tear.bl.cover.32",
+        "from": 2,
+        "to": 3.2
+      },
+      {
+        "name": "art649.select.tear.bl.cover.36",
+        "from": 1.7,
+        "to": 3.5
+      },
+      {
+        "name": "art649.select.tear.bl.cover.37",
+        "from": 2.34,
+        "to": 5.41
+      },
+      {
+        "name": "art649.select.tear.bl.cover.38",
+        "from": 3.5,
+        "to": 6.2
+      },
+      {
+        "name": "art649.select.tear.bl.cover.39",
+        "from": 5.41,
+        "to": 6.95
+      },
+      {
+        "name": "art649.select.tear.bl.cover.40",
+        "from": 6.2,
+        "to": 8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.41",
+        "from": 6.95,
+        "to": 8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.43",
+        "from": 6.95,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.44",
+        "from": 8,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.48",
+        "from": 7.46,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.49",
+        "from": 4.7,
+        "to": 8.6
+      },
+      {
+        "name": "art649.select.tear.bl.cover.50",
+        "from": 2.34,
+        "to": 7.46
+      },
+      {
+        "name": "art649.select.tear.bl.cover.51",
+        "from": 1.7,
+        "to": 4.7
+      },
+      {
+        "name": "art649.select.tear.bl.cover.52",
+        "from": 1.82,
+        "to": 2.34
+      },
+      {
+        "name": "art649.select.tear.bl.cover.58",
+        "from": 1.82,
+        "to": 3.36
+      },
+      {
+        "name": "art649.select.tear.bl.cover.59",
+        "from": 2.34,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.60",
+        "from": 3.36,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.62",
+        "from": 3.36,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.bl.cover.63",
+        "from": 2.85,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.bl.cover.64",
+        "from": 3.87,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.bl.cover.66",
+        "from": 3.87,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.bl.cover.67",
+        "from": 3.8,
+        "to": 4.4
+      },
+      {
+        "name": "art649.select.tear.bl.cover.68",
+        "from": 3.36,
+        "to": 3.87
+      },
+      {
+        "name": "art649.select.tear.bl.cover.69",
+        "from": 2.3,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.70",
+        "from": 3.36,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.72",
+        "from": 3.36,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.73",
+        "from": 2.85,
+        "to": 3.8
+      },
+      {
+        "name": "art649.select.tear.bl.cover.74",
+        "from": 2.34,
+        "to": 3.36
+      },
+      {
+        "name": "art649.select.tear.bl.cover.75",
+        "from": 2.34,
+        "to": 2.85
+      },
+      {
+        "name": "art649.select.tear.bl.cover.78",
+        "from": 1.7,
+        "to": 2.6
+      }
+    ]
+  }
+}

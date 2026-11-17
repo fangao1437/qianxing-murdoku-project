@@ -1,0 +1,1067 @@
+{
+  "version": 609,
+  "old_baseline": 695,
+  "prior_save": 708,
+  "aggregate_score": null,
+  "ratings_are_design_judgments": true,
+  "old_695": [
+    {
+      "level": 3,
+      "mode": "全真",
+      "runtime_label": "easy",
+      "grid": 6,
+      "cards": [
+        [
+          "A在B上方",
+          "A在C左方"
+        ],
+        [
+          "A在植物旁边"
+        ],
+        [
+          "只有C在地毯上"
+        ],
+        [
+          "D在桌子旁边"
+        ],
+        [
+          "D在E上方"
+        ],
+        [
+          "B在植物旁边"
+        ]
+      ],
+      "clauses": 7,
+      "compound": 1,
+      "direction": 3,
+      "negative": 0,
+      "only": 1
+    },
+    {
+      "level": 4,
+      "mode": "一谎",
+      "runtime_label": "normal",
+      "grid": 6,
+      "cards": [
+        [
+          "A在D上方"
+        ],
+        [
+          "B在桌子旁边"
+        ],
+        [
+          "C在地毯上"
+        ],
+        [
+          "D在椅子上"
+        ],
+        [
+          "D在书架旁边"
+        ],
+        [
+          "V在植物旁边"
+        ]
+      ],
+      "clauses": 6,
+      "compound": 0,
+      "direction": 1,
+      "negative": 0,
+      "only": 0
+    },
+    {
+      "level": 5,
+      "mode": "一谎",
+      "runtime_label": "hard",
+      "grid": 6,
+      "cards": [
+        [
+          "A在椅子上",
+          "C与A在同一房间"
+        ],
+        [
+          "D比A靠下1行"
+        ],
+        [
+          "V比C靠上1行"
+        ],
+        [
+          "D在B右方"
+        ],
+        [
+          "只有E在地毯上"
+        ],
+        [
+          "E不在椅子旁边"
+        ]
+      ],
+      "clauses": 7,
+      "compound": 1,
+      "direction": 3,
+      "negative": 1,
+      "only": 1
+    },
+    {
+      "level": 6,
+      "mode": "一谎",
+      "runtime_label": "normal",
+      "grid": 7,
+      "cards": [
+        [
+          "A在椅子上"
+        ],
+        [
+          "A在椅子旁边"
+        ],
+        [
+          "C比D靠上2行"
+        ],
+        [
+          "D比C靠左1列"
+        ],
+        [
+          "A比E靠左2列"
+        ],
+        [
+          "F在椅子旁边"
+        ],
+        [
+          "A与V在同一房间"
+        ]
+      ],
+      "clauses": 7,
+      "compound": 0,
+      "direction": 3,
+      "negative": 0,
+      "only": 0
+    },
+    {
+      "level": 7,
+      "mode": "一谎",
+      "runtime_label": "hard",
+      "grid": 6,
+      "cards": [
+        [
+          "C比A靠左2列"
+        ],
+        [
+          "D在地毯旁边"
+        ],
+        [
+          "B比C靠上2行"
+        ],
+        [
+          "D在桌子旁边",
+          "D不在植物旁边"
+        ],
+        [
+          "D在E右方"
+        ],
+        [
+          "B在植物旁边"
+        ]
+      ],
+      "clauses": 7,
+      "compound": 1,
+      "direction": 3,
+      "negative": 1,
+      "only": 0
+    }
+  ],
+  "current": [
+    {
+      "level": 3,
+      "design_version": "v16",
+      "mode": "teaching_all_true",
+      "scope": "708当前v16复算",
+      "grid": 6,
+      "base_boards": 172800,
+      "S": 3,
+      "P": 2,
+      "before_population": 3,
+      "final": 1,
+      "population_eliminated": 2,
+      "truth_vector": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "identity_audit": [
+        {
+          "person": "A",
+          "branch": "truth",
+          "positions": [
+            1,
+            5
+          ],
+          "before_population": 3,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "B",
+          "branch": "truth",
+          "positions": [
+            6
+          ],
+          "before_population": 3,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "C",
+          "branch": "truth",
+          "positions": [
+            14
+          ],
+          "before_population": 3,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "D",
+          "branch": "truth",
+          "positions": [
+            27
+          ],
+          "before_population": 3,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "E",
+          "branch": "truth",
+          "positions": [
+            31,
+            34,
+            35
+          ],
+          "before_population": 3,
+          "final": 0,
+          "is_target": false
+        }
+      ],
+      "identity_uniqueness_claimed": false,
+      "checks": {
+        "geometry": true,
+        "target_truth": true,
+        "target_unique": true,
+        "other_identity_boards": null,
+        "teaching_candidates": true,
+        "single_card_not_locating": true,
+        "truth_cards_nonredundant": null,
+        "dual_implementation": true
+      },
+      "dual_agreement": {
+        "all_true_boards": true,
+        "cards": true,
+        "finals": true,
+        "positions": true
+      },
+      "language": {
+        "cards": 6,
+        "clauses": 6,
+        "compound": 0,
+        "negative": 0,
+        "only": 1,
+        "direction": 2,
+        "general": 0,
+        "self_reference": 5,
+        "fuzzy_distance": false
+      },
+      "hints": {
+        "counts": [
+          0,
+          2,
+          3,
+          9,
+          0,
+          9
+        ],
+        "covered": 4,
+        "total": 23,
+        "positive_average": 5.75,
+        "interpretation": "计数为展示范围，0为不作静态提示；负句高亮可为排除区域，不等于候选格"
+      },
+      "single_card_minima": [
+        25,
+        2,
+        3,
+        9,
+        25,
+        9
+      ],
+      "deletion": [
+        {
+          "card": 1,
+          "boards": 8,
+          "unique_target": false
+        },
+        {
+          "card": 2,
+          "boards": 74,
+          "unique_target": false
+        },
+        {
+          "card": 3,
+          "boards": 14,
+          "unique_target": false
+        },
+        {
+          "card": 4,
+          "boards": 17,
+          "unique_target": false
+        },
+        {
+          "card": 5,
+          "boards": 7,
+          "unique_target": false
+        },
+        {
+          "card": 6,
+          "boards": 9,
+          "unique_target": false
+        }
+      ],
+      "min_conflict_observation": {
+        "size": null,
+        "witnesses": [],
+        "scope": "本轮新增观察值；全卡当真+通用线索+基础摆位；不含人数规则，不是旧闸门"
+      },
+      "enhanced_sentence": {},
+      "gac_depth": null
+    },
+    {
+      "level": 4,
+      "design_version": "v16",
+      "mode": "conditional_lie",
+      "scope": "609第4关双线索重构，v16当前口径",
+      "grid": 6,
+      "base_boards": 237600,
+      "S": 0,
+      "P": 0,
+      "before_population": 8,
+      "final": 1,
+      "population_eliminated": 7,
+      "truth_vector": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "identity_audit": [
+        {
+          "person": "A",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "B",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "C",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "D",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 24,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "E",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 8,
+          "final": 1,
+          "is_target": true
+        }
+      ],
+      "identity_uniqueness_claimed": false,
+      "checks": {
+        "geometry": true,
+        "target_truth": true,
+        "target_unique": true,
+        "other_identity_boards": true,
+        "teaching_candidates": null,
+        "single_card_not_locating": true,
+        "truth_cards_nonredundant": true,
+        "dual_implementation": true
+      },
+      "dual_agreement": {
+        "all_true_boards": true,
+        "cards": true,
+        "finals": true,
+        "positions": true
+      },
+      "language": {
+        "cards": 6,
+        "clauses": 6,
+        "compound": 0,
+        "negative": 0,
+        "only": 0,
+        "direction": 1,
+        "general": 0,
+        "self_reference": 5,
+        "fuzzy_distance": false
+      },
+      "hints": {
+        "counts": [
+          0,
+          2,
+          4,
+          2,
+          3,
+          5
+        ],
+        "covered": 5,
+        "total": 16,
+        "positive_average": 3.2,
+        "interpretation": "计数为展示范围，0为不作静态提示；负句高亮可为排除区域，不等于候选格"
+      },
+      "single_card_minima": [
+        26,
+        2,
+        4,
+        2,
+        3,
+        5
+      ],
+      "deletion": [
+        {
+          "card": 1,
+          "boards": 2,
+          "unique_target": false
+        },
+        {
+          "card": 2,
+          "boards": 14,
+          "unique_target": false
+        },
+        {
+          "card": 3,
+          "boards": 8,
+          "unique_target": false
+        },
+        {
+          "card": 4,
+          "boards": 19,
+          "unique_target": false
+        },
+        {
+          "card": 6,
+          "boards": 5,
+          "unique_target": false
+        }
+      ],
+      "min_conflict_observation": {
+        "size": 2,
+        "witnesses": [
+          [
+            4,
+            5
+          ]
+        ],
+        "scope": "本轮新增观察值；全卡当真+通用线索+基础摆位；不含人数规则，不是旧闸门"
+      },
+      "enhanced_sentence": {},
+      "gac_depth": null
+    },
+    {
+      "level": 5,
+      "design_version": "v16",
+      "mode": "conditional_lie",
+      "scope": "708当前v16复算",
+      "grid": 6,
+      "base_boards": 250560,
+      "S": 0,
+      "P": 0,
+      "before_population": 2,
+      "final": 1,
+      "population_eliminated": 1,
+      "truth_vector": [
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "identity_audit": [
+        {
+          "person": "A",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "B",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 2,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "C",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "D",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "E",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        }
+      ],
+      "identity_uniqueness_claimed": false,
+      "checks": {
+        "geometry": true,
+        "target_truth": true,
+        "target_unique": true,
+        "other_identity_boards": true,
+        "teaching_candidates": null,
+        "single_card_not_locating": true,
+        "truth_cards_nonredundant": true,
+        "dual_implementation": true
+      },
+      "dual_agreement": {
+        "all_true_boards": true,
+        "cards": true,
+        "finals": true,
+        "positions": true
+      },
+      "language": {
+        "cards": 6,
+        "clauses": 6,
+        "compound": 0,
+        "negative": 1,
+        "only": 1,
+        "direction": 0,
+        "general": 0,
+        "self_reference": 4,
+        "fuzzy_distance": false
+      },
+      "hints": {
+        "counts": [
+          2,
+          2,
+          3,
+          2,
+          0,
+          3
+        ],
+        "covered": 5,
+        "total": 12,
+        "positive_average": 2.4,
+        "interpretation": "计数为展示范围，0为不作静态提示；负句高亮可为排除区域，不等于候选格"
+      },
+      "single_card_minima": [
+        2,
+        2,
+        3,
+        2,
+        32,
+        3
+      ],
+      "deletion": [
+        {
+          "card": 1,
+          "boards": 10,
+          "unique_target": false
+        },
+        {
+          "card": 3,
+          "boards": 3,
+          "unique_target": false
+        },
+        {
+          "card": 4,
+          "boards": 14,
+          "unique_target": false
+        },
+        {
+          "card": 5,
+          "boards": 2,
+          "unique_target": false
+        },
+        {
+          "card": 6,
+          "boards": 24,
+          "unique_target": false
+        }
+      ],
+      "min_conflict_observation": {
+        "size": 2,
+        "witnesses": [
+          [
+            2,
+            6
+          ]
+        ],
+        "scope": "本轮新增观察值；全卡当真+通用线索+基础摆位；不含人数规则，不是旧闸门"
+      },
+      "enhanced_sentence": {
+        "only_to_on": {
+          "original": 1,
+          "weakened": 1,
+          "added_boards": 0,
+          "assumption": "固定B假、其余真、人数规则成立；仅删去只有的排他语义"
+        },
+        "self_order": {
+          "searched": 120,
+          "valid": 48,
+          "maximum": 4,
+          "current": 4,
+          "fixed_false_slot": 2
+        }
+      },
+      "gac_depth": null
+    },
+    {
+      "level": 6,
+      "design_version": "v16",
+      "mode": "teaching_all_true",
+      "scope": "708当前v16复算",
+      "grid": 7,
+      "base_boards": 1743840,
+      "S": 4,
+      "P": 2,
+      "before_population": 4,
+      "final": 1,
+      "population_eliminated": 3,
+      "truth_vector": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "identity_audit": [
+        {
+          "person": "A",
+          "branch": "truth",
+          "positions": [
+            15
+          ],
+          "before_population": 4,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "B",
+          "branch": "truth",
+          "positions": [
+            4,
+            41
+          ],
+          "before_population": 4,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "C",
+          "branch": "truth",
+          "positions": [
+            12
+          ],
+          "before_population": 4,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "D",
+          "branch": "truth",
+          "positions": [
+            21,
+            25,
+            35
+          ],
+          "before_population": 4,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "E",
+          "branch": "truth",
+          "positions": [
+            45
+          ],
+          "before_population": 4,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "F",
+          "branch": "truth",
+          "positions": [
+            30
+          ],
+          "before_population": 4,
+          "final": 1,
+          "is_target": true
+        }
+      ],
+      "identity_uniqueness_claimed": false,
+      "checks": {
+        "geometry": true,
+        "target_truth": true,
+        "target_unique": true,
+        "other_identity_boards": null,
+        "teaching_candidates": true,
+        "single_card_not_locating": true,
+        "truth_cards_nonredundant": null,
+        "dual_implementation": true
+      },
+      "dual_agreement": {
+        "all_true_boards": true,
+        "cards": true,
+        "finals": true,
+        "positions": true
+      },
+      "language": {
+        "cards": 7,
+        "clauses": 9,
+        "compound": 2,
+        "negative": 2,
+        "only": 1,
+        "direction": 0,
+        "general": 0,
+        "self_reference": 0,
+        "fuzzy_distance": false
+      },
+      "hints": {
+        "counts": [
+          4,
+          0,
+          14,
+          3,
+          3,
+          0,
+          2
+        ],
+        "covered": 5,
+        "total": 26,
+        "positive_average": 5.2,
+        "interpretation": "计数为展示范围，0为不作静态提示；负句高亮可为排除区域，不等于候选格"
+      },
+      "single_card_minima": [
+        31,
+        2,
+        14,
+        3,
+        3,
+        14,
+        2
+      ],
+      "deletion": [
+        {
+          "card": 1,
+          "boards": 1,
+          "unique_target": true
+        },
+        {
+          "card": 2,
+          "boards": 50,
+          "unique_target": false
+        },
+        {
+          "card": 3,
+          "boards": 1,
+          "unique_target": true
+        },
+        {
+          "card": 4,
+          "boards": 2,
+          "unique_target": false
+        },
+        {
+          "card": 5,
+          "boards": 2,
+          "unique_target": false
+        },
+        {
+          "card": 6,
+          "boards": 1,
+          "unique_target": true
+        },
+        {
+          "card": 7,
+          "boards": 9,
+          "unique_target": false
+        }
+      ],
+      "min_conflict_observation": {
+        "size": null,
+        "witnesses": [],
+        "scope": "本轮新增观察值；全卡当真+通用线索+基础摆位；不含人数规则，不是旧闸门"
+      },
+      "enhanced_sentence": {},
+      "gac_depth": null
+    },
+    {
+      "level": 7,
+      "design_version": "v16",
+      "mode": "conditional_lie",
+      "scope": "708当前v16复算",
+      "grid": 6,
+      "base_boards": 250560,
+      "S": 0,
+      "P": 0,
+      "before_population": 16,
+      "final": 1,
+      "population_eliminated": 15,
+      "truth_vector": [
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "identity_audit": [
+        {
+          "person": "A",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 0,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "B",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 16,
+          "final": 1,
+          "is_target": true
+        },
+        {
+          "person": "C",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 20,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "D",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 8,
+          "final": 0,
+          "is_target": false
+        },
+        {
+          "person": "E",
+          "branch": "lie",
+          "positions": [],
+          "before_population": 4,
+          "final": 0,
+          "is_target": false
+        }
+      ],
+      "identity_uniqueness_claimed": false,
+      "checks": {
+        "geometry": true,
+        "target_truth": true,
+        "target_unique": true,
+        "other_identity_boards": true,
+        "teaching_candidates": null,
+        "single_card_not_locating": true,
+        "truth_cards_nonredundant": true,
+        "dual_implementation": true
+      },
+      "dual_agreement": {
+        "all_true_boards": true,
+        "cards": true,
+        "finals": true,
+        "positions": true
+      },
+      "language": {
+        "cards": 6,
+        "clauses": 6,
+        "compound": 0,
+        "negative": 0,
+        "only": 0,
+        "direction": 0,
+        "general": 1,
+        "self_reference": 3,
+        "fuzzy_distance": false
+      },
+      "hints": {
+        "counts": [
+          8,
+          3,
+          3,
+          8,
+          4,
+          4
+        ],
+        "covered": 6,
+        "total": 30,
+        "positive_average": 5.0,
+        "interpretation": "计数为展示范围，0为不作静态提示；负句高亮可为排除区域，不等于候选格"
+      },
+      "single_card_minima": [
+        8,
+        3,
+        3,
+        8,
+        4,
+        4
+      ],
+      "deletion": [
+        {
+          "card": 1,
+          "boards": 25,
+          "unique_target": false
+        },
+        {
+          "card": 3,
+          "boards": 6,
+          "unique_target": false
+        },
+        {
+          "card": 4,
+          "boards": 36,
+          "unique_target": false
+        },
+        {
+          "card": 5,
+          "boards": 20,
+          "unique_target": false
+        },
+        {
+          "card": 6,
+          "boards": 32,
+          "unique_target": false
+        }
+      ],
+      "min_conflict_observation": {
+        "size": 5,
+        "witnesses": [
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "scope": "本轮新增观察值；全卡当真+通用线索+基础摆位；不含人数规则，不是旧闸门"
+      },
+      "enhanced_sentence": {
+        "remove_general": {
+          "original": 1,
+          "without": 6,
+          "assumption": "固定B假、其余真、人数规则成立；仅移除通用计数"
+        },
+        "capacity_implication": {
+          "premise_boards": 2688,
+          "others_on_chair": {
+            "A": 0,
+            "C": 0,
+            "D": 0,
+            "V": 0
+          }
+        },
+        "self_order": {
+          "searched": 120,
+          "valid": 120,
+          "maximum": 3,
+          "current": 3,
+          "fixed_false_slot": 2
+        }
+      },
+      "gac_depth": null
+    }
+  ],
+  "split_proof": {
+    "base_boards": 237600,
+    "first_without_original": 103104,
+    "second_without_original": 7200,
+    "combined_without_original": 0,
+    "combined_boards": 6480,
+    "first_witness": [
+      6,
+      2,
+      13,
+      21,
+      28,
+      35
+    ],
+    "second_witness": [
+      1,
+      34,
+      6,
+      14,
+      23,
+      27
+    ],
+    "remaining_four_cards_context": {
+      "context_original": 8,
+      "first_only": 192,
+      "second_only": 16,
+      "combined": 8,
+      "deletion": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "strict_global_equivalence": false
+    }
+  }
+}
