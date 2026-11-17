@@ -1,4 +1,4 @@
-"""v16 当前验收入口：全线索候选格；3/6教学，5/7真假分支。
+"""v16 当前验收入口：全线索候选格；3/6教学，4/5/7真假分支。
 旧 Model.audit 是历史摘卡算法，本入口不调用它。
 用法 python verify_v16.py [current_design_v16.json] [verification_v16.json]
 """
@@ -130,8 +130,8 @@ def main():
     if src.name=='design_selected_v16.json':
         current=json.loads((ROOT/'current_design_v16.json').read_text(encoding='utf8'))
         data=[next(d for d in data if d['level']==3)]+[d for d in current if d['level']!=3]
-    data=[d for d in data if d['level'] in (3,5,6,7)]
-    assert {d['level'] for d in data}=={3,5,6,7}
+    data=[d for d in data if d['level'] in (3,4,5,6,7)]
+    assert {d['level'] for d in data}=={3,4,5,6,7}
     result=[verify(d) for d in data]
     assert all(r['PASS'] for r in result),'未通过，不覆盖验收报告'
     dst.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')

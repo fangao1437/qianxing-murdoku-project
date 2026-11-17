@@ -1,0 +1,65 @@
+{
+  "version": 711,
+  "prior_save": 710,
+  "design_source": "current_design_v16.json",
+  "ratings_are_design_judgments": true,
+  "levels": [
+    {
+      "level": 3,
+      "name": "明室谜踪",
+      "difficulty_band": "入门至中等入门",
+      "change": "名称沿用，人物名由运行时关卡数据生成"
+    },
+    {
+      "level": 4,
+      "name": "米纸谜案",
+      "difficulty_band": "中等入门",
+      "change": "名称沿用，709双线索重构保持"
+    },
+    {
+      "level": 5,
+      "name": "火漆失窃",
+      "difficulty_band": "中等入门至中等",
+      "change": "设计层整体旋转180°后重算房间、墙门、家具、答案和提示；线索语义与709保持"
+    },
+    {
+      "level": 6,
+      "name": "蓝图迷局",
+      "difficulty_band": "中等，大盘面教学",
+      "change": "7×7全真教学；7张全部单句；将E的否定线索改为“不在书架旁边”，消除与“在雕塑旁边”的冗余；S=4、盗窃者候选P=2、人数规则后唯一"
+    },
+    {
+      "level": 7,
+      "name": "藏卷回声",
+      "difficulty_band": "中等偏上",
+      "change": "名称沿用，人物名由运行时关卡数据生成"
+    }
+  ],
+  "checks": {
+    "level_5_rotated_target_zero_based": [
+      1,
+      23,
+      8,
+      34,
+      27,
+      12
+    ],
+    "level_5_rotation": "设计层180°，由设计数据重新写入Lua与710存档",
+    "level_6_all_single_cards": true,
+    "level_6_S": 4,
+    "level_6_thief_candidate_positions": 2,
+    "level_6_final_solutions": 1,
+    "level_6_each_card_nonredundant": true,
+    "level_3_to_7_dual_implementation": "待运行710验收后写入",
+    "level_6_deletion_boards": [
+      100,
+      66,
+      18,
+      26,
+      136,
+      64,
+      6
+    ],
+    "level_6_revision": 711
+  }
+}
